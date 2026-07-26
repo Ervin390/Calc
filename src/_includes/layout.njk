@@ -373,26 +373,45 @@
 <script>
 console.log("Cookie script loaded");
 
-document.getElementById("cookie-accept").onclick = function () {
+const cookieBanner = document.getElementById("cookie-banner");
+const acceptButton = document.getElementById("cookie-accept");
+const rejectButton = document.getElementById("cookie-reject");
+
+const savedConsent = localStorage.getItem("cookieConsent");
+
+// Ako je korisnik već odabrao, sakrij banner
+if (savedConsent) {
+    cookieBanner.style.display = "none";
+}
+
+// Accept
+acceptButton.onclick = function () {
 
     console.log("ACCEPT clicked");
 
     localStorage.setItem("cookieConsent", "accepted");
 
-    document.getElementById("cookie-banner").style.display = "none";
+    // Google Consent Mode update
+    if (typeof gtag === "function") {
+        gtag("consent", "update", {
+            analytics_storage: "granted"
+        });
+    }
 
+    cookieBanner.style.display = "none";
 };
 
 
-document.getElementById("cookie-reject").onclick = function () {
+// Reject
+rejectButton.onclick = function () {
 
     console.log("REJECT clicked");
 
     localStorage.setItem("cookieConsent", "rejected");
 
-    document.getElementById("cookie-banner").style.display = "none";
-
+    cookieBanner.style.display = "none";
 };
+
 </script>
 </body>
 </html>
