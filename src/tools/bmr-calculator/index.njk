@@ -1,0 +1,120 @@
+---
+layout: layout.njk
+title: BMR Calculator - Basal Metabolic Rate
+description: Calculate your Basal Metabolic Rate with the Mifflin-St Jeor formula and find out how many calories your body burns at rest.
+appName: BMR Calculator
+category: health
+appCategory: HealthApplication
+permalink: /bmr-calculator/
+updated: 2026-07-26
+---
+{% from "ad-slot.njk" import adSlot %}
+
+<h1>BMR Calculator</h1>
+<p>This BMR calculator finds your basal metabolic rate, the number of calories your body burns each day just staying alive. That covers breathing, circulation, cell repair and organ function. It is the baseline every nutrition plan is built on.</p>
+
+<section class="tool">
+    <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+        <div class="tool-controls" style="flex: 1; min-width: 300px;">
+            <div style="display: flex; gap: 1rem; margin-bottom: 1rem;">
+                <div style="flex:1;">
+                    <label for="bmr-gender">Gender</label>
+                    <select id="bmr-gender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+                <div style="flex:1;">
+                    <label for="bmr-age">Age (Years)</label>
+                    <input type="number" id="bmr-age" value="25" min="15" max="120" inputmode="numeric">
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 1rem; margin-bottom: 1rem;">
+                <div style="flex:1;">
+                    <label for="bmr-weight">Weight (kg)</label>
+                    <input type="number" id="bmr-weight" value="70" min="20" max="300" inputmode="decimal">
+                </div>
+                <div style="flex:1;">
+                    <label for="bmr-height">Height (cm)</label>
+                    <input type="number" id="bmr-height" value="175" min="100" max="250" inputmode="decimal">
+                </div>
+            </div>
+
+            <button id="btn-calc-bmr" style="width: 100%; margin-top: 1rem;">Calculate My BMR</button>
+        </div>
+
+        <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column;">
+            <div style="background: var(--input-bg); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border); text-align: center; height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                <p style="font-weight: 600; color: var(--text-sub); margin-top:0;">Your Basal Metabolic Rate</p>
+                <div id="out-bmr-main" role="status" aria-live="polite" aria-atomic="true" style="font-size: 3.5rem; font-weight: 800; color: var(--warning); line-height: 1;">0</div>
+                <p style="font-size: 1.1rem; color: var(--text-muted); font-weight: 600; margin-bottom: 0;">calories per day at rest</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="tool-actions">
+        <button type="button" class="secondary" data-copy="#out-bmr-main">Copy result</button>
+        <button type="button" class="secondary" data-share>Share link</button>
+        <span class="tool-actions-msg" role="status" aria-live="polite"></span>
+    </div>
+</section>{{ adSlot(site, "inline") }}
+
+<section class="how">
+    <h2>How to Use This BMR Calculator</h2>
+    <p>Select your gender, enter your age, weight in kilograms, and height in centimeters. Click the button and the result shows how many calories your body burns if you were to rest completely for 24 hours. This is your BMR.</p>
+    <p>BMR on its own is not a calorie target to eat at. Most people burn significantly more than their BMR through daily movement and exercise. The practical next step is multiplying your BMR by an activity factor to get your TDEE, which is the actual number relevant for setting a calorie goal. Our TDEE Calculator does this calculation automatically.</p>
+</section>
+
+<section class="formula">
+    <h2>The Mifflin-St Jeor BMR Formula</h2>
+    <p>This calculator uses the Mifflin-St Jeor equation, which was published in 1990 and remains the standard recommendation from most dietitian associations today. Studies comparing BMR formulas consistently show it performs better than the older Harris-Benedict equation for most body types.</p>
+    <p><strong>For men:</strong> BMR = (10 x weight in kg) + (6.25 x height in cm) - (5 x age in years) + 5</p>
+    <p><strong>For women:</strong> BMR = (10 x weight in kg) + (6.25 x height in cm) - (5 x age in years) - 161</p>
+    <p>The difference between men and women in the formula reflects average variation in lean mass. Muscle tissue burns more calories at rest than fat tissue, which is why body composition is such a significant factor in resting metabolism.</p>
+</section>
+
+<section class="examples">
+    <h2>BMR Examples</h2>
+    <ul>
+        <li><strong>Male, 28 years old, 75 kg, 175 cm:</strong> BMR = (750) + (1,093.75) - (140) + 5 = approximately 1,709 kcal per day.</li>
+        <li><strong>Female, 35 years old, 60 kg, 163 cm:</strong> BMR = (600) + (1,018.75) - (175) - 161 = approximately 1,283 kcal per day.</li>
+        <li><strong>Older male, 55 years old, 90 kg, 180 cm:</strong> BMR = (900) + (1,125) - (275) + 5 = approximately 1,755 kcal per day. Note that BMR declines naturally with age as muscle mass tends to decrease after 30.</li>
+    </ul>
+</section>
+
+{{ adSlot(site, "incontent") }}
+
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>Should I eat at my BMR to lose weight?</h3>
+    <p>No, and this is a common mistake. Eating only at your BMR means consuming fewer calories than your body needs even just to function at rest. In practice you are always doing something, so your actual needs are higher. Most nutrition guidelines consider anything below 1,200 calories for women and 1,500 for men risky without direct medical supervision. A better approach is calculating your TDEE and eating 300 to 500 below that number.</p>
+
+    <h3>Does BMR change as I age?</h3>
+    <p>Yes, it tends to decrease over time. After age 30, BMR drops roughly one to two percent per decade as muscle mass naturally declines. People who maintain muscle through resistance training tend to have higher BMRs at older ages. Significant weight loss also lowers BMR because the body adapts to carrying less mass.</p>
+
+    <h3>Why does my BMR differ from another calculator?</h3>
+    <p>Different tools use different formulas. Older calculators often rely on the Harris-Benedict equation from 1919, which tends to overestimate BMR compared to modern measurements. Mifflin-St Jeor is the current clinical standard. Slight differences between calculators using the same formula come down to rounding.</p>
+
+    <h3>How is BMR different from metabolism?</h3>
+    <p>Metabolism is a broad term covering all chemical processes your body performs. BMR is one specific measurable component of metabolism: the energy cost of basic life support at rest. People who say they have a "slow metabolism" often mean their BMR is relatively low compared to others of similar size, which can happen due to genetics, age, or low muscle mass.</p>
+</section>
+
+<section class="related">
+    <h2>Related Fitness Tools</h2>
+    <ul>
+        <li><a href="/tdee-calculator/">TDEE Calculator</a></li>
+        <li><a href="/macro-calculator/">Macro Calculator</a></li>
+        <li><a href="/">Browse All Tools</a></li>
+    </ul>
+</section>
+
+{% from "cluster.njk" import clusterGuides %}
+{{ clusterGuides(tools | findByKey("slug", page.fileSlug)) }}
+
+<div class="author">
+    <p><em>Published by the QuixCalc Team. Formula sourced from Mifflin MD et al., 1990 American Journal of Clinical Nutrition. Last updated: July 2026.</em></p>
+</div>
+
+<script src="bmr.js" defer></script>

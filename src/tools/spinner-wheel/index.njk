@@ -1,0 +1,99 @@
+---
+layout: layout.njk
+title: Wheel of Names - Free Spin the Wheel Online
+description: Spin a free wheel of names to pick a random winner. Add your own entries, spin, and get a fair result for giveaways and classrooms.
+appName: Spinner Wheel
+category: fun
+appCategory: GameApplication
+permalink: /spinner-wheel/
+updated: 2026-07-26
+---
+{% from "ad-slot.njk" import adSlot %}
+
+<h1>Spinner Wheel</h1>
+<p>This spinner wheel picks a random winner from any list you give it. Type your options in, hit spin, and let the wheel settle. Handy for giveaways, classroom turns, and the everyday choices nobody wants to make.</p>
+
+<section class="tool" style="display: flex; gap: 2rem; flex-wrap: wrap;">
+    <div style="flex: 1; min-width: 300px;">
+        <div class="tool-controls">
+            <label for="wheel-inputs">Enter your options (one per line)</label>
+            <textarea id="wheel-inputs" rows="12" placeholder="Alice&#10;Bob&#10;Charlie&#10;David">Alice
+Bob
+Charlie
+David
+Eve
+Frank</textarea>
+            
+            <div class="btn-group" style="margin-top: 1rem;">
+                <button id="btn-spin" style="width: 100%; font-size: 1.25rem;">Spin The Wheel!</button>
+            </div>
+            
+            <div style="margin-top: 1rem; padding: 1rem; background: var(--input-bg); border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+                <span style="font-weight: 600; color: var(--text-sub);">Winner:</span>
+                <div id="wheel-winner" role="status" aria-live="polite" aria-atomic="true" style="font-size: 2rem; font-weight: 800; color: var(--primary); min-height: 48px;">?</div>
+            </div>
+        </div>
+    </div>
+    
+    <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <canvas id="canvas-wheel" width="400" height="400" style="max-width: 100%; height: auto;"></canvas>
+    </div>
+
+    <div class="tool-actions">
+        <button type="button" class="secondary" data-copy="#wheel-winner">Copy result</button>
+        <button type="button" class="secondary" data-share>Share link</button>
+        <span class="tool-actions-msg" role="status" aria-live="polite"></span>
+    </div>
+</section>{{ adSlot(site, "inline") }}
+
+<section class="how">
+    <h2>How to Use This Random Name Picker</h2>
+    <p>Using our interactive spinning software is incredibly simple and entirely customizable according to your exact needs. Start by locating the large text box situated on the left side of your screen. That box represents all your possible outcomes. Delete the standard placeholder names and type out your own unique entries making sure to place exactly one entry on every single new line. You can safely paste massive lists containing hundreds of distinct names directly from your spreadsheet software.</p>
+    <p>Once you are completely satisfied with your list simply click the large blue spin button firmly. Our custom programmed physics engine takes over instantly generating a completely random velocity and friction coefficient. The colorful circular graphic will accelerate rapidly and gradually slow down until the built in pointer lands securely on a single victorious slice. The winning name will then proudly display in large text directly below your input controls. After a successful spin you can manually delete the winning name from your list if you want to perform a secondary elimination round without any repeats.</p>
+</section>
+
+<section class="formula">
+    <h2>Is This Spinning Mechanism Truly Random and Fair?</h2>
+    <p>Yes the results from this virtual utility are demonstrably fair and absolutely random. Many older web applications use highly predictable pseudo random calculations which savvy users can eventually anticipate. Our bespoke spinning engine totally abandons those outdated techniques. Instead it deeply hooks into your native internet browsers cryptographic randomizer interface rendering human anticipation mathematically impossible.</p>
+    <p>When the button activates the internal code calculates a strictly random combination of initial spin speed deceleration time and total rotational angles. These complex randomized data variables guarantee that absolutely every slice on your customized circle regardless of its physical size shares the precise exact statistical probability of winning. Whether you are running a serious professional promotional giveaway for your corporate brand or just casually deciding where your family should purchase takeout dinner tonight you can trust this mechanism completely without hesitation.</p>
+</section>
+
+<section class="examples">
+    <h2>Popular Scenarios and Creative Use Cases</h2>
+    <p>While randomly selecting contest winners easily remains the most popular reason people visit this page the specific creative applications are truly limitless. Educational professionals frequently pull up this website on their digital smartboards assigning students random vocabulary words or interactive classroom duties playfully. The spinning visual element effortlessly captures their complete attention much faster than drawing boring paper slips from an old hat.</p>
+    <p>Tabletop dungeon masters also utilize this utility for generating chaotic gaming scenarios randomly selecting wild weather patterns monster encounters or unpredictable magical loot drops. Digital content creators often stream their screen while the circle spins live deciding which difficult video game challenge they must attempt next avoiding any accusations of cheating from their loyal audience.</p>
+</section>
+
+{{ adSlot(site, "incontent") }}
+
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+    
+    <h3>Can I save my custom list of names for my next visit?</h3>
+    <p>Yes your inputted text list automatically saves straight into your exclusive browser cache memory locally. The next time you navigate back to this exact page your specific entries will remain perfectly intact. We achieve this convenient feature entirely without utilizing external network databases keeping your information incredibly secure.</p>
+    
+    <h3>What happens if I try spinning an insanely large list of items?</h3>
+    <p>Our visual rendering engine is heavily optimized to easily handle remarkably large data inputs without heavily lagging your device. If you paste two hundred distinct names into the box the graphical slices will naturally appear incredibly thin resembling a bright colorful barcode. The underlying mathematical randomization absolutely guarantees fairness regardless of visual slice width.</p>
+    
+    <h3>Is it possible to cheat the spinning system?</h3>
+    <p>No human intervention can manipulate the final landing destination once the button clicks. The entire graphical simulation derives directly from the encrypted initial mathematical seed variables located securely inside your hardware logic preventing anyone from stopping the graphic exactly where they want it purposefully.</p>
+</section>
+
+<section class="related">
+    <h2>Explore More Randomization Utilities</h2>
+    <p>If you require different variations of randomized generation be sure to check out our related specialized pages.</p>
+    <ul>
+        <li><a href="/random-name-generator/">Random Name Generator</a></li>
+        <li><a href="/dice-roller/">Virtual Dice Roller</a></li>
+        <li><a href="/uuid-generator/">UUID Data Generator</a></li>
+    </ul>
+</section>
+
+{% from "cluster.njk" import clusterGuides %}
+{{ clusterGuides(tools | findByKey("slug", page.fileSlug)) }}
+
+<div class="author">
+    <p><em>Published by the QuixCalc Team. Fair choices globally. Last updated: July 2026.</em></p>
+</div>
+
+<script src="wheel.js" defer></script>

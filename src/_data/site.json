@@ -1,0 +1,19 @@
+{
+  "name": "QuixCalc",
+  "url": "https://quixcalc.com",
+  "domain": "quixcalc.com",
+  "tagline": "Free Online Calculators and Tools",
+  "description": "Fast, free online calculators and tools that run entirely in your browser. No sign-up, no uploads, no waiting.",
+  "locale": "en_US",
+  "lang": "en",
+  "email": "webtoolsrepo@gmail.com",
+  "gaId": "G-HJ4XCPKY84",
+  "adsenseId": "",
+  "founded": "2026",
+  "author": {
+    "name": "The QuixCalc Team",
+    "url": "https://quixcalc.com/about/"
+  },
+  "defaultImage": "/assets/og-default.png",
+  "themeColor": "#1d3557"
+}

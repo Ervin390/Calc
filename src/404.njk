@@ -1,0 +1,41 @@
+---
+layout: layout.njk
+title: Page Not Found
+description: That page does not exist. Browse all twenty free QuixCalc calculators and generators instead.
+appName: Page Not Found
+permalink: /404.html
+robots: noindex, follow
+sitemapExclude: true
+eleventyExcludeFromCollections: true
+---
+{% from "tool-grid.njk" import toolGrid %}
+
+<div class="hero">
+    <h1>Page Not Found</h1>
+    <p>The page you were looking for has moved or never existed. Everything we have is one click away below.</p>
+</div>
+
+<section class="home-section">
+    <h2 class="section-title">Popular Tools</h2>
+    <div class="top-3-grid">
+        {%- for t in tools | where("popular", true) %}
+        <a href="{{ t.url }}" class="tool-card">
+            <div class="card-header">
+                <span class="card-icon" aria-hidden="true">{{ t.icon }}</span>
+                <h3>{{ t.name }}</h3>
+            </div>
+            <div class="card-body">
+                <p>{{ t.description }}</p>
+            </div>
+        </a>
+        {%- endfor %}
+    </div>
+</section>
+
+<section class="home-section">
+    <h2 class="section-title">Browse by Category</h2>
+    {%- for c in nav.categories %}
+    <h3 class="category-label"><a href="{{ c.url }}">{{ c.icon }} {{ c.name }}</a></h3>
+    {{ toolGrid(tools, c.key) }}
+    {%- endfor %}
+</section>

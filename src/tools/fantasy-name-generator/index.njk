@@ -1,0 +1,120 @@
+---
+layout: layout.njk
+title: Fantasy Name Generator - Elf, Dwarf & DnD Names
+description: Generate fantasy names for elves, dwarves, orcs and DnD characters in one click. Free name generator for writers and roleplayers.
+appName: Fantasy Name Generator
+category: dev
+appCategory: DeveloperApplication
+permalink: /fantasy-name-generator/
+updated: 2026-07-26
+---
+{% from "ad-slot.njk" import adSlot %}
+
+<h1>Fantasy Name Generator</h1>
+<p>This fantasy name generator creates names for elves, dwarves, orcs, humans, and sci-fi characters with one click. Perfect for DnD campaigns, fantasy novels, video game characters, and online username ideas.</p>
+
+<section class="tool">
+    <div class="tool-controls">
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+            <div style="flex: 1; min-width: 150px;">
+                <label for="fantasy-race">Race / Style</label>
+                <select id="fantasy-race">
+                    <option value="elf">Elf</option>
+                    <option value="dwarf">Dwarf</option>
+                    <option value="orc">Orc</option>
+                    <option value="human">Human Fantasy</option>
+                    <option value="scifi">Sci-Fi Alien</option>
+                    <option value="dark">Dark / Evil</option>
+                </select>
+            </div>
+            <div style="flex: 1; min-width: 150px;">
+                <label for="fantasy-gender">Gender</label>
+                <select id="fantasy-gender">
+                    <option value="neutral">Neutral</option>
+                    <option value="male">Male-leaning</option>
+                    <option value="female">Female-leaning</option>
+                </select>
+            </div>
+            <div style="flex: 1; min-width: 120px;">
+                <label for="fantasy-count">Quantity</label>
+                <input type="number" id="fantasy-count" value="10" min="1" max="50" inputmode="numeric">
+            </div>
+        </div>
+
+        <button id="btn-generate-fantasy" style="width: 100%; font-size: 1.25rem;">Generate Fantasy Names</button>
+    </div>
+
+    <div class="tool-output" role="status" aria-live="polite" aria-atomic="true" style="margin-top: 1.5rem;">
+        <label for="fantasy-results">Generated Names</label>
+        <textarea id="fantasy-results" rows="12" readonly style="font-size: 1.1rem; line-height: 1.8;"></textarea>
+        <div class="btn-group" style="margin-top: 1rem;">
+            <button id="btn-copy-fantasy" class="secondary">Copy All Names</button>
+        </div>
+    </div>
+
+    <div class="tool-actions">
+        <button type="button" class="secondary" data-share>Share link</button>
+        <span class="tool-actions-msg" role="status" aria-live="polite"></span>
+    </div>
+</section>{{ adSlot(site, "inline") }}
+
+<section class="how">
+    <h2>How to Generate Fantasy Names</h2>
+    <p>Select a race or style, pick an optional gender lean, and choose how many names you want. Hit Generate and the tool produces a list instantly. Click any name in the results box to highlight it, or copy the full list at once using the button below.</p>
+    <p>The generator runs entirely in your browser using a cryptographic random source, so results are genuinely unpredictable and the same settings rarely produce the same names twice.</p>
+    <p>If you need a username for a game or social platform, the elf and human fantasy styles tend to produce usable combinations that are not already taken. Dark names work well for villain characters or edgy usernames.</p>
+</section>
+
+<section class="formula">
+    <h2>How Fantasy Name Generation Works</h2>
+    <p>Each race style uses a distinct set of syllable patterns drawn from real linguistic traditions and fictional language designs. Elvish names borrow from melodic vowel-heavy constructions similar to Tolkien's Quenya. Dwarf names lean on hard consonants and shorter, punchy combinations. Orc names are guttural with more consonant clusters.</p>
+    <p>The generator constructs names by combining prefixes, middle syllables, and suffixes according to that race's phonetic rules. The randomization uses window.crypto.getRandomValues, which is the same cryptographic API browsers use for security purposes. This ensures the output is statistically random with no repeated sequences.</p>
+    <p>Adding a gender lean biases the syllable selection toward patterns that feel traditionally masculine or feminine in fantasy naming conventions. This is a soft preference, not a hard rule.</p>
+</section>
+
+<section class="examples">
+    <h2>Name Examples by Race</h2>
+    <ul>
+        <li><strong>Elf names:</strong> Aelindra, Thalion, Caladwen, Elarion, Sylvara. Long, musical, vowel-rich names suitable for high-fantasy settings.</li>
+        <li><strong>Dwarf names:</strong> Borin, Durbrek, Thogrim, Galdrek, Hrundin. Short, strong, consonant-heavy names that feel sturdy and ancient.</li>
+        <li><strong>Orc names:</strong> Gruksha, Molgrak, Urgash, Drokthar, Vorak. Harsh sounds with gut and throat emphasis, classic for aggressive warrior characters.</li>
+        <li><strong>DnD human fantasy:</strong> Aldric, Seraphine, Corvus, Isolde, Brennan. Pseudo-medieval names that fit standard D&D human cultures.</li>
+        <li><strong>Sci-fi alien:</strong> Vrex, Sulara, Keth-9, Norryn, Zyxara. Sharp, unusual letter combinations that sound extraterrestrial.</li>
+    </ul>
+</section>
+
+{{ adSlot(site, "incontent") }}
+
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>Can I use these names in my novel or game?</h3>
+    <p>Yes, completely free to use. Random combinations generated from syllable patterns are not copyrighted. If you accidentally generate a name that matches a well-known character or trademarked IP, that is a coincidence to watch out for, but the names themselves are yours to use.</p>
+
+    <h3>How is this different from picking a name from a list?</h3>
+    <p>Fixed lists run out quickly and produce repeats. This generator assembles names from phonetic components, so the potential combinations number in the millions and you rarely see the same name twice in a session. That makes it far more useful for bulk naming tasks like populating a city with NPCs.</p>
+
+    <h3>Can I generate an elf name generator for D&D specifically?</h3>
+    <p>Select the Elf style and neutral or your preferred gender lean. The elf names follow patterns consistent with high-fantasy D&D source material. They are not pulled from official D&D books, so they fit the style without infringing on any product content.</p>
+
+    <h3>Does this store my generated names?</h3>
+    <p>No. All generation happens in your browser. Nothing is sent to a server and nothing is saved. Refreshing the page clears the results.</p>
+</section>
+
+<section class="related">
+    <h2>Related Name and Text Tools</h2>
+    <ul>
+        <li><a href="/random-name-generator/">Random Name Generator</a></li>
+        <li><a href="/fancy-text-generator/">Fancy Text Generator</a></li>
+        <li><a href="/">Browse All Tools</a></li>
+    </ul>
+</section>
+
+{% from "cluster.njk" import clusterGuides %}
+{{ clusterGuides(tools | findByKey("slug", page.fileSlug)) }}
+
+<div class="author">
+    <p><em>Published by the QuixCalc Team. Syllable patterns inspired by established fantasy linguistic traditions. Last updated: July 2026.</em></p>
+</div>
+
+<script src="fantasy.js" defer></script>

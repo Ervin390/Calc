@@ -1,0 +1,143 @@
+---
+layout: layout.njk
+title: Amortization Calculator - Loan Payoff Schedule
+description: Calculate your monthly loan payment and get a full amortization schedule showing principal, interest and balance for every payment.
+appName: Amortization Calculator
+category: finance
+appCategory: FinanceApplication
+permalink: /amortization-calculator/
+updated: 2026-07-26
+---
+{% from "ad-slot.njk" import adSlot %}
+
+<h1>Amortization Calculator</h1>
+<p>This amortization calculator shows your monthly payment and breaks down every single payment into principal and interest, so you can see exactly how your loan balance decreases over time.</p>
+
+<section class="tool">
+    <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+        <div class="tool-controls" style="flex: 1; min-width: 300px;">
+            <label for="amo-principal">Loan Amount ($)</label>
+            <input type="number" id="amo-principal" value="200000" min="0" step="1000" inputmode="decimal">
+
+            <label for="amo-rate">Annual Interest Rate (%)</label>
+            <input type="number" id="amo-rate" value="6.5" min="0" step="0.1" inputmode="decimal">
+
+            <label for="amo-years">Loan Term (Years)</label>
+            <input type="number" id="amo-years" value="30" min="1" max="50" inputmode="numeric">
+
+            <button id="btn-calc-amo" style="width: 100%; margin-top: 1rem;">Calculate Payment</button>
+        </div>
+
+        <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column; gap: 1rem;">
+            <div style="background: var(--input-bg); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+                <p style="font-weight: 600; color: var(--text-sub); margin-top:0;">Monthly Payment</p>
+                <div id="out-monthly" role="status" aria-live="polite" aria-atomic="true" style="font-size: 3rem; font-weight: 800; color: var(--primary); line-height: 1;">$0.00</div>
+            </div>
+            <div style="display: flex; gap: 1rem;">
+                <div style="flex:1; background: var(--input-bg); padding: 1rem; border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+                    <div style="font-size: 0.85rem; color: var(--text-muted);">Total Paid</div>
+                    <div id="out-total" style="font-weight: 700; color: var(--text-main); font-size:1.1rem;">$0.00</div>
+                </div>
+                <div style="flex:1; background: var(--input-bg); padding: 1rem; border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+                    <div style="font-size: 0.85rem; color: var(--text-muted);">Total Interest</div>
+                    <div id="out-interest" style="font-weight: 700; color: var(--danger); font-size:1.1rem;">$0.00</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top: 2rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <h3 style="margin:0;">Amortization Schedule</h3>
+            <button id="btn-export-csv" class="secondary" style="font-size: 0.875rem;">Export CSV</button>
+        </div>
+        <div style="overflow-x: auto; border: 1px solid var(--border); border-radius: 8px;">
+            <table id="amo-table" style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+                <thead>
+                    <tr style="background: var(--input-bg);">
+                        <th style="padding: 0.75rem; text-align: left; border-bottom: 1px solid var(--border);">#</th>
+                        <th style="padding: 0.75rem; text-align: right; border-bottom: 1px solid var(--border);">Payment</th>
+                        <th style="padding: 0.75rem; text-align: right; border-bottom: 1px solid var(--border);">Principal</th>
+                        <th style="padding: 0.75rem; text-align: right; border-bottom: 1px solid var(--border);">Interest</th>
+                        <th style="padding: 0.75rem; text-align: right; border-bottom: 1px solid var(--border);">Balance</th>
+                    </tr>
+                </thead>
+                <tbody id="amo-tbody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="tool-actions">
+        <button type="button" class="secondary" data-copy="#out-monthly">Copy result</button>
+        <button type="button" class="secondary" data-share>Share link</button>
+        <span class="tool-actions-msg" role="status" aria-live="polite"></span>
+    </div>
+</section>{{ adSlot(site, "inline") }}
+
+<section class="how">
+    <h2>How to Use This Amortization Calculator</h2>
+    <p>Enter your loan amount, the annual interest rate, and the loan term in years. Hit Calculate and the tool instantly shows your fixed monthly payment along with the total amount you will pay and the total interest cost over the life of the loan.</p>
+    <p>Scroll down past the summary to see the full amortization schedule. Each row in the table represents one monthly payment and shows how much of that payment goes to principal (reducing your balance) and how much goes to interest. In the early years of a loan, interest takes up a much larger share. As time goes on and the balance falls, more of each payment chips away at principal.</p>
+    <p>Click Export CSV to download the full schedule as a spreadsheet file.</p>
+</section>
+
+<section class="formula">
+    <h2>The Amortization Formula</h2>
+    <p>Monthly loan payment is calculated using this standard formula:</p>
+    <p><strong>M = P x [i(1+i)^n] / [(1+i)^n - 1]</strong></p>
+    <p>Where:</p>
+    <ul>
+        <li><strong>M</strong> = monthly payment</li>
+        <li><strong>P</strong> = principal loan amount</li>
+        <li><strong>i</strong> = monthly interest rate (annual rate divided by 12)</li>
+        <li><strong>n</strong> = total number of payments (years multiplied by 12)</li>
+    </ul>
+    <p>For each payment in the schedule, interest for that month equals the remaining balance multiplied by the monthly rate. The principal portion is the monthly payment minus that interest amount. The new balance is the previous balance minus the principal paid.</p>
+</section>
+
+<section class="examples">
+    <h2>Amortization Examples</h2>
+    <ul>
+        <li><strong>$200,000 mortgage at 6.5% for 30 years:</strong> Monthly payment is $1,264. Total paid over 30 years is $455,089. Total interest paid is $255,089, more than the original loan amount.</li>
+        <li><strong>$25,000 car loan at 7% for 5 years:</strong> Monthly payment is $495. Total interest paid over 60 payments is $4,702.</li>
+        <li><strong>$10,000 personal loan at 12% for 3 years:</strong> Monthly payment is $332. Total interest paid is $1,957.</li>
+    </ul>
+    <p>Notice how a higher interest rate and longer term dramatically increase total interest. Even a small rate reduction on a 30-year mortgage saves tens of thousands of dollars.</p>
+</section>
+
+{{ adSlot(site, "incontent") }}
+
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>What is an amortization schedule?</h3>
+    <p>An amortization schedule is a full table of every loan payment over the life of the loan. Each row shows the payment number, the monthly payment amount, how much of it reduces the principal balance, how much goes to interest, and the remaining balance after that payment. It gives you a clear picture of how your debt shrinks over time.</p>
+
+    <h3>Why does so little go to principal at the start?</h3>
+    <p>Because interest is calculated on the outstanding balance. At the beginning the balance is large, so the interest charge is large. As you pay down the principal over time, each month's interest charge gets smaller and more of the fixed payment goes toward the principal. This is why paying a little extra toward principal early in a loan saves significant money on interest.</p>
+
+    <h3>How much does an extra monthly payment save?</h3>
+    <p>On a $200,000 30-year loan at 6.5%, paying an extra $100 per month saves roughly $27,000 in interest and cuts the loan term by about 4 years. The savings are largest when you make extra payments early because they reduce the balance on which future interest is calculated.</p>
+
+    <h3>Does this work for mortgage amortization?</h3>
+    <p>Yes. Enter your mortgage principal, the interest rate, and the term. The formula is identical whether the loan is a mortgage, car loan, personal loan, or student loan. Property taxes and insurance are not included since they vary by location and are not part of the loan itself.</p>
+</section>
+
+<section class="related">
+    <h2>Related Finance Tools</h2>
+    <ul>
+        <li><a href="/compound-interest-calculator/">Compound Interest Calculator</a></li>
+        <li><a href="/tip-calculator/">Tip Calculator</a></li>
+        <li><a href="/">Browse All Tools</a></li>
+    </ul>
+</section>
+
+{% from "cluster.njk" import clusterGuides %}
+{{ clusterGuides(tools | findByKey("slug", page.fileSlug)) }}
+
+<div class="author">
+    <p><em>Published by the QuixCalc Team. Amortization formula verified against standard banking math. Last updated: July 2026.</em></p>
+</div>
+
+<script src="amo.js" defer></script>

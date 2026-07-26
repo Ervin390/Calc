@@ -1,0 +1,112 @@
+---
+layout: layout.njk
+title: Tip Calculator - Split the Bill Instantly
+description: Calculate the tip on any bill and split the total evenly between any number of people. Free gratuity and bill splitting calculator.
+appName: Tip Calculator
+category: finance
+appCategory: FinanceApplication
+permalink: /tip-calculator/
+updated: 2026-07-26
+---
+{% from "ad-slot.njk" import adSlot %}
+
+<h1>Tip Calculator</h1>
+<p>This tip calculator works out the gratuity on any bill and splits the total evenly between however many people are at the table. The numbers update as you type, so there is no button to hunt for.</p>
+
+<section class="tool">
+    <div class="tool-controls">
+        <label for="tip-bill">Total Bill Amount</label>
+        <input type="number" id="tip-bill" placeholder="e.g. 45.00" min="0" step="0.01" inputmode="decimal">
+        
+        <label for="tip-custom">Select Tip Percentage</label>
+        <div class="btn-group" style="margin-bottom: 1.5rem;" id="tip-presets">
+            <button class="secondary preset-btn" data-val="15">15%</button>
+            <button class="secondary preset-btn" data-val="18">18%</button>
+            <button class="preset-btn active" data-val="20">20%</button>
+            <button class="secondary preset-btn" data-val="25">25%</button>
+        </div>
+        
+        <label for="tip-custom">Or Custom Percentage</label>
+        <input type="number" id="tip-custom" placeholder="20" min="0" max="100" inputmode="decimal">
+        
+        <label for="tip-split">Number of People (Split)</label>
+        <input type="number" id="tip-split" value="1" min="1" max="100" inputmode="numeric">
+    </div>
+    
+    <div class="tool-output" role="status" aria-live="polite" aria-atomic="true" style="background:var(--input-bg); padding: 1.5rem; border-radius: 8px; margin-top: 2rem;">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+            <span style="font-weight: 600; font-size: 1.1rem; color: var(--text-sub);">Tip Amount</span>
+            <span id="out-tip" style="font-weight: 800; font-size: 1.25rem; color: var(--primary);">$0.00</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border);">
+            <span style="font-weight: 600; font-size: 1.1rem; color: var(--text-sub);">Total Bill</span>
+            <span id="out-total" style="font-weight: 800; font-size: 1.25rem; color: var(--text-main);">$0.00</span>
+        </div>
+        <div style="display: flex; justify-content: space-between;">
+            <span style="font-weight: 600; font-size: 1.1rem; color: var(--text-sub);">Per Person</span>
+            <span id="out-person" style="font-weight: 800; font-size: 1.25rem; color: var(--success);">$0.00</span>
+        </div>
+    </div>
+
+    <div class="tool-actions">
+        <button type="button" class="secondary" data-copy=".tool-output">Copy result</button>
+        <button type="button" class="secondary" data-share>Share link</button>
+        <span class="tool-actions-msg" role="status" aria-live="polite"></span>
+    </div>
+</section>{{ adSlot(site, "inline") }}
+
+<section class="how">
+    <h2>How to Calculate Your Tip Quickly</h2>
+    <p>Using our gratuity tool takes all the guesswork and mental math out of paying your restaurant tab. You begin by entering your exact bill amount into the topmost box. From there you can simply tap on one of our most popular percentage buttons which represent standard tipping rates. If the service was particularly exceptional or if you want to leave a very specific amount you can type your preferred percentage into the custom box.</p>
+    <p>If you are dining out with friends or colleagues the final step is incredibly helpful safely splitting the financial burden. Just enter the number of people sitting at your table. Our system immediately updates the bottom section calculating the exact tip amount the total combined bill and exactly how much cash each person needs to contribute. The numbers change live as you type so you never have to hit a recalculate button.</p>
+</section>
+
+<section class="formula">
+    <h2>The Standard Tipping Formula</h2>
+    <p>Calculating gratuity manually is a simple mathematical equation taking your total charge and multiplying it by a decimal percentage. For example if you want to leave a standard twenty percent tip on a fifty dollar bill you multiply fifty by zero point two zero. This gives you a ten dollar tip making your grand total sixty dollars.</p>
+    <p>The formula for splitting the check is also straightforward. You simply take that grand total and divide it by the number of paying guests. If three people are splitting that sixty dollar total the math divides it evenly into twenty dollars per person. Our tool strictly follows these exact financial equations while ensuring that no rounding errors occur giving you a flawless breakdown every single time you dine out.</p>
+</section>
+
+<section class="examples">
+    <h2>Common Tipping Examples</h2>
+    <p>Let us look at a few realistic examples of what you might encounter when dealing with different service industries.</p>
+    <ul>
+        <li><strong>Standard Restaurant Dinner:</strong> A typical seventy five dollar dinner bill normally receives a twenty percent tip. The gratuity equals exactly fifteen dollars resulting in a total final payment of ninety dollars.</li>
+        <li><strong>Hair Salon or Barber:</strong> If your haircut costs forty dollars standard practice is to leave an eighteen percent tip. This amounts to seven dollars and twenty cents making your final checkout forty seven dollars and twenty cents.</li>
+        <li><strong>Coffee Shop:</strong> A simple espresso charge of four dollars usually receives a small fifteen percent gratuity. The resulting tip is sixty cents.</li>
+    </ul>
+</section>
+
+{{ adSlot(site, "incontent") }}
+
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+    
+    <h3>Should I tip based on the pre tax or post tax bill amount?</h3>
+    <p>General etiquette suggests calculating your gratuity based upon the pre tax subtotal of your meal. Tipping on the final post tax amount means you are unnecessarily tipping on government surcharges. However many generous patrons simply tip on the final total because it is much faster and easier to read right off the receipt.</p>
+    
+    <h3>What is the standard tipping rate right now?</h3>
+    <p>In most North American restaurants twenty percent has firmly become the standard baseline for average to good service. Leaving eighteen percent generally signifies adequate but unimpressive service. Leaving fifteen percent or less usually communicates active dissatisfaction with your dining experience.</p>
+    
+    <h3>Does this calculator round the split amounts for uneven groups?</h3>
+    <p>Yes our tool intelligently rounds the per person amounts to the nearest penny ensuring the physical cash split remains accurate and completely practical. You will never see a fraction of a cent displayed.</p>
+</section>
+
+<section class="related">
+    <h2>Related Mathematics and Finance Tools</h2>
+    <p>If you need help calculating other tricky numbers try our dedicated money tools.</p>
+    <ul>
+        <li><a href="/compound-interest-calculator/">Compound Interest Calculator</a></li>
+        <li><a href="/amortization-calculator/">Amortization Calculator</a></li>
+        <li><a href="/">Browse All Tools</a></li>
+    </ul>
+</section>
+
+{% from "cluster.njk" import clusterGuides %}
+{{ clusterGuides(tools | findByKey("slug", page.fileSlug)) }}
+
+<div class="author">
+    <p><em>Published by the QuixCalc Team. Making math easy. Last updated: July 2026.</em></p>
+</div>
+
+<script src="tip.js" defer></script>

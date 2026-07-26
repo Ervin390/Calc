@@ -1,0 +1,180 @@
+---
+layout: layout.njk
+title: GPA Calculator - College & High School Grades
+description: Calculate your weighted or unweighted GPA online. Free grade point average tracker for high school and college students.
+appName: GPA Calculator
+category: math
+appCategory: EducationalApplication
+permalink: /gpa-calculator/
+updated: 2026-07-26
+---
+{% from "ad-slot.njk" import adSlot %}
+
+<h1>GPA Calculator</h1>
+<p>This GPA calculator works out your semester or cumulative grade point average on either a weighted or unweighted scale. Your grades stay in your browser and are never sent to a server.</p>
+
+<section class="tool">
+    <div class="tool-controls">
+        
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem;">
+            <div>
+                <label for="prior-gpa">Format</label>
+                <div class="btn-group" id="format-toggle">
+                    <button class="active" data-val="unweighted">Unweighted</button>
+                    <button class="secondary" data-val="weighted">Weighted (AP/IB/Honors)</button>
+                </div>
+            </div>
+        </div>
+
+        <div style="background: var(--card-bg); padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border: 1px solid var(--border); box-shadow: inset 0 2px 4px rgba(0,0,0,0.02)">
+            <h3 style="margin-top:0; font-size: 1.1rem; color: var(--text-main);">Prior Cumulative GPA (Optional)</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem; margin-top: -0.5rem;">If you already have a GPA and just want to add new classes to see how it changes, enter your current standing here.</p>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                <div style="flex:1; min-width: 150px;">
+                    <label>Current Cumulative GPA</label>
+                    <input type="number" id="prior-gpa" placeholder="e.g. 3.5" step="0.01" min="0" max="5.0" style="margin-bottom:0;" inputmode="decimal">
+                </div>
+                <div style="flex:1; min-width: 150px;">
+                    <label for="prior-credits">Total Prior Credits</label>
+                    <input type="number" id="prior-credits" placeholder="e.g. 60" step="1" min="0" style="margin-bottom:0;" inputmode="numeric">
+                </div>
+            </div>
+        </div>
+
+        <div id="course-container">
+            <div class="course-row" style="display: flex; gap: 1rem; align-items:flex-end; margin-bottom: 1rem; flex-wrap: wrap;">
+                <div style="flex:2; min-width:150px;">
+                    <label>Course Name <em>(Optional)</em></label>
+                    <input type="text" placeholder="Math 101" class="course-name" style="margin-bottom:0;">
+                </div>
+                <div style="flex:1; min-width:80px;">
+                    <label>Grade</label>
+                    <select class="course-grade" style="margin-bottom:0;">
+                        <option value="4.0">A</option>
+                        <option value="3.7">A-</option>
+                        <option value="3.3">B+</option>
+                        <option value="3.0">B</option>
+                        <option value="2.7">B-</option>
+                        <option value="2.3">C+</option>
+                        <option value="2.0">C</option>
+                        <option value="1.7">C-</option>
+                        <option value="1.3">D+</option>
+                        <option value="1.0">D</option>
+                        <option value="0.0">F</option>
+                    </select>
+                </div>
+                <div style="flex:1; min-width:80px;">
+                    <label>Credits</label>
+                    <input type="number" class="course-credits" value="3" min="0" step="0.5" style="margin-bottom:0;" inputmode="decimal">
+                </div>
+                <div class="weight-col" style="flex:1; min-width:80px; display:none;">
+                    <label>Level</label>
+                    <select class="course-weight" style="margin-bottom:0;">
+                        <option value="0">Regular</option>
+                        <option value="0.5">Honors (+0.5)</option>
+                        <option value="1.0">AP/IB/Col (+1.0)</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="course-row" style="display: flex; gap: 1rem; align-items:flex-end; margin-bottom: 1rem; flex-wrap: wrap;">
+                <div style="flex:2; min-width:150px;">
+                    <input type="text" placeholder="History" class="course-name" style="margin-bottom:0;">
+                </div>
+                <div style="flex:1; min-width:80px;">
+                    <select class="course-grade" style="margin-bottom:0;">
+                        <option value="4.0">A</option>
+                        <option value="3.7">A-</option>
+                        <option value="3.3">B+</option>
+                        <option value="3.0">B</option>
+                        <option value="2.7">B-</option>
+                        <option value="2.3">C+</option>
+                        <option value="2.0">C</option>
+                        <option value="1.7">C-</option>
+                        <option value="1.3">D+</option>
+                        <option value="1.0">D</option>
+                        <option value="0.0">F</option>
+                    </select>
+                </div>
+                <div style="flex:1; min-width:80px;">
+                    <input type="number" class="course-credits" value="3" min="0" step="0.5" style="margin-bottom:0;" inputmode="decimal">
+                </div>
+                <div class="weight-col" style="flex:1; min-width:80px; display:none;">
+                    <select class="course-weight" style="margin-bottom:0;">
+                        <option value="0">Regular</option>
+                        <option value="0.5">Honors (+0.5)</option>
+                        <option value="1.0">AP/IB/Col (+1.0)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <button id="btn-addrow" class="secondary" style="margin-top: 1rem;">+ Add Another Course</button>
+        
+        <div style="margin-top: 2rem; background: var(--input-bg); padding: 1.5rem; border-radius: 8px; text-align: center;">
+            <p style="font-weight: 600; font-size: 1.1rem; color: var(--text-sub); margin-top:0;">Your Grade Point Average</p>
+            <div id="gpa-result" role="status" aria-live="polite" aria-atomic="true" style="font-size: 3.5rem; font-weight: 800; color: var(--primary); line-height: 1;">4.00</div>
+            <p style="margin-bottom:0; margin-top:1rem; font-size:0.9rem; color:var(--text-muted);">Total Credits: <span id="gpa-credits" style="font-weight:bold;">6</span></p>
+        </div>
+    </div>
+
+    <div class="tool-actions">
+        <button type="button" class="secondary" data-copy="#gpa-result">Copy result</button>
+        <button type="button" class="secondary" data-share>Share link</button>
+        <span class="tool-actions-msg" role="status" aria-live="polite"></span>
+    </div>
+</section>{{ adSlot(site, "inline") }}
+
+<section class="how">
+    <h2>How to Calculate Your Weighted or Unweighted GPA</h2>
+    <p>This GPA calculator simplifies tracking your academic standing for both high school and college students. Start by selecting your format: use Unweighted for a standard 4.0 scale, or Weighted if you want to include extra points for AP, IB, or Honors classes.</p>
+    <p>In the interactive table, optionally name your courses to stay organized. Then, move left to right, choosing your actual or expected letter grade from the dropdown and entering the credit hours. For college courses, this is usually 3 or 4 credits. If you selected standard high school classes, leave it at 1 credit. The algorithm works silently in the background, updating your cumulative grade point average instantly as you alter any field.</p>
+</section>
+
+<section class="formula">
+    <h2>Understanding the GPA Formula</h2>
+    <p>Educational institutions translate letter grades into rigid numeric multipliers. On a standard unweighted scale, an A provides 4.0 points, a B provides 3.0 points, a C provides 2.0, and so on. Your total quality points for a class are calculated by multiplying that point value by the course credit hours.</p>
+    <p>To discover your definitive grade point average, the formula sums together all of your earned quality points and divides that total by the total number of credit hours attempted. This calculator strictly mirrors the exact numeric standards used by major administrative registrar offices, ensuring your results match your official transcript.</p>
+</section>
+
+<section class="examples">
+    <h2>Weighted vs. Unweighted GPA</h2>
+    <p>High school administrators employ two distinct grading scales to evaluate student performance, particularly to reward those taking advanced coursework.</p>
+    <ul>
+        <li><strong>Unweighted GPA Calculator:</strong> This represents the universally standardized calculation where the maximum boundary is exactly 4.0. It measures your performance without factoring in the difficulty of your classes. An 'A' in an introductory class holds the same weight as an 'A' in an advanced placement class.</li>
+        <li><strong>Weighted GPA Calculator:</strong> This alternative formatting rewards ambitious students pursuing advanced placement (AP), international baccalaureate (IB), or honors programming. The ceiling typically breaks past 4.0, often allowing up to 5.0 points for an 'A' in a collegiate-level high school course.</li>
+    </ul>
+</section>
+
+{{ adSlot(site, "incontent") }}
+
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+    
+    <h3>Do you save my course grades on your servers?</h3>
+    <p>No, we structurally cannot see or permanently capture your confidential numeric grades. This tool operates entirely client-side, executing locally inside your computer's browser. This ensures total privacy protection while also allowing the calculator to work exceptionally fast without delays.</p>
+    
+    <h3>Does this handle plus and minus grading scales accurately?</h3>
+    <p>Yes. The interactive dropdown inherently includes standard fractional multiplier modifications used universally across modern collegiate grading systems (e.g., A- is 3.7, B+ is 3.3). This accurately reflects those subtle numeric changes properly.</p>
+    
+    <h3>How do pass/fail credits affect my final calculation?</h3>
+    <p>Standard registrars completely ignore pass and fail classifications when calculating an official numeric grade point average. A passing grade gives you the academic credit toward graduation, but carries no quality points, so you should formally omit them from the calculator to avoid distorting your true GPA.</p>
+</section>
+
+<section class="related">
+    <h2>Related Education Tools</h2>
+    <ul>
+        <li><a href="/fraction-calculator/">Fraction Calculator</a></li>
+        <li><a href="/standard-deviation-calculator/">Standard Deviation Calculator</a></li>
+        <li><a href="/">Browse All Tools</a></li>
+    </ul>
+</section>
+
+{% from "cluster.njk" import clusterGuides %}
+{{ clusterGuides(tools | findByKey("slug", page.fileSlug)) }}
+
+<div class="author">
+    <p><em>Published by the QuixCalc Team. GPA translation formulas based on widely accepted US university standards. Last updated: July 2026.</em></p>
+</div>
+
+<script src="gpa.js" defer></script>

@@ -1,0 +1,19 @@
+---
+permalink: /robots.txt
+eleventyExcludeFromCollections: true
+sitemapExclude: true
+---
+# {{ site.name }}, {{ site.url }}
+
+User-agent: *
+Allow: /
+
+# Tool state is mirrored into the query string so a calculation can be
+# shared by link. Those URLs are left crawlable on purpose: every page
+# declares the clean URL as its canonical, so Google consolidates them
+# instead of indexing an empty shell it was never allowed to read.
+
+# Housekeeping
+Disallow: /404.html
+
+Sitemap: {{ site.url }}/sitemap.xml

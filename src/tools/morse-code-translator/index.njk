@@ -1,0 +1,98 @@
+---
+layout: layout.njk
+title: Morse Code Translator - Text to Morse Audio
+description: Translate text to Morse code and back, with audio playback in your browser. Free Morse code translator and decoder.
+appName: Morse Code Translator
+category: fun
+appCategory: GameApplication
+permalink: /morse-code-translator/
+updated: 2026-07-26
+---
+{% from "ad-slot.njk" import adSlot %}
+
+<h1>Morse Code Translator</h1>
+<p>This Morse code translator turns plain text into dots and dashes and decodes signals back into English. Play the output as audio to hear how the rhythm actually sounds, which is the part most people never get from a printed chart.</p>
+
+<section class="tool">
+    <div class="tool-controls">
+        <label for="morse-input">Type your text or Morse code here</label>
+        <textarea id="morse-input" rows="4" placeholder="Enter text (e.g. SOS) or Morse code (e.g. ... --- ...)"></textarea>
+        
+        <div class="btn-group" style="margin-bottom: 1.5rem;">
+            <button id="btn-play">Play Audio Beeps</button>
+            <button id="btn-stop" class="secondary" style="display:none;">Stop Audio</button>
+            <button id="btn-clear" class="secondary">Clear All</button>
+        </div>
+    </div>
+    
+    <div class="tool-output" role="status" aria-live="polite" aria-atomic="true">
+        <label for="morse-result">Translation Result</label>
+        <textarea id="morse-result" rows="4" readonly></textarea>
+        
+        <div class="btn-group" style="margin-top: 1rem;">
+            <button id="btn-copy">Copy Translation</button>
+        </div>
+    </div>
+
+    <div class="tool-actions">
+        <button type="button" class="secondary" data-share>Share link</button>
+        <span class="tool-actions-msg" role="status" aria-live="polite"></span>
+    </div>
+</section>{{ adSlot(site, "inline") }}
+
+<section class="how">
+    <h2>How to Use This Morse Code Translator</h2>
+    <p>Using this decoding tool is completely automatic and requires almost zero technical knowledge. You simply click into the top input box and begin typing your standard English sentence. As you type the letters the bottom box will instantly update generating the exact sequence of dots and dashes required to transmit your specific message.</p>
+    <p>If you have received a secret message in Morse code you can use this same tool to uncover its meaning. Just paste the scattered dots and dashes directly into the top box. The system is smart enough to recognize that you are entering code instead of regular letters. It automatically switches into decoding mode and reveals the hidden English text instantly in the results area. Once you are finished converting your text you can tap the play button to actually hear your message transmitted through authentic audio beeps simulating classic telegraph radio.</p>
+</section>
+
+<section class="formula">
+    <h2>Understanding the Morse Code Alphabet</h2>
+    <p>Morse code was created in the nineteenth century to send information across long electrical telegraph wires. Because early machines could not send voice patterns they used electrical pulses of specific lengths. A short pulse is called a dot while a long pulse is called a dash. These two simple sounds combine in different sequences to represent every letter of the alphabet and all numbers between zero and nine.</p>
+    <p>The code is specifically designed for speed and efficiency. The most commonly used letters in the English language require the shortest transmission sequences. For example the letter E is the most widely used character in English so its code is simply one single quick dot. Conversely an uncommon letter like Q requires a much longer complex sequence of two dashes a dot and another dash. When writing the code down on paper operators separate individual letters with one space and separate whole words with a slash mark.</p>
+</section>
+
+<section class="examples">
+    <h2>Famous Morse Code Examples</h2>
+    <p>The most famous code sequence in human history is undoubtedly the international distress signal SOS. Contrary to popular belief it does not actually stand for Save Our Ship. It was chosen purely because its rhythmic pattern is incredibly distinctive and practically impossible to misinterpret over radio static.</p>
+    <ul>
+        <li><strong>SOS Distress Signal:</strong> <code>... --- ...</code></li>
+        <li><strong>Hello World:</strong> <code>.... . .-.. .-.. --- / .-- --- .-. .-.. -..</code></li>
+        <li><strong>I Love You:</strong> <code>.. / .-.. --- ...- . / -.-- --- ..-</code></li>
+        <li><strong>Numbers 1 to 3:</strong> <code>.---- ..--- ...--</code></li>
+    </ul>
+</section>
+
+{{ adSlot(site, "incontent") }}
+
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+    
+    <h3>Can I hear the Morse code audio on my mobile phone?</h3>
+    <p>Yes the audio feature works perfectly on almost all modern smartphones. When you press the play audio button our script utilizes your browsers native sound synthesizer to generate crisp telegraph beeps. Make sure your physical phone ringer switch is turned on and your media volume is comfortably raised otherwise you might not hear the playback.</p>
+    
+    <h3>Why is my translated text showing up as unknown hash marks?</h3>
+    <p>If you see unusual hash tags appearing in your decoded results it usually means you entered a special character that does not exist in standard Morse. The original telegraph system only supported basic letters numbers and a handful of extreme essential punctuation marks. Emojis complex grammatical symbols and foreign language accents will not translate cleanly.</p>
+    
+    <h3>Do you need spaces between every single dot and dash?</h3>
+    <p>No you do not place spaces between the dots and dashes of a single letter. You only place spaces between entirely different letters. If you do not include spaces the computer cannot determine where one letter finishes and the next letter starts which will entirely break the translation.</p>
+</section>
+
+<section class="related">
+    <h2>Discover More Creative Tools</h2>
+    <p>Continue exploring our assortment of text generators and randomization instruments.</p>
+    <ul>
+        <li><a href="/fancy-text-generator/">Fancy Text Generator</a></li>
+        <li><a href="/dice-roller/">Virtual Dice Roller</a></li>
+        <li><a href="/uuid-generator/">UUID Data Generator</a></li>
+    </ul>
+</section>
+
+{% from "cluster.njk" import clusterGuides %}
+{{ clusterGuides(tools | findByKey("slug", page.fileSlug)) }}
+
+<div class="author">
+    <p><em>Published by the QuixCalc Team. Preserving communication history. Last updated: July 2026.</em></p>
+</div>
+
+<script src="morse.js" defer></script>

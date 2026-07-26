@@ -1,0 +1,140 @@
+---
+layout: layout.njk
+title: Random Name Generator - Male & Female Names
+description: Generate bulk lists of realistic male and female first names and surnames. Free random name generator for testing and writing.
+appName: Random Name Generator
+category: fun
+appCategory: GameApplication
+permalink: /random-name-generator/
+updated: 2026-07-26
+---
+{% from "ad-slot.njk" import adSlot %}
+
+<h1>Random Name Generator</h1>
+<p>This random name generator produces realistic or fantastical names in bulk, as many as you need at once. It draws on thousands of male and female first names and surnames, and it has fantasy and sci-fi modes for character creation and roleplay.</p>
+
+<section class="tool">
+    <div class="tool-controls">
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+            <div style="flex: 1; min-width: 150px;">
+                <label for="name-category">Category</label>
+                <select id="name-category">
+                    <option value="human">Standard Real World</option>
+                    <option value="fantasy">Epic Fantasy</option>
+                    <option value="scifi">Science Fiction</option>
+                </select>
+            </div>
+            <div style="flex: 1; min-width: 150px;">
+                <label for="name-gender">Gender <em>(Human Only)</em></label>
+                <select id="name-gender">
+                    <option value="any">Any / Random</option>
+                    <option value="male">Traditional Male</option>
+                    <option value="female">Traditional Female</option>
+                </select>
+            </div>
+            <div style="flex: 1; min-width: 150px;">
+                <label for="name-count">Quantity</label>
+                <input type="number" id="name-count" value="10" min="1" max="100" inputmode="numeric">
+            </div>
+        </div>
+
+        <button id="btn-generate-names" style="width: 100%; font-size: 1.25rem;">Generate Names Now</button>
+    </div>
+
+    <div class="tool-output" role="status" aria-live="polite" aria-atomic="true">
+        <label>Generated Results</label>
+        <div id="name-results" class="slot-container" style="font-size: 1.25rem; line-height: 1.6;"></div>
+
+        <div class="btn-group" style="margin-top: 1rem;">
+            <button id="btn-copy-names" class="secondary">Copy List to Clipboard</button>
+        </div>
+    </div>
+
+    <div class="tool-actions">
+        <button type="button" class="secondary" data-share>Share link</button>
+        <span class="tool-actions-msg" role="status" aria-live="polite"></span>
+    </div>
+</section>
+
+<style>
+.slot-container {
+    background: var(--input-bg);
+    border: 2px solid var(--primary);
+    border-radius: 12px;
+    padding: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    color: var(--primary);
+    min-height: 250px;
+    box-shadow: inset 0 2px 10px rgba(0,0,0,0.05);
+    white-space: pre-wrap;
+    word-break: break-all;
+    overflow-y: auto;
+    transition: all 0.3s ease;
+}
+.slot-animating {
+    opacity: 0.6;
+    transform: scale(0.98);
+    filter: blur(1px);
+}
+</style>{{ adSlot(site, "inline") }}
+
+<section class="how">
+    <h2>How to Generate Random Names</h2>
+    <p>Choose a category from the dropdown. The standard real-world option draws from a large database of contemporary first names and surnames matching real census data from English-speaking countries. Fantasy mode assembles phonetically pleasant names from elvish and epic-sounding syllable patterns. Sci-fi mode produces alien-feeling names with unusual consonant combinations.</p>
+    <p>If you chose the human category you can also filter by gender to get only male-leaning or female-leaning first names. Set the quantity from 1 to 100 and hit Generate. The full list lands in the text area below, ready to copy.</p>
+    <p>Everything runs locally in your browser. No names are stored or logged.</p>
+</section>
+
+<section class="formula">
+    <h2>How the Name Generation Works</h2>
+    <p>Real-world names come from curated databases of verified first names and surnames, split by gender and drawn from global English-language sources including US, UK, and Australian census data. When you generate a name the tool picks a first name and a surname independently using a cryptographic random number from window.crypto.getRandomValues, ensuring genuinely unpredictable results every time.</p>
+    <p>Fantasy and sci-fi names skip the database entirely. Instead the generator combines prefixes, middle syllables, and suffixes according to phonetic rules designed to produce pronounceable but unfamiliar combinations. The same crypto random source keeps every generation distinct.</p>
+</section>
+
+<section class="examples">
+    <h2>When to Use a Random Name Generator</h2>
+    <ul>
+        <li><strong>Fiction writing:</strong> Authors sometimes burn hours trying to name minor characters. Running a quick batch of 20 real-world names breaks the block and gives you a list to pick from in seconds.</li>
+        <li><strong>Tabletop RPG:</strong> A DM running an improvised scene needs a name for the innkeeper immediately. Fantasy mode handles this in one click.</li>
+        <li><strong>Game development:</strong> Procedurally generated NPCs need names. Bulk generate 100 at once, export the list, and drop them into your name pool.</li>
+        <li><strong>Privacy testing:</strong> Developers building forms or accounts for testing need realistic-looking names that are not attached to real people. Real-world mode produces exactly that.</li>
+        <li><strong>Baby name inspiration:</strong> Parents sometimes want a wide random list to scan for names they would not have thought to search specifically.</li>
+    </ul>
+</section>
+
+{{ adSlot(site, "incontent") }}
+
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>Are the generated names copyrighted?</h3>
+    <p>No. Names are not subject to copyright protection. Common first names and surnames are part of the public domain. If you happen to generate the exact name of a trademarked character from a major franchise, that would be a coincidence worth checking, but the output of a random generator carries no copyright itself.</p>
+
+    <h3>Does the tool save my generated names?</h3>
+    <p>No. All generation is done client-side in your browser. Nothing is sent to any server. Refreshing the page clears the results, so copy anything you want to keep before navigating away.</p>
+
+    <h3>Why do fantasy names sometimes look weird or hard to pronounce?</h3>
+    <p>Syllable assembly is probabilistic, not grammatically constrained. Most combinations land in a readable range, but occasionally the algorithm stacks consonants or vowels in ways that feel awkward. Just generate a new batch and you will get a fresh set. The weird outputs are actually sometimes useful for genuinely alien-sounding sci-fi names.</p>
+
+    <h3>Can I generate a random nickname generator result?</h3>
+    <p>The current tool generates full first and last names. For profile usernames, the fantasy and sci-fi modes give short, distinctive single-word results that work well as display names on gaming platforms. A dedicated nickname generator is on the roadmap.</p>
+</section>
+
+<section class="related">
+    <h2>Related Name and Fun Tools</h2>
+    <ul>
+        <li><a href="/fantasy-name-generator/">Fantasy Name Generator</a></li>
+        <li><a href="/spinner-wheel/">Wheel of Names / Spinner Wheel</a></li>
+        <li><a href="/dice-roller/">Dice Roller</a></li>
+    </ul>
+</section>
+
+{% from "cluster.njk" import clusterGuides %}
+{{ clusterGuides(tools | findByKey("slug", page.fileSlug)) }}
+
+<div class="author">
+    <p><em>Published by the QuixCalc Team. Name databases sourced from public census and baby name records. Last updated: July 2026.</em></p>
+</div>
+
+<script src="names.js" defer></script>

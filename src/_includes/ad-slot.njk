@@ -1,0 +1,25 @@
+{#
+  Ad slot, per doc 03 section 0.2.
+
+  Renders absolutely nothing while site.adsenseId is empty, which is the
+  state for the first production release. Filling that field in
+  src/_data/site.json is the only change needed to switch ads on, and the
+  loader in assets/ads.js only injects the AdSense script once a slot
+  scrolls into view so Core Web Vitals stay green.
+
+  Placement rules baked in here: never above the H1, never above the tool.
+  Height is reserved up front so nothing shifts when a unit fills.
+#}
+{% macro adSlot(site, slot, label) %}
+{%- if site.adsenseId %}
+<aside class="ad ad-{{ slot }}" aria-label="Advertisement">
+    <span class="ad-label">{{ label if label else "Advertisement" }}</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="{{ site.adsenseId }}"
+         data-ad-slot=""
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+</aside>
+{%- endif %}
+{% endmacro %}

@@ -1,0 +1,122 @@
+---
+layout: layout.njk
+title: Character Counter - Count Characters & Words
+description: Count characters, words, sentences and paragraphs instantly. Check your text against Twitter, Instagram, SMS and meta description limits.
+appName: Character Counter
+category: dev
+appCategory: DeveloperApplication
+permalink: /character-counter/
+updated: 2026-07-26
+---
+{% from "ad-slot.njk" import adSlot %}
+
+<h1>Character Counter</h1>
+<p>Paste or type your text below and this character counter instantly shows you characters, words, sentences, and paragraphs. It also checks your text against common platform limits so you know exactly where you stand.</p>
+
+<section class="tool">
+    <div class="tool-controls">
+        <label for="char-input">Write or Paste Your Text Below</label>
+        <textarea id="char-input" rows="12" placeholder="Start typing here..."></textarea>
+    </div>
+
+    <div class="tool-output" role="status" aria-live="polite" aria-atomic="true" style="margin-top: 1.5rem;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; text-align: center;">
+            <div style="background: var(--input-bg); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border);">
+                <div style="font-weight: 600; color: var(--text-sub); font-size: 1.1rem; margin-bottom: 0.25rem;">Characters</div>
+                <div id="out-chars" style="font-size: 2.5rem; font-weight: 800; color: var(--primary); line-height: 1;">0</div>
+                <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">without spaces: <span id="out-chars-nospace" style="font-weight:bold; color:var(--text-main);">0</span></div>
+            </div>
+            <div style="background: var(--input-bg); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border);">
+                <div style="font-weight: 600; color: var(--text-sub); font-size: 1.1rem; margin-bottom: 0.25rem;">Words</div>
+                <div id="out-words" style="font-size: 2.5rem; font-weight: 800; color: var(--success); line-height: 1;">0</div>
+            </div>
+            <div style="background: var(--input-bg); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border);">
+                <div style="font-weight: 600; color: var(--text-sub); font-size: 1.1rem; margin-bottom: 0.25rem;">Sentences</div>
+                <div id="out-sentences" style="font-size: 2.5rem; font-weight: 800; color: var(--warning); line-height: 1;">0</div>
+            </div>
+            <div style="background: var(--input-bg); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border);">
+                <div style="font-weight: 600; color: var(--text-sub); font-size: 1.1rem; margin-bottom: 0.25rem;">Paragraphs</div>
+                <div id="out-paragraphs" style="font-size: 2.5rem; font-weight: 800; color: var(--violet); line-height: 1;">0</div>
+            </div>
+        </div>
+
+        <div style="margin-top: 1.5rem; background: var(--input-bg); padding: 1.25rem; border-radius: 8px; border: 1px solid var(--border);">
+            <div style="font-weight: 600; color: var(--text-sub); margin-bottom: 0.75rem;">Platform Limits</div>
+            <div style="display: flex; flex-wrap: wrap; gap: 1rem; font-size: 0.9rem;">
+                <span>Twitter/X: <strong id="lim-twitter" style="color:var(--primary);">280</strong> chars remaining</span>
+                <span>Meta description: <strong id="lim-meta" style="color:var(--success);">160</strong> chars remaining</span>
+                <span>SMS: <strong id="lim-sms" style="color:var(--warning);">160</strong> chars remaining</span>
+                <span>Instagram caption: <strong id="lim-ig" style="color:var(--violet);">2,200</strong> chars remaining</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="tool-actions">
+        <button type="button" class="secondary" data-copy=".tool-output">Copy result</button>
+        <button type="button" class="secondary" data-share>Share link</button>
+        <span class="tool-actions-msg" role="status" aria-live="polite"></span>
+    </div>
+</section>{{ adSlot(site, "inline") }}
+
+<section class="how">
+    <h2>How to Use This Character Counter</h2>
+    <p>Just type or paste your text into the box above. The counts update live as you type so there is no need to click anything. The tool counts characters with spaces, characters without spaces, words, sentences, and paragraphs all at the same time.</p>
+    <p>The platform limits section at the bottom shows how many characters you have remaining for Twitter, meta descriptions, SMS messages, and Instagram captions. When the count turns red it means you are over the limit for that platform. This makes it easy to trim your text to fit before posting or publishing.</p>
+</section>
+
+<section class="formula">
+    <h2>How Characters and Words Are Counted</h2>
+    <p>Character count is simply the length of the text string, including all spaces, punctuation, and line breaks. The "without spaces" count removes all whitespace from that total. Both counts are useful depending on the platform you are writing for.</p>
+    <p>Words are counted by splitting the text on whitespace and filtering out empty tokens. A word is any sequence of characters separated by a space, tab, or newline.</p>
+    <p>Sentences are detected by splitting on sentence-ending punctuation followed by a space or end of text. Periods, question marks, and exclamation marks all count. Paragraphs are separated by double line breaks or blank lines.</p>
+    <p>Reading time is estimated at 200 words per minute, which is an average adult silent reading speed. The estimate assumes all words, not just the first few paragraphs.</p>
+</section>
+
+<section class="examples">
+    <h2>Platform Character Limits Reference</h2>
+    <p>Different platforms enforce different limits. Here is a quick reference for the most common ones.</p>
+    <ul>
+        <li><strong>Twitter / X posts:</strong> 280 characters including spaces. Links count as 23 characters regardless of actual URL length.</li>
+        <li><strong>Google meta description:</strong> 155 to 160 characters is the practical limit before Google truncates with "..." in search results.</li>
+        <li><strong>SMS text message:</strong> 160 characters for a standard single SMS. Going over splits the message into multiple parts billed separately.</li>
+        <li><strong>Instagram caption:</strong> 2,200 characters total allowed, though only the first 125 or so show before the "more" cutoff in the feed.</li>
+        <li><strong>LinkedIn post:</strong> 3,000 characters. Posts over 210 characters get a "See more" truncation in the feed.</li>
+        <li><strong>YouTube description:</strong> 5,000 characters. Only the first 157 appear in search results.</li>
+    </ul>
+</section>
+
+{{ adSlot(site, "incontent") }}
+
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>Does the counter include spaces in the character count?</h3>
+    <p>Yes. The main character count includes all spaces and punctuation. If you need characters without spaces, check the secondary count shown below the main number. Most social media platforms count spaces the same as any other character, so the total with spaces is the number that matters for hitting character limits.</p>
+
+    <h3>Can I use this to check my Twitter character limit?</h3>
+    <p>Yes. The platform limits section shows exactly how many characters you have left for Twitter, which enforces a 280-character limit. Paste your draft tweet in and you will see instantly whether it fits or needs trimming.</p>
+
+    <h3>Does pasting formatted text cause issues?</h3>
+    <p>When you paste from a word processor the tool strips all formatting and counts plain text only. Bold, italic, links, and other markup are not included in the character count. Only the visible text characters are counted.</p>
+
+    <h3>Is there a maximum text length I can check?</h3>
+    <p>There is no hard limit built in. The tool handles large pastes well because all processing runs locally on your device. Very large documents may slow down slightly on older hardware but will still produce accurate counts.</p>
+</section>
+
+<section class="related">
+    <h2>Related Text Tools</h2>
+    <ul>
+        <li><a href="/fancy-text-generator/">Fancy Text Generator</a></li>
+        <li><a href="/fantasy-name-generator/">Fantasy Name Generator</a></li>
+        <li><a href="/">Browse All Tools</a></li>
+    </ul>
+</section>
+
+{% from "cluster.njk" import clusterGuides %}
+{{ clusterGuides(tools | findByKey("slug", page.fileSlug)) }}
+
+<div class="author">
+    <p><em>Published by the QuixCalc Team. Platform limits verified against official platform documentation as of July 2026. Last updated: July 2026.</em></p>
+</div>
+
+<script src="char.js" defer></script>

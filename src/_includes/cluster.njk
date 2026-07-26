@@ -1,0 +1,42 @@
+{#
+  Cluster links, per doc 01 Faza C.
+
+  The money page has to point back at the guides written to feed it,
+  otherwise authority flows in one direction and stops. clusterGuides()
+  goes on the tool page, clusterFooter() goes on the guide.
+#}
+
+{% macro clusterGuides(tool) %}
+{%- if tool and tool.posts and tool.posts.length %}
+<section class="cluster">
+    <h2>Guides for the {{ tool.name }}</h2>
+    <p>Longer reads on the maths and the practical side of this tool.</p>
+    <ul class="cluster-list">
+        {%- for p in tool.posts %}
+        <li><a href="{{ p.url }}">{{ p.title }}</a></li>
+        {%- endfor %}
+    </ul>
+</section>
+{%- endif %}
+{% endmacro %}
+
+
+{% macro clusterFooter(tool, thisUrl) %}
+{%- if tool %}
+<section class="cluster cluster-footer">
+    <h2>Keep going</h2>
+    <ul class="cluster-list">
+        <li><a href="{{ tool.url }}"><strong>{{ tool.name }}</strong></a>, to run the numbers yourself.</li>
+        {%- for p in tool.posts %}
+        {%- if p.url != thisUrl %}
+        <li><a href="{{ p.url }}">{{ p.title }}</a></li>
+        {%- endif %}
+        {%- endfor %}
+        {%- set hub = nav.categories | findByKey("key", tool.category) %}
+        {%- if hub %}
+        <li><a href="{{ hub.url }}">More {{ hub.name }} tools</a></li>
+        {%- endif %}
+    </ul>
+</section>
+{%- endif %}
+{% endmacro %}

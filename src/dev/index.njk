@@ -1,0 +1,37 @@
+---
+layout: layout.njk
+title: Developer and Text Tools
+description: JSON formatter, UUID generator, character counter and fancy text generator. Free developer utilities with no uploads and no sign-up.
+category: dev
+appName: Text & Developer
+---
+
+<h1>Developer Tools</h1>
+<p>Tools designed to help developers with quick tasks like formatting and generating data.</p>
+
+{% from "tool-grid.njk" import toolGrid %}
+{{ toolGrid(tools, category) }}
+
+
+<section style="margin-top: 4rem; padding-top: 2rem; border-top: 2px solid var(--border);">
+    <h2 style="font-size: 1.6rem; color: var(--text-main); margin-bottom: 1rem;">Reliable Developer Utilities and Text Formatters</h2>
+    <p style="margin-bottom: 1rem; color: var(--text-muted); line-height: 1.6;">Working with code and text formatting requires fast and exact tools. Our powerful json formatter online automatically beautifies messy data structures while acting as a rigorous json validator. It processes everything instantly inside your browser without sending sensitive payloads over the internet. You can easily generate a cryptographically secure uuid v4 for database primary keys. Fast local processing makes daily development tasks much smoother.</p>
+    <p style="margin-bottom: 2.5rem; color: var(--text-muted); line-height: 1.6;">Social media managers frequently rely on our character and word count tool to check exact length limits before posting. Content creators often use the fancy text generator to create fancy text fonts for their social bios. We even include a fantasy name generator for world builders. Make sure to browse our <a href="/finance/" style="color: var(--primary); text-decoration: underline;">Finance</a> calculators if you also need to run loan or interest math.</p>
+</section>
+
+<section class="faq" style="margin-top: 3rem;">
+
+    <h2 style="font-size: 1.6rem; color: var(--text-main); margin-bottom: 1.5rem;">Frequently Asked Questions</h2>
+    <article style="margin-bottom: 1.5rem; background: var(--input-bg); padding: 1.25rem; border-radius: 8px;">
+        <h3 style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.5rem; margin-top: 0;">Are my JSON files uploaded to a server?</h3>
+        <p style="margin: 0; color: var(--text-muted);">No. Your code is never sent anywhere. The formatting and validation happen entirely within your local browser execution environment.</p>
+    </article>
+    <article style="margin-bottom: 1.5rem; background: var(--input-bg); padding: 1.25rem; border-radius: 8px;">
+        <h3 style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.5rem; margin-top: 0;">Are the generated UUIDs truly unique?</h3>
+        <p style="margin: 0; color: var(--text-muted);">Yes. The generator uses modern cryptographic browser interfaces to construct fully compliant version 4 unique identifiers.</p>
+    </article>
+    <article style="margin-bottom: 1.5rem; background: var(--input-bg); padding: 1.25rem; border-radius: 8px;">
+        <h3 style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.5rem; margin-top: 0;">Does the character counter handle emojis correctly?</h3>
+        <p style="margin: 0; color: var(--text-muted);">Yes. The algorithm appropriately counts complex multi byte emoji characters to give you an accurate length reading for modern platforms.</p>
+    </article>
+</section>

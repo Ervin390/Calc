@@ -1,0 +1,3 @@
+# Google AdSense — replace pub-0000000000000000 with your real publisher ID
+# once the AdSense account for quixcalc.com is approved, then redeploy.
+# google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0

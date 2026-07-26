@@ -1,0 +1,16 @@
+{
+  "categories": [
+    { "key": "fun",     "name": "Fun & Random",      "short": "Fun",       "url": "/fun/",     "icon": "🎲" },
+    { "key": "dev",     "name": "Text & Developer",  "short": "Developer", "url": "/dev/",     "icon": "💻" },
+    { "key": "finance", "name": "Finance & Money",   "short": "Finance",   "url": "/finance/", "icon": "💵" },
+    { "key": "health",  "name": "Fitness & Health",  "short": "Health",    "url": "/health/",  "icon": "⚖️" },
+    { "key": "math",    "name": "Math & Education",  "short": "Math",      "url": "/math/",    "icon": "➗" },
+    { "key": "date",    "name": "Date & Time",       "short": "Date",      "url": "/date/",    "icon": "📅" }
+  ],
+  "footer": [
+    { "name": "About",          "url": "/about/" },
+    { "name": "Privacy Policy", "url": "/privacy/" },
+    { "name": "Terms",          "url": "/terms/" },
+    { "name": "Contact",        "url": "/contact/" }
+  ]
+}

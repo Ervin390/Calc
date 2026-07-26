@@ -1,0 +1,112 @@
+---
+layout: layout.njk
+title: JSON Formatter - Beautify, Validate & Minify
+description: Format, validate and minify JSON in your browser. Nothing is uploaded. Paste your JSON and get clean, indented output instantly.
+appName: JSON Formatter
+category: dev
+appCategory: DeveloperApplication
+permalink: /json-formatter/
+updated: 2026-07-26
+---
+{% from "ad-slot.njk" import adSlot %}
+
+<h1>JSON Formatter</h1>
+<p>This JSON formatter takes raw, minified or messy JSON and returns it properly indented and readable. It validates as it goes, points at the exact character where the syntax breaks, and can minify the result back down for production.</p>
+
+<section class="tool">
+    <div class="tool-controls">
+
+        <div style="display: flex; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 250px;">
+                <label for="json-input">Raw JSON Input</label>
+                <textarea id="json-input" rows="12" placeholder='{"key":"value","number":123,"nested":{"boolean":true}}' style="font-family: monospace;"></textarea>
+            </div>
+
+            <div style="flex: 1; min-width: 250px;">
+                <label for="json-output">Formatted Output Window</label>
+                <textarea id="json-output" rows="12" readonly style="font-family: monospace; background:var(--input-bg);"></textarea>
+            </div>
+        </div>
+
+        <div id="json-alert" role="status" aria-live="polite" aria-atomic="true" style="display: none; padding: 1rem; background: var(--danger-bg); color: var(--danger-strong); border: 1px solid var(--danger); border-radius: 4px; margin-bottom: 1.5rem; word-break: break-all;">
+            <strong>Error:</strong> Invalid JSON detected.
+        </div>
+
+        <div class="btn-group">
+            <button id="btn-format" style="flex:1;">Format / Prettify</button>
+            <button id="btn-minify" class="secondary" style="flex:1;">Minify (Compress)</button>
+            <button id="btn-copy-json" class="secondary" style="flex:1;">Copy Output</button>
+        </div>
+    </div>
+
+    <div class="tool-actions">
+        <button type="button" class="secondary" data-share>Share link</button>
+        <span class="tool-actions-msg" role="status" aria-live="polite"></span>
+    </div>
+</section>{{ adSlot(site, "inline") }}
+
+<section class="how">
+    <h2>How to Format and Validate JSON</h2>
+    <p>Paste your JSON into the left panel. If you want to prettify it, click Format. The tool will parse the JSON and output a properly indented version in the right panel, making it easy to read nested structures even in complex API responses.</p>
+    <p>If there is a syntax error in your JSON, the error box appears with the exact problem description. Common issues are trailing commas after the last item in an array or object, single quotes instead of double quotes around keys, and missing closing brackets. The error message points directly to the first problem found.</p>
+    <p>To compress your JSON back to a single line for pasting into a config file or API request, click Minify. The output removes all whitespace while keeping the data structure intact.</p>
+</section>
+
+<section class="formula">
+    <h2>JSON Syntax Rules</h2>
+    <p>JSON stands for JavaScript Object Notation. The format has a small set of strict rules that must all be followed for the document to be valid.</p>
+    <ul>
+        <li><strong>Keys must be double-quoted strings:</strong> Use "name", not name or 'name'.</li>
+        <li><strong>String values must also be double-quoted:</strong> Use "value", not 'value'.</li>
+        <li><strong>No trailing commas:</strong> The last item in an array or object cannot have a comma after it. This is one of the most common mistakes coming from JavaScript code.</li>
+        <li><strong>Numbers are unquoted:</strong> Write 42, not "42", if you mean a number.</li>
+        <li><strong>Booleans and null are lowercase:</strong> true, false, null, not True or NULL.</li>
+        <li><strong>All brackets must close:</strong> Every opening { needs a closing }, and every [ needs a ].</li>
+    </ul>
+</section>
+
+<section class="examples">
+    <h2>Common JSON Formatting Scenarios</h2>
+    <ul>
+        <li><strong>API response debugging:</strong> You receive a minified JSON response from an API endpoint and need to read it. Paste it into this formatter to get an indented, structured view of all nested objects and arrays.</li>
+        <li><strong>Config file cleanup:</strong> A JSON config file has inconsistent indentation from multiple editors. Paste it in, format it, and copy back a consistently styled version.</li>
+        <li><strong>JSON validation before send:</strong> You are about to POST a JSON payload to an API. Paste your constructed body here first to confirm there are no syntax errors that would cause a 400 Bad Request response.</li>
+        <li><strong>JSON minification for production:</strong> Remove whitespace from a large JSON file to reduce its byte size for faster network transfer or smaller storage footprint.</li>
+    </ul>
+</section>
+
+{{ adSlot(site, "incontent") }}
+
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>Why does my JSON keep showing a validation error?</h3>
+    <p>The most common causes are trailing commas, single-quoted strings, and missing or extra brackets. Check the last item in every array and object to make sure there is no comma after it. Make sure all string values and all keys are wrapped in double quotes, not single quotes. If you copied JSON from a JavaScript file you may need to clean it up since JS allows single quotes and trailing commas but JSON does not.</p>
+
+    <h3>Is my JSON data sent to a server?</h3>
+    <p>No. This formatter runs entirely in the browser using the native JSON.parse and JSON.stringify methods built into every modern browser. Your data never leaves your device. This makes it safe to format sensitive payloads like API keys or database responses.</p>
+
+    <h3>What is the difference between JSON and a JavaScript object?</h3>
+    <p>A JavaScript object is code that lives in memory during execution. JSON is a text format for transmitting or storing data. They look similar but have stricter rules: JSON requires double quotes on all keys, does not support trailing commas, and cannot contain functions or undefined values. The JSON.parse and JSON.stringify functions convert between the two.</p>
+
+    <h3>Can this handle very large JSON files?</h3>
+    <p>The tool handles files up to a few megabytes without issues on modern browsers. Very large JSON documents tens of thousands of lines long may cause a brief pause during formatting but will process correctly. The bottleneck is browser memory, not the tool itself.</p>
+</section>
+
+<section class="related">
+    <h2>Related Developer Tools</h2>
+    <ul>
+        <li><a href="/uuid-generator/">UUID Generator</a></li>
+        <li><a href="/character-counter/">Character Counter</a></li>
+        <li><a href="/">Browse All Tools</a></li>
+    </ul>
+</section>
+
+{% from "cluster.njk" import clusterGuides %}
+{{ clusterGuides(tools | findByKey("slug", page.fileSlug)) }}
+
+<div class="author">
+    <p><em>Published by the QuixCalc Team. JSON specification follows ECMA-404 and RFC 8259 standards. Last updated: July 2026.</em></p>
+</div>
+
+<script src="json.js" defer></script>

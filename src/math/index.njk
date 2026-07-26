@@ -1,0 +1,36 @@
+---
+layout: layout.njk
+title: Math and Education Calculators
+description: GPA, fraction and standard deviation calculators that show the full working. Free math tools for students, teachers and anyone checking their numbers.
+category: math
+appName: Math & Education
+---
+
+<h1>Math & Education Tools</h1>
+<p>Calculators for schoolwork, statistics and everyday arithmetic. Every result shows the steps, so you can check the method and not just the answer.</p>
+
+{% from "tool-grid.njk" import toolGrid %}
+{{ toolGrid(tools, category) }}
+
+<section style="margin-top: 4rem; padding-top: 2rem; border-top: 2px solid var(--border);">
+    <h2 style="font-size: 1.6rem; color: var(--text-main); margin-bottom: 1rem;">Math Tools That Show Their Working</h2>
+    <p style="margin-bottom: 1rem; color: var(--text-muted); line-height: 1.6;">Most online calculators hand you a number and leave you guessing how it got there. That is fine when you already trust the method and useless when you are trying to learn it. Our fraction calculator prints the common denominator step, the addition step and the simplification step, so you can follow the arithmetic line by line. The standard deviation calculator does the same, showing the mean, each squared deviation and the final square root.</p>
+    <p style="margin-bottom: 2.5rem; color: var(--text-muted); line-height: 1.6;">Students tracking their academic standing can use the GPA calculator for both weighted and unweighted scales, including AP and honours course weighting. Nothing you type is sent anywhere, which matters when you are entering real grades. If you are working on assignments with deadlines attached, our <a href="/date/" style="color: var(--primary); text-decoration: underline;">Date &amp; Time</a> tools will count the business days for you.</p>
+</section>
+
+<section class="faq" style="margin-top: 3rem;">
+
+    <h2 style="font-size: 1.6rem; color: var(--text-main); margin-bottom: 1.5rem;">Frequently Asked Questions</h2>
+    <article style="margin-bottom: 1.5rem; background: var(--input-bg); padding: 1.25rem; border-radius: 8px;">
+        <h3 style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.5rem; margin-top: 0;">Does the GPA calculator handle weighted and unweighted scales?</h3>
+        <p style="margin: 0; color: var(--text-muted);">Yes. You can switch between the standard 4.0 unweighted scale and a weighted scale that adds extra points for honours and AP coursework.</p>
+    </article>
+    <article style="margin-bottom: 1.5rem; background: var(--input-bg); padding: 1.25rem; border-radius: 8px;">
+        <h3 style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.5rem; margin-top: 0;">Can the fraction calculator work with mixed numbers?</h3>
+        <p style="margin: 0; color: var(--text-muted);">It can. Enter a whole number alongside the fraction and the tool converts to an improper fraction internally, then converts the answer back to mixed form.</p>
+    </article>
+    <article style="margin-bottom: 1.5rem; background: var(--input-bg); padding: 1.25rem; border-radius: 8px;">
+        <h3 style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.5rem; margin-top: 0;">Which standard deviation should I use, sample or population?</h3>
+        <p style="margin: 0; color: var(--text-muted);">Use population when your data set is the entire group you care about. Use sample when it is a subset you are generalising from. The calculator returns both.</p>
+    </article>
+</section>

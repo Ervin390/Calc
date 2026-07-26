@@ -1,0 +1,123 @@
+---
+layout: layout.njk
+title: Macro Calculator - Daily Protein, Carbs, Fat
+description: Calculate your daily protein, carb and fat targets in grams from your calorie goal. Free macro calculator for cutting and bulking.
+appName: Macro Calculator
+category: health
+appCategory: HealthApplication
+permalink: /macro-calculator/
+updated: 2026-07-26
+---
+{% from "ad-slot.njk" import adSlot %}
+
+<h1>Macro Calculator</h1>
+<p>This macro calculator splits a daily calorie goal into grams of protein, carbohydrate and fat. Pick your objective, enter your target, and you get numbers you can actually shop and cook against.</p>
+
+<section class="tool">
+    <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+        <div class="tool-controls" style="flex: 1; min-width: 300px;">
+            <label for="macro-tdee">Your Target Daily Calories (TDEE)</label>
+            <input type="number" id="macro-tdee" value="2000" min="500" max="10000" inputmode="decimal">
+
+            <label for="macro-goal">Nutrition Goal</label>
+            <select id="macro-goal">
+                <option value="maintenance">Maintenance (Balanced)</option>
+                <option value="cutting">Cutting (Low Carb / High Protein)</option>
+                <option value="bulking">Bulking (High Carb / Moderate Protein)</option>
+            </select>
+
+            <button id="btn-calc-macro" style="width: 100%; margin-top: 1.5rem;">Calculate Macronutrients</button>
+        </div>
+
+        <div style="flex: 1; min-width: 300px;">
+            <div style="background: var(--input-bg); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border); text-align: center; height: 100%;">
+                <p style="font-weight: 600; color: var(--text-sub); margin-top:0;">Daily Gram Targets</p>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; text-align: left;">
+                    <div style="background: var(--card-bg); padding: 1rem; border-radius: 4px; border: 1px solid var(--border);">
+                        <div style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.25rem;">Protein (4 kcal/g)</div>
+                        <div id="out-protein" role="status" aria-live="polite" aria-atomic="true" style="font-weight: 800; color: var(--danger); font-size:1.5rem;">0g</div>
+                        <div id="out-pro-pct" style="font-size: 0.8rem; color: var(--text-muted);">0%</div>
+                    </div>
+                    <div style="background: var(--card-bg); padding: 1rem; border-radius: 4px; border: 1px solid var(--border);">
+                        <div style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.25rem;">Carbs (4 kcal/g)</div>
+                        <div id="out-carbs" style="font-weight: 800; color: var(--primary); font-size:1.5rem;">0g</div>
+                        <div id="out-car-pct" style="font-size: 0.8rem; color: var(--text-muted);">0%</div>
+                    </div>
+                    <div style="background: var(--card-bg); padding: 1rem; border-radius: 4px; border: 1px solid var(--border); grid-column: 1 / -1;">
+                        <div style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.25rem;">Fats (9 kcal/g)</div>
+                        <div id="out-fats" style="font-weight: 800; color: var(--warning); font-size:1.5rem;">0g</div>
+                        <div id="out-fat-pct" style="font-size: 0.8rem; color: var(--text-muted);">0%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tool-actions">
+        <button type="button" class="secondary" data-copy="#out-protein">Copy result</button>
+        <button type="button" class="secondary" data-share>Share link</button>
+        <span class="tool-actions-msg" role="status" aria-live="polite"></span>
+    </div>
+</section>{{ adSlot(site, "inline") }}
+
+<section class="how">
+    <h2>How to Use This Macro Calculator</h2>
+    <p>If you already know your TDEE, enter it directly. If you do not, use the TDEE Calculator first to find your maintenance calorie number. Then choose your nutrition goal from the dropdown.</p>
+    <p>Maintenance gives you a balanced macro split suitable for holding your current weight. Cutting increases protein and reduces carbs, which helps preserve muscle while losing fat. Bulking raises carbohydrates to fuel training and recovery while keeping protein high enough to support muscle growth.</p>
+    <p>The gram targets update instantly. Track these numbers using a food diary app like Cronometer or MyFitnessPal by scanning barcodes or searching foods.</p>
+</section>
+
+<section class="formula">
+    <h2>How Macro Splits Are Calculated</h2>
+    <p>Each macronutrient provides a set amount of energy per gram. Protein delivers 4 calories per gram. Carbohydrates also deliver 4 calories per gram. Fat delivers 9 calories per gram, which is why fat-heavy foods are so calorie-dense.</p>
+    <p>The calculator assigns a percentage of your total calories to each macro based on your goal, then divides the calorie allocation by the energy per gram to get the gram target.</p>
+    <p><strong>Maintenance split:</strong> roughly 30% protein, 40% carbs, 30% fat.</p>
+    <p><strong>Cutting split:</strong> roughly 40% protein, 30% carbs, 30% fat. Higher protein helps prevent muscle loss on a calorie deficit.</p>
+    <p><strong>Bulking split:</strong> roughly 25% protein, 50% carbs, 25% fat. More carbs to fuel intense training sessions and glycogen replenishment.</p>
+</section>
+
+<section class="examples">
+    <h2>Macro Examples</h2>
+    <ul>
+        <li><strong>Cutting, 2,000 calories:</strong> Protein 200g (800 kcal, 40%), Carbs 150g (600 kcal, 30%), Fat 67g (600 kcal, 30%). This is a high-protein cut that protects lean mass during a calorie deficit.</li>
+        <li><strong>Maintenance, 2,500 calories:</strong> Protein 188g (750 kcal, 30%), Carbs 250g (1,000 kcal, 40%), Fat 83g (750 kcal, 30%). A balanced split for active people maintaining their current weight.</li>
+        <li><strong>Bulking, 3,000 calories:</strong> Protein 188g (750 kcal, 25%), Carbs 375g (1,500 kcal, 50%), Fat 83g (750 kcal, 25%). Emphasizes carbohydrates to support heavy training volume.</li>
+    </ul>
+</section>
+
+{{ adSlot(site, "incontent") }}
+
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>How many grams of protein do I need per day?</h3>
+    <p>A general starting point is 1.6 to 2.2 grams of protein per kilogram of body weight for active people doing regular resistance training. At the lower end suits people in maintenance; the higher end suits those actively trying to build muscle or cut fat while preserving mass. The macro calculator uses your calorie targets to derive a gram number aligned with your goal.</p>
+
+    <h3>Do I need to hit my macros exactly every day?</h3>
+    <p>Hitting them closely matters more than hitting them exactly. Being within 5 to 10 grams of each target consistently over a week produces the same results as perfection would. Focus on the weekly average rather than treating every single day as pass or fail.</p>
+
+    <h3>What is the best macro split for weight loss?</h3>
+    <p>Higher protein and moderate fat with lower carbs is what research generally supports for fat loss while preserving muscle. The cutting split in this calculator applies roughly a 40/30/30 protein/carbs/fat ratio. That said, the total calorie deficit matters far more than the exact split. You will lose fat at any macro ratio as long as you are eating fewer calories than you burn.</p>
+
+    <h3>Should I use net carbs or total carbs?</h3>
+    <p>Total carbs are what the macro calculator uses. If you follow a keto diet you would track net carbs, which subtract fiber from the total since fiber is not absorbed the same way. For most non-keto approaches total carbohydrates is the relevant number to track.</p>
+</section>
+
+<section class="related">
+    <h2>Related Fitness Tools</h2>
+    <ul>
+        <li><a href="/tdee-calculator/">TDEE Calculator</a></li>
+        <li><a href="/bmr-calculator/">BMR Calculator</a></li>
+        <li><a href="/">Browse All Tools</a></li>
+    </ul>
+</section>
+
+{% from "cluster.njk" import clusterGuides %}
+{{ clusterGuides(tools | findByKey("slug", page.fileSlug)) }}
+
+<div class="author">
+    <p><em>Published by the QuixCalc Team. Macro ratios based on ISSN Position Stand on Protein and Exercise Metabolism (2017). Last updated: July 2026.</em></p>
+</div>
+
+<script src="macro.js" defer></script>

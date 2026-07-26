@@ -1,0 +1,137 @@
+---
+layout: layout.njk
+title: Standard Deviation Calculator - Mean & Variance
+description: Calculate sample and population standard deviation, mean and variance from any data set, with the full working shown step by step.
+appName: Standard Deviation Calc
+category: math
+appCategory: EducationalApplication
+permalink: /standard-deviation-calculator/
+updated: 2026-07-26
+---
+{% from "ad-slot.njk" import adSlot %}
+
+<h1>Standard Deviation Calculator</h1>
+<p>Enter your data values separated by commas and this standard deviation calculator instantly computes the mean, median, sample standard deviation, population standard deviation, and variance. All results shown together in one place.</p>
+
+<section class="tool">
+    <div class="tool-controls">
+        <label for="stddev-input">Enter Values (separate with commas or spaces)</label>
+        <textarea id="stddev-input" rows="4" placeholder="e.g. 10, 20, 30, 40, 50"></textarea>
+        <div style="display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap;">
+            <button id="btn-calc-std">Calculate Statistics</button>
+            <button id="btn-clear-std" class="secondary">Clear</button>
+        </div>
+    </div>
+
+    <div class="tool-output" role="status" aria-live="polite" aria-atomic="true" id="std-result-box" style="margin-top: 1.5rem; display: none;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; text-align: center;">
+            <div style="background: var(--input-bg); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border);">
+                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">Count (n)</div>
+                <div id="out-count" style="font-size: 2rem; font-weight: 800; color: var(--text-main);">0</div>
+            </div>
+            <div style="background: var(--input-bg); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border);">
+                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">Mean (Average)</div>
+                <div id="out-mean" style="font-size: 2rem; font-weight: 800; color: var(--primary);">0</div>
+            </div>
+            <div style="background: var(--input-bg); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border);">
+                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">Median</div>
+                <div id="out-median" style="font-size: 2rem; font-weight: 800; color: var(--success);">0</div>
+            </div>
+            <div style="background: var(--input-bg); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border);">
+                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">Sample Std Dev (s)</div>
+                <div id="out-sample" style="font-size: 2rem; font-weight: 800; color: var(--warning);">0</div>
+            </div>
+            <div style="background: var(--input-bg); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border);">
+                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">Population Std Dev (σ)</div>
+                <div id="out-pop" style="font-size: 2rem; font-weight: 800; color: var(--violet);">0</div>
+            </div>
+            <div style="background: var(--input-bg); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border);">
+                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">Variance</div>
+                <div id="out-variance" style="font-size: 2rem; font-weight: 800; color: var(--danger);">0</div>
+            </div>
+        </div>
+
+        <div id="std-histogram" style="margin-top: 1.5rem; padding: 1rem; background: var(--input-bg); border: 1px solid var(--border); border-radius: 8px;">
+            <p style="font-weight: 600; color: var(--text-sub); margin-top: 0;">Data Distribution</p>
+            <canvas id="hist-canvas" style="max-width: 100%; height: 120px;"></canvas>
+        </div>
+    </div>
+
+    <div class="tool-actions">
+        <button type="button" class="secondary" data-copy=".tool-output">Copy result</button>
+        <button type="button" class="secondary" data-share>Share link</button>
+        <span class="tool-actions-msg" role="status" aria-live="polite"></span>
+    </div>
+</section>{{ adSlot(site, "inline") }}
+
+<section class="how">
+    <h2>How to Use This Standard Deviation Calculator</h2>
+    <p>Type or paste your numbers into the input box, separated by commas or spaces. Hit Calculate and the tool shows six statistics at once: count, mean, median, sample standard deviation, population standard deviation, and variance. The histogram below the numbers gives a quick visual sense of how spread out your data is.</p>
+    <p>Use sample standard deviation (s) when your numbers are a sample taken from a larger population. Use population standard deviation (sigma) when you have complete data for the entire group you are measuring. When in doubt, sample standard deviation is the safer choice for most school and research work.</p>
+</section>
+
+<section class="formula">
+    <h2>Standard Deviation Formulas</h2>
+    <p><strong>Step 1, Find the Mean:</strong> Add all values together and divide by the count.</p>
+    <p>Mean (x̄) = (x1 + x2 + ... + xn) / n</p>
+    <p><strong>Step 2, Find Each Squared Deviation:</strong> Subtract the mean from each value and square the result.</p>
+    <p>(xi - x̄)²</p>
+    <p><strong>Step 3, Population Standard Deviation (σ):</strong> Take the square root of the average squared deviation.</p>
+    <p>σ = sqrt[ Sum(xi - x̄)² / n ]</p>
+    <p><strong>Step 4, Sample Standard Deviation (s):</strong> Same formula but divide by n-1 instead of n. This is called Bessel's correction and reduces bias when working from a sample.</p>
+    <p>s = sqrt[ Sum(xi - x̄)² / (n-1) ]</p>
+    <p><strong>Variance</strong> is simply the standard deviation squared. So if σ = 4, variance = 16.</p>
+</section>
+
+<section class="examples">
+    <h2>Standard Deviation Examples</h2>
+    <ul>
+        <li>
+            <strong>Test scores: 70, 75, 80, 85, 90</strong><br>
+            Mean = 80. Deviations: -10, -5, 0, 5, 10. Squared: 100, 25, 0, 25, 100. Sum = 250. Population variance = 50. Population std dev = 7.07. Sample std dev = 7.91.
+        </li>
+        <li>
+            <strong>Small data set: 2, 4, 4, 4, 5, 5, 7, 9</strong><br>
+            Mean = 5. Population std dev = 2. This is the classic textbook example because the answer comes out exactly as a whole number.
+        </li>
+        <li>
+            <strong>Interpreting the result:</strong> A standard deviation of 2 on a data set with a mean of 50 means most values fall between 48 and 52, a tight cluster. A standard deviation of 20 on the same mean means values spread widely from 30 to 70.
+        </li>
+    </ul>
+</section>
+
+{{ adSlot(site, "incontent") }}
+
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>What does standard deviation tell you?</h3>
+    <p>Standard deviation measures how spread out the values in a data set are from the mean. A small standard deviation means the numbers are clustered tightly around the average. A large one means there is a lot of variation. In practical terms, a class where all students scored between 78 and 82 has a low standard deviation; one where scores range from 40 to 98 has a high one.</p>
+
+    <h3>When should I use sample vs population standard deviation?</h3>
+    <p>Population standard deviation (σ) is correct when you have data for every member of a group. Sample standard deviation (s) is for when you have measured only some members and want to draw conclusions about the whole group. For homework and most research assignments, sample standard deviation is typically what is expected unless the problem states otherwise.</p>
+
+    <h3>What is variance?</h3>
+    <p>Variance is the average of the squared differences from the mean. It is always the square of the standard deviation. Variance is useful in statistical formulas because it avoids square roots in intermediate steps, making certain calculations cleaner. For interpretation, standard deviation is easier to use because it is in the same units as the original data.</p>
+
+    <h3>How many numbers can I enter?</h3>
+    <p>The tool handles large data sets comfortably. Paste a hundred or a thousand values and it processes them instantly. There is no hard limit built in, though very large data sets may take a fraction of a second longer on older devices.</p>
+</section>
+
+<section class="related">
+    <h2>Related Math Tools</h2>
+    <ul>
+        <li><a href="/fraction-calculator/">Fraction Calculator</a></li>
+        <li><a href="/gpa-calculator/">GPA Calculator</a></li>
+        <li><a href="/">Browse All Tools</a></li>
+    </ul>
+</section>
+
+{% from "cluster.njk" import clusterGuides %}
+{{ clusterGuides(tools | findByKey("slug", page.fileSlug)) }}
+
+<div class="author">
+    <p><em>Published by the QuixCalc Team. Formulas follow standard statistical conventions as taught in AP Statistics and university-level courses. Last updated: July 2026.</em></p>
+</div>
+
+<script src="stddev.js" defer></script>

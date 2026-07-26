@@ -1,0 +1,17 @@
+---
+permalink: /search-index.json
+eleventyExcludeFromCollections: true
+sitemapExclude: true
+---
+{%- set rows = [] -%}
+[
+{%- for t in tools %}
+  {"t": {{ t.name | dump | safe }}, "u": "{{ t.url }}", "d": {{ t.description | dump | safe }}, "k": "tool", "i": {{ t.icon | dump | safe }}},
+{%- endfor %}
+{%- for c in nav.categories %}
+  {"t": {{ c.name | dump | safe }}, "u": "{{ c.url }}", "d": "Category hub", "k": "category", "i": {{ c.icon | dump | safe }}},
+{%- endfor %}
+{%- for p in collections.blog %}
+  {"t": {{ (p.data.metaTitle if p.data.metaTitle else p.data.title) | dump | safe }}, "u": "{{ p.url }}", "d": {{ p.data.description | truncate(110) | dump | safe }}, "k": "guide", "i": "📄"}{% if not loop.last %},{% endif %}
+{%- endfor %}
+]

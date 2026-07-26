@@ -1,0 +1,36 @@
+---
+layout: layout.njk
+title: Date and Time Calculators
+description: Count the days between two dates, add or subtract time from any date, and find your exact age. Free date calculators with no sign-up required.
+category: date
+appName: Date & Time
+---
+
+<h1>Date & Time Tools</h1>
+<p>Work out how long is left, how long it has been, or what the date will be after a given number of days. Useful for deadlines, contracts and birthdays.</p>
+
+{% from "tool-grid.njk" import toolGrid %}
+{{ toolGrid(tools, category) }}
+
+<section style="margin-top: 4rem; padding-top: 2rem; border-top: 2px solid var(--border);">
+    <h2 style="font-size: 1.6rem; color: var(--text-main); margin-bottom: 1rem;">Counting Days Without Counting on Your Fingers</h2>
+    <p style="margin-bottom: 1rem; color: var(--text-muted); line-height: 1.6;">Date arithmetic looks trivial until leap years, month lengths and weekends get involved. Our date calculator handles the number of days between any two dates and also runs the other direction, adding or subtracting days, weeks and months from a starting point. Contract deadlines and notice periods are usually written in business days, so the tool separates weekdays from the raw calendar total.</p>
+    <p style="margin-bottom: 2.5rem; color: var(--text-muted); line-height: 1.6;">The age calculator breaks a date of birth down into years, months and days, plus total days lived and a countdown to the next birthday. Both tools run entirely in your browser, so your dates stay on your device. If you are calculating a payment schedule around those dates, our <a href="/finance/" style="color: var(--primary); text-decoration: underline;">Finance</a> calculators cover loan and interest maths.</p>
+</section>
+
+<section class="faq" style="margin-top: 3rem;">
+
+    <h2 style="font-size: 1.6rem; color: var(--text-main); margin-bottom: 1.5rem;">Frequently Asked Questions</h2>
+    <article style="margin-bottom: 1.5rem; background: var(--input-bg); padding: 1.25rem; border-radius: 8px;">
+        <h3 style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.5rem; margin-top: 0;">Does the date calculator account for leap years?</h3>
+        <p style="margin: 0; color: var(--text-muted);">Yes. It uses the browser's native date handling, which applies the full Gregorian leap year rule including the century exceptions.</p>
+    </article>
+    <article style="margin-bottom: 1.5rem; background: var(--input-bg); padding: 1.25rem; border-radius: 8px;">
+        <h3 style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.5rem; margin-top: 0;">Can I count business days only?</h3>
+        <p style="margin: 0; color: var(--text-muted);">The result separates the total calendar days from the weekday count, so you can read off business days directly. Public holidays are not deducted.</p>
+    </article>
+    <article style="margin-bottom: 1.5rem; background: var(--input-bg); padding: 1.25rem; border-radius: 8px;">
+        <h3 style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.5rem; margin-top: 0;">Is the age calculator accurate to the day?</h3>
+        <p style="margin: 0; color: var(--text-muted);">It is. The tool counts complete years, then complete months, then the remaining days, rather than approximating a year as 365 days.</p>
+    </article>
+</section>

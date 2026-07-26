@@ -1,0 +1,119 @@
+---
+layout: layout.njk
+title: Age Calculator - Your Exact Age in Days
+description: Calculate your exact age in years, months and days. Free age calculator showing total days lived and a countdown to your next birthday.
+appName: Age Calculator
+category: date
+appCategory: UtilitiesApplication
+permalink: /age-calculator/
+updated: 2026-07-26
+---
+{% from "ad-slot.njk" import adSlot %}
+
+<h1>Age Calculator</h1>
+<p>Enter your date of birth and this age calculator tells you exactly how old you are in years, months, and days, plus your total days lived and how long until your next birthday.</p>
+
+<section class="tool">
+    <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
+        <div class="tool-controls" style="flex: 1; min-width: 300px;">
+            <label for="age-dob">Date of Birth</label>
+            <input type="date" id="age-dob" max="" value="2000-01-01">
+
+            <label for="age-target">Calculate Age On This Date (optional)</label>
+            <input type="date" id="age-target" value="">
+
+            <button id="btn-calc-age" style="width: 100%; margin-top: 1.5rem;">Calculate My Age</button>
+        </div>
+
+        <div style="flex: 1; min-width: 300px;">
+            <div style="background: var(--input-bg); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border); text-align: center; height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                <p style="font-weight: 600; color: var(--text-sub); margin-top:0;">Your Exact Age</p>
+                <div id="out-age-main" role="status" aria-live="polite" aria-atomic="true" style="font-size: 2.5rem; font-weight: 800; color: var(--success); line-height: 1.2;">0 Years 0 Months 0 Days</div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; border-top: 1px solid var(--border); padding-top: 1.5rem; text-align: left;">
+                    <div>
+                        <div style="font-size: 0.9rem; color: var(--text-muted);">Total Months</div>
+                        <div id="out-total-months" style="font-weight: 800; color: var(--text-main); font-size:1.5rem;">0</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 0.9rem; color: var(--text-muted);">Total Days</div>
+                        <div id="out-total-days" style="font-weight: 800; color: var(--primary); font-size:1.5rem;">0</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 0.9rem; color: var(--text-muted);">Total Hours</div>
+                        <div id="out-total-hours" style="font-weight: 800; color: var(--violet); font-size:1.5rem;">0</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 0.9rem; color: var(--text-muted);">Next Birthday In</div>
+                        <div id="out-next-bday" style="font-weight: 800; color: var(--warning); font-size:1.5rem;">0 Days</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tool-actions">
+        <button type="button" class="secondary" data-copy="#out-age-main">Copy result</button>
+        <button type="button" class="secondary" data-share>Share link</button>
+        <span class="tool-actions-msg" role="status" aria-live="polite"></span>
+    </div>
+</section>{{ adSlot(site, "inline") }}
+
+<section class="how">
+    <h2>How to Use This Age Calculator</h2>
+    <p>Select your date of birth using the date picker. The calculator automatically updates to show your current age the moment you pick a date. By default it calculates your age as of today.</p>
+    <p>If you want to know how old you will be on a future date, or how old someone was on a past date, fill in the second field labeled "Calculate Age On This Date." This is helpful for verifying eligibility deadlines, retirement dates, or checking someone's age at a historical event.</p>
+    <p>All processing happens in your browser. No birthdate data is sent to any server.</p>
+</section>
+
+<section class="formula">
+    <h2>How Age Is Calculated</h2>
+    <p>Age calculation sounds simple but has a few tricky edge cases. The basic approach is: take the target date, subtract the birth year to get full years, then check whether the birthday month and day have passed yet this year. If they have not, subtract one from the year count.</p>
+    <p>Month calculation follows the same logic. After accounting for full years, count how many additional complete months have passed since the last birthday. Days are whatever remains after the full months are accounted for.</p>
+    <p>Leap year birthdays add a special case. People born on February 29 officially turn a year older on March 1 in non-leap years. This calculator applies that convention consistently.</p>
+</section>
+
+<section class="examples">
+    <h2>Age Calculation Examples</h2>
+    <ul>
+        <li><strong>Standard age lookup:</strong> Born on April 15, 1990. As of July 25, 2026, that person is 36 years, 3 months, and 10 days old. Total days lived: approximately 13,249.</li>
+        <li><strong>Retirement eligibility:</strong> Born on September 3, 1962. Full retirement age of 67 falls on September 3, 2029. The next birthday countdown helps track when that milestone arrives.</li>
+        <li><strong>Pediatric checkup age:</strong> A child born January 20, 2023 is exactly 18 months old on July 20, 2024, useful for scheduling well-child visits.</li>
+        <li><strong>Legal drinking age check:</strong> Born March 1, 2004. The person turns 21 on March 1, 2025. Any date before that they are still under 21.</li>
+    </ul>
+</section>
+
+{{ adSlot(site, "incontent") }}
+
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>How old am I if I was born in a specific year?</h3>
+    <p>A quick estimate: subtract your birth year from the current year (2026). If your birthday has not yet passed this year, subtract one more. For example, someone born in 1995 who has not had their 2026 birthday yet is 30 years old. Enter your exact date in the calculator for the precise years, months, and days figure.</p>
+
+    <h3>What if I was born on February 29?</h3>
+    <p>February 29 birthdays occur once every four years. In non-leap years, this calculator treats March 1 as the official birthday for age purposes, which is the most widely accepted convention for legal and administrative use.</p>
+
+    <h3>Can I calculate someone's age on a specific past or future date?</h3>
+    <p>Yes. Use the second date field to enter any target date. The tool will calculate the exact age between the birth date and that specific point in time. This works for both past and future dates.</p>
+
+    <h3>Is the total hours count accurate?</h3>
+    <p>The hours figure is calculated from total days and does not account for the specific time of day you were born. If you were born at 11 PM and it is currently 8 AM, the hours count may be off by several hours. For most purposes this level of precision is more than enough.</p>
+</section>
+
+<section class="related">
+    <h2>Related Date and Time Tools</h2>
+    <ul>
+        <li><a href="/date-calculator/">Date Calculator</a></li>
+        <li><a href="/">Browse All Tools</a></li>
+    </ul>
+</section>
+
+{% from "cluster.njk" import clusterGuides %}
+{{ clusterGuides(tools | findByKey("slug", page.fileSlug)) }}
+
+<div class="author">
+    <p><em>Published by the QuixCalc Team. Age calculation follows ISO 8601 date standards. Last updated: July 2026.</em></p>
+</div>
+
+<script src="age.js" defer></script>

@@ -1,0 +1,23 @@
+{#
+  toolGrid(allTools, categoryKey)
+
+  Renders every tool in a category from src/_data/tools.json.
+  Single source of truth, so a tool can never silently go missing
+  from its hub page again. A macro rather than an include because
+  loop-local variables do not reliably reach an included template.
+#}
+{% macro toolGrid(allTools, categoryKey) %}
+<div class="card-grid">
+    {%- for t in allTools | byCategory(categoryKey) %}
+    <a href="{{ t.url }}" class="tool-card">
+        <div class="card-header">
+            <span class="card-icon" aria-hidden="true">{{ t.icon }}</span>
+            <h3>{{ t.name }}</h3>
+        </div>
+        <div class="card-body">
+            <p>{{ t.description }}</p>
+        </div>
+    </a>
+    {%- endfor %}
+</div>
+{% endmacro %}

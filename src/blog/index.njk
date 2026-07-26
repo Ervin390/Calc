@@ -1,0 +1,29 @@
+---
+layout: layout.njk
+title: Blog - Calculator Guides and Tutorials
+description: Practical guides on tipping, macros, compound interest, UUIDs, GPA, fractions and more. Written to explain the maths behind our free tools.
+permalink: "/blog/"
+appName: Blog
+---
+
+<h1>QuixCalc Blog</h1>
+<p>Read our latest articles and tutorials.</p>
+
+<div class="card-grid" style="margin-top: 2rem;">
+  {% if collections.blog.length == 0 %}
+    <p><em>No blog posts published yet. Check back soon!</em></p>
+  {% else %}
+    {% for post in collections.blog | reverse %}
+        <a href="{{ post.url }}" class="tool-card blog-card">
+            <div class="card-header" style="background-color: var(--input-bg);">
+                <span class="card-icon">📝</span>
+                <h3 style="color: var(--text-main);">{{ post.data.title }}</h3>
+            </div>
+            <div class="card-body" style="display: flex; flex-direction: column; flex-grow: 1;">
+                <p style="margin-bottom: 1.5rem; flex-grow: 1;">{{ post.data.description }}</p>
+                <span class="btn" style="width:100%; border-radius:6px; font-weight:600;">Read Full Guide</span>
+            </div>
+        </a>
+    {% endfor %}
+  {% endif %}
+</div>

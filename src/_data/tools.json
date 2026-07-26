@@ -1,0 +1,382 @@
+[
+  {
+    "slug": "morse-code-translator",
+    "name": "Morse Code Translator",
+    "icon": "📡",
+    "description": "Translate text directly into Morse code and playback via browser synthesis.",
+    "category": "fun",
+    "popular": false,
+    "url": "/morse-code-translator/",
+    "posts": [
+      {
+        "url": "/blog/history-of-morse-code-aviation/",
+        "title": "Morse Code History and Its Use in Aviation"
+      },
+      {
+        "url": "/blog/sos-morse-code-emergency-signal-guide/",
+        "title": "SOS in Morse Code: How to Send It"
+      }
+    ]
+  },
+  {
+    "slug": "random-name-generator",
+    "name": "Random Name Generator",
+    "icon": "👥",
+    "description": "Generate bulk lists of realistic male and female first names and surnames.",
+    "category": "fun",
+    "popular": false,
+    "url": "/random-name-generator/",
+    "posts": [
+      {
+        "url": "/blog/gdpr-compliant-test-data-generation/",
+        "title": "GDPR-Safe Test Data for QA Teams"
+      },
+      {
+        "url": "/blog/overcoming-writers-block-naming-characters/",
+        "title": "5 Ways to Name Minor Characters Fast"
+      }
+    ]
+  },
+  {
+    "slug": "spinner-wheel",
+    "name": "Spinner Wheel",
+    "icon": "🎡",
+    "description": "Pick a random name or decide a winner fairly with our interactive spinning wheel.",
+    "category": "fun",
+    "popular": true,
+    "url": "/spinner-wheel/",
+    "posts": [
+      {
+        "url": "/blog/10-fun-classroom-games-spinner-wheel/",
+        "title": "10 Classroom Games to Play with a Spinner Wheel"
+      },
+      {
+        "url": "/blog/how-to-host-virtual-giveaways-using-a-wheel-of-names/",
+        "title": "Hosting Virtual Giveaways with a Name Wheel"
+      }
+    ]
+  },
+  {
+    "slug": "dice-roller",
+    "name": "Virtual Dice Roller",
+    "icon": "🎲",
+    "description": "Simulate rolling any polyhedral dice (d4 to d100) instantly for tabletop games.",
+    "category": "fun",
+    "popular": false,
+    "url": "/dice-roller/",
+    "posts": [
+      {
+        "url": "/blog/board-game-night-lost-dice-solutions/",
+        "title": "Lost Your Dice? Board Game Night Fixes"
+      },
+      {
+        "url": "/blog/dnd-dice-notation-explained-d4-d6-d20/",
+        "title": "D&D Dice Notation Explained: d4, d6, d20"
+      }
+    ]
+  },
+  {
+    "slug": "character-counter",
+    "name": "Character Counter",
+    "icon": "📝",
+    "description": "Track your exact letter counts against social media limits (X, SMS, Meta).",
+    "category": "dev",
+    "popular": false,
+    "url": "/character-counter/",
+    "posts": [
+      {
+        "url": "/blog/seo-meta-description-160-characters/",
+        "title": "Why Meta Descriptions Stay Under 160 Chars"
+      },
+      {
+        "url": "/blog/social-media-character-limits-2026/",
+        "title": "Social Media Character Limits in 2026"
+      }
+    ]
+  },
+  {
+    "slug": "fancy-text-generator",
+    "name": "Fancy Text Generator",
+    "icon": "✨",
+    "description": "Convert standard text into bold, italic, and cursive unicode fonts easily.",
+    "category": "dev",
+    "popular": false,
+    "url": "/fancy-text-generator/",
+    "posts": [
+      {
+        "url": "/blog/bold-italic-text-instagram-tiktok-bios/",
+        "title": "Bold and Italic Text for Instagram and TikTok"
+      },
+      {
+        "url": "/blog/unicode-fonts-discord-chats/",
+        "title": "Best Unicode Fonts for Discord Chats"
+      }
+    ]
+  },
+  {
+    "slug": "fantasy-name-generator",
+    "name": "Fantasy Name Generator",
+    "icon": "🧙‍♂️",
+    "description": "Create unique D&D realm names for elves, dwarves, and mystical characters.",
+    "category": "dev",
+    "popular": false,
+    "url": "/fantasy-name-generator/",
+    "posts": [
+      {
+        "url": "/blog/dnd-character-naming-official-lore/",
+        "title": "Naming Your D&D Character Using 5e Lore"
+      },
+      {
+        "url": "/blog/wow-guild-naming-fantasy-realm-tips/",
+        "title": "Naming Your WoW Guild or Fantasy Realm"
+      }
+    ]
+  },
+  {
+    "slug": "json-formatter",
+    "name": "JSON Formatter",
+    "icon": "💻",
+    "description": "Prettify, validate, and minify structured JSON data payloads easily.",
+    "category": "dev",
+    "popular": true,
+    "url": "/json-formatter/",
+    "posts": [
+      {
+        "url": "/blog/common-json-syntax-errors-fixes/",
+        "title": "Common JSON Syntax Errors and How to Fix Them"
+      },
+      {
+        "url": "/blog/json-vs-xml-data-format/",
+        "title": "JSON vs XML: Why JSON Won the Web"
+      }
+    ]
+  },
+  {
+    "slug": "uuid-generator",
+    "name": "UUID Generator",
+    "icon": "🔑",
+    "description": "Generate bulk cryptographically secure v4 UUIDs for database primary keys.",
+    "category": "dev",
+    "popular": false,
+    "url": "/uuid-generator/",
+    "posts": [
+      {
+        "url": "/blog/database-primary-keys-uuid-vs-integers/",
+        "title": "Primary Keys: Auto-Increment vs UUID"
+      },
+      {
+        "url": "/blog/what-is-uuid-v4-cloud-databases/",
+        "title": "What Is a UUID v4 and When to Use One"
+      }
+    ]
+  },
+  {
+    "slug": "amortization-calculator",
+    "name": "Amortization Calculator",
+    "icon": "📊",
+    "description": "Break down loan schedules with full per-payment table exports.",
+    "category": "finance",
+    "popular": false,
+    "url": "/amortization-calculator/",
+    "posts": [
+      {
+        "url": "/blog/amortization-schedule-explained/",
+        "title": "Amortization Schedule Explained"
+      },
+      {
+        "url": "/blog/extra-mortgage-payment-saves-thousands/",
+        "title": "One Extra Mortgage Payment a Year"
+      }
+    ]
+  },
+  {
+    "slug": "compound-interest-calculator",
+    "name": "Compound Interest",
+    "icon": "📈",
+    "description": "Calculate exponential wealth growth over time with monthly contributions.",
+    "category": "finance",
+    "popular": true,
+    "url": "/compound-interest-calculator/",
+    "posts": [
+      {
+        "url": "/blog/monthly-vs-annual-compounding-frequency/",
+        "title": "Monthly vs Annual Compounding Explained"
+      },
+      {
+        "url": "/blog/saving-100-month-compound-interest-millionaire/",
+        "title": "Can $100 a Month Make You a Millionaire?"
+      }
+    ]
+  },
+  {
+    "slug": "tip-calculator",
+    "name": "Tip Calculator",
+    "icon": "💵",
+    "description": "Split dinner bills perfectly and calculate gratuity percentages offline.",
+    "category": "finance",
+    "popular": false,
+    "url": "/tip-calculator/",
+    "posts": [
+      {
+        "url": "/blog/how-to-split-restaurant-bill-fairly/",
+        "title": "How to Split a Restaurant Bill Fairly"
+      },
+      {
+        "url": "/blog/modern-tipping-guide-2026/",
+        "title": "The Modern Tipping Guide for 2026"
+      }
+    ]
+  },
+  {
+    "slug": "fraction-calculator",
+    "name": "Fraction Calculator",
+    "icon": "➗",
+    "description": "Add, subtract, or multiply mixed fractions and see step-by-step solutions.",
+    "category": "math",
+    "popular": false,
+    "url": "/fraction-calculator/",
+    "posts": [
+      {
+        "url": "/blog/convert-mixed-fractions-to-decimals/",
+        "title": "How to Convert Mixed Fractions to Decimals"
+      },
+      {
+        "url": "/blog/how-to-add-fractions-different-denominators/",
+        "title": "Adding Fractions with Different Denominators"
+      }
+    ]
+  },
+  {
+    "slug": "gpa-calculator",
+    "name": "GPA Calculator",
+    "icon": "🎓",
+    "description": "Track your unweighted and weighted college or high school semester GPA.",
+    "category": "math",
+    "popular": false,
+    "url": "/gpa-calculator/",
+    "posts": [
+      {
+        "url": "/blog/one-c-grade-gpa-impact/",
+        "title": "How Much Does One C Hurt Your GPA?"
+      },
+      {
+        "url": "/blog/weighted-vs-unweighted-gpa-college-admissions/",
+        "title": "Weighted vs Unweighted GPA for College"
+      }
+    ]
+  },
+  {
+    "slug": "standard-deviation-calculator",
+    "name": "Standard Deviation Calc",
+    "icon": "📉",
+    "description": "Find sample/population variance and view instant canvas histograms.",
+    "category": "math",
+    "popular": false,
+    "url": "/standard-deviation-calculator/",
+    "posts": [
+      {
+        "url": "/blog/sample-vs-population-standard-deviation/",
+        "title": "Sample vs Population Standard Deviation"
+      },
+      {
+        "url": "/blog/understanding-variance-and-mean-statistics/",
+        "title": "Variance and Mean: A Beginner's Guide"
+      }
+    ]
+  },
+  {
+    "slug": "bmr-calculator",
+    "name": "BMR Calculator",
+    "icon": "🔥",
+    "description": "Track your exact basal metabolic rate based on medical algorithms.",
+    "category": "health",
+    "popular": false,
+    "url": "/bmr-calculator/",
+    "posts": [
+      {
+        "url": "/blog/basal-metabolic-rate-drops-after-30/",
+        "title": "Why Your BMR Drops After 30"
+      },
+      {
+        "url": "/blog/how-to-increase-bmr-metabolism-myths/",
+        "title": "How to Increase Your BMR: Myths vs Science"
+      }
+    ]
+  },
+  {
+    "slug": "macro-calculator",
+    "name": "Macro Calculator",
+    "icon": "🥩",
+    "description": "Split your nutrition goals perfectly into protein, fats, and carbohydrates.",
+    "category": "health",
+    "popular": false,
+    "url": "/macro-calculator/",
+    "posts": [
+      {
+        "url": "/blog/bulking-macros-protein-fat-carbs-guide/",
+        "title": "Bulking Macros: Protein, Fat and Carbs"
+      },
+      {
+        "url": "/blog/keto-vs-high-carb-macro-ratio-fat-loss/",
+        "title": "Keto vs High-Carb Macros for Fat Loss"
+      }
+    ]
+  },
+  {
+    "slug": "tdee-calculator",
+    "name": "TDEE Calculator",
+    "icon": "⚖️",
+    "description": "Find your caloric baseline to optimize your weight loss or bulking cuts.",
+    "category": "health",
+    "popular": false,
+    "url": "/tdee-calculator/",
+    "posts": [
+      {
+        "url": "/blog/caloric-deficit-guide-weight-loss/",
+        "title": "Caloric Deficit Guide for Weight Loss"
+      },
+      {
+        "url": "/blog/mifflin-vs-harris-benedict-tdee-formula/",
+        "title": "Mifflin-St Jeor vs Harris-Benedict TDEE"
+      }
+    ]
+  },
+  {
+    "slug": "age-calculator",
+    "name": "Age Calculator",
+    "icon": "🎂",
+    "description": "Calculate chronological age down to precise hours and minutes lived.",
+    "category": "date",
+    "popular": false,
+    "url": "/age-calculator/",
+    "posts": [
+      {
+        "url": "/blog/biological-age-vs-chronological-age/",
+        "title": "Biological Age vs Chronological Age"
+      },
+      {
+        "url": "/blog/how-old-are-you-exact-days-hours-minutes/",
+        "title": "Your Exact Age in Days, Hours and Minutes"
+      }
+    ]
+  },
+  {
+    "slug": "date-calculator",
+    "name": "Date Calculator",
+    "icon": "📅",
+    "description": "Determine exact business days remaining between two calendar dates.",
+    "category": "date",
+    "popular": false,
+    "url": "/date-calculator/",
+    "posts": [
+      {
+        "url": "/blog/business-days-calculator-contract-deadlines/",
+        "title": "How to Count Business Days Between Dates"
+      },
+      {
+        "url": "/blog/days-between-historical-events/",
+        "title": "Counting Days Between Historical Events"
+      }
+    ]
+  }
+]

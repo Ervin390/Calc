@@ -1,0 +1,60 @@
+---
+layout: layout.njk
+title: Free Online Calculators and Tools
+description: Twenty free online calculators and generators that run entirely in your browser. Tips, loans, macros, GPA, JSON, UUIDs, dice and more. No sign-up.
+appName: Home
+---
+{% from "tool-grid.njk" import toolGrid %}
+
+<div class="hero">
+    <h1>Welcome to QuixCalc</h1>
+    <p>We built this platform to give you instant access to the calculators and formatters you need every day. Simple, fast, and completely free to use. Everything runs securely in your browser.</p>
+</div>
+
+<section class="home-section">
+    <h2 class="section-title">Most Popular Tools</h2>
+    <div class="top-3-grid">
+        {%- for t in tools | where("popular", true) %}
+        <a href="{{ t.url }}" class="tool-card">
+            <div class="card-header">
+                <span class="card-icon" aria-hidden="true">{{ t.icon }}</span>
+                <h3>{{ t.name }}</h3>
+            </div>
+            <div class="card-body">
+                <p>{{ t.description }}</p>
+            </div>
+        </a>
+        {%- endfor %}
+    </div>
+</section>
+
+<section class="home-section">
+    <h2 class="section-title">Browse All {{ tools.length }} Utilities</h2>
+
+    {%- for c in nav.categories %}
+    <h3 class="category-label"><a href="{{ c.url }}">{{ c.icon }} {{ c.name }}</a></h3>
+    {{ toolGrid(tools, c.key) }}
+    {%- endfor %}
+</section>
+
+<section class="prose-section">
+    <h2>Why Use Our Free Online Calculators and Generators</h2>
+    <p>Millions of people need fast and accurate tools every day. You might want to generate a random wheel of names for a classroom giveaway. Perhaps you need a precise compound interest calculator to plan your financial future. We built this platform to give you instant results without slow servers or mandatory logins. Everything runs directly in your web browser. This means your data never leaves your device and your privacy remains strictly protected.</p>
+    <p>Our collection spans six categories. Explore the <a href="/fun/">Fun &amp; Random</a> section for a virtual dice roller or a spin the wheel tool. If you work with code, the <a href="/dev/">Text &amp; Developer</a> category will format and validate JSON online or generate bulk UUID v4 strings. We offer <a href="/finance/">Finance &amp; Money</a> tools like an amortization schedule calculator, <a href="/health/">Fitness &amp; Health</a> metric trackers built on the Mifflin-St Jeor formula, <a href="/math/">Math &amp; Education</a> calculators that show their working, and <a href="/date/">Date &amp; Time</a> tools for deadlines and birthdays.</p>
+</section>
+
+<section class="faq prose-section">
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>Are these calculators truly free to use?</h3>
+    <p>Yes. Every single utility on this website is completely free and requires absolutely no account registration.</p>
+
+    <h3>Do you store my personal calculating data?</h3>
+    <p>We do not store your data. All calculations and text formatting happen locally inside your browser memory for total privacy.</p>
+
+    <h3>Can I use these tools on my mobile phone?</h3>
+    <p>Definitely. The entire interface is mobile friendly and optimized to work seamlessly on smaller screens.</p>
+
+    <h3>Do the tools work without an internet connection?</h3>
+    <p>Once a page has loaded, the calculations run locally. If you lose signal partway through using a tool, the maths keeps working.</p>
+</section>

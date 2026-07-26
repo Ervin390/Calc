@@ -1,0 +1,116 @@
+---
+layout: layout.njk
+title: Virtual Dice Roller - Roll D20, D6 & More
+description: Roll virtual dice online instantly. Supports d4 to d100 for Dungeons and Dragons, board games and any random number you need.
+appName: Virtual Dice Roller
+category: fun
+appCategory: GameApplication
+permalink: /dice-roller/
+updated: 2026-07-26
+---
+{% from "ad-slot.njk" import adSlot %}
+
+<h1>Virtual Dice Roller</h1>
+<p>This virtual dice roller simulates any combination of dice right in your browser, from a single d6 to a fistful of d20s. Useful when your physical set has gone missing and the game is already running.</p>
+
+<section class="tool">
+    <div class="tool-controls">
+        <label for="dice-type">Select Dice Type</label>
+        <select id="dice-type">
+            <option value="4">d4 (4-sided)</option>
+            <option value="6" selected>d6 (6-sided)</option>
+            <option value="8">d8 (8-sided)</option>
+            <option value="10">d10 (10-sided)</option>
+            <option value="12">d12 (12-sided)</option>
+            <option value="20">d20 (20-sided)</option>
+            <option value="100">d100 (100-sided)</option>
+        </select>
+        
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+            <div style="flex: 1;">
+                <label for="dice-count">Number of Dice</label>
+                <input type="number" id="dice-count" value="1" min="1" max="100" inputmode="numeric">
+            </div>
+            <div style="flex: 1;">
+                <label for="dice-mod">Modifier (e.g. +3 or -1)</label>
+                <input type="number" id="dice-mod" value="0" inputmode="numeric">
+            </div>
+        </div>
+        
+        <button id="btn-roll" style="width: 100%; font-size: 1.1rem; padding: 1rem;">Roll Dice</button>
+    </div>
+    
+    <div class="tool-output" role="status" aria-live="polite" aria-atomic="true" style="background:var(--input-bg); padding: 1.5rem; border-radius: 8px; margin-top: 2rem; border: 1px solid var(--border); text-align: center;">
+        <div style="font-weight: 600; font-size: 1.1rem; color: var(--text-sub); margin-bottom: 0.5rem;">Total Result</div>
+        <div id="out-total" style="font-weight: 800; font-size: 3rem; color: var(--primary); line-height: 1;">0</div>
+        
+        <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border); text-align: left;">
+            <span style="font-weight: 600; color: var(--text-sub); font-size: 0.95rem;">Individual Rolls:</span>
+            <div id="out-individual" style="font-family: monospace; margin-top: 0.5rem; word-break: break-all; color: var(--text-main); font-size: 1rem;">
+                -
+            </div>
+        </div>
+    </div>
+
+    <div class="tool-actions">
+        <button type="button" class="secondary" data-copy=".tool-output">Copy result</button>
+        <button type="button" class="secondary" data-share>Share link</button>
+        <span class="tool-actions-msg" role="status" aria-live="polite"></span>
+    </div>
+</section>{{ adSlot(site, "inline") }}
+
+<section class="how">
+    <h2>How to Roll Virtual Dice Online</h2>
+    <p>Using our virtual rolling utility is incredibly fast whether you are managing a complex dungeon crawling campaign or simply replacing a lost game piece. First use the dropdown menu to select the specific geometric shape of your die. Most traditional board games utilize the standard six sided cube while complex hobby games rely on larger twenty sided polyhedrons.</p>
+    <p>Next tell the system exactly how many dice you want to toss at the exact same time. The input box accepts any number between one and one hundred. Finally if your specific game rules require adding or subtracting a skill bonus you can type that modifier into the proper field. Press the large roll button and our script instantly produces a cryptographically secure random number display. You will see both your grand total in bold blue typography and a detailed breakdown of your individual rolls located just below.</p>
+</section>
+
+<section class="formula">
+    <h2>Is This Random Number Generator Truly Fair?</h2>
+    <p>A common complaint regarding online gaming tools revolves around fairness. Many older web applications relied on weak mathematical software functions which often produced noticeable patterns over long gaming sessions. We completely resolved this issue by leveraging your own web browser native cryptographic programming interfaces instead of outdated mathematics.</p>
+    <p>When you click the roll button our script requests a highly secure set of randomized values generated deeply within your operating system hardware. Our logic then maps those flawlessly unpredictable values onto your chosen numerical limits. For example if you choose a d20 the script mathematically restricts the secure randomized output to whole numbers falling perfectly between one and twenty. This modern approach guarantees absolute fairness ensuring that every single number genuinely possesses an identical statistical probability of appearing on your screen.</p>
+</section>
+
+<section class="examples">
+    <h2>Decoding Common RPG Dice Notation</h2>
+    <p>Players involved in tabletop roleplaying usually abbreviate their throwing parameters using a universal notation system. Here are three extremely common examples explained clearly so you know exactly what they mean.</p>
+    <ul>
+        <li><strong>3d6:</strong> This classic command translates simply to rolling three standard six sided dice at once. You simply add up the three resulting numbers. No modifiers are applied.</li>
+        <li><strong>1d20+4:</strong> A very common combat instruction where you roll a single twenty sided shape. Whatever number shows up you must immediately add an extra four points to your final score.</li>
+        <li><strong>2d8-1:</strong> This instruction requires throwing two eight sided geometric pieces calculating their combined sum and finally subtracting exactly one point from the total.</li>
+    </ul>
+</section>
+
+{{ adSlot(site, "incontent") }}
+
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+    
+    <h3>Can I roll multiple different die shapes at the exact same time?</h3>
+    <p>Currently our streamlined interface focuses on rolling batches of a single specific type simultaneously to ensure incredible speed and absolute clarity in the results section. If your game demands mixed throws you can swiftly execute them sequentially in two very fast clicks and note the totals on your scratchpad.</p>
+    
+    <h3>Does this tool function correctly when my internet connection drops?</h3>
+    <p>Yes absolutely. Because our utility operates using exclusively client side localized scripting it does not actually need to communicate back and forth with our server infrastructure to compute mathematical outcomes. Once the main page finishes loading initially you can easily lose wireless signal or unplug your router completely and the roller will continue functioning flawlessly indefinitely.</p>
+    
+    <h3>What happens if I try rolling beyond the input limits?</h3>
+    <p>To prevent accidental browser slowdowns or crashing we placed a highly generous maximum limit of one hundred individual dice per single throw. If you attempt entering a thousand our software gently restrains the parameter ensuring your web application remains remarkably responsive throughout your gaming experience.</p>
+</section>
+
+<section class="related">
+    <h2>Related Probability and Fun Utilities</h2>
+    <p>If you require different randomization mechanics check out our other useful accessories.</p>
+    <ul>
+        <li><a href="/spinner-wheel/">Spinner Wheel / Wheel of Names</a></li>
+        <li><a href="/random-name-generator/">Random Name Generator</a></li>
+        <li><a href="/">View Full Tool Collection</a></li>
+    </ul>
+</section>
+
+{% from "cluster.njk" import clusterGuides %}
+{{ clusterGuides(tools | findByKey("slug", page.fileSlug)) }}
+
+<div class="author">
+    <p><em>Published by the QuixCalc Team. Fair gaming guaranteed. Last updated: July 2026.</em></p>
+</div>
+
+<script src="dice.js" defer></script>

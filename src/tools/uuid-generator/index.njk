@@ -1,0 +1,99 @@
+---
+layout: layout.njk
+title: UUID Generator - Free Online v4 GUID Maker
+description: Generate random UUID v4 identifiers in bulk, right in your browser. Free online GUID generator with one-click copy.
+appName: UUID Generator
+category: dev
+appCategory: DeveloperApplication
+permalink: /uuid-generator/
+updated: 2026-07-26
+---
+{% from "ad-slot.njk" import adSlot %}
+
+<h1>UUID Generator</h1>
+<p>This UUID generator creates version 4 identifiers in bulk using your browser's own cryptographic random source. Nothing is sent anywhere, so the values you generate are yours alone.</p>
+
+<section class="tool">
+    <div class="tool-controls">
+        <label for="uuid-count">How many UUIDs do you need?</label>
+        <input type="number" id="uuid-count" value="1" min="1" max="1000" inputmode="numeric">
+        
+        <label class="inline-label">
+            <input type="checkbox" id="uuid-uppercase"> Uppercase
+        </label>
+        <label class="inline-label">
+            <input type="checkbox" id="uuid-hyphens" checked> Include hyphens
+        </label>
+        
+        <div class="btn-group">
+            <button id="btn-generate">Generate UUIDs</button>
+            <button id="btn-copy" class="secondary">Copy Output</button>
+        </div>
+    </div>
+    
+    <div class="tool-output" role="status" aria-live="polite" aria-atomic="true" style="margin-top: 1.5rem;">
+        <textarea id="uuid-result" rows="12" readonly aria-label="Generated UUIDs"></textarea>
+    </div>
+
+    <div class="tool-actions">
+        <button type="button" class="secondary" data-share>Share link</button>
+        <span class="tool-actions-msg" role="status" aria-live="polite"></span>
+    </div>
+</section>{{ adSlot(site, "inline") }}
+
+<section class="how">
+    <h2>How to Use This UUID Generator</h2>
+    <p>Generating completely unique identifiers usually requires complex code but our tool simplifies the entire process. You just need to type how many codes you want into the input box. You can easily request a single code or fetch up to one thousand codes at once for bulk usage.</p>
+    <p>After deciding on the quantity you simply choose your formatting. Check the uppercase box if your database expects larger capital lettering. You can leave the hyphens box checked because it makes the identifier easier to read. However if you just want a solid wall of letters and numbers you can remove the checkmark. Press the generate button and your brand new codes will pop up instantly ready for copying.</p>
+</section>
+
+<section class="formula">
+    <h2>Understanding the Version 4 UUID Specification</h2>
+    <p>A UUID which stands for Universally Unique Identifier is a specific 128 bit label. Computer systems rely on them heavily to tag information uniquely without a central authority. Our generator focuses entirely on version 4 because it generates numbers using solid cryptographic randomness. This means that instead of relying on a time stamp or network address the generator calculates a massive completely random number string.</p>
+    <p>The mathematics behind this create a truly huge amount of combinations. There are 2 to the power of 122 different possibilities when creating a version 4 code. To give you some perspective you would need to generate one billion codes every single second for roughly eighty five years just to have a fifty percent chance of seeing a duplicate code. This extreme mathematical rarity makes them perfect for modern web applications database keys and secure transaction tracking.</p>
+</section>
+
+<section class="examples">
+    <h2>Examples of Generated Outputs</h2>
+    <p>When you generate a standard identifier with hyphens it is split into five distinct sections. Here is what this format looks like:</p>
+    <code>123e4567-e89b-12d3-a456-426614174000</code>
+    <p>Sometimes older systems or specific programming languages prefer not having the dashes to save space or parse data cleanly. In that situation the same identifier looks like this:</p>
+    <code>123e4567e89b12d3a456426614174000</code>
+</section>
+
+{{ adSlot(site, "incontent") }}
+
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+    
+    <h3>Are these identifiers safe to use in my production database?</h3>
+    <p>Yes they are completely safe. The version 4 specification is the absolute gold standard for creating unique database keys across practically every programming language. The crypto APIs in your web browser ensure the randomness is strong enough for any production environment.</p>
+    
+    <h3>Does this tool store the codes I generate?</h3>
+    <p>No we do not store anything you generate. Our tool works entirely inside your modern web browser using client side scripting. Absolutely no data is sent out over your internet connection keeping your project workflow completely private and secure.</p>
+    
+    <h3>What happens if I need thousands of UUIDs quickly?</h3>
+    <p>You can easily pull up to one thousand codes in a single generation click right here on the page. If you need far more than that we recommend writing a small dedicated function inside your codebase so it runs directly within your application backend for maximum efficiency.</p>
+    
+    <h3>Why is my UUID always 36 characters long?</h3>
+    <p>The standard format requires exactly thirty two letters and numbers separated by four hyphens. This adds up to exactly thirty six characters. This layout helps developers read the distinct groupings which are split sequentially into blocks of eight then four then four then four and finally twelve characters.</p>
+</section>
+
+<section class="related">
+    <h2>Related Developer Tools</h2>
+    <p>If you found this identifier creator helpful you might also appreciate these other fast utilities.</p>
+    <ul>
+        <li><a href="/json-formatter/">JSON Formatter</a></li>
+        <li><a href="/fancy-text-generator/">Fancy Text Generator</a></li>
+        <li><a href="/dice-roller/">Dice Roller</a></li>
+    </ul>
+</section>
+
+{% from "cluster.njk" import clusterGuides %}
+{{ clusterGuides(tools | findByKey("slug", page.fileSlug)) }}
+
+<div class="author">
+    <p><em>Published by the QuixCalc Team. Built for speed and privacy. Last updated: July 2026.</em></p>
+</div>
+
+<script src="uuid.js" defer></script>

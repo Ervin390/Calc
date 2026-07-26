@@ -1,0 +1,98 @@
+---
+layout: layout.njk
+title: Embed a QuixCalc Tool on Your Website
+description: Put any of our twenty calculators on your own site with one line of HTML. Free, no attribution required, no tracking, works on any platform.
+appName: Embed
+permalink: /embed/
+updated: 2026-07-26
+---
+{% from "tool-grid.njk" import toolGrid %}
+
+<h1>Embed a QuixCalc Tool on Your Website</h1>
+<p>Any of our twenty calculators can sit inside your own page. Copy one line of HTML, paste it where you want the tool to appear, and you are done. It is free, it works on any platform that lets you paste HTML, and we do not ask for attribution.</p>
+
+<section class="tool">
+    <h2>Build your embed code</h2>
+
+    <div class="tool-controls">
+        <label for="embed-tool">Pick a tool</label>
+        <select id="embed-tool">
+            {%- for c in nav.categories %}
+            <optgroup label="{{ c.name }}">
+                {%- for t in tools | byCategory(c.key) %}
+                <option value="{{ t.url }}" data-name="{{ t.name }}">{{ t.name }}</option>
+                {%- endfor %}
+            </optgroup>
+            {%- endfor %}
+        </select>
+
+        <label for="embed-height">Height in pixels</label>
+        <input type="number" id="embed-height" value="640" min="300" max="1600" step="10" inputmode="numeric">
+
+        <label class="inline-label">
+            <input type="checkbox" id="embed-credit" checked> Include a small credit link below the tool
+        </label>
+    </div>
+
+    <div class="tool-output" role="status" aria-live="polite" aria-atomic="true" style="margin-top: 2rem;">
+        <label for="embed-code">Your embed code</label>
+        <textarea id="embed-code" rows="6" readonly style="font-family: ui-monospace, monospace; font-size: 0.85rem;"></textarea>
+    </div>
+
+    <div class="tool-actions">
+        <button type="button" class="secondary" data-copy="#embed-code">Copy result</button>
+        <button type="button" class="secondary" data-share>Share link</button>
+        <span class="tool-actions-msg" role="status" aria-live="polite"></span>
+    </div>
+
+    <h3 style="margin-top: 2.5rem;">Live preview</h3>
+    <div id="embed-preview" style="border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden; margin-top: 0.75rem;"></div>
+</section>
+
+<section class="how">
+    <h2>How to add it to your site</h2>
+    <p>The embed is a plain iframe, so it works anywhere you can paste HTML. There is no script to load and nothing to install.</p>
+    <ul>
+        <li><strong>WordPress:</strong> add a Custom HTML block and paste the code in.</li>
+        <li><strong>Squarespace:</strong> insert an Embed block, choose the code option, then paste.</li>
+        <li><strong>Wix:</strong> use Add, then Embed, then Embed HTML.</li>
+        <li><strong>Ghost or a Markdown blog:</strong> paste it directly into the post body.</li>
+        <li><strong>Plain HTML:</strong> drop it wherever you want the tool to appear.</li>
+    </ul>
+</section>
+
+<section class="formula">
+    <h2>What the embed does and does not do</h2>
+    <p>The embedded tool runs exactly like the version on this site. All calculation happens inside the visitor's browser, nothing is sent to a server, and the iframe cannot read anything from your page. We do not set cookies inside the embed and we do not track your visitors.</p>
+    <p>The frame is sandboxed to scripts and same-origin only, which means it can run the calculator and nothing else. It cannot open popups, navigate your page, or submit forms on your behalf.</p>
+</section>
+
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>Is this really free?</h3>
+    <p>Yes. There is no cost, no account, and no usage limit. If the tool is useful to your readers we would rather it reached them.</p>
+
+    <h3>Do I have to credit you?</h3>
+    <p>No. The credit link is on by default because it helps people find the full tool, but you can switch it off and the embed works the same.</p>
+
+    <h3>Will the embed slow my page down?</h3>
+    <p>Barely. The iframe carries the loading equals lazy attribute, so the browser only fetches it when the visitor scrolls near it. Each tool page is a few kilobytes of HTML with no framework behind it.</p>
+
+    <h3>Can I change the height later?</h3>
+    <p>Yes. The height is just a number in the code you pasted. Edit it in place and save the page.</p>
+
+    <h3>What happens if you change the tool?</h3>
+    <p>Your embed picks up the change automatically, because it loads the live page rather than a copy. We do not remove tools once they are published.</p>
+</section>
+
+<section class="cluster">
+    <h2>Browse everything you can embed</h2>
+    <p>All twenty tools are available. Pick one above, or have a look through the full set.</p>
+    {%- for c in nav.categories %}
+    <h3 class="category-label"><a href="{{ c.url }}">{{ c.icon }} {{ c.name }}</a></h3>
+    {{ toolGrid(tools, c.key) }}
+    {%- endfor %}
+</section>
+
+<script src="/assets/embed.js" defer></script>

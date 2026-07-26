@@ -1,0 +1,31 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+sitemapExclude: true
+---
+{%- set legal = ["/about/", "/contact/", "/privacy/", "/terms/"] -%}
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+{%- for item in collections.sitemap %}
+  {%- set url = item.url -%}
+  {%- if url == "/" -%}
+    {%- set prio = "1.0" -%}{%- set freq = "weekly" -%}
+  {%- elif tools | findByKey("url", url) -%}
+    {%- set prio = "0.9" -%}{%- set freq = "monthly" -%}
+  {%- elif url == "/blog/" -%}
+    {%- set prio = "0.7" -%}{%- set freq = "weekly" -%}
+  {%- elif url.startsWith("/blog/") -%}
+    {%- set prio = "0.6" -%}{%- set freq = "monthly" -%}
+  {%- elif url in legal -%}
+    {%- set prio = "0.3" -%}{%- set freq = "yearly" -%}
+  {%- else -%}
+    {%- set prio = "0.8" -%}{%- set freq = "monthly" -%}
+  {%- endif %}
+  <url>
+    <loc>{{ site.url }}{{ url }}</loc>
+    <lastmod>{{ (item.data.updated if item.data.updated else item.date) | isoDate }}</lastmod>
+    <changefreq>{{ freq }}</changefreq>
+    <priority>{{ prio }}</priority>
+  </url>
+{%- endfor %}
+</urlset>

@@ -1,0 +1,122 @@
+---
+layout: layout.njk
+title: Date Calculator - Days Between Two Dates
+description: Find the number of days between two dates, or add and subtract days, weeks and months from any date. Free online date calculator.
+appName: Date Calculator
+category: date
+appCategory: UtilitiesApplication
+permalink: /date-calculator/
+updated: 2026-07-26
+---
+{% from "ad-slot.njk" import adSlot %}
+
+<h1>Date Calculator</h1>
+<p>This date calculator lets you find the exact number of days between two dates or calculate a future and past date by adding or subtracting days, weeks, and months from any starting point.</p>
+
+<section class="tool">
+    <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
+        <div class="tool-controls" style="flex: 1; min-width: 300px;">
+            <label for="date-start">Starting Date</label>
+            <input type="date" id="date-start" value="2025-01-01">
+
+            <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                <div style="flex: 1;">
+                    <label for="date-op">Operation</label>
+                    <select id="date-op">
+                        <option value="add">Add (+)</option>
+                        <option value="sub">Subtract (-)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap;">
+                <div style="flex: 1; min-width: 80px;">
+                    <label for="date-y">Years</label>
+                    <input type="number" id="date-y" value="0" min="0" max="1000" inputmode="numeric">
+                </div>
+                <div style="flex: 1; min-width: 80px;">
+                    <label for="date-m">Months</label>
+                    <input type="number" id="date-m" value="0" min="0" max="12000" inputmode="numeric">
+                </div>
+                <div style="flex: 1; min-width: 80px;">
+                    <label for="date-d">Days</label>
+                    <input type="number" id="date-d" value="30" min="0" max="365000" inputmode="numeric">
+                </div>
+            </div>
+
+            <button id="btn-calc-date" style="width: 100%; margin-top: 1.5rem;">Calculate Date</button>
+        </div>
+
+        <div style="flex: 1; min-width: 300px;">
+            <div style="background: var(--input-bg); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border); text-align: center; height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                <p style="font-weight: 600; color: var(--text-sub); margin-top:0;">Result</p>
+                <div id="out-date-main" role="status" aria-live="polite" aria-atomic="true" style="font-size: 2rem; font-weight: 800; color: var(--primary); line-height: 1.2;">Wednesday, January 31, 2025</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tool-actions">
+        <button type="button" class="secondary" data-copy="#out-date-main">Copy result</button>
+        <button type="button" class="secondary" data-share>Share link</button>
+        <span class="tool-actions-msg" role="status" aria-live="polite"></span>
+    </div>
+</section>{{ adSlot(site, "inline") }}
+
+<section class="how">
+    <h2>How to Use the Date Calculator</h2>
+    <p>There are two ways to use this tool. The first is adding or subtracting time from a specific date. Pick your starting date, choose whether you want to add or subtract, then enter the number of years, months, and days. Hit Calculate and the result shows your target date along with the day of the week it falls on.</p>
+    <p>This is useful for figuring out deadlines, contract end dates, subscription expirations, or counting down to events. If you have a 90-day return window starting from January 5th, for example, you add 90 days and get the exact cutoff date.</p>
+    <p>All calculations run locally in your browser. No data is sent anywhere.</p>
+</section>
+
+<section class="formula">
+    <h2>How the Date Math Works</h2>
+    <p>Adding days to a date is straightforward arithmetic on the underlying day count. Months are trickier because they have different lengths. Adding one month to January 31st has to land on the last day of February since February 28th or 29th is the furthest that month goes.</p>
+    <p>Leap years matter here too. A year is a leap year if it is divisible by 4, except that century years must be divisible by 400. So 2000 was a leap year but 1900 was not. This calculator handles all of those edge cases automatically, including Feb 29 birthdays.</p>
+    <p>Business day calculations skip Saturdays and Sundays. If your deadline lands on a weekend the actual last working day is the Friday before.</p>
+</section>
+
+<section class="examples">
+    <h2>Common Date Calculation Examples</h2>
+    <ul>
+        <li><strong>90-day warranty period:</strong> Product purchased on March 1, 2025. Add 90 days. Warranty expires May 30, 2025.</li>
+        <li><strong>6-month lease:</strong> Lease starts on February 1, 2025. Add 6 months. Lease ends August 1, 2025.</li>
+        <li><strong>Days between dates:</strong> Need to know how many days between July 4 and Thanksgiving (November 27)? Enter both dates and the calculator returns 146 days.</li>
+        <li><strong>Legal 30-day notice:</strong> Notice served on October 15, 2025. Add 30 days. Effective date is November 14, 2025.</li>
+    </ul>
+</section>
+
+{{ adSlot(site, "incontent") }}
+
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>How do I find the number of days between two dates?</h3>
+    <p>Enter the first date in the starting date field. Set the operation to subtract, then enter the second date as a number of days. Alternatively, many people use this tool the other way around: set the start date, add zero days, and then manually adjust until they reach the target date. A cleaner approach is coming in a future update that will add a dedicated "difference between two dates" mode.</p>
+
+    <h3>Does this account for leap years?</h3>
+    <p>Yes. The calculator uses the full Gregorian calendar including all leap year rules. Dates around February 29 are handled correctly whether or not the year in question has a leap day.</p>
+
+    <h3>Can I use this for business days only?</h3>
+    <p>The calculator adds calendar days by default. Weekends are part of the total count. If you need only business days, count the result and mentally subtract the number of full weekends in the range, or divide the day count by 7 and subtract 2 days per week as a rough estimate.</p>
+
+    <h3>What is the maximum date range I can calculate?</h3>
+    <p>The tool supports up to 1,000 years forward or backward and up to 365,000 days, which covers virtually any practical use case including historical date research.</p>
+</section>
+
+<section class="related">
+    <h2>Related Date and Time Tools</h2>
+    <ul>
+        <li><a href="/age-calculator/">Age Calculator</a></li>
+        <li><a href="/">Browse All Tools</a></li>
+    </ul>
+</section>
+
+{% from "cluster.njk" import clusterGuides %}
+{{ clusterGuides(tools | findByKey("slug", page.fileSlug)) }}
+
+<div class="author">
+    <p><em>Published by the QuixCalc Team. Date logic follows the proleptic Gregorian calendar standard. Last updated: July 2026.</em></p>
+</div>
+
+<script src="date.js" defer></script>

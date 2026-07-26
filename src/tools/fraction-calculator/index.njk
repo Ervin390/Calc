@@ -1,0 +1,140 @@
+---
+layout: layout.njk
+title: Fraction Calculator - Add, Subtract, Multiply
+description: Add, subtract, multiply and divide fractions with step-by-step solutions. Results are simplified and shown as fractions and decimals.
+appName: Fraction Calculator
+category: math
+appCategory: EducationalApplication
+permalink: /fraction-calculator/
+updated: 2026-07-26
+---
+{% from "ad-slot.njk" import adSlot %}
+
+<h1>Fraction Calculator</h1>
+<p>This fraction calculator handles addition, subtraction, multiplication, and division of fractions and shows you the step-by-step solution. Results are automatically simplified and shown as both a fraction and a decimal.</p>
+
+<section class="tool">
+    <div class="tool-controls">
+        <div style="display: flex; gap: 1rem; align-items: flex-end; flex-wrap: wrap; margin-bottom: 1rem;">
+            <div>
+                <label for="f1-whole">Whole</label>
+                <input type="number" id="f1-whole" value="0" style="width: 70px;" inputmode="numeric">
+            </div>
+            <div>
+                <label for="f1-num">Numerator</label>
+                <input type="number" id="f1-num" value="1" style="width: 70px;" inputmode="numeric">
+            </div>
+            <div style="font-size: 1.5rem; align-self: flex-end; padding-bottom: 0.5rem; color: var(--text-muted);">/</div>
+            <div>
+                <label for="f1-den">Denominator</label>
+                <input type="number" id="f1-den" value="2" style="width: 70px;" inputmode="numeric">
+            </div>
+
+            <div style="align-self: flex-end; padding-bottom: 0.25rem;">
+                <select id="frac-op" aria-label="Operation" style="width: auto; font-size: 1.5rem; font-weight: 700; color: var(--primary); padding: 0.5rem;">
+                    <option value="add">+</option>
+                    <option value="sub">-</option>
+                    <option value="mul">×</option>
+                    <option value="div">÷</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="f2-whole">Whole</label>
+                <input type="number" id="f2-whole" value="0" style="width: 70px;" inputmode="numeric">
+            </div>
+            <div>
+                <label for="f2-num">Numerator</label>
+                <input type="number" id="f2-num" value="1" style="width: 70px;" inputmode="numeric">
+            </div>
+            <div style="font-size: 1.5rem; align-self: flex-end; padding-bottom: 0.5rem; color: var(--text-muted);">/</div>
+            <div>
+                <label for="f2-den">Denominator</label>
+                <input type="number" id="f2-den" value="3" style="width: 70px;" inputmode="numeric">
+            </div>
+
+            <button id="btn-calc-frac" style="align-self: flex-end;">Calculate</button>
+        </div>
+    </div>
+
+    <div class="tool-output" role="status" aria-live="polite" aria-atomic="true" id="frac-result-box" style="margin-top: 1.5rem; background: var(--input-bg); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border);">
+        <p style="font-weight: 600; color: var(--text-sub); margin-top: 0;">Result</p>
+        <div id="frac-result" style="font-size: 2rem; font-weight: 800; color: var(--primary);">-</div>
+        <div id="frac-decimal" style="font-size: 1rem; color: var(--text-muted); margin-top: 0.5rem;"></div>
+        <div id="frac-steps" style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-sub); border-top: 1px solid var(--border); padding-top: 1rem;"></div>
+    </div>
+
+    <div class="tool-actions">
+        <button type="button" class="secondary" data-copy=".tool-output">Copy result</button>
+        <button type="button" class="secondary" data-share>Share link</button>
+        <span class="tool-actions-msg" role="status" aria-live="polite"></span>
+    </div>
+</section>{{ adSlot(site, "inline") }}
+
+<section class="how">
+    <h2>How to Use This Fraction Calculator</h2>
+    <p>Enter the whole number, numerator, and denominator for each fraction. If your fraction has no whole number, leave the whole field as 0. Select the operation you want using the operator dropdown in the middle. Then hit Calculate.</p>
+    <p>The result shows the simplified fraction, its decimal equivalent, and a step-by-step breakdown of how the calculation was done. For mixed fractions like 1 and 3/4, enter 1 in the whole field and 3 in the numerator and 4 in the denominator.</p>
+    <p>All simplification uses the greatest common divisor so the result is always in its fully reduced form.</p>
+</section>
+
+<section class="formula">
+    <h2>How Fraction Operations Work</h2>
+    <p><strong>Adding and Subtracting Fractions:</strong></p>
+    <p>To add or subtract fractions they must share a common denominator. Find the Least Common Denominator (LCD), convert each fraction so both have the LCD, then add or subtract the numerators.</p>
+    <p>Example: 1/2 + 1/3. LCD of 2 and 3 is 6. Convert to 3/6 + 2/6 = 5/6.</p>
+    <p><strong>Multiplying Fractions:</strong></p>
+    <p>Multiply numerators together, then multiply denominators together. Simplify the result by dividing both by their GCD.</p>
+    <p>Example: 2/3 x 3/4 = (2x3)/(3x4) = 6/12 = 1/2.</p>
+    <p><strong>Dividing Fractions:</strong></p>
+    <p>Keep the first fraction, flip the second fraction (take its reciprocal), then multiply. This is the "keep, change, flip" rule.</p>
+    <p>Example: 2/3 / 3/4 = 2/3 x 4/3 = 8/9.</p>
+    <p><strong>Simplifying (Reducing) Fractions:</strong></p>
+    <p>Find the Greatest Common Divisor (GCD) of the numerator and denominator and divide both by it. 12/18 simplifies to 2/3 because GCD(12,18) = 6.</p>
+</section>
+
+<section class="examples">
+    <h2>Worked Fraction Examples</h2>
+    <ul>
+        <li><strong>Adding mixed fractions:</strong> 1 3/4 + 2 1/2. Convert to improper fractions: 7/4 + 5/2. LCD is 4: 7/4 + 10/4 = 17/4 = 4 1/4.</li>
+        <li><strong>Subtracting fractions:</strong> 5/6 - 1/4. LCD is 12: 10/12 - 3/12 = 7/12. Already in simplest form.</li>
+        <li><strong>Multiplying:</strong> 3/5 x 10/9. Cross-cancel: (3x10)/(5x9) = 30/45. Simplified: 2/3.</li>
+        <li><strong>Dividing:</strong> 7/8 / 7/4. Keep, change, flip: 7/8 x 4/7 = 28/56 = 1/2.</li>
+    </ul>
+</section>
+
+{{ adSlot(site, "incontent") }}
+
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>How do I simplify a fraction?</h3>
+    <p>Find the Greatest Common Divisor (GCD) of the numerator and denominator, then divide both by it. For example, 24/36 has GCD 12. Dividing both by 12 gives 2/3, which is the fully simplified form. The calculator does this automatically for every result.</p>
+
+    <h3>What is a mixed fraction?</h3>
+    <p>A mixed fraction combines a whole number with a proper fraction, like 2 and 3/4. To use mixed fractions in this calculator enter the whole number in the first field and the fraction parts in the numerator and denominator fields. The calculator converts to improper fractions internally for accuracy.</p>
+
+    <h3>What is the LCD and why do I need it for adding fractions?</h3>
+    <p>LCD stands for Least Common Denominator. Fractions can only be added or subtracted if they reference the same-sized parts. The LCD is the smallest number that both denominators divide into evenly. Converting both fractions to use the LCD makes the addition or subtraction straightforward.</p>
+
+    <h3>Can I use this to solve homework problems step by step?</h3>
+    <p>Yes. The step display shows each stage of the calculation the same way a textbook would. You can use the steps to check your own work or to understand where you made an error.</p>
+</section>
+
+<section class="related">
+    <h2>Related Math Tools</h2>
+    <ul>
+        <li><a href="/standard-deviation-calculator/">Standard Deviation Calculator</a></li>
+        <li><a href="/gpa-calculator/">GPA Calculator</a></li>
+        <li><a href="/">Browse All Tools</a></li>
+    </ul>
+</section>
+
+{% from "cluster.njk" import clusterGuides %}
+{{ clusterGuides(tools | findByKey("slug", page.fileSlug)) }}
+
+<div class="author">
+    <p><em>Published by the QuixCalc Team. Step-by-step method follows standard K-12 math curriculum conventions. Last updated: July 2026.</em></p>
+</div>
+
+<script src="fraction.js" defer></script>

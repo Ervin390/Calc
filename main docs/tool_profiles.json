@@ -1,0 +1,3671 @@
+{
+ "word counter": {
+  "cat": "text",
+  "build": "easy",
+  "head_kw": "word counter",
+  "head_vol": 1220000,
+  "cpc_high": 0.34,
+  "comp": "LOW",
+  "comp_index": 18,
+  "n_variants": 225,
+  "tails": [
+   [
+    "word counter",
+    1220000,
+    0.34
+   ],
+   [
+    "word count counter",
+    1220000,
+    0.34
+   ],
+   [
+    "count the words in word",
+    1220000,
+    0.34
+   ],
+   [
+    "count word count",
+    1220000,
+    0.34
+   ],
+   [
+    "count number of words online",
+    27100,
+    0.38
+   ],
+   [
+    "count of words online",
+    27100,
+    0.38
+   ],
+   [
+    "word count checker",
+    14800,
+    0.49
+   ],
+   [
+    "word counter tool",
+    5400,
+    0.53
+   ],
+   [
+    "character and word count",
+    5400,
+    0.59
+   ],
+   [
+    "count words and characters",
+    5400,
+    0.59
+   ]
+  ]
+ },
+ "character counter": {
+  "cat": "text",
+  "build": "easy",
+  "head_kw": "character counter",
+  "head_vol": 246000,
+  "cpc_high": 0.23,
+  "comp": "LOW",
+  "comp_index": 9,
+  "n_variants": 51,
+  "tails": [
+   [
+    "character counter",
+    246000,
+    0.23
+   ],
+   [
+    "character count online",
+    12100,
+    0.25
+   ],
+   [
+    "character and word count",
+    5400,
+    0.59
+   ],
+   [
+    "character count tool",
+    4400,
+    0.27
+   ],
+   [
+    "chinese character counter",
+    1900,
+    0.0
+   ],
+   [
+    "wordcounter net character count",
+    1900,
+    0.0
+   ],
+   [
+    "character number counter",
+    1600,
+    1.76
+   ],
+   [
+    "twitter character counter",
+    1600,
+    0.0
+   ],
+   [
+    "character count limit",
+    1300,
+    0.22
+   ],
+   [
+    "character count in text",
+    1000,
+    0.33
+   ]
+  ]
+ },
+ "word frequency counter": {
+  "cat": "text",
+  "build": "easy",
+  "head_kw": "seo review tools keyword density checker",
+  "head_vol": 4400,
+  "cpc_high": 11.0,
+  "comp": "LOW",
+  "comp_index": 0,
+  "n_variants": 42,
+  "tails": [
+   [
+    "seo review tools keyword density checker",
+    4400,
+    11.0
+   ],
+   [
+    "keyword density checker",
+    1000,
+    12.49
+   ],
+   [
+    "keyword density checker tool",
+    1000,
+    12.49
+   ],
+   [
+    "check keyword density tool",
+    1000,
+    12.49
+   ],
+   [
+    "word density checker",
+    1000,
+    12.49
+   ],
+   [
+    "word frequency counter",
+    880,
+    0.0
+   ],
+   [
+    "keyword density tool",
+    210,
+    8.01
+   ],
+   [
+    "seo keyword density tool",
+    210,
+    0.0
+   ],
+   [
+    "word density tool",
+    210,
+    8.01
+   ],
+   [
+    "keyword density analyzer",
+    140,
+    12.35
+   ]
+  ]
+ },
+ "case converter": {
+  "cat": "text",
+  "build": "easy",
+  "head_kw": "case converter",
+  "head_vol": 27100,
+  "cpc_high": 1.08,
+  "comp": "LOW",
+  "comp_index": 0,
+  "n_variants": 80,
+  "tails": [
+   [
+    "case converter",
+    27100,
+    1.08
+   ],
+   [
+    "converter uppercase",
+    27100,
+    1.08
+   ],
+   [
+    "converter uppercase to lowercase",
+    27100,
+    1.08
+   ],
+   [
+    "letter case converter",
+    27100,
+    1.08
+   ],
+   [
+    "lower case converter",
+    27100,
+    1.08
+   ],
+   [
+    "lowercase converter",
+    27100,
+    1.08
+   ],
+   [
+    "upper case to lower case converter",
+    27100,
+    1.08
+   ],
+   [
+    "all caps to lowercase",
+    12100,
+    0.04
+   ],
+   [
+    "cap to lowercase",
+    12100,
+    0.04
+   ],
+   [
+    "lower case to uppercase",
+    12100,
+    0.04
+   ]
+  ]
+ },
+ "text repeater": {
+  "cat": "text",
+  "build": "easy",
+  "head_kw": "text repeater",
+  "head_vol": 3600,
+  "cpc_high": 0.0,
+  "comp": "LOW",
+  "comp_index": 0,
+  "n_variants": 15,
+  "tails": [
+   [
+    "text repeater",
+    3600,
+    0.0
+   ],
+   [
+    "text repeater com",
+    110,
+    0.0
+   ],
+   [
+    "text repeater tool",
+    110,
+    0.0
+   ],
+   [
+    "text repeater generator",
+    70,
+    0.0
+   ],
+   [
+    "thumbtube text repeater",
+    30,
+    0.0
+   ],
+   [
+    "text repeater copy and paste",
+    20,
+    0.0
+   ],
+   [
+    "auto text repeater",
+    10,
+    0.0
+   ],
+   [
+    "string and text repeater",
+    10,
+    0.0
+   ],
+   [
+    "text message repeater",
+    10,
+    0.0
+   ],
+   [
+    "text repeater pc",
+    10,
+    0.0
+   ]
+  ]
+ },
+ "lorem ipsum generator": {
+  "cat": "text",
+  "build": "easy",
+  "head_kw": "lorem ipsum generator",
+  "head_vol": 49500,
+  "cpc_high": 18.68,
+  "comp": "LOW",
+  "comp_index": 0,
+  "n_variants": 18,
+  "tails": [
+   [
+    "lorem ipsum generator",
+    49500,
+    18.68
+   ],
+   [
+    "lorem ipsum text",
+    8100,
+    5.38
+   ],
+   [
+    "lorem ipsum text copy",
+    1900,
+    0.0
+   ],
+   [
+    "lorem ipsum full text",
+    880,
+    0.0
+   ],
+   [
+    "lorem ipsum paragraph",
+    880,
+    0.0
+   ],
+   [
+    "lorem ipsum text generator",
+    720,
+    0.0
+   ],
+   [
+    "lorem ipsum generator characters",
+    170,
+    0.0
+   ],
+   [
+    "lorem ipsum text copy paste",
+    90,
+    0.0
+   ],
+   [
+    "lorem ipsum dolor sit amet generator",
+    50,
+    0.0
+   ],
+   [
+    "lorem ipsum word generator",
+    50,
+    0.0
+   ]
+  ]
+ },
+ "percentage calculator": {
+  "cat": "math",
+  "build": "easy",
+  "head_kw": "percentage calculator",
+  "head_vol": 550000,
+  "cpc_high": 1.76,
+  "comp": "LOW",
+  "comp_index": 0,
+  "n_variants": 402,
+  "tails": [
+   [
+    "percentage calculator",
+    550000,
+    1.76
+   ],
+   [
+    "percent of percent calculator",
+    550000,
+    1.76
+   ],
+   [
+    "percentage increase calculator",
+    165000,
+    0.01
+   ],
+   [
+    "percentage difference calculator",
+    165000,
+    0.01
+   ],
+   [
+    "percentage change calculator",
+    135000,
+    0.02
+   ],
+   [
+    "body fat percentage calculator",
+    49500,
+    2.11
+   ],
+   [
+    "fat percentage calculator",
+    49500,
+    2.11
+   ],
+   [
+    "bf percentage calculator",
+    49500,
+    2.11
+   ],
+   [
+    "annual percentage yield calculator",
+    40500,
+    5.34
+   ],
+   [
+    "percent off calculator",
+    40500,
+    0.0
+   ]
+  ]
+ },
+ "percentage increase calculator": {
+  "cat": "math",
+  "build": "easy",
+  "head_kw": "percentage increase calculator",
+  "head_vol": 165000,
+  "cpc_high": 0.01,
+  "comp": "LOW",
+  "comp_index": 0,
+  "n_variants": 58,
+  "tails": [
+   [
+    "percentage increase calculator",
+    165000,
+    0.01
+   ],
+   [
+    "percentage difference calculator",
+    165000,
+    0.01
+   ],
+   [
+    "compute percentage increase",
+    165000,
+    0.01
+   ],
+   [
+    "determine percentage increase",
+    165000,
+    0.01
+   ],
+   [
+    "figure out percentage increase",
+    165000,
+    0.01
+   ],
+   [
+    "figure percent increase",
+    165000,
+    0.01
+   ],
+   [
+    "find increase percentage",
+    165000,
+    0.01
+   ],
+   [
+    "percentage increase cal",
+    165000,
+    0.01
+   ],
+   [
+    "percentage change calculator",
+    135000,
+    0.02
+   ],
+   [
+    "percentage increase formula",
+    49500,
+    1.76
+   ]
+  ]
+ },
+ "fraction calculator": {
+  "cat": "math",
+  "build": "easy",
+  "head_kw": "fraction calculator",
+  "head_vol": 368000,
+  "cpc_high": 1.62,
+  "comp": "LOW",
+  "comp_index": 0,
+  "n_variants": 762,
+  "tails": [
+   [
+    "fraction calculator",
+    368000,
+    1.62
+   ],
+   [
+    "online calculator with fractions",
+    33100,
+    0.0
+   ],
+   [
+    "mixed fraction calculator",
+    18100,
+    1.57
+   ],
+   [
+    "mixture fraction calculator",
+    18100,
+    1.57
+   ],
+   [
+    "decimal to fraction calculator",
+    14800,
+    2.1
+   ],
+   [
+    "decimal to fraction conversion calculator",
+    14800,
+    2.1
+   ],
+   [
+    "reducing fractions calculator",
+    8100,
+    2.15
+   ],
+   [
+    "fraction simplification calculator",
+    8100,
+    2.15
+   ],
+   [
+    "fraction calculator with whole numbers",
+    6600,
+    1.58
+   ],
+   [
+    "fraction and whole number calculator",
+    6600,
+    1.58
+   ]
+  ]
+ },
+ "scientific calculator": {
+  "cat": "math",
+  "build": "easy",
+  "head_kw": "scientific calculator",
+  "head_vol": 550000,
+  "cpc_high": 0.96,
+  "comp": "LOW",
+  "comp_index": 18,
+  "n_variants": 248,
+  "tails": [
+   [
+    "scientific calculator",
+    550000,
+    0.96
+   ],
+   [
+    "ti 30xs multiview scientific calculator",
+    27100,
+    0.62
+   ],
+   [
+    "scientific notation calculator",
+    18100,
+    2.91
+   ],
+   [
+    "scientific form calculator",
+    18100,
+    2.91
+   ],
+   [
+    "scientific figures calculator",
+    14800,
+    0.0
+   ],
+   [
+    "ti 30xiis scientific calculator",
+    8100,
+    0.52
+   ],
+   [
+    "scientific calculator ti 30x iis",
+    8100,
+    0.52
+   ],
+   [
+    "ti scientific calculator",
+    5400,
+    0.55
+   ],
+   [
+    "ti 34 scientific calculator",
+    4400,
+    0.62
+   ],
+   [
+    "scientific graphing calculator",
+    3600,
+    0.59
+   ]
+  ]
+ },
+ "gpa calculator": {
+  "cat": "math",
+  "build": "easy",
+  "head_kw": "gpa calculator",
+  "head_vol": 823000,
+  "cpc_high": 4.1,
+  "comp": "LOW",
+  "comp_index": 0,
+  "n_variants": 115,
+  "tails": [
+   [
+    "gpa calculator",
+    823000,
+    4.1
+   ],
+   [
+    "hs gpa calculator",
+    60500,
+    5.82
+   ],
+   [
+    "cumulative gpa calculator",
+    18100,
+    0.0
+   ],
+   [
+    "weighted gpa calculator",
+    14800,
+    4.19
+   ],
+   [
+    "junior high gpa calculator",
+    12100,
+    0.0
+   ],
+   [
+    "gpa calculator net",
+    8100,
+    0.0
+   ],
+   [
+    "average gpa calculator",
+    5400,
+    3.09
+   ],
+   [
+    "gpa score calculator",
+    5400,
+    3.09
+   ],
+   [
+    "gpa calculator from grades",
+    5400,
+    3.09
+   ],
+   [
+    "lsac gpa calculator",
+    4400,
+    5.91
+   ]
+  ]
+ },
+ "grade calculator": {
+  "cat": "math",
+  "build": "easy",
+  "head_kw": "grade calculator",
+  "head_vol": 0,
+  "cpc_high": 0,
+  "comp": "?",
+  "comp_index": 0,
+  "n_variants": 0,
+  "tails": []
+ },
+ "average calculator": {
+  "cat": "math",
+  "build": "easy",
+  "head_kw": "average calculator",
+  "head_vol": 74000,
+  "cpc_high": 16.12,
+  "comp": "LOW",
+  "comp_index": 0,
+  "n_variants": 244,
+  "tails": [
+   [
+    "average calculator",
+    74000,
+    16.12
+   ],
+   [
+    "mean calculator",
+    22200,
+    0.0
+   ],
+   [
+    "fuel average calculator",
+    14800,
+    17.59
+   ],
+   [
+    "average calculator with weight",
+    9900,
+    0.0
+   ],
+   [
+    "average gpa calculator",
+    5400,
+    3.09
+   ],
+   [
+    "average time calculator",
+    4400,
+    0.0
+   ],
+   [
+    "average percentage calculator",
+    3600,
+    0.0
+   ],
+   [
+    "average and standard deviation calculator",
+    2900,
+    1.7
+   ],
+   [
+    "calculator with mean and standard deviation",
+    2900,
+    1.7
+   ],
+   [
+    "golden mean calculator",
+    2900,
+    9.7
+   ]
+  ]
+ },
+ "standard deviation calculator": {
+  "cat": "math",
+  "build": "easy",
+  "head_kw": "standard deviation formula",
+  "head_vol": 110000,
+  "cpc_high": 1.88,
+  "comp": "LOW",
+  "comp_index": 0,
+  "n_variants": 322,
+  "tails": [
+   [
+    "standard deviation formula",
+    110000,
+    1.88
+   ],
+   [
+    "equation for standard deviation",
+    110000,
+    1.88
+   ],
+   [
+    "standard deviation calculator",
+    74000,
+    2.82
+   ],
+   [
+    "find the standard deviation",
+    74000,
+    2.82
+   ],
+   [
+    "compute standard deviation",
+    74000,
+    2.82
+   ],
+   [
+    "compute standard deviation calculator",
+    74000,
+    2.82
+   ],
+   [
+    "determining standard deviation",
+    74000,
+    2.82
+   ],
+   [
+    "figuring out standard deviation",
+    74000,
+    2.82
+   ],
+   [
+    "figuring standard deviation",
+    74000,
+    2.82
+   ],
+   [
+    "standard deviation equation calculator",
+    74000,
+    2.82
+   ]
+  ]
+ },
+ "random number generator": {
+  "cat": "math",
+  "build": "easy",
+  "head_kw": "random number generator",
+  "head_vol": 1500000,
+  "cpc_high": 3.23,
+  "comp": "LOW",
+  "comp_index": 0,
+  "n_variants": 697,
+  "tails": [
+   [
+    "random number generator",
+    1500000,
+    3.23
+   ],
+   [
+    "get a random number",
+    1500000,
+    3.23
+   ],
+   [
+    "random number generator rng",
+    1500000,
+    3.23
+   ],
+   [
+    "random number maker",
+    1500000,
+    3.23
+   ],
+   [
+    "random number number",
+    1500000,
+    3.23
+   ],
+   [
+    "rng number generator",
+    1500000,
+    3.23
+   ],
+   [
+    "random selector number",
+    1500000,
+    3.23
+   ],
+   [
+    "number generator",
+    450000,
+    4.23
+   ],
+   [
+    "1 100 random number",
+    33100,
+    0.0
+   ],
+   [
+    "1 100 random number generator",
+    33100,
+    0.0
+   ]
+  ]
+ },
+ "age calculator": {
+  "cat": "date",
+  "build": "easy",
+  "head_kw": "age calculator",
+  "head_vol": 673000,
+  "cpc_high": 0.01,
+  "comp": "LOW",
+  "comp_index": 0,
+  "n_variants": 204,
+  "tails": [
+   [
+    "age calculator",
+    673000,
+    0.01
+   ],
+   [
+    "age calculation calculator",
+    673000,
+    0.01
+   ],
+   [
+    "calculator net age",
+    40500,
+    0.0
+   ],
+   [
+    "age expectancy calculator",
+    33100,
+    0.28
+   ],
+   [
+    "age calculator by birth date",
+    27100,
+    0.02
+   ],
+   [
+    "age calculator how old am i",
+    8100,
+    0.01
+   ],
+   [
+    "bmi calculator kg with age",
+    8100,
+    2.45
+   ],
+   [
+    "gestational age calculator",
+    6600,
+    4.43
+   ],
+   [
+    "pregnancy calculator gestational age",
+    6600,
+    4.43
+   ],
+   [
+    "bmi calculator by age",
+    6600,
+    0.76
+   ]
+  ]
+ },
+ "date calculator": {
+  "cat": "date",
+  "build": "easy",
+  "head_kw": "date calculator",
+  "head_vol": 673000,
+  "cpc_high": 1.46,
+  "comp": "LOW",
+  "comp_index": 0,
+  "n_variants": 205,
+  "tails": [
+   [
+    "date calculator",
+    673000,
+    1.46
+   ],
+   [
+    "time calculator by date",
+    135000,
+    0.0
+   ],
+   [
+    "days between dates",
+    90500,
+    0.03
+   ],
+   [
+    "days between two dates",
+    90500,
+    0.03
+   ],
+   [
+    "days calculator",
+    74000,
+    0.02
+   ],
+   [
+    "count days calculator",
+    74000,
+    0.02
+   ],
+   [
+    "date count calculator",
+    74000,
+    0.02
+   ],
+   [
+    "days between calculator",
+    74000,
+    0.02
+   ],
+   [
+    "business days calculator",
+    40500,
+    0.0
+   ],
+   [
+    "working days calculator",
+    40500,
+    0.0
+   ]
+  ]
+ },
+ "time duration calculator": {
+  "cat": "date",
+  "build": "easy",
+  "head_kw": "time duration calculator",
+  "head_vol": 135000,
+  "cpc_high": 0.0,
+  "comp": "LOW",
+  "comp_index": 0,
+  "n_variants": 230,
+  "tails": [
+   [
+    "time duration calculator",
+    135000,
+    0.0
+   ],
+   [
+    "hour duration calculator",
+    135000,
+    0.0
+   ],
+   [
+    "time calculator by date",
+    135000,
+    0.0
+   ],
+   [
+    "salary calculator in hours",
+    49500,
+    2.9
+   ],
+   [
+    "calculator date duration",
+    33100,
+    0.0
+   ],
+   [
+    "payroll time calculator",
+    22200,
+    5.03
+   ],
+   [
+    "pay time calculator",
+    22200,
+    5.03
+   ],
+   [
+    "time zone calculator",
+    18100,
+    0.0
+   ],
+   [
+    "calculator duration",
+    18100,
+    0.0
+   ],
+   [
+    "time calculator for time zones",
+    18100,
+    0.0
+   ]
+  ]
+ },
+ "countdown timer": {
+  "cat": "date",
+  "build": "easy",
+  "head_kw": "15 minute timer",
+  "head_vol": 673000,
+  "cpc_high": 0.58,
+  "comp": "LOW",
+  "comp_index": 0,
+  "n_variants": 897,
+  "tails": [
+   [
+    "15 minute timer",
+    673000,
+    0.58
+   ],
+   [
+    "10 minute timer",
+    673000,
+    0.79
+   ],
+   [
+    "fifteen minute timer",
+    673000,
+    0.58
+   ],
+   [
+    "timer 5 minute timer",
+    550000,
+    0.72
+   ],
+   [
+    "20 minute timer",
+    450000,
+    0.83
+   ],
+   [
+    "twenty minute timer",
+    450000,
+    0.83
+   ],
+   [
+    "1 minute timer",
+    368000,
+    0.56
+   ],
+   [
+    "one minute timer",
+    368000,
+    0.56
+   ],
+   [
+    "30 minute timer",
+    368000,
+    0.91
+   ],
+   [
+    "thirty minute timer",
+    368000,
+    0.91
+   ]
+  ]
+ },
+ "time zone converter": {
+  "cat": "date",
+  "build": "easy",
+  "head_kw": "time zone converter",
+  "head_vol": 246000,
+  "cpc_high": 0.0,
+  "comp": "LOW",
+  "comp_index": 0,
+  "n_variants": 151,
+  "tails": [
+   [
+    "time zone converter",
+    246000,
+    0.0
+   ],
+   [
+    "convert time timezone",
+    246000,
+    0.0
+   ],
+   [
+    "time zone difference converter",
+    246000,
+    0.0
+   ],
+   [
+    "timezone converter",
+    246000,
+    0.0
+   ],
+   [
+    "time zone calculator",
+    18100,
+    0.0
+   ],
+   [
+    "date and time time zone converter",
+    14800,
+    0.0
+   ],
+   [
+    "time zone converter with dates",
+    14800,
+    0.0
+   ],
+   [
+    "time zone convertor",
+    8100,
+    0.0
+   ],
+   [
+    "timezone convertor",
+    8100,
+    0.0
+   ],
+   [
+    "time zone changer",
+    6600,
+    6.66
+   ]
+  ]
+ },
+ "loan calculator": {
+  "cat": "finance",
+  "build": "easy",
+  "head_kw": "loan calculator",
+  "head_vol": 673000,
+  "cpc_high": 4.44,
+  "comp": "LOW",
+  "comp_index": 14,
+  "n_variants": 716,
+  "tails": [
+   [
+    "loan calculator",
+    673000,
+    4.44
+   ],
+   [
+    "car loan calculator",
+    673000,
+    1.62
+   ],
+   [
+    "auto loan calculator",
+    673000,
+    1.85
+   ],
+   [
+    "automobile loan calculator",
+    673000,
+    1.85
+   ],
+   [
+    "vehicle car loan calculator",
+    673000,
+    1.62
+   ],
+   [
+    "bank of america auto loan calculator",
+    246000,
+    5.61
+   ],
+   [
+    "bank of america car loan calculator",
+    246000,
+    5.61
+   ],
+   [
+    "personal loan calculator",
+    135000,
+    7.37
+   ],
+   [
+    "loan payment calculator",
+    110000,
+    4.55
+   ],
+   [
+    "car loan payment calculator",
+    110000,
+    1.35
+   ]
+  ]
+ },
+ "car loan calculator": {
+  "cat": "finance",
+  "build": "easy",
+  "head_kw": "car loan calculator",
+  "head_vol": 673000,
+  "cpc_high": 1.62,
+  "comp": "LOW",
+  "comp_index": 23,
+  "n_variants": 622,
+  "tails": [
+   [
+    "car loan calculator",
+    673000,
+    1.62
+   ],
+   [
+    "auto loan calculator",
+    673000,
+    1.85
+   ],
+   [
+    "vehicle car loan calculator",
+    673000,
+    1.62
+   ],
+   [
+    "car payment calculator",
+    550000,
+    1.34
+   ],
+   [
+    "estimate car payment calculator",
+    550000,
+    1.34
+   ],
+   [
+    "auto car payment calculator",
+    550000,
+    1.34
+   ],
+   [
+    "bank of america auto loan calculator",
+    246000,
+    5.61
+   ],
+   [
+    "bank of america car loan calculator",
+    246000,
+    5.61
+   ],
+   [
+    "car loan payment calculator",
+    110000,
+    1.35
+   ],
+   [
+    "auto loan payment calculator",
+    110000,
+    1.35
+   ]
+  ]
+ },
+ "mortgage calculator": {
+  "cat": "finance",
+  "build": "easy",
+  "head_kw": "mortgage calculator",
+  "head_vol": 2740000,
+  "cpc_high": 2.36,
+  "comp": "LOW",
+  "comp_index": 23,
+  "n_variants": 504,
+  "tails": [
+   [
+    "mortgage calculator",
+    2740000,
+    2.36
+   ],
+   [
+    "mortgage payment calculator",
+    201000,
+    2.1
+   ],
+   [
+    "figure out mortgage payment",
+    201000,
+    2.1
+   ],
+   [
+    "mortgage price calculator",
+    201000,
+    2.1
+   ],
+   [
+    "figure mortgage payment",
+    201000,
+    2.1
+   ],
+   [
+    "mortgage amortization calculator",
+    74000,
+    2.15
+   ],
+   [
+    "home equity mortgage calculator",
+    74000,
+    9.97
+   ],
+   [
+    "mortgage loan calculator amortization",
+    74000,
+    2.15
+   ],
+   [
+    "mortgage affordability calculator",
+    60500,
+    3.34
+   ],
+   [
+    "mortgage loan calculator",
+    60500,
+    2.78
+   ]
+  ]
+ },
+ "compound interest calculator": {
+  "cat": "finance",
+  "build": "easy",
+  "head_kw": "compound interest calculator",
+  "head_vol": 823000,
+  "cpc_high": 1.65,
+  "comp": "LOW",
+  "comp_index": 4,
+  "n_variants": 617,
+  "tails": [
+   [
+    "compound interest calculator",
+    823000,
+    1.65
+   ],
+   [
+    "compute compound interest",
+    823000,
+    1.65
+   ],
+   [
+    "figuring compound interest",
+    823000,
+    1.65
+   ],
+   [
+    "figure compound interest",
+    823000,
+    1.65
+   ],
+   [
+    "estimate compound interest",
+    823000,
+    1.65
+   ],
+   [
+    "compute compound interest calculator",
+    823000,
+    1.65
+   ],
+   [
+    "figuring out compound interest",
+    823000,
+    1.65
+   ],
+   [
+    "compound interest",
+    60500,
+    7.09
+   ],
+   [
+    "compound interest formula",
+    60500,
+    1.95
+   ],
+   [
+    "daily compound interest calculator",
+    14800,
+    3.87
+   ]
+  ]
+ },
+ "paycheck calculator": {
+  "cat": "finance",
+  "build": "easy",
+  "head_kw": "paycheck calculator",
+  "head_vol": 673000,
+  "cpc_high": 13.33,
+  "comp": "LOW",
+  "comp_index": 1,
+  "n_variants": 352,
+  "tails": [
+   [
+    "paycheck calculator",
+    673000,
+    13.33
+   ],
+   [
+    "payroll calculator",
+    673000,
+    13.33
+   ],
+   [
+    "calculate my paycheck",
+    673000,
+    13.33
+   ],
+   [
+    "pay stub calculator",
+    673000,
+    13.33
+   ],
+   [
+    "paycheck estimator",
+    673000,
+    13.33
+   ],
+   [
+    "payroll check calculator",
+    673000,
+    13.33
+   ],
+   [
+    "paycheck stub calculator",
+    673000,
+    13.33
+   ],
+   [
+    "pay check calc",
+    673000,
+    13.33
+   ],
+   [
+    "smartasset paycheck calculator",
+    90500,
+    3.6
+   ],
+   [
+    "smart assets paycheck calculator",
+    90500,
+    3.6
+   ]
+  ]
+ },
+ "salary calculator": {
+  "cat": "finance",
+  "build": "easy",
+  "head_kw": "salary calculator",
+  "head_vol": 301000,
+  "cpc_high": 6.5,
+  "comp": "LOW",
+  "comp_index": 0,
+  "n_variants": 806,
+  "tails": [
+   [
+    "salary calculator",
+    301000,
+    6.5
+   ],
+   [
+    "take home wage calculator",
+    60500,
+    7.3
+   ],
+   [
+    "bring home salary calculator",
+    60500,
+    7.3
+   ],
+   [
+    "salary calculator take home pay",
+    60500,
+    7.3
+   ],
+   [
+    "tax home salary calculator",
+    60500,
+    7.3
+   ],
+   [
+    "hourly to salary calculator",
+    49500,
+    1.59
+   ],
+   [
+    "yearly salary calculator",
+    49500,
+    1.6
+   ],
+   [
+    "yearly wage calculator",
+    49500,
+    1.6
+   ],
+   [
+    "annual wage calculator",
+    49500,
+    1.6
+   ],
+   [
+    "army salary calculator",
+    49500,
+    2.52
+   ]
+  ]
+ },
+ "amortization calculator": {
+  "cat": "finance",
+  "build": "easy",
+  "head_kw": "amortization calculator",
+  "head_vol": 301000,
+  "cpc_high": 3.32,
+  "comp": "LOW",
+  "comp_index": 4,
+  "n_variants": 120,
+  "tails": [
+   [
+    "amortization calculator",
+    301000,
+    3.32
+   ],
+   [
+    "amortization table calculator",
+    301000,
+    3.32
+   ],
+   [
+    "amortization chart calculator",
+    301000,
+    3.32
+   ],
+   [
+    "amortization schedule",
+    74000,
+    7.63
+   ],
+   [
+    "mortgage amortization calculator",
+    74000,
+    2.15
+   ],
+   [
+    "amortization",
+    74000,
+    14.34
+   ],
+   [
+    "home loan amortization calculator",
+    74000,
+    2.15
+   ],
+   [
+    "house amortization calculator",
+    74000,
+    2.15
+   ],
+   [
+    "mortgage loan calculator amortization",
+    74000,
+    2.15
+   ],
+   [
+    "housing loan amortization calculator",
+    74000,
+    2.15
+   ]
+  ]
+ },
+ "sales tax calculator": {
+  "cat": "finance",
+  "build": "easy",
+  "head_kw": "sales tax calculator",
+  "head_vol": 110000,
+  "cpc_high": 10.3,
+  "comp": "LOW",
+  "comp_index": 1,
+  "n_variants": 204,
+  "tails": [
+   [
+    "sales tax calculator",
+    110000,
+    10.3
+   ],
+   [
+    "figuring sales tax",
+    110000,
+    10.3
+   ],
+   [
+    "sales tax estimator",
+    110000,
+    10.3
+   ],
+   [
+    "avalara sales tax calculator",
+    12100,
+    43.97
+   ],
+   [
+    "reverse sales tax calculator",
+    5400,
+    0.0
+   ],
+   [
+    "backwards sales tax calculator",
+    5400,
+    0.0
+   ],
+   [
+    "taxjar sales tax calculator",
+    4400,
+    43.97
+   ],
+   [
+    "auto loan calculator with sales tax",
+    3600,
+    1.48
+   ],
+   [
+    "car loan calculator with sales tax",
+    3600,
+    1.48
+   ],
+   [
+    "lowest sales tax states",
+    3600,
+    4.48
+   ]
+  ]
+ },
+ "tip calculator": {
+  "cat": "finance",
+  "build": "easy",
+  "head_kw": "tip calculator",
+  "head_vol": 450000,
+  "cpc_high": 0.61,
+  "comp": "LOW",
+  "comp_index": 0,
+  "n_variants": 133,
+  "tails": [
+   [
+    "tip calculator",
+    450000,
+    0.61
+   ],
+   [
+    "restaurant tip calculator",
+    4400,
+    0.54
+   ],
+   [
+    "gratuity tip calculator",
+    3600,
+    0.48
+   ],
+   [
+    "haircut tip calculator",
+    2900,
+    0.0
+   ],
+   [
+    "simple tip calculator",
+    1600,
+    0.69
+   ],
+   [
+    "tip percentage calculator",
+    1300,
+    0.69
+   ],
+   [
+    "tax and tip calculator",
+    1300,
+    0.0
+   ],
+   [
+    "ez tip calculator",
+    1000,
+    0.0
+   ],
+   [
+    "nail salon tip calculator",
+    1000,
+    0.0
+   ],
+   [
+    "tattoo tip calculator",
+    880,
+    0.0
+   ]
+  ]
+ },
+ "discount calculator": {
+  "cat": "finance",
+  "build": "easy",
+  "head_kw": "discount calculator",
+  "head_vol": 40500,
+  "cpc_high": 1.76,
+  "comp": "LOW",
+  "comp_index": 0,
+  "n_variants": 156,
+  "tails": [
+   [
+    "discount calculator",
+    40500,
+    1.76
+   ],
+   [
+    "percent off calculator",
+    40500,
+    0.0
+   ],
+   [
+    "discount tire size calculator",
+    18100,
+    0.33
+   ],
+   [
+    "discount value calculator",
+    9900,
+    4.06
+   ],
+   [
+    "discount percentage calculator",
+    4400,
+    0.0
+   ],
+   [
+    "discount tire calculator",
+    4400,
+    0.27
+   ],
+   [
+    "discount point calculator",
+    3600,
+    3.81
+   ],
+   [
+    "discount tire wheel calculator",
+    880,
+    0.0
+   ],
+   [
+    "percent off price calculator",
+    720,
+    0.0
+   ],
+   [
+    "discount calculator with tax",
+    590,
+    0.0
+   ]
+  ]
+ },
+ "retirement 401k calculator": {
+  "cat": "finance",
+  "build": "easy",
+  "head_kw": "401 k calculator",
+  "head_vol": 165000,
+  "cpc_high": 1.87,
+  "comp": "LOW",
+  "comp_index": 6,
+  "n_variants": 203,
+  "tails": [
+   [
+    "401 k calculator",
+    165000,
+    1.87
+   ],
+   [
+    "calculator 401k",
+    165000,
+    1.87
+   ],
+   [
+    "roth ira calculator",
+    135000,
+    2.13
+   ],
+   [
+    "roth ira estimator",
+    135000,
+    2.13
+   ],
+   [
+    "ira calculator",
+    27100,
+    2.06
+   ],
+   [
+    "retirement savings calculator",
+    18100,
+    3.28
+   ],
+   [
+    "savings rate retirement calculator",
+    18100,
+    3.28
+   ],
+   [
+    "401k retirement calculator",
+    9900,
+    2.0
+   ],
+   [
+    "retirement income calculator",
+    6600,
+    3.35
+   ],
+   [
+    "401k calculator with match",
+    6600,
+    1.76
+   ]
+  ]
+ },
+ "bmi calculator": {
+  "cat": "health",
+  "build": "easy",
+  "head_kw": "bmi calculator",
+  "head_vol": 2740000,
+  "cpc_high": 0.57,
+  "comp": "LOW",
+  "comp_index": 21,
+  "n_variants": 404,
+  "tails": [
+   [
+    "bmi calculator",
+    2740000,
+    0.57
+   ],
+   [
+    "body bmi calculator",
+    2740000,
+    0.57
+   ],
+   [
+    "bmi calculator 2",
+    2740000,
+    0.57
+   ],
+   [
+    "body mass index bmi calculator",
+    2740000,
+    0.57
+   ],
+   [
+    "compute bmi calculator",
+    2740000,
+    0.57
+   ],
+   [
+    "bmi body mass index",
+    550000,
+    0.69
+   ],
+   [
+    "bmi calculator women",
+    246000,
+    0.6
+   ],
+   [
+    "bmi calculator female",
+    246000,
+    0.6
+   ],
+   [
+    "womens bmi calculator",
+    246000,
+    0.6
+   ],
+   [
+    "bmi index calculator female",
+    246000,
+    0.6
+   ]
+  ]
+ },
+ "calorie calculator": {
+  "cat": "health",
+  "build": "easy",
+  "head_kw": "calorie calculator",
+  "head_vol": 1000000,
+  "cpc_high": 1.78,
+  "comp": "LOW",
+  "comp_index": 5,
+  "n_variants": 603,
+  "tails": [
+   [
+    "calorie calculator",
+    1000000,
+    1.78
+   ],
+   [
+    "calorie deficit calculator",
+    301000,
+    1.54
+   ],
+   [
+    "deficit calories calculator",
+    301000,
+    1.54
+   ],
+   [
+    "maintenance calorie calculator",
+    110000,
+    0.13
+   ],
+   [
+    "calorie maintain calculator",
+    110000,
+    0.13
+   ],
+   [
+    "calorie calculator net",
+    90500,
+    1.46
+   ],
+   [
+    "calorie and weight loss calculator",
+    74000,
+    1.62
+   ],
+   [
+    "calorie loss calculator",
+    40500,
+    1.69
+   ],
+   [
+    "calorie expenditure calculator",
+    40500,
+    1.69
+   ],
+   [
+    "subway calorie calculator",
+    27100,
+    0.03
+   ]
+  ]
+ },
+ "tdee calculator": {
+  "cat": "health",
+  "build": "easy",
+  "head_kw": "tdee calculator",
+  "head_vol": 550000,
+  "cpc_high": 1.3,
+  "comp": "LOW",
+  "comp_index": 8,
+  "n_variants": 326,
+  "tails": [
+   [
+    "tdee calculator",
+    550000,
+    1.3
+   ],
+   [
+    "tdee cal",
+    550000,
+    1.3
+   ],
+   [
+    "tdee",
+    74000,
+    1.49
+   ],
+   [
+    "tdee calculator to lose weight",
+    12100,
+    1.36
+   ],
+   [
+    "tdee calculator net",
+    12100,
+    1.48
+   ],
+   [
+    "total daily energy expenditure tdee calculator",
+    3600,
+    1.02
+   ],
+   [
+    "tdee meaning",
+    2900,
+    3.64
+   ],
+   [
+    "tdee calorie calculator",
+    1900,
+    1.43
+   ],
+   [
+    "tdee total daily energy expenditure",
+    1900,
+    0.9
+   ],
+   [
+    "bmr tdee calculator",
+    880,
+    1.39
+   ]
+  ]
+ },
+ "bmr calculator": {
+  "cat": "health",
+  "build": "easy",
+  "head_kw": "bmr calculator",
+  "head_vol": 165000,
+  "cpc_high": 0.57,
+  "comp": "LOW",
+  "comp_index": 5,
+  "n_variants": 532,
+  "tails": [
+   [
+    "bmr calculator",
+    165000,
+    0.57
+   ],
+   [
+    "basal metabolic rate calculator",
+    165000,
+    0.57
+   ],
+   [
+    "basal metabolic rate cal",
+    165000,
+    0.57
+   ],
+   [
+    "basal metabolic weight calculator",
+    165000,
+    0.57
+   ],
+   [
+    "bmr computation",
+    165000,
+    0.57
+   ],
+   [
+    "bmr compute",
+    165000,
+    0.57
+   ],
+   [
+    "calculare bmr",
+    165000,
+    0.57
+   ],
+   [
+    "basal metabolic index calculator",
+    27100,
+    0.13
+   ],
+   [
+    "basal metabolic rate bmr calculator",
+    27100,
+    0.13
+   ],
+   [
+    "bmr rate calculator",
+    27100,
+    0.13
+   ]
+  ]
+ },
+ "macro calculator": {
+  "cat": "health",
+  "build": "easy",
+  "head_kw": "macro calculator",
+  "head_vol": 110000,
+  "cpc_high": 1.46,
+  "comp": "LOW",
+  "comp_index": 23,
+  "n_variants": 629,
+  "tails": [
+   [
+    "macro calculator",
+    110000,
+    1.46
+   ],
+   [
+    "calculator net macro calculator",
+    18100,
+    1.13
+   ],
+   [
+    "macro calculator for weight loss",
+    12100,
+    1.71
+   ],
+   [
+    "macro calculator for fat loss",
+    12100,
+    1.71
+   ],
+   [
+    "myfitnesspal macro calculator",
+    12100,
+    1.96
+   ],
+   [
+    "weight loss calculator macros",
+    12100,
+    1.71
+   ],
+   [
+    "mfp macro calculator",
+    12100,
+    1.96
+   ],
+   [
+    "precision nutrition macro calculator",
+    6600,
+    1.85
+   ],
+   [
+    "precise nutrition macro calculator",
+    6600,
+    1.85
+   ],
+   [
+    "keto macro calculator",
+    3600,
+    1.8
+   ]
+  ]
+ },
+ "calorie deficit calculator": {
+  "cat": "health",
+  "build": "easy",
+  "head_kw": "calorie deficit calculator",
+  "head_vol": 301000,
+  "cpc_high": 1.54,
+  "comp": "LOW",
+  "comp_index": 24,
+  "n_variants": 61,
+  "tails": [
+   [
+    "calorie deficit calculator",
+    301000,
+    1.54
+   ],
+   [
+    "determine calorie deficit",
+    301000,
+    1.54
+   ],
+   [
+    "deficit calories calculator",
+    301000,
+    1.54
+   ],
+   [
+    "calorie deficit formula",
+    301000,
+    1.54
+   ],
+   [
+    "calorie deficit to lose weight calculator",
+    5400,
+    1.6
+   ],
+   [
+    "calorie deficit calculator for weight loss",
+    5400,
+    1.6
+   ],
+   [
+    "calculate my calorie deficit",
+    1900,
+    1.46
+   ],
+   [
+    "calorie deficit counter",
+    880,
+    1.48
+   ],
+   [
+    "calculate a calorie deficit",
+    880,
+    1.48
+   ],
+   [
+    "calorie deficit equation",
+    880,
+    1.48
+   ]
+  ]
+ },
+ "body fat calculator": {
+  "cat": "health",
+  "build": "easy",
+  "head_kw": "body fat calculator",
+  "head_vol": 74000,
+  "cpc_high": 1.61,
+  "comp": "LOW",
+  "comp_index": 3,
+  "n_variants": 764,
+  "tails": [
+   [
+    "body fat calculator",
+    74000,
+    1.61
+   ],
+   [
+    "body fat index",
+    74000,
+    2.18
+   ],
+   [
+    "body fat estimate",
+    74000,
+    1.61
+   ],
+   [
+    "body fat index calculator",
+    74000,
+    1.61
+   ],
+   [
+    "percentage of body fat",
+    74000,
+    2.18
+   ],
+   [
+    "body fat content calculator",
+    74000,
+    1.61
+   ],
+   [
+    "body fat converter",
+    74000,
+    1.61
+   ],
+   [
+    "body fat level calculator",
+    74000,
+    1.61
+   ],
+   [
+    "body fat rate calculator",
+    74000,
+    1.61
+   ],
+   [
+    "body fat percentage calculator",
+    49500,
+    2.11
+   ]
+  ]
+ },
+ "ideal weight calculator": {
+  "cat": "health",
+  "build": "easy",
+  "head_kw": "ideal body weight calculator",
+  "head_vol": 22200,
+  "cpc_high": 2.15,
+  "comp": "LOW",
+  "comp_index": 3,
+  "n_variants": 461,
+  "tails": [
+   [
+    "ideal body weight calculator",
+    22200,
+    2.15
+   ],
+   [
+    "figuring ideal body weight",
+    22200,
+    2.15
+   ],
+   [
+    "figuring out ideal body weight",
+    22200,
+    2.15
+   ],
+   [
+    "find ideal body weight",
+    22200,
+    2.15
+   ],
+   [
+    "ideal weight calculator",
+    14800,
+    1.9
+   ],
+   [
+    "determine ideal weight",
+    14800,
+    1.9
+   ],
+   [
+    "figure ideal weight",
+    14800,
+    1.9
+   ],
+   [
+    "figure out ideal weight",
+    14800,
+    1.9
+   ],
+   [
+    "find ideal weight",
+    14800,
+    1.9
+   ],
+   [
+    "ideal weight cal",
+    14800,
+    1.9
+   ]
+  ]
+ },
+ "pace calculator": {
+  "cat": "health",
+  "build": "easy",
+  "head_kw": "pace calculator",
+  "head_vol": 90500,
+  "cpc_high": 2.57,
+  "comp": "LOW",
+  "comp_index": 0,
+  "n_variants": 166,
+  "tails": [
+   [
+    "pace calculator",
+    90500,
+    2.57
+   ],
+   [
+    "running pace calculator",
+    33100,
+    3.63
+   ],
+   [
+    "convert running pace",
+    33100,
+    3.63
+   ],
+   [
+    "determine running pace",
+    33100,
+    3.63
+   ],
+   [
+    "figure out running pace",
+    33100,
+    3.63
+   ],
+   [
+    "jogging pace calculator",
+    33100,
+    3.63
+   ],
+   [
+    "marathon pace calculator",
+    12100,
+    3.63
+   ],
+   [
+    "marathon race pace calculator",
+    12100,
+    3.63
+   ],
+   [
+    "marathon running pace calculator",
+    12100,
+    3.63
+   ],
+   [
+    "5k mile pace calculator",
+    5400,
+    4.27
+   ]
+  ]
+ },
+ "password generator": {
+  "cat": "gen",
+  "build": "easy",
+  "head_kw": "password generator",
+  "head_vol": 246000,
+  "cpc_high": 0.14,
+  "comp": "LOW",
+  "comp_index": 7,
+  "n_variants": 713,
+  "tails": [
+   [
+    "password generator",
+    246000,
+    0.14
+   ],
+   [
+    "random password generator",
+    74000,
+    0.11
+   ],
+   [
+    "12 character password generator",
+    49500,
+    0.12
+   ],
+   [
+    "password generator 12 characters",
+    49500,
+    0.12
+   ],
+   [
+    "strong password generator",
+    33100,
+    0.27
+   ],
+   [
+    "lastpass password generator",
+    33100,
+    0.34
+   ],
+   [
+    "norton password generator",
+    33100,
+    5.28
+   ],
+   [
+    "last password generator",
+    33100,
+    0.34
+   ],
+   [
+    "lastpass random password generator",
+    33100,
+    0.34
+   ],
+   [
+    "norton random password generator",
+    33100,
+    5.28
+   ]
+  ]
+ },
+ "qr code generator": {
+  "cat": "gen",
+  "build": "medium",
+  "head_kw": "qr code generator",
+  "head_vol": 823000,
+  "cpc_high": 4.43,
+  "comp": "MEDIUM",
+  "comp_index": 48,
+  "n_variants": 698,
+  "tails": [
+   [
+    "qr code generator",
+    823000,
+    4.43
+   ],
+   [
+    "qrcode generator",
+    823000,
+    4.43
+   ],
+   [
+    "qr code builder",
+    823000,
+    4.43
+   ],
+   [
+    "qr code gener\u00e1tor",
+    823000,
+    4.43
+   ],
+   [
+    "generate the qr code",
+    823000,
+    4.43
+   ],
+   [
+    "gen qrcode",
+    823000,
+    4.43
+   ],
+   [
+    "create qr code free",
+    110000,
+    5.21
+   ],
+   [
+    "qrcode monkey qr code generator",
+    110000,
+    6.45
+   ],
+   [
+    "qr code generator freeware",
+    110000,
+    5.21
+   ],
+   [
+    "qr code maker",
+    60500,
+    4.39
+   ]
+  ]
+ },
+ "random name generator": {
+  "cat": "gen",
+  "build": "easy",
+  "head_kw": "random name generator",
+  "head_vol": 201000,
+  "cpc_high": 9.73,
+  "comp": "LOW",
+  "comp_index": 0,
+  "n_variants": 447,
+  "tails": [
+   [
+    "random name generator",
+    201000,
+    9.73
+   ],
+   [
+    "nickname generator random",
+    201000,
+    9.73
+   ],
+   [
+    "random name giver",
+    201000,
+    9.73
+   ],
+   [
+    "random name maker",
+    201000,
+    9.73
+   ],
+   [
+    "random name picker",
+    49500,
+    0.82
+   ],
+   [
+    "random name selector",
+    49500,
+    0.82
+   ],
+   [
+    "random account name generator",
+    14800,
+    0.0
+   ],
+   [
+    "random username name generator",
+    14800,
+    0.0
+   ],
+   [
+    "wheel of names random name picker",
+    14800,
+    0.0
+   ],
+   [
+    "random name generator wheel",
+    8100,
+    0.94
+   ]
+  ]
+ },
+ "fantasy name generator": {
+  "cat": "gen",
+  "build": "easy",
+  "head_kw": "fantasy name generator",
+  "head_vol": 135000,
+  "cpc_high": 1.74,
+  "comp": "LOW",
+  "comp_index": 0,
+  "n_variants": 14,
+  "tails": [
+   [
+    "fantasy name generator",
+    135000,
+    1.74
+   ],
+   [
+    "fantasy username generator",
+    135000,
+    1.74
+   ],
+   [
+    "elf name randomizer",
+    18100,
+    0.0
+   ],
+   [
+    "fantasy name generator female",
+    2400,
+    0.0
+   ],
+   [
+    "fantasy random name generator",
+    1900,
+    0.0
+   ],
+   [
+    "random character name generator",
+    480,
+    0.0
+   ],
+   [
+    "random elf name generator",
+    390,
+    0.0
+   ],
+   [
+    "cat name generator fantasy",
+    30,
+    0.0
+   ],
+   [
+    "random fantasy world name generator",
+    30,
+    0.0
+   ],
+   [
+    "fantasy name generator shop",
+    10,
+    0.0
+   ]
+  ]
+ },
+ "fancy text generator": {
+  "cat": "gen",
+  "build": "easy",
+  "head_kw": "font generator",
+  "head_vol": 1000000,
+  "cpc_high": 2.39,
+  "comp": "LOW",
+  "comp_index": 0,
+  "n_variants": 600,
+  "tails": [
+   [
+    "font generator",
+    1000000,
+    2.39
+   ],
+   [
+    "fancy text generator",
+    74000,
+    5.54
+   ],
+   [
+    "create fancy text",
+    74000,
+    5.54
+   ],
+   [
+    "fancy text maker",
+    74000,
+    5.54
+   ],
+   [
+    "fancy font generator",
+    40500,
+    2.03
+   ],
+   [
+    "fancy font creator",
+    40500,
+    2.03
+   ],
+   [
+    "fancy font maker",
+    40500,
+    2.03
+   ],
+   [
+    "fancy text gen",
+    33100,
+    0.0
+   ],
+   [
+    "text font generator",
+    27100,
+    2.19
+   ],
+   [
+    "fancy text",
+    22200,
+    0.0
+   ]
+  ]
+ },
+ "username generator": {
+  "cat": "gen",
+  "build": "easy",
+  "head_kw": "fantasy username generator",
+  "head_vol": 135000,
+  "cpc_high": 1.74,
+  "comp": "LOW",
+  "comp_index": 0,
+  "n_variants": 179,
+  "tails": [
+   [
+    "fantasy username generator",
+    135000,
+    1.74
+   ],
+   [
+    "username generator",
+    90500,
+    2.96
+   ],
+   [
+    "username generator business",
+    49500,
+    2.65
+   ],
+   [
+    "random username generator",
+    14800,
+    0.0
+   ],
+   [
+    "random username name generator",
+    14800,
+    0.0
+   ],
+   [
+    "lastpass username generator",
+    9900,
+    0.0
+   ],
+   [
+    "youtube username generator",
+    5400,
+    0.63
+   ],
+   [
+    "instagram username generator",
+    4400,
+    0.24
+   ],
+   [
+    "ig username generator",
+    4400,
+    0.24
+   ],
+   [
+    "xbox username generator",
+    4400,
+    0.0
+   ]
+  ]
+ },
+ "business name generator": {
+  "cat": "gen",
+  "build": "medium",
+  "head_kw": "business name generator",
+  "head_vol": 49500,
+  "cpc_high": 2.65,
+  "comp": "MEDIUM",
+  "comp_index": 62,
+  "n_variants": 431,
+  "tails": [
+   [
+    "business name generator",
+    49500,
+    2.65
+   ],
+   [
+    "business name builder",
+    49500,
+    2.65
+   ],
+   [
+    "business company name generator",
+    49500,
+    2.65
+   ],
+   [
+    "namelix business name generator",
+    14800,
+    4.36
+   ],
+   [
+    "company name generator",
+    8100,
+    3.4
+   ],
+   [
+    "business name ideas",
+    6600,
+    2.76
+   ],
+   [
+    "brand name generator",
+    5400,
+    3.57
+   ],
+   [
+    "business name maker free",
+    5400,
+    2.7
+   ],
+   [
+    "business name creator free",
+    5400,
+    2.7
+   ],
+   [
+    "ai business name generator",
+    4400,
+    3.54
+   ]
+  ]
+ },
+ "uuid generator": {
+  "cat": "dev",
+  "build": "easy",
+  "head_kw": "uuid generator",
+  "head_vol": 22200,
+  "cpc_high": 7.48,
+  "comp": "LOW",
+  "comp_index": 0,
+  "n_variants": 68,
+  "tails": [
+   [
+    "uuid generator",
+    22200,
+    7.48
+   ],
+   [
+    "get uuid",
+    22200,
+    7.48
+   ],
+   [
+    "uuid gen",
+    22200,
+    7.48
+   ],
+   [
+    "random uuid",
+    1900,
+    0.0
+   ],
+   [
+    "online guid generator",
+    1600,
+    0.0
+   ],
+   [
+    "uuid v4",
+    1600,
+    0.0
+   ],
+   [
+    "generate random uuid",
+    1300,
+    0.0
+   ],
+   [
+    "generate uuid online",
+    1300,
+    0.0
+   ],
+   [
+    "get random uuid",
+    1300,
+    0.0
+   ],
+   [
+    "random uuid generator",
+    1300,
+    0.0
+   ]
+  ]
+ },
+ "color picker": {
+  "cat": "dev",
+  "build": "easy",
+  "head_kw": "color picker",
+  "head_vol": 301000,
+  "cpc_high": 1.73,
+  "comp": "LOW",
+  "comp_index": 2,
+  "n_variants": 720,
+  "tails": [
+   [
+    "color picker",
+    301000,
+    1.73
+   ],
+   [
+    "color picker from image",
+    60500,
+    2.01
+   ],
+   [
+    "choose hex color",
+    60500,
+    2.22
+   ],
+   [
+    "color code chooser",
+    60500,
+    2.22
+   ],
+   [
+    "color finder hex",
+    60500,
+    2.22
+   ],
+   [
+    "color image picker",
+    60500,
+    2.01
+   ],
+   [
+    "color picker color code",
+    60500,
+    2.22
+   ],
+   [
+    "color selector hex",
+    60500,
+    2.22
+   ],
+   [
+    "colour hex picker",
+    60500,
+    2.22
+   ],
+   [
+    "colour image picker",
+    60500,
+    2.01
+   ]
+  ]
+ },
+ "json formatter": {
+  "cat": "dev",
+  "build": "easy",
+  "head_kw": "json formatter",
+  "head_vol": 110000,
+  "cpc_high": 11.47,
+  "comp": "LOW",
+  "comp_index": 0,
+  "n_variants": 88,
+  "tails": [
+   [
+    "json formatter",
+    110000,
+    11.47
+   ],
+   [
+    "json beautifier",
+    18100,
+    13.59
+   ],
+   [
+    "json formatter on line",
+    14800,
+    15.31
+   ],
+   [
+    "json formatter & validator",
+    12100,
+    0.0
+   ],
+   [
+    "json format to csv",
+    6600,
+    8.12
+   ],
+   [
+    "csv to json formatter",
+    2400,
+    6.16
+   ],
+   [
+    "json file formatter",
+    1600,
+    3.71
+   ],
+   [
+    "json formatter html viewer",
+    1300,
+    0.0
+   ],
+   [
+    "json formatter chrome extension",
+    1000,
+    0.0
+   ],
+   [
+    "chrome json formatter plugin",
+    1000,
+    0.0
+   ]
+  ]
+ },
+ "base64 encoder": {
+  "cat": "dev",
+  "build": "easy",
+  "head_kw": "base64 decode",
+  "head_vol": 60500,
+  "cpc_high": 15.0,
+  "comp": "LOW",
+  "comp_index": 0,
+  "n_variants": 166,
+  "tails": [
+   [
+    "base64 decode",
+    60500,
+    15.0
+   ],
+   [
+    "base64 encode",
+    18100,
+    7.49
+   ],
+   [
+    "base64 encode decode online",
+    5400,
+    0.0
+   ],
+   [
+    "base64 text",
+    1000,
+    0.0
+   ],
+   [
+    "base64 decode python",
+    880,
+    0.0
+   ],
+   [
+    "base64 python",
+    880,
+    0.0
+   ],
+   [
+    "js base64 decode",
+    720,
+    0.0
+   ],
+   [
+    "js base64 encode",
+    720,
+    0.0
+   ],
+   [
+    "base64 to string",
+    590,
+    0.0
+   ],
+   [
+    "base64 encode python",
+    590,
+    0.0
+   ]
+  ]
+ },
+ "celsius to fahrenheit": {
+  "cat": "convert",
+  "build": "easy",
+  "head_kw": "celsius to fahrenheit",
+  "head_vol": 1220000,
+  "cpc_high": 0.66,
+  "comp": "LOW",
+  "comp_index": 0,
+  "n_variants": 609,
+  "tails": [
+   [
+    "celsius to fahrenheit",
+    1220000,
+    0.66
+   ],
+   [
+    "c fahrenheit to celsius",
+    1220000,
+    0.66
+   ],
+   [
+    "180 celsius to fahrenheit",
+    246000,
+    0.33
+   ],
+   [
+    "180 degrees celsius to fahrenheit",
+    246000,
+    0.33
+   ],
+   [
+    "40 celsius to fahrenheit",
+    246000,
+    0.5
+   ],
+   [
+    "40 degree celsius to fahrenheit",
+    246000,
+    0.5
+   ],
+   [
+    "200 celsius to fahrenheit",
+    201000,
+    0.39
+   ],
+   [
+    "200 degrees celsius to fahrenheit",
+    201000,
+    0.39
+   ],
+   [
+    "30 celsius to fahrenheit",
+    201000,
+    0.53
+   ],
+   [
+    "30 degree celsius to fahrenheit",
+    201000,
+    0.53
+   ]
+  ]
+ },
+ "cm to inches": {
+  "cat": "convert",
+  "build": "easy",
+  "head_kw": "cm to inches",
+  "head_vol": 1220000,
+  "cpc_high": 0.66,
+  "comp": "LOW",
+  "comp_index": 1,
+  "n_variants": 592,
+  "tails": [
+   [
+    "cm to inches",
+    1220000,
+    0.66
+   ],
+   [
+    "cm and inch",
+    1220000,
+    0.66
+   ],
+   [
+    "15 cm in inches",
+    165000,
+    0.0
+   ],
+   [
+    "15 inch cm",
+    165000,
+    0.0
+   ],
+   [
+    "20 cm in inches",
+    165000,
+    0.0
+   ],
+   [
+    "30 cm in inch",
+    135000,
+    0.0
+   ],
+   [
+    "50 cm in inches",
+    135000,
+    0.0
+   ],
+   [
+    "50 cm inch",
+    135000,
+    0.0
+   ],
+   [
+    "change cm to inches",
+    135000,
+    0.47
+   ],
+   [
+    "40 cm inch",
+    110000,
+    0.0
+   ]
+  ]
+ },
+ "kg to lbs": {
+  "cat": "convert",
+  "build": "easy",
+  "head_kw": "kg to lbs",
+  "head_vol": 1220000,
+  "cpc_high": 0.15,
+  "comp": "LOW",
+  "comp_index": 0,
+  "n_variants": 372,
+  "tails": [
+   [
+    "kg to lbs",
+    1220000,
+    0.15
+   ],
+   [
+    "convert kg to lbs",
+    165000,
+    0.21
+   ],
+   [
+    "70 kg in pounds",
+    165000,
+    0.0
+   ],
+   [
+    "70 kg to lbs",
+    165000,
+    0.0
+   ],
+   [
+    "80 kg in pounds",
+    165000,
+    0.0
+   ],
+   [
+    "80 kg to lbs",
+    165000,
+    0.0
+   ],
+   [
+    "change kg to lbs",
+    165000,
+    0.21
+   ],
+   [
+    "change kg to pounds",
+    165000,
+    0.21
+   ],
+   [
+    "conversion from kg to pounds",
+    165000,
+    0.21
+   ],
+   [
+    "converter kg em pounds",
+    165000,
+    0.21
+   ]
+  ]
+ },
+ "dice roller": {
+  "cat": "fun",
+  "build": "easy",
+  "head_kw": "dice roller",
+  "head_vol": 450000,
+  "cpc_high": 1.04,
+  "comp": "LOW",
+  "comp_index": 0,
+  "n_variants": 423,
+  "tails": [
+   [
+    "dice roller",
+    450000,
+    1.04
+   ],
+   [
+    "virtual dice roller",
+    33100,
+    1.15
+   ],
+   [
+    "dnd dice roller",
+    27100,
+    0.37
+   ],
+   [
+    "dungeons and dragons dice roller",
+    27100,
+    0.37
+   ],
+   [
+    "d and d dice roller",
+    27100,
+    0.37
+   ],
+   [
+    "dice roller application",
+    12100,
+    0.42
+   ],
+   [
+    "dice roller 1 6",
+    9900,
+    0.42
+   ],
+   [
+    "random dice roller",
+    8100,
+    0.78
+   ],
+   [
+    "roll two dice",
+    6600,
+    0.6
+   ],
+   [
+    "roll dice online",
+    5400,
+    2.05
+   ]
+  ]
+ },
+ "coin flip": {
+  "cat": "fun",
+  "build": "easy",
+  "head_kw": "flip and coin",
+  "head_vol": 2240000,
+  "cpc_high": 2.21,
+  "comp": "LOW",
+  "comp_index": 0,
+  "n_variants": 72,
+  "tails": [
+   [
+    "flip and coin",
+    2240000,
+    2.21
+   ],
+   [
+    "flip toss coin",
+    2240000,
+    2.21
+   ],
+   [
+    "coin flip virtual",
+    9900,
+    0.0
+   ],
+   [
+    "coin flip random",
+    5400,
+    0.0
+   ],
+   [
+    "digital coin flip",
+    4400,
+    0.0
+   ],
+   [
+    "flip a coin 3 times",
+    3600,
+    0.0
+   ],
+   [
+    "heads and tails coin",
+    2900,
+    0.68
+   ],
+   [
+    "flip a coin 100 times",
+    2900,
+    0.0
+   ],
+   [
+    "flip a coin for me",
+    2400,
+    0.0
+   ],
+   [
+    "yes no flip coin",
+    2400,
+    0.0
+   ]
+  ]
+ },
+ "decision wheel": {
+  "cat": "fun",
+  "build": "easy",
+  "head_kw": "wheel of names",
+  "head_vol": 1220000,
+  "cpc_high": 2.31,
+  "comp": "LOW",
+  "comp_index": 0,
+  "n_variants": 735,
+  "tails": [
+   [
+    "wheel of names",
+    1220000,
+    2.31
+   ],
+   [
+    "spin the wheel",
+    1000000,
+    0.01
+   ],
+   [
+    "spin it wheel",
+    1000000,
+    0.01
+   ],
+   [
+    "random wheel",
+    110000,
+    0.01
+   ],
+   [
+    "random wheel generator",
+    74000,
+    0.01
+   ],
+   [
+    "random name picker",
+    49500,
+    0.82
+   ],
+   [
+    "wheel picker",
+    49500,
+    0.01
+   ],
+   [
+    "spin the wheel custom",
+    40500,
+    0.01
+   ],
+   [
+    "random number picker 1 100",
+    33100,
+    0.0
+   ],
+   [
+    "spin wheel generator",
+    33100,
+    0.01
+   ]
+  ]
+ },
+ "image resizer": {
+  "cat": "image",
+  "build": "medium",
+  "head_kw": "image resizer",
+  "head_vol": 165000,
+  "cpc_high": 3.46,
+  "comp": "LOW",
+  "comp_index": 2,
+  "n_variants": 628,
+  "tails": [
+   [
+    "image resizer",
+    165000,
+    3.46
+   ],
+   [
+    "image compressor",
+    60500,
+    1.94
+   ],
+   [
+    "resize and image",
+    60500,
+    2.23
+   ],
+   [
+    "photo resizer free",
+    18100,
+    1.98
+   ],
+   [
+    "photo image resizer",
+    14800,
+    3.08
+   ],
+   [
+    "jpg image compressor",
+    14800,
+    2.43
+   ],
+   [
+    "tinypng image compressor",
+    12100,
+    2.72
+   ],
+   [
+    "image resolution resizer",
+    8100,
+    2.73
+   ],
+   [
+    "resize image size",
+    8100,
+    2.73
+   ],
+   [
+    "resize resolution of image",
+    8100,
+    2.73
+   ]
+  ]
+ },
+ "morse code translator": {
+  "cat": "misc",
+  "build": "easy",
+  "head_kw": "morse code translator",
+  "head_vol": 368000,
+  "cpc_high": 0.0,
+  "comp": "LOW",
+  "comp_index": 0,
+  "n_variants": 194,
+  "tails": [
+   [
+    "morse code translator",
+    368000,
+    0.0
+   ],
+   [
+    "morse alphabet translator",
+    368000,
+    0.0
+   ],
+   [
+    "translation of morse code",
+    368000,
+    0.0
+   ],
+   [
+    "morse translator online",
+    60500,
+    0.0
+   ],
+   [
+    "morse code generator",
+    14800,
+    0.0
+   ],
+   [
+    "morse code decoder",
+    12100,
+    0.6
+   ],
+   [
+    "morse code decipher",
+    12100,
+    0.6
+   ],
+   [
+    "morse code world translator",
+    9900,
+    0.0
+   ],
+   [
+    "convert morse code to english",
+    6600,
+    0.0
+   ],
+   [
+    "english morse code translator",
+    6600,
+    0.0
+   ]
+  ]
+ },
+ "roman numeral converter": {
+  "cat": "misc",
+  "build": "easy",
+  "head_kw": "roman numeral converter",
+  "head_vol": 110000,
+  "cpc_high": 0.02,
+  "comp": "LOW",
+  "comp_index": 0,
+  "n_variants": 43,
+  "tails": [
+   [
+    "roman numeral converter",
+    110000,
+    0.02
+   ],
+   [
+    "roman numeral numbers",
+    49500,
+    2.0
+   ],
+   [
+    "roman numeral calculator",
+    5400,
+    0.0
+   ],
+   [
+    "roman numeral date",
+    2900,
+    0.01
+   ],
+   [
+    "roman numeral translate",
+    2900,
+    0.0
+   ],
+   [
+    "roman numeral generator",
+    2400,
+    0.0
+   ],
+   [
+    "roman numeral chart converter",
+    210,
+    0.0
+   ],
+   [
+    "roman numeral conversion table",
+    210,
+    0.0
+   ],
+   [
+    "birthday roman numeral converter",
+    170,
+    0.0
+   ],
+   [
+    "roman numeral calculator date",
+    140,
+    0.0
+   ]
+  ]
+ }
+}

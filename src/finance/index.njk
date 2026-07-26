@@ -1,0 +1,37 @@
+---
+layout: layout.njk
+title: Finance and Money Calculators
+description: Compound interest, loan amortization and tip calculators. Free finance tools that show the full working, not just the final number.
+category: finance
+appName: Finance & Money
+---
+
+<h1>Finance & Money Tools</h1>
+<p>Tools designed to help you manage and calculate daily financial metrics.</p>
+
+{% from "tool-grid.njk" import toolGrid %}
+{{ toolGrid(tools, category) }}
+
+
+<section style="margin-top: 4rem; padding-top: 2rem; border-top: 2px solid var(--border);">
+    <h2 style="font-size: 1.6rem; color: var(--text-main); margin-bottom: 1rem;">Accurate Finance and Money Calculators</h2>
+    <p style="margin-bottom: 1rem; color: var(--text-muted); line-height: 1.6;">Managing personal finance variables should be straightforward and completely transparent. Finding out how much your savings will grow is simple with our daily or monthly compound interest calculator. We built it to function as a highly detailed investment growth calculator. Seeing the exact numbers mapped out by year helps you visualize long term wealth accumulation safely.</p>
+    <p style="margin-bottom: 2.5rem; color: var(--text-muted); line-height: 1.6;">Home buyers frequently need a reliable mortgage amortization calculator to break down their loan schedules. You can export those payment tables directly. We also built a lightweight restaurant tip calculator to help split complicated dinner bills fairly without awkward math. Be sure to check our <a href="/health/" style="color: var(--primary); text-decoration: underline;">Health</a> calculators if you prefer tracking physical metrics alongside your financial ones.</p>
+</section>
+
+<section class="faq" style="margin-top: 3rem;">
+
+    <h2 style="font-size: 1.6rem; color: var(--text-main); margin-bottom: 1.5rem;">Frequently Asked Questions</h2>
+    <article style="margin-bottom: 1.5rem; background: var(--input-bg); padding: 1.25rem; border-radius: 8px;">
+        <h3 style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.5rem; margin-top: 0;">Does the amortization tool account for extra payments?</h3>
+        <p style="margin: 0; color: var(--text-muted);">Yes. You can input custom extra monthly principal contributions to see exactly how they shorten your total loan term.</p>
+    </article>
+    <article style="margin-bottom: 1.5rem; background: var(--input-bg); padding: 1.25rem; border-radius: 8px;">
+        <h3 style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.5rem; margin-top: 0;">How accurate is the compound interest math?</h3>
+        <p style="margin: 0; color: var(--text-muted);">The core mathematical formulas apply standard banking logic for various compounding frequencies to ensure strict financial accuracy.</p>
+    </article>
+    <article style="margin-bottom: 1.5rem; background: var(--input-bg); padding: 1.25rem; border-radius: 8px;">
+        <h3 style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.5rem; margin-top: 0;">Can I use the tip calculator offline?</h3>
+        <p style="margin: 0; color: var(--text-muted);">Yes. Because the site relies entirely on modern browser capabilities the tool works perfectly even if you lose mobile signal inside a restaurant.</p>
+    </article>
+</section>

@@ -1,0 +1,37 @@
+---
+layout: layout.njk
+title: Health and Fitness Calculators
+description: TDEE, BMR and macro calculators built on the Mifflin-St Jeor formula. Free fitness tools for cutting, bulking and maintenance planning.
+category: health
+appName: Fitness & Health
+---
+
+<h1>Fitness & Health Tools</h1>
+<p>Tools designed to help you track your body metrics and optimize your diet.</p>
+
+{% from "tool-grid.njk" import toolGrid %}
+{{ toolGrid(tools, category) }}
+
+
+<section style="margin-top: 4rem; padding-top: 2rem; border-top: 2px solid var(--border);">
+    <h2 style="font-size: 1.6rem; color: var(--text-main); margin-bottom: 1rem;">Science Based Fitness and Health Metrics</h2>
+    <p style="margin-bottom: 1rem; color: var(--text-muted); line-height: 1.6;">Understanding your body baseline is the first step toward achieving physical goals. Our comprehensive tdee calculator instantly finds your total daily energy expenditure based on precise activity levels. This metric drives the foundation of any successful nutrition plan. We utilize standard medical formulas to ensure high mathematical accuracy.</p>
+    <p style="margin-bottom: 2.5rem; color: var(--text-muted); line-height: 1.6;">You can calculate your raw resting calorie burn using our basal metabolic rate calculator. Once you know your energy numbers you can use our advanced macro calculator for weight loss. It splits your daily dietary target perfectly into protein fats and carbohydrates. Feel free to explore our <a href="/math/" style="color: var(--primary); text-decoration: underline;">Math &amp; Education</a> tools if you need a mental break from strict fitness tracking.</p>
+</section>
+
+<section class="faq" style="margin-top: 3rem;">
+
+    <h2 style="font-size: 1.6rem; color: var(--text-main); margin-bottom: 1.5rem;">Frequently Asked Questions</h2>
+    <article style="margin-bottom: 1.5rem; background: var(--input-bg); padding: 1.25rem; border-radius: 8px;">
+        <h3 style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.5rem; margin-top: 0;">Which BMR formula do you use?</h3>
+        <p style="margin: 0; color: var(--text-muted);">We primarily utilize the highly respected Mifflin St Jeor equation as it is widely considered the most accurate model by modern medical professionals.</p>
+    </article>
+    <article style="margin-bottom: 1.5rem; background: var(--input-bg); padding: 1.25rem; border-radius: 8px;">
+        <h3 style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.5rem; margin-top: 0;">Does the macro tool support specific diets?</h3>
+        <p style="margin: 0; color: var(--text-muted);">Yes. You can select specific nutrition presets like high protein or ketogenic distributions depending on your active physical training protocol.</p>
+    </article>
+    <article style="margin-bottom: 1.5rem; background: var(--input-bg); padding: 1.25rem; border-radius: 8px;">
+        <h3 style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.5rem; margin-top: 0;">Are these health trackers suitable for athletes?</h3>
+        <p style="margin: 0; color: var(--text-muted);">Absolutely. You can tweak the physical activity multipliers inside the configuration panel to properly match high impact athletic training schedules.</p>
+    </article>
+</section>

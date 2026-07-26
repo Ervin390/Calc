@@ -1,0 +1,37 @@
+---
+layout: layout.njk
+title: Fun Tools and Random Generators
+description: Dice rollers, name pickers, a spin the wheel tool and a Morse code translator. Free random generators that run instantly in your browser.
+category: fun
+appName: Fun & Random
+---
+
+<h1>Fun & Random Tools</h1>
+<p>Here you will find our entertaining tools like text and name generators.</p>
+
+{% from "tool-grid.njk" import toolGrid %}
+{{ toolGrid(tools, category) }}
+
+
+<section style="margin-top: 4rem; padding-top: 2rem; border-top: 2px solid var(--border);">
+    <h2 style="font-size: 1.6rem; color: var(--text-main); margin-bottom: 1rem;">Discover Interactive Fun and Random Tools</h2>
+    <p style="margin-bottom: 1rem; color: var(--text-muted); line-height: 1.6;">Sometimes you just need to leave a decision up to pure chance. Our collection helps you quickly pick a random name or roll virtual dice for tabletop gaming. We offer a highly customizable wheel of names that acts as a perfect random name picker for giveaways. Tabletop fans often use our dungeons and dragons dice roller to simulate authentic D4 to D20 rolls. You can easily switch between basic coin flips and complex RPG setups.</p>
+    <p style="margin-bottom: 2.5rem; color: var(--text-muted); line-height: 1.6;">Writers and gamers love our random username name generator to build character portfolios quickly. We even built a complete morse alphabet translator. This translates normal text into authentic audio morse code signals. You might also want to check out our <a href="/dev/" style="color: var(--primary); text-decoration: underline;">Developer</a> utilities if you need to create random UUIDs or format complex data payloads.</p>
+</section>
+
+<section class="faq" style="margin-top: 3rem;">
+
+    <h2 style="font-size: 1.6rem; color: var(--text-main); margin-bottom: 1.5rem;">Frequently Asked Questions</h2>
+    <article style="margin-bottom: 1.5rem; background: var(--input-bg); padding: 1.25rem; border-radius: 8px;">
+        <h3 style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.5rem; margin-top: 0;">Is the wheel of names actually random?</h3>
+        <p style="margin: 0; color: var(--text-muted);">Yes. The algorithm uses a cryptographic random number generator to ensure every spin outcome is completely fair and unpredictable.</p>
+    </article>
+    <article style="margin-bottom: 1.5rem; background: var(--input-bg); padding: 1.25rem; border-radius: 8px;">
+        <h3 style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.5rem; margin-top: 0;">Can I save my custom wheel configurations?</h3>
+        <p style="margin: 0; color: var(--text-muted);">Your custom items automatically save to your browser memory. You can also share the web link with others to show them the exact same wheel.</p>
+    </article>
+    <article style="margin-bottom: 1.5rem; background: var(--input-bg); padding: 1.25rem; border-radius: 8px;">
+        <h3 style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.5rem; margin-top: 0;">Does the virtual dice roller support modifiers?</h3>
+        <p style="margin: 0; color: var(--text-muted);">Absolutely. You can roll multiple dice at once and automatically add custom numerical modifiers to the final sum.</p>
+    </article>
+</section>
