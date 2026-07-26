@@ -356,30 +356,70 @@
   <button id="cookie-accept">Accept</button>
   <button id="cookie-reject">Reject</button>
 </div>
+<div id="cookie-banner" class="cookie-banner">
+    <div class="cookie-box">
+
+        <p class="cookie-text">
+            We use cookies to improve your experience and analyze website traffic.
+            By clicking <strong>Accept</strong>, you consent to analytics cookies.
+        </p>
+
+        <div class="cookie-buttons">
+            <button id="cookie-reject" class="cookie-btn secondary">
+                Only necessary
+            </button>
+
+            <button id="cookie-accept" class="cookie-btn primary">
+                Accept all
+            </button>
+        </div>
+
+    </div>
+</div>
 
 <script>
-(function(){
-  const banner = document.getElementById('cookie-banner');
+(() => {
 
-  if(localStorage.getItem('cookieConsent')){
-    banner.style.display='none';
-  }
+const banner = document.getElementById("cookie-banner");
 
-  document.getElementById('cookie-accept').onclick=function(){
-    localStorage.setItem('cookieConsent','accepted');
+const consent = localStorage.getItem("cookieConsent");
 
-    gtag('consent','update',{
-      analytics_storage:'granted'
+if(consent){
+
+    banner.remove();
+
+    if(consent==="accepted"){
+
+        gtag("consent","update",{
+            analytics_storage:"granted"
+        });
+
+    }
+
+    return;
+
+}
+
+document.getElementById("cookie-accept").addEventListener("click",()=>{
+
+    localStorage.setItem("cookieConsent","accepted");
+
+    gtag("consent","update",{
+        analytics_storage:"granted"
     });
 
-    banner.style.display='none';
-  };
+    banner.remove();
 
-  document.getElementById('cookie-reject').onclick=function(){
-    localStorage.setItem('cookieConsent','rejected');
+});
 
-    banner.style.display='none';
-  };
+document.getElementById("cookie-reject").addEventListener("click",()=>{
+
+    localStorage.setItem("cookieConsent","rejected");
+
+    banner.remove();
+
+});
+
 })();
 </script>
 </body>
