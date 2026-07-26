@@ -378,57 +378,28 @@
 </div>
 
 <script>
-(() => {
+console.log("Cookie script loaded");
 
-const banner = document.getElementById("cookie-banner");
-const accept = document.getElementById("cookie-accept");
-const reject = document.getElementById("cookie-reject");
+document.getElementById("cookie-accept").onclick = function () {
 
-const consent = localStorage.getItem("cookieConsent");
-
-if (consent) {
-
-    banner.style.display = "none";
-
-    if (consent === "accepted" && typeof gtag === "function") {
-
-        gtag("consent", "update", {
-            analytics_storage: "granted"
-        });
-
-    }
-
-    return;
-}
-
-
-accept.addEventListener("click", () => {
+    console.log("ACCEPT clicked");
 
     localStorage.setItem("cookieConsent", "accepted");
 
-    if (typeof gtag === "function") {
+    document.getElementById("cookie-banner").style.display = "none";
 
-        gtag("consent", "update", {
-            analytics_storage: "granted"
-        });
-
-    }
-
-    banner.style.display = "none";
-
-});
+};
 
 
-reject.addEventListener("click", () => {
+document.getElementById("cookie-reject").onclick = function () {
+
+    console.log("REJECT clicked");
 
     localStorage.setItem("cookieConsent", "rejected");
 
-    banner.style.display = "none";
+    document.getElementById("cookie-banner").style.display = "none";
 
-});
-
-
-})();
+};
 </script>
 </body>
 </html>
