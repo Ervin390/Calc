@@ -224,7 +224,7 @@
       });
 
       gtag('set', 'ads_data_redaction', true);
-      gtag('set', 'url_passthrough', true);
+
     </script>
 
     {# ---------- Google Analytics 4 ------------------------------ #}
@@ -348,5 +348,39 @@
             });
         })();
     </script>
+
+<div id="cookie-banner">
+  <p>
+    We use cookies to improve your experience and analyze traffic.
+  </p>
+  <button id="cookie-accept">Accept</button>
+  <button id="cookie-reject">Reject</button>
+</div>
+
+<script>
+(function(){
+  const banner = document.getElementById('cookie-banner');
+
+  if(localStorage.getItem('cookieConsent')){
+    banner.style.display='none';
+  }
+
+  document.getElementById('cookie-accept').onclick=function(){
+    localStorage.setItem('cookieConsent','accepted');
+
+    gtag('consent','update',{
+      analytics_storage:'granted'
+    });
+
+    banner.style.display='none';
+  };
+
+  document.getElementById('cookie-reject').onclick=function(){
+    localStorage.setItem('cookieConsent','rejected');
+
+    banner.style.display='none';
+  };
+})();
+</script>
 </body>
 </html>
