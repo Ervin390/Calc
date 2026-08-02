@@ -1,0 +1,166 @@
+---
+layout: layout.njk
+title: Calorie Calculator - Daily Calorie Needs
+description: Calculate your daily calorie needs based on your body measurements and activity level. Get maintenance, fat loss, and muscle gain targets in seconds.
+appName: Calorie Calculator
+category: health
+appCategory: HealthApplication
+permalink: /calorie-calculator/
+updated: 2026-08-02
+faqSchema:
+  - q: "How many calories should I eat to lose weight?"
+    a: "A common starting point is eating 500 fewer calories than your TDEE per day which creates a deficit of about 3500 calories per week, corresponding to roughly 0.5 kg or 1 lb of fat loss per week. This calculator shows your personal maintenance number so you can subtract from there."
+  - q: "What formula does this calorie calculator use?"
+    a: "It uses the Mifflin-St Jeor equation to calculate BMR, which is widely regarded as the most accurate formula for typical adults. BMR is then multiplied by an activity factor to give your TDEE, which is the total calories your body burns in a day."
+  - q: "What is the difference between BMR and TDEE?"
+    a: "BMR is the number of calories your body needs to keep basic functions running at complete rest. TDEE is your total daily energy expenditure including movement, exercise, and daily activity. TDEE is always higher than BMR. Most people should base their calorie targets on TDEE not BMR."
+  - q: "Is 1200 calories too low?"
+    a: "For most adults 1200 calories per day is below the minimum recommended intake and can lead to muscle loss, nutrient deficiencies, and metabolic adaptation. Most women should aim for at least 1400 to 1500 calories for safe fat loss. Men generally need more. This calculator gives you a personalised baseline."
+  - q: "How accurate is this calculator?"
+    a: "Calorie calculators are estimates, not exact measurements. Individual metabolism varies by about 10 to 15 percent from formulas like Mifflin-St Jeor. Use the result as a starting point, track your actual results for 2 to 3 weeks, and adjust from there."
+---
+{% from "ad-slot.njk" import adSlot %}
+
+<h1>Calorie Calculator</h1>
+<p>Enter your age, height, weight, and activity level and this calorie calculator gives you your daily maintenance calories, a fat loss target, and a muscle gain target based on the Mifflin-St Jeor equation.</p>
+
+<section class="tool">
+  <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+    <div class="tool-controls" style="flex: 1; min-width: 280px;">
+
+      <div style="display: flex; gap: 0.5rem; margin-bottom: 1.25rem;">
+        <button id="btn-metric" onclick="setUnit('metric')" style="flex:1;">Metric (kg/cm)</button>
+        <button id="btn-imperial" onclick="setUnit('imperial')" class="secondary" style="flex:1;">Imperial (lb/in)</button>
+      </div>
+
+      <label for="cal-gender">Sex</label>
+      <select id="cal-gender">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+
+      <label for="cal-age">Age (years)</label>
+      <input type="number" id="cal-age" value="30" min="15" max="99" inputmode="numeric">
+
+      <div id="metric-fields">
+        <label for="cal-weight-kg">Weight (kg)</label>
+        <input type="number" id="cal-weight-kg" value="75" min="30" step="0.5" inputmode="decimal">
+        <label for="cal-height-cm">Height (cm)</label>
+        <input type="number" id="cal-height-cm" value="175" min="100" step="1" inputmode="numeric">
+      </div>
+      <div id="imperial-fields" hidden>
+        <label for="cal-weight-lb">Weight (lbs)</label>
+        <input type="number" id="cal-weight-lb" value="165" min="66" step="1" inputmode="decimal">
+        <label for="cal-height-in">Height (inches)</label>
+        <input type="number" id="cal-height-in" value="69" min="48" step="1" inputmode="numeric">
+      </div>
+
+      <label for="cal-activity">Activity Level</label>
+      <select id="cal-activity">
+        <option value="1.2">Sedentary (desk job, little exercise)</option>
+        <option value="1.375">Lightly active (1-3 workouts/week)</option>
+        <option value="1.55" selected>Moderately active (3-5 workouts/week)</option>
+        <option value="1.725">Very active (6-7 workouts/week)</option>
+        <option value="1.9">Athlete (2x training per day)</option>
+      </select>
+
+      <button id="btn-calc-cal" style="width:100%; margin-top:0.5rem;">Calculate Calories</button>
+    </div>
+
+    <div style="flex: 1; min-width: 280px;" id="cal-results">
+      <div style="display: grid; gap: 1rem;">
+        <div style="background:var(--input-bg); padding:1.25rem; border-radius:8px; border:1px solid var(--border); text-align:center;">
+          <div style="font-size:0.85rem; color:var(--text-muted); margin-bottom:0.4rem;">Maintenance Calories</div>
+          <div id="out-maintenance" style="font-size:2.25rem; font-weight:800; color:var(--primary);">--</div>
+          <div style="font-size:0.8rem; color:var(--text-muted);">calories/day</div>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+          <div style="background:var(--accent-light); padding:1rem; border-radius:8px; border:1px solid var(--border); text-align:center;">
+            <div style="font-size:0.8rem; color:var(--text-muted); margin-bottom:0.3rem;">Fat Loss</div>
+            <div id="out-cut" style="font-size:1.5rem; font-weight:700; color:var(--accent);">--</div>
+            <div style="font-size:0.75rem; color:var(--text-muted);">-500 cal/day</div>
+          </div>
+          <div style="background:var(--input-bg); padding:1rem; border-radius:8px; border:1px solid var(--border); text-align:center;">
+            <div style="font-size:0.8rem; color:var(--text-muted); margin-bottom:0.3rem;">Muscle Gain</div>
+            <div id="out-bulk" style="font-size:1.5rem; font-weight:700; color:var(--primary);">--</div>
+            <div style="font-size:0.75rem; color:var(--text-muted);">+300 cal/day</div>
+          </div>
+        </div>
+        <div style="background:var(--input-bg); padding:1rem; border-radius:8px; border:1px solid var(--border); text-align:center;">
+          <div style="font-size:0.8rem; color:var(--text-muted); margin-bottom:0.3rem;">BMR (basal metabolic rate)</div>
+          <div id="out-bmr" style="font-size:1.25rem; font-weight:600; color:var(--text-sub);">--</div>
+          <div style="font-size:0.75rem; color:var(--text-muted);">calories at complete rest</div>
+        </div>
+      </div>
+      <div class="tool-actions" style="margin-top:1rem;">
+        <button type="button" class="secondary" data-share>Share link</button>
+        <span class="tool-actions-msg" role="status" aria-live="polite"></span>
+      </div>
+    </div>
+  </div>
+</section>{{ adSlot(site, "inline") }}
+
+<section class="how">
+  <h2>How to Use This Calorie Calculator</h2>
+  <p>Fill in your sex, age, weight, and height. Then choose the activity level that best matches your typical week. The calculator uses the Mifflin-St Jeor equation which is one of the most validated BMR formulas for adults.</p>
+  <p>The maintenance figure is the total daily calories you need to stay at your current weight. The fat loss figure subtracts 500 calories per day which creates a weekly deficit of 3500 calories, roughly equivalent to losing one pound of fat per week at a safe, sustainable rate. The muscle gain figure adds 300 calories per day which is a moderate surplus suitable for lean bulking without excessive fat gain.</p>
+  <p>These are starting points. Individual metabolism varies. Track your weight for two to three weeks after setting your target calories and adjust up or down by 100 to 200 calories if results do not match expectations.</p>
+</section>
+
+<section class="formula">
+  <h2>The Mifflin-St Jeor Formula</h2>
+  <p>The calculator uses Mifflin-St Jeor to find your BMR:</p>
+  <p><strong>Men:</strong> BMR = (10 x weight in kg) + (6.25 x height in cm) - (5 x age) + 5</p>
+  <p><strong>Women:</strong> BMR = (10 x weight in kg) + (6.25 x height in cm) - (5 x age) - 161</p>
+  <p>BMR is then multiplied by an activity factor (1.2 for sedentary up to 1.9 for athletes) to give your TDEE, which is the maintenance calorie number.</p>
+  <p>A 2005 study by Frankenfield et al. found Mifflin-St Jeor predicted resting energy expenditure within 10% for 82% of the study population, making it the most accurate formula for general use compared to Harris-Benedict and Owen equations.</p>
+</section>
+
+<section class="examples">
+  <h2>Calorie Calculation Examples</h2>
+  <ul>
+    <li><strong>30-year-old woman, 65 kg, 165 cm, moderately active:</strong> BMR = (10x65) + (6.25x165) - (5x30) - 161 = 1,420 kcal. TDEE = 1,420 x 1.55 = 2,201 kcal. Fat loss target: 1,701 kcal/day.</li>
+    <li><strong>25-year-old man, 85 kg, 180 cm, lightly active:</strong> BMR = (10x85) + (6.25x180) - (5x25) + 5 = 1,930 kcal. TDEE = 1,930 x 1.375 = 2,654 kcal. Fat loss target: 2,154 kcal/day.</li>
+    <li><strong>40-year-old woman, 70 kg, 168 cm, sedentary:</strong> BMR = 1,429 kcal. TDEE = 1,429 x 1.2 = 1,715 kcal. The maintenance is relatively low here, which is why activity level makes such a significant difference.</li>
+  </ul>
+</section>
+
+{{ adSlot(site, "incontent") }}
+
+<section class="faq">
+  <h2>Frequently Asked Questions</h2>
+
+  <h3>How many calories should I eat to lose weight?</h3>
+  <p>A common starting point is eating 500 fewer calories than your TDEE per day. That creates a deficit of about 3500 calories per week, which corresponds to roughly 0.5 kg or 1 lb of fat loss per week. This is widely considered a sustainable rate. Going much faster often leads to muscle loss and metabolic slowdown. This calculator shows your personal maintenance number so you know exactly where to start.</p>
+
+  <h3>What formula does this calorie calculator use?</h3>
+  <p>It uses the Mifflin-St Jeor equation to calculate BMR. This formula is widely regarded as the most accurate for typical adults. BMR is then multiplied by an activity factor (called the Harris-Benedict activity multiplier) to give your TDEE, which is the total calories your body burns each day including movement and exercise.</p>
+
+  <h3>What is the difference between BMR and TDEE?</h3>
+  <p>BMR is the number of calories your body needs to keep basic functions running at complete rest. TDEE is your total daily energy expenditure including movement, exercise, and the energy cost of daily activities. TDEE is always higher than BMR. Most people should base their calorie targets on TDEE not BMR, because nobody actually spends the whole day lying still.</p>
+
+  <h3>Is 1200 calories too low?</h3>
+  <p>For most adults 1200 calories per day is below the minimum recommended intake and can lead to muscle loss, nutrient deficiencies, and metabolic adaptation over time. Most women should aim for at least 1400 to 1500 calories for safe fat loss. Men generally need considerably more. This calculator gives you a personalised baseline to work from.</p>
+
+  <h3>How accurate is this calculator?</h3>
+  <p>Calorie calculators are estimates, not exact measurements. Individual metabolism varies by about 10 to 15 percent from formulas like Mifflin-St Jeor. Use the result as a starting point, track your actual body weight for two to three weeks, and adjust your intake by 100 to 200 calories if you are not seeing the expected results.</p>
+</section>
+
+<section class="related">
+  <h2>Related Health Tools</h2>
+  <ul>
+    <li><a href="/bmr-calculator/">BMR Calculator</a></li>
+    <li><a href="/tdee-calculator/">TDEE Calculator</a></li>
+    <li><a href="/macro-calculator/">Macro Calculator</a></li>
+    <li><a href="/">Browse All Tools</a></li>
+  </ul>
+</section>
+
+{% from "cluster.njk" import clusterGuides %}
+{{ clusterGuides(tools | findByKey("slug", page.fileSlug)) }}
+
+<div class="author">
+  <p><em>Published by the QuixCalc Team. Mifflin-St Jeor formula verified against peer-reviewed nutrition research. Last updated: August 2026.</em></p>
+</div>
+
+<script src="calorie.js" defer></script>

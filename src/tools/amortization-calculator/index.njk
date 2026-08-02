@@ -25,6 +25,9 @@ updated: 2026-07-26
             <label for="amo-years">Loan Term (Years)</label>
             <input type="number" id="amo-years" value="30" min="1" max="50" inputmode="numeric">
 
+            <label for="amo-extra">Extra Monthly Payment ($)</label>
+            <input type="number" id="amo-extra" value="0" min="0" step="10" inputmode="decimal">
+
             <button id="btn-calc-amo" style="width: 100%; margin-top: 1rem;">Calculate Payment</button>
         </div>
 
@@ -41,6 +44,19 @@ updated: 2026-07-26
                 <div style="flex:1; background: var(--input-bg); padding: 1rem; border-radius: 8px; border: 1px solid var(--border); text-align: center;">
                     <div style="font-size: 0.85rem; color: var(--text-muted);">Total Interest</div>
                     <div id="out-interest" style="font-weight: 700; color: var(--danger); font-size:1.1rem;">$0.00</div>
+                </div>
+            </div>
+            <div id="extra-savings-box" style="display: none; flex-direction: column; gap: 0.5rem; background: rgba(16, 185, 129, 0.08); border: 1px solid var(--success); padding: 1.25rem; border-radius: 8px; text-align: center;">
+                <div style="font-size: 0.9rem; color: var(--success); font-weight: 705; margin-bottom: 0.25rem;">Extra Payment Impact</div>
+                <div style="display: flex; gap: 1rem; justify-content: space-around;">
+                    <div>
+                        <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.25rem;">Interest Saved</div>
+                        <div id="out-saved-interest" style="font-weight: 800; color: var(--success); font-size: 1.3rem;">$0.00</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.25rem;">Time Saved</div>
+                        <div id="out-saved-time" style="font-weight: 800; color: var(--success); font-size: 1.3rem;">0 months</div>
+                    </div>
                 </div>
             </div>
         </div>

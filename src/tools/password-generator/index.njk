@@ -1,0 +1,135 @@
+---
+layout: layout.njk
+title: Password Generator - Strong Random Passwords, No Sign-Up
+description: Generate strong random passwords up to 64 characters with custom rules for uppercase, numbers, and symbols. Runs entirely in your browser with no account needed.
+appName: Password Generator
+category: dev
+appCategory: DeveloperApplication
+permalink: /password-generator/
+updated: 2026-08-02
+faqSchema:
+  - q: "How secure is this password generator?"
+    a: "This generator uses the Web Crypto API built into your browser to produce cryptographically secure random values. This is the same standard used by security professionals. The passwords are generated entirely on your device and never sent to any server."
+  - q: "How long should a password be?"
+    a: "Security researchers generally recommend at least 12 to 16 characters for most accounts, and 20 or more for financial or email accounts. Longer passwords are exponentially harder to crack than shorter ones. A 16-character random password is virtually impossible to brute-force with current computing power."
+  - q: "Should I use special characters in passwords?"
+    a: "Including symbols like punctuation marks and symbols significantly increases the number of possible character combinations, making passwords harder to guess. Not all websites accept every symbol, which is why this generator lets you toggle specific character types on and off."
+  - q: "Where should I store the generated passwords?"
+    a: "A reputable password manager is the safest option. Applications like Bitwarden, 1Password, and KeePass encrypt your passwords locally or in the cloud with strong encryption. Writing passwords on paper and keeping them secure is also safer than reusing the same password across sites."
+  - q: "Is it safe to generate passwords in a browser?"
+    a: "Yes, when using a properly built generator. This tool uses the window.crypto.getRandomValues API which generates values the same way your operating system generates secure random numbers. The password is never logged, cached, or transmitted. You can verify this by checking the page source."
+---
+{% from "ad-slot.njk" import adSlot %}
+
+<h1>Password Generator</h1>
+<p>Generate a strong random password instantly. Adjust the length and character types to match whatever the site or app requires. Everything runs in your browser and nothing is ever sent to a server.</p>
+
+<section class="tool">
+  <div style="max-width: 560px; margin: 0 auto;">
+
+    <div style="background:var(--bg-deeper); border:1px solid var(--border); border-radius:var(--radius-sm); padding: 0.85rem 1rem; font-family: ui-monospace, monospace; font-size: 1.05rem; word-break: break-all; min-height: 3rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1.25rem;">
+      <span id="out-password" style="flex:1; color:var(--text-main); letter-spacing:0.04em;">Click Generate to create a password</span>
+      <button id="btn-copy" class="secondary" style="flex-shrink:0; padding: 0.4rem 0.8rem; font-size:0.85rem;" title="Copy to clipboard">Copy</button>
+    </div>
+
+    <div id="strength-wrap" style="display:none; margin-bottom:1.25rem;">
+      <div style="display:flex; align-items:center; gap:0.75rem;">
+        <div style="flex:1; background:var(--bg-deeper); border-radius:99px; height:8px; overflow:hidden; border:1px solid var(--border);">
+          <div id="strength-bar" style="height:100%; width:0%; border-radius:99px; transition:width 0.3s ease, background 0.3s ease;"></div>
+        </div>
+        <span id="strength-label" style="font-size:0.85rem; font-weight:600; min-width:6rem; text-align:right;"></span>
+      </div>
+    </div>
+
+    <label for="pwd-length">Password Length: <strong id="length-display">16</strong></label>
+    <input type="range" id="pwd-length" min="8" max="64" value="16" step="1" style="margin-bottom:1.25rem;">
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; margin-bottom:1.25rem;">
+      <label class="inline-label" style="display:flex; align-items:center; gap:0.5rem; font-weight:500; font-size:0.9rem;">
+        <input type="checkbox" id="opt-upper" checked style="width:auto; margin:0;"> Uppercase (A-Z)
+      </label>
+      <label class="inline-label" style="display:flex; align-items:center; gap:0.5rem; font-weight:500; font-size:0.9rem;">
+        <input type="checkbox" id="opt-lower" checked style="width:auto; margin:0;"> Lowercase (a-z)
+      </label>
+      <label class="inline-label" style="display:flex; align-items:center; gap:0.5rem; font-weight:500; font-size:0.9rem;">
+        <input type="checkbox" id="opt-numbers" checked style="width:auto; margin:0;"> Numbers (0-9)
+      </label>
+      <label class="inline-label" style="display:flex; align-items:center; gap:0.5rem; font-weight:500; font-size:0.9rem;">
+        <input type="checkbox" id="opt-symbols" style="width:auto; margin:0;"> Symbols (!@#$)
+      </label>
+    </div>
+
+    <div style="display:flex; gap:0.75rem;">
+      <button id="btn-generate" style="flex:1;">Generate Password</button>
+      <button id="btn-copy2" class="secondary">Copy</button>
+    </div>
+
+    <div class="tool-actions" style="margin-top:1rem;">
+      <span class="tool-actions-msg" role="status" aria-live="polite" id="copy-msg"></span>
+    </div>
+  </div>
+</section>{{ adSlot(site, "inline") }}
+
+<section class="how">
+  <h2>How to Use This Password Generator</h2>
+  <p>Drag the length slider to set how many characters you want. Tick or untick the checkboxes to choose which character types to include. Then click Generate Password and your new password appears at the top of the box.</p>
+  <p>Hit Copy to copy it straight to your clipboard. You can generate as many passwords as you like. Each click produces a completely new result because the generator uses the Web Crypto API, which produces cryptographically secure random values rather than a basic random number formula.</p>
+  <p>Use the longest password the site will accept. If a site limits you to 20 characters, use 20. If it allows 64, use 64. Longer is always better when it comes to password security.</p>
+</section>
+
+<section class="formula">
+  <h2>What Makes a Password Strong?</h2>
+  <p>Password strength is measured by entropy: the number of possible combinations an attacker would need to try to guess your password. Entropy increases in two ways. First by adding more characters. Second by expanding the character set.</p>
+  <p>An 8-character password using only lowercase letters has around 208 billion possible combinations. An 8-character password using uppercase, lowercase, numbers, and symbols has about 6.7 quadrillion combinations. A 16-character password using all character types has so many combinations that even a supercomputer would take longer than the age of the universe to guess it.</p>
+  <p>Avoid dictionary words, names, dates, and keyboard patterns like qwerty or 12345 even if they are long. Attackers use lists of common passwords and dictionary attacks before resorting to brute force. Random character generators sidestep this problem entirely.</p>
+</section>
+
+<section class="examples">
+  <h2>Password Strength Examples</h2>
+  <ul>
+    <li><strong>Weak:</strong> "password123", a dictionary word with numbers. This is cracked in under a second by modern tools.</li>
+    <li><strong>Fair:</strong> "BlueSky2024!", a passphrase with substitutions. Better but still vulnerable to targeted attacks if the attacker knows personal details.</li>
+    <li><strong>Strong:</strong> "Xk7#mQ2@vLr9nP4w", 16 characters, all character types, no patterns. Extremely difficult to crack.</li>
+    <li><strong>Very Strong:</strong> A 32-character random string from this generator. Effectively uncrackable with current and foreseeable computing power.</li>
+  </ul>
+</section>
+
+{{ adSlot(site, "incontent") }}
+
+<section class="faq">
+  <h2>Frequently Asked Questions</h2>
+
+  <h3>How secure is this password generator?</h3>
+  <p>The generator uses the Web Crypto API built into every modern browser. This produces cryptographically secure random values, the same standard used by security professionals and operating systems. Your password is generated entirely on your device and is never transmitted to any server.</p>
+
+  <h3>How long should a password be?</h3>
+  <p>At least 12 to 16 characters for most accounts. For anything sensitive like email or banking, 20 characters or more is a better target. Each additional character multiplies the number of possible combinations, making brute-force attacks exponentially harder. A 16-character random password would take a modern computer billions of years to guess.</p>
+
+  <h3>Should I use special characters in passwords?</h3>
+  <p>When the site allows it, yes. Adding symbols to your character set significantly increases entropy. A password using only lowercase letters has 26 possible values per character. Adding uppercase, numbers, and symbols raises that to about 95 values per character. The difference in security is massive, especially at longer lengths.</p>
+
+  <h3>Where should I store the generated passwords?</h3>
+  <p>A password manager is the safest and most practical solution. Bitwarden is free and open source. 1Password and Dashlane are strong paid options. These apps encrypt your passwords and sync them across devices. Avoid storing passwords in plain text files or browser-only storage if you use shared computers.</p>
+
+  <h3>Is it safe to generate passwords in a browser?</h3>
+  <p>Yes, for properly built generators like this one. The Web Crypto API generates values the same way your operating system generates secure random numbers. Nothing is logged, cached, or sent anywhere. You can inspect this page's source code and network requests to verify that no data leaves your device.</p>
+</section>
+
+<section class="related">
+  <h2>Related Developer Tools</h2>
+  <ul>
+    <li><a href="/uuid-generator/">UUID Generator</a></li>
+    <li><a href="/json-formatter/">JSON Formatter</a></li>
+    <li><a href="/character-counter/">Character Counter</a></li>
+    <li><a href="/">Browse All Tools</a></li>
+  </ul>
+</section>
+
+{% from "cluster.njk" import clusterGuides %}
+{{ clusterGuides(tools | findByKey("slug", page.fileSlug)) }}
+
+<div class="author">
+  <p><em>Published by the QuixCalc Team. Uses the Web Crypto API for cryptographically secure password generation. No data is stored or transmitted. Last updated: August 2026.</em></p>
+</div>
+
+<script src="password.js" defer></script>

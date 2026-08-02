@@ -1,0 +1,142 @@
+---
+layout: layout.njk
+title: D&D Name Generator - Fantasy Names for Every Race
+description: Generate D&D character names for every race including elf, dwarf, human, halfling, orc, and tiefling. Free, instant, and lore-accurate name ideas.
+appName: D&D Name Generator
+category: fun
+appCategory: EntertainmentApplication
+permalink: /dnd-name-generator/
+updated: 2026-08-02
+faqSchema:
+  - q: "Are these D&D names lore accurate?"
+    a: "The names are based on phonetic patterns from the official D&D 5e Player's Handbook and race-specific lore guides. Elven names use soft flowing syllables, dwarven names use hard consonants and monosyllabic roots, and tiefling names follow the virtue naming tradition. They are designed to sound authentic within D&D settings."
+  - q: "Can I use these names for other fantasy games?"
+    a: "Absolutely. The names are well suited for Pathfinder, Baldur's Gate, Elder Scrolls, fantasy novels, and any tabletop or video game setting that uses high fantasy races. The race categories map naturally to most fantasy universes."
+  - q: "How many names can I generate at once?"
+    a: "You can generate up to 20 names per click. Click Generate again for a completely new batch. Each result is randomly assembled from curated syllable lists specific to each race, so repeats are rare even across many generations."
+  - q: "What is a tiefling name and how are they structured?"
+    a: "In D&D lore, tieflings often take names that reflect virtues or concepts, like Ambition, Despair, Excellence, or Glory. The generator includes both virtue-style names and phonetically infernal-sounding names with harder consonants and longer syllables."
+  - q: "What is the difference between male and female elf names in D&D?"
+    a: "Female elven names typically end in softer sounds and vowels such as Arannis, Sylvara, Liriel. Male elven names often use stronger endings like Galanodel, Enialis, or Thamior. The generator respects these conventions when you select a gender filter."
+---
+{% from "ad-slot.njk" import adSlot %}
+
+<h1>D&D Name Generator</h1>
+<p>Generate D&D character names for every race in the Player's Handbook. Choose a race, a gender, and how many names you want. The generator uses phonetic patterns from official 5e lore so the names actually sound like they belong in a campaign.</p>
+
+<section class="tool">
+  <div style="display: flex; border-bottom: 2px solid var(--border); margin-bottom: 1.5rem; overflow-x: auto; white-space: nowrap;">
+    <a href="/fantasy-name-generator/" style="padding: 0.75rem 1.25rem; text-decoration: none; font-weight: 600; color: var(--text-muted); font-size: 0.95rem;">General Fantasy</a>
+    <a href="/dnd-name-generator/" style="padding: 0.75rem 1.25rem; text-decoration: none; font-weight: 700; color: var(--primary); border-bottom: 3px solid var(--primary); font-size: 0.95rem; display: flex; align-items: center; gap: 0.5rem;">D&D 5e Names <span style="font-size: 0.75rem; background: var(--success); color: #fff; padding: 1px 5px; border-radius: 3px; font-weight: 700;">NEW</span></a>
+  </div>
+
+  <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+    <div class="tool-controls" style="flex: 1; min-width: 260px;">
+      <label for="dnd-race">Race</label>
+      <select id="dnd-race">
+        <option value="elf">Elf</option>
+        <option value="dwarf">Dwarf</option>
+        <option value="human">Human</option>
+        <option value="halfling">Halfling</option>
+        <option value="orc">Orc / Half-Orc</option>
+        <option value="tiefling">Tiefling</option>
+        <option value="dragonborn">Dragonborn</option>
+        <option value="gnome">Gnome</option>
+      </select>
+
+      <label for="dnd-gender">Gender</label>
+      <select id="dnd-gender">
+        <option value="any">Any</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+
+      <label for="dnd-count">Number of Names</label>
+      <select id="dnd-count">
+        <option value="5">5 names</option>
+        <option value="10" selected>10 names</option>
+        <option value="20">20 names</option>
+      </select>
+
+      <button id="btn-generate-dnd" style="width:100%; margin-top:0.5rem;">Generate Names</button>
+    </div>
+
+    <div style="flex: 2; min-width: 260px;">
+      <div id="dnd-output" role="status" aria-live="polite" style="background:var(--input-bg); border:1px solid var(--border); border-radius:8px; padding:1.25rem; min-height:200px;">
+        <p style="color:var(--text-muted); text-align:center; margin-top:2rem;">Press Generate to create names</p>
+      </div>
+      <div class="tool-actions" style="margin-top:0.75rem;">
+        <button type="button" id="btn-copy-dnd" class="secondary">Copy All</button>
+        <button type="button" class="secondary" data-share>Share link</button>
+        <span class="tool-actions-msg" role="status" aria-live="polite"></span>
+      </div>
+    </div>
+  </div>
+</section>{{ adSlot(site, "inline") }}
+
+<section class="how">
+  <h2>How to Use This D&D Name Generator</h2>
+  <p>Select the race that matches your character. Not sure yet? Try generating a few batches of different races and see which name clicks. Good character names often choose you.</p>
+  <p>The gender filter changes the phonetic style of the output without being strictly male or female in a real-world sense. Think of it as a guide for the naming convention rather than a hard rule. Many players mix conventions for non-binary or gender-fluid characters, and that works perfectly fine here.</p>
+  <p>Generated names can be used directly or treated as inspiration. Taking a generated name and modifying one syllable often produces something that feels more personal and custom while still fitting the lore.</p>
+</section>
+
+<section class="formula">
+  <h2>How D&D Race Names Are Structured</h2>
+  <p><strong>Elf names</strong> use soft vowel-heavy syllables with flowing transitions. The Player's Handbook lists names like Adran, Aelar, Ara, Eres, Faral, Immeral, Ivellios, Laucian, Mindartis. The pattern tends toward two to three syllables with no harsh consonant clusters.</p>
+  <p><strong>Dwarf names</strong> are short, hard, and often end in consonants. PHB examples include Barendd, Brottor, Morgran, Orsik. Many include double letters and guttural sounds. Family clan names are often passed down and treated as surnames.</p>
+  <p><strong>Tiefling names</strong> follow two conventions. Classical names derived from Infernal sounds harsh and exotic. Virtue names chosen after birth are words like Carrion, Excellence, Hope, Penance, or Reverence. Both are valid.</p>
+  <p><strong>Human names</strong> vary by region in the campaign world but generally follow real-world cultural patterns. The generator draws from a broad range of medieval European and Forgotten Realms regional styles.</p>
+</section>
+
+<section class="examples">
+  <h2>Sample Names by Race</h2>
+  <ul>
+    <li><strong>Elf:</strong> Sylvara Moonwhisper, Arannis Galanodel, Liriel Brightmantle, Thamior Erevan</li>
+    <li><strong>Dwarf:</strong> Thorik Ironforge, Beldara Stonehelm, Orsik Coppermantle, Mardred Battlehammer</li>
+    <li><strong>Human:</strong> Aldric Vane, Mira Southwick, Caelum Ashford, Rowena Blackwater</li>
+    <li><strong>Tiefling:</strong> Despair, Akmenos, Nurah, Ambition, Kairon Ashblood</li>
+    <li><strong>Orc:</strong> Geth, Krusk, Ront, Shump, Vola Gruumsh-Scar</li>
+    <li><strong>Dragonborn:</strong> Arjhan, Balasar, Donaar, Mishann, Sora Flameclaw</li>
+  </ul>
+</section>
+
+{{ adSlot(site, "incontent") }}
+
+<section class="faq">
+  <h2>Frequently Asked Questions</h2>
+
+  <h3>Are these D&D names lore accurate?</h3>
+  <p>The names are based on phonetic patterns from the official D&D 5e Player's Handbook and race-specific lore guides. Elven names use soft flowing syllables, dwarven names use hard consonants and monosyllabic roots, and tiefling names follow the virtue naming tradition. They are designed to sound authentic within D&D settings without directly copying copyrighted proper nouns.</p>
+
+  <h3>Can I use these names for other fantasy games?</h3>
+  <p>Absolutely. The names work well for Pathfinder, Baldur's Gate, Elder Scrolls, fantasy novels, and any tabletop or video game setting that uses high fantasy races. The race categories map naturally to most fantasy universes even if the names differ slightly from setting-specific conventions.</p>
+
+  <h3>How many names can I generate at once?</h3>
+  <p>You can generate up to 20 names per click. Click Generate again for a completely new batch. Each result is randomly assembled from curated syllable lists specific to each race, so repeats are rare even across many generations.</p>
+
+  <h3>What is a tiefling name and how are they structured?</h3>
+  <p>In D&D lore, tieflings often take names that reflect virtues or concepts, like Ambition, Despair, Excellence, or Glory. This is a naming tradition they adopt themselves, often as a statement about who they choose to be. The generator includes both virtue-style names and phonetically infernal-sounding names with harder consonants.</p>
+
+  <h3>What is the difference between male and female elf names in D&D?</h3>
+  <p>Female elven names typically end in softer sounds and vowels. Male elven names often use stronger endings. The generator respects these conventions when you select a gender filter, though many players blend these conventions freely, especially for non-binary characters.</p>
+</section>
+
+<section class="related">
+  <h2>Related Fun Tools</h2>
+  <ul>
+    <li><a href="/fantasy-name-generator/">Fantasy Name Generator</a></li>
+    <li><a href="/random-name-generator/">Random Name Generator</a></li>
+    <li><a href="/dice-roller/">Dice Roller</a></li>
+    <li><a href="/">Browse All Tools</a></li>
+  </ul>
+</section>
+
+{% from "cluster.njk" import clusterGuides %}
+{{ clusterGuides(tools | findByKey("slug", page.fileSlug)) }}
+
+<div class="author">
+  <p><em>Published by the QuixCalc Team. Naming conventions based on D&D 5e Player's Handbook race descriptions. Last updated: August 2026.</em></p>
+</div>
+
+<script src="dnd-names.js" defer></script>

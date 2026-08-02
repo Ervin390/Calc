@@ -1,0 +1,142 @@
+---
+layout: layout.njk
+title: Percentage Calculator - Free & Fast
+description: Calculate percentages instantly. Find what percent of a number is, percentage change, and reverse percentage problems. Free, no sign-up needed.
+appName: Percentage Calculator
+category: math
+appCategory: EducationalApplication
+permalink: /percentage-calculator/
+updated: 2026-08-02
+faqSchema:
+  - q: "What is 20% of 150?"
+    a: "20% of 150 is 30. You multiply 150 by 0.20 to get the answer. You can use the What is X percent of Y mode in this calculator to confirm any similar problem instantly."
+  - q: "How do I calculate percentage change?"
+    a: "Percentage change is calculated as ((new value minus old value) divided by old value) times 100. If a price goes from $80 to $100 that is a 25% increase. If it drops from $100 to $80 that is a 20% decrease."
+  - q: "What is the difference between percentage and percentage points?"
+    a: "Percentage describes a proportion relative to a base. Percentage points describe the arithmetic difference between two percentages. If interest rates go from 2% to 5% that is a 3 percentage point increase but a 150% percentage change."
+  - q: "How do I find what percent one number is of another?"
+    a: "Divide the part by the whole then multiply by 100. For example 30 is what percent of 120? Divide 30 by 120 to get 0.25 then multiply by 100 to get 25%."
+  - q: "Can I calculate reverse percentage?"
+    a: "Yes. If you know the final value after a percentage increase or decrease you can work backwards. Divide the final value by 1 plus the decimal rate for an increase, or 1 minus the decimal rate for a decrease."
+---
+{% from "ad-slot.njk" import adSlot %}
+
+<h1>Percentage Calculator</h1>
+<p>This percentage calculator handles the three most common percentage problems in one place. Pick the mode that matches your question, enter the numbers, and get the answer instantly with the working shown.</p>
+
+<section class="tool">
+  <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+    <button id="tab-pct-of" class="tab-btn" onclick="switchTab('pct-of')">What is X% of Y?</button>
+    <button id="tab-pct-change" class="tab-btn secondary" onclick="switchTab('pct-change')">% Change</button>
+    <button id="tab-is-what" class="tab-btn secondary" onclick="switchTab('is-what')">X is what % of Y?</button>
+  </div>
+
+  <!-- Mode A: X% of Y -->
+  <div id="panel-pct-of">
+    <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+      <label for="pa-pct" style="display:inline-block; font-weight:600;">What is</label>
+      <input type="number" id="pa-pct" value="20" min="0" step="any" inputmode="decimal" style="width:120px; margin-bottom:0;">
+      <label for="pa-num" style="display:inline-block; font-weight:600;">% of</label>
+      <input type="number" id="pa-num" value="150" min="0" step="any" inputmode="decimal" style="width:120px; margin-bottom:0;">
+    </div>
+    <div id="out-pct-of" role="status" aria-live="polite" style="margin-top:1.25rem; font-size:1.75rem; font-weight:800; color:var(--primary);"></div>
+    <p id="out-pct-of-work" style="color:var(--text-muted); font-size:0.9rem; margin-top:0.25rem;"></p>
+  </div>
+
+  <!-- Mode B: % Change -->
+  <div id="panel-pct-change" hidden>
+    <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+      <label for="pb-old" style="display:inline-block; font-weight:600;">From</label>
+      <input type="number" id="pb-old" value="80" step="any" inputmode="decimal" style="width:120px; margin-bottom:0;">
+      <label for="pb-new" style="display:inline-block; font-weight:600;">to</label>
+      <input type="number" id="pb-new" value="100" step="any" inputmode="decimal" style="width:120px; margin-bottom:0;">
+    </div>
+    <div id="out-pct-change" role="status" aria-live="polite" style="margin-top:1.25rem; font-size:1.75rem; font-weight:800; color:var(--primary);"></div>
+    <p id="out-pct-change-work" style="color:var(--text-muted); font-size:0.9rem; margin-top:0.25rem;"></p>
+  </div>
+
+  <!-- Mode C: X is what % of Y -->
+  <div id="panel-is-what" hidden>
+    <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+      <input type="number" id="pc-part" value="30" step="any" inputmode="decimal" style="width:120px; margin-bottom:0;" aria-label="Part value">
+      <label for="pc-whole" style="display:inline-block; font-weight:600;">is what % of</label>
+      <input type="number" id="pc-whole" value="120" step="any" inputmode="decimal" style="width:120px; margin-bottom:0;">
+    </div>
+    <div id="out-is-what" role="status" aria-live="polite" style="margin-top:1.25rem; font-size:1.75rem; font-weight:800; color:var(--primary);"></div>
+    <p id="out-is-what-work" style="color:var(--text-muted); font-size:0.9rem; margin-top:0.25rem;"></p>
+  </div>
+
+  <div class="tool-actions" style="margin-top:1.5rem;">
+    <button type="button" class="secondary" data-share>Share link</button>
+    <span class="tool-actions-msg" role="status" aria-live="polite"></span>
+  </div>
+</section>{{ adSlot(site, "inline") }}
+
+<section class="how">
+  <h2>How to Use This Percentage Calculator</h2>
+  <p>There are three modes and you just pick whichever one matches the question you have.</p>
+  <p>The first mode answers "what is X% of Y?" which is the most common question. Type the percentage and the base number and the result appears immediately, no button press needed.</p>
+  <p>The second mode calculates percentage change between two values. Useful for price comparisons, exam score improvements, sales figures, anything where you want to know how much something rose or fell in percentage terms.</p>
+  <p>The third mode answers "X is what percent of Y?" which is useful when you already know the part and the whole and need to express the relationship as a percentage.</p>
+</section>
+
+<section class="formula">
+  <h2>Percentage Formulas</h2>
+  <p><strong>What is X% of Y:</strong> Answer = (X / 100) x Y</p>
+  <p>Example: What is 15% of 200? (15 / 100) x 200 = 30</p>
+  <p><strong>Percentage change:</strong> Change% = ((New - Old) / Old) x 100</p>
+  <p>Example: Price rises from $40 to $50. Change = ((50 - 40) / 40) x 100 = 25% increase</p>
+  <p><strong>X is what % of Y:</strong> Answer = (X / Y) x 100</p>
+  <p>Example: 45 is what percent of 180? (45 / 180) x 100 = 25%</p>
+  <p>These three formulas cover the vast majority of percentage problems encountered in everyday life, school, and work.</p>
+</section>
+
+<section class="examples">
+  <h2>Percentage Examples</h2>
+  <ul>
+    <li><strong>Discount at a store:</strong> A jacket costs $120 and is 30% off. What do you pay? 30% of 120 = 36. Final price = $120 - $36 = $84.</li>
+    <li><strong>Pay raise:</strong> Your salary was $52,000 and you got a 4% raise. New salary = 4% of 52,000 = $2,080 extra. New total = $54,080.</li>
+    <li><strong>Exam score:</strong> You got 68 out of 80 questions right. 68 is what percent of 80? (68/80) x 100 = 85%.</li>
+    <li><strong>Sales growth:</strong> Last month revenue was $15,000, this month it is $18,750. % change = ((18750-15000)/15000) x 100 = 25% growth.</li>
+  </ul>
+</section>
+
+{{ adSlot(site, "incontent") }}
+
+<section class="faq">
+  <h2>Frequently Asked Questions</h2>
+
+  <h3>What is 20% of 150?</h3>
+  <p>20% of 150 is 30. You multiply 150 by 0.20 to get the answer. You can use the first mode in this calculator to confirm any similar problem instantly.</p>
+
+  <h3>How do I calculate percentage change?</h3>
+  <p>Percentage change is ((new value minus old value) divided by old value) times 100. If a price goes from $80 to $100 that is a 25% increase. If it drops from $100 to $80 that is a 20% decrease. The direction matters. A rise from 80 to 100 and a fall from 100 to 80 are not the same percentage.</p>
+
+  <h3>What is the difference between percentage and percentage points?</h3>
+  <p>Percentage describes a proportion relative to a base. Percentage points describe the arithmetic difference between two percentages. If interest rates go from 2% to 5% that is a 3 percentage point increase but a 150% percentage change. The two are very different and mixing them up is a common source of confusion in news reporting.</p>
+
+  <h3>How do I find what percent one number is of another?</h3>
+  <p>Divide the part by the whole then multiply by 100. For example: 30 is what percent of 120? Divide 30 by 120 to get 0.25, then multiply by 100 to get 25%.</p>
+
+  <h3>Can I calculate a reverse percentage?</h3>
+  <p>Yes. If you know the final value after a percentage increase and want to find the original, divide by (1 + rate). For a 25% increase where the final price is $125, divide by 1.25 to get the original $100. For a decrease, divide by (1 minus rate).</p>
+</section>
+
+<section class="related">
+  <h2>Related Math Tools</h2>
+  <ul>
+    <li><a href="/fraction-calculator/">Fraction Calculator</a></li>
+    <li><a href="/standard-deviation-calculator/">Standard Deviation Calculator</a></li>
+    <li><a href="/gpa-calculator/">GPA Calculator</a></li>
+    <li><a href="/">Browse All Tools</a></li>
+  </ul>
+</section>
+
+{% from "cluster.njk" import clusterGuides %}
+{{ clusterGuides(tools | findByKey("slug", page.fileSlug)) }}
+
+<div class="author">
+  <p><em>Published by the QuixCalc Team. Percentage formulas verified against standard arithmetic conventions. Last updated: August 2026.</em></p>
+</div>
+
+<script src="percentage.js" defer></script>

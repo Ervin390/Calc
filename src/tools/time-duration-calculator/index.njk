@@ -1,0 +1,151 @@
+---
+layout: layout.njk
+title: Time Duration Calculator - Calculate Hours and Minutes Between Times
+description: Calculate the exact time duration between two times or add and subtract hours and minutes. Perfect for payroll, shifts, and project tracking. Free, no sign-up.
+appName: Time Duration Calculator
+category: date
+appCategory: WebApplication
+permalink: /time-duration-calculator/
+updated: 2026-08-02
+faqSchema:
+  - q: "How do I calculate hours worked between two times?"
+    a: "Enter your start time and end time in the fields and click Calculate. The tool shows the duration in hours and minutes, total minutes, and decimal hours. The decimal format is particularly useful for payroll because it lets you multiply directly by an hourly rate."
+  - q: "Can this calculator handle overnight shifts?"
+    a: "Yes. If your end time is earlier than your start time the calculator automatically assumes the shift crosses midnight and adds 24 hours to the calculation. A shift from 10 PM to 6 AM will show as 8 hours of duration."
+  - q: "What is the decimal hours format used for?"
+    a: "Decimal hours express duration as a single number rather than hours and minutes. For example 1 hour 30 minutes equals 1.5 decimal hours. Employers and freelancers use this format for payroll calculations because you can multiply decimal hours directly by an hourly rate to get a total payment amount."
+  - q: "Can I add or subtract time with this tool?"
+    a: "Yes. Switch to the Add or Subtract tab, enter a starting time, and specify the hours and minutes to add or subtract. The calculator returns the resulting clock time. This is useful for working out meeting times across time zones or calculating deadlines."
+  - q: "Why does the calculator show different results for AM and PM inputs?"
+    a: "The calculator uses 24-hour time internally. If you enter 3:00 and mean 3 PM you should enter 15:00 in 24-hour format. Alternatively use the AM and PM selectors if they appear for your input. Getting AM and PM wrong is the most common source of errors in manual time calculations."
+---
+{% from "ad-slot.njk" import adSlot %}
+
+<h1>Time Duration Calculator</h1>
+<p>Calculate the exact time between two clock times, or add and subtract hours and minutes from a starting time. Results include hours and minutes, total minutes, and the decimal hours format used in payroll.</p>
+
+<section class="tool">
+  <div style="max-width: 560px; margin: 0 auto;">
+
+    <div style="display:flex; gap:0.5rem; margin-bottom:1.25rem;">
+      <button id="tab-duration" onclick="setTab('duration')" style="flex:1;">Time Between</button>
+      <button id="tab-add" onclick="setTab('add')" class="secondary" style="flex:1;">Add / Subtract</button>
+    </div>
+
+    <div id="panel-duration">
+      <label for="td-start">Start Time (HH:MM)</label>
+      <input type="time" id="td-start" value="09:00" inputmode="numeric">
+
+      <label for="td-end">End Time (HH:MM)</label>
+      <input type="time" id="td-end" value="17:30" inputmode="numeric">
+
+      <button id="btn-calc-dur" style="width:100%; margin-top:0.5rem;">Calculate Duration</button>
+    </div>
+
+    <div id="panel-add" hidden>
+      <label for="ta-start">Start Time (HH:MM)</label>
+      <input type="time" id="ta-start" value="09:00" inputmode="numeric">
+
+      <label for="ta-hours">Hours to add / subtract</label>
+      <input type="number" id="ta-hours" value="2" min="0" max="999" inputmode="numeric">
+
+      <label for="ta-minutes">Minutes to add / subtract</label>
+      <input type="number" id="ta-minutes" value="30" min="0" max="59" inputmode="numeric">
+
+      <div style="display:flex; gap:0.5rem; margin-bottom:1.25rem;">
+        <button id="btn-add" onclick="setAddMode('add')" style="flex:1;">+ Add</button>
+        <button id="btn-sub" onclick="setAddMode('sub')" class="secondary" style="flex:1;">- Subtract</button>
+      </div>
+
+      <button id="btn-calc-add" style="width:100%; margin-top:0.25rem;">Calculate</button>
+    </div>
+
+    <div id="td-results" style="margin-top:1.5rem; display:none;">
+      <div style="display:grid; gap:1rem;">
+        <div style="background:var(--input-bg); padding:1.25rem; border-radius:8px; border:1px solid var(--border); text-align:center;">
+          <div style="font-size:0.85rem; color:var(--text-muted); margin-bottom:0.4rem;" id="out-td-label">Duration</div>
+          <div id="out-td-main" style="font-size:2.5rem; font-weight:800; color:var(--primary);">--</div>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;" id="td-secondary" >
+          <div style="background:var(--accent-light); padding:1rem; border-radius:8px; border:1px solid var(--border); text-align:center;">
+            <div style="font-size:0.8rem; color:var(--text-muted); margin-bottom:0.3rem;">Total minutes</div>
+            <div id="out-td-mins" style="font-size:1.35rem; font-weight:700; color:var(--accent);">--</div>
+          </div>
+          <div style="background:var(--input-bg); padding:1rem; border-radius:8px; border:1px solid var(--border); text-align:center;">
+            <div style="font-size:0.8rem; color:var(--text-muted); margin-bottom:0.3rem;">Decimal hours</div>
+            <div id="out-td-dec" style="font-size:1.35rem; font-weight:700; color:var(--primary);">--</div>
+          </div>
+        </div>
+      </div>
+      <div class="tool-actions" style="margin-top:1rem;">
+        <button type="button" class="secondary" data-share>Share link</button>
+        <span class="tool-actions-msg" role="status" aria-live="polite"></span>
+      </div>
+    </div>
+  </div>
+</section>{{ adSlot(site, "inline") }}
+
+<section class="how">
+  <h2>How to Use This Time Duration Calculator</h2>
+  <p>The calculator has two modes. Choose the one that fits your task.</p>
+  <p><strong>Time Between</strong> calculates how long it is between a start time and an end time. This is ideal for working out shift lengths, meeting durations, or how long a task took. If the end time is before the start time the calculator assumes the period crosses midnight and adjusts automatically.</p>
+  <p><strong>Add or Subtract</strong> takes a starting time and adds or removes a number of hours and minutes from it. Use this to find out what time a deadline falls on, when a meeting ends, or what time it will be in another time zone after adding the offset.</p>
+  <p>The decimal hours output is particularly useful for payroll. Multiply that number by your hourly rate to get an exact payment amount without converting minutes manually.</p>
+</section>
+
+<section class="formula">
+  <h2>How to Calculate Time Duration Manually</h2>
+  <p>To find the duration between two times, convert both to minutes from midnight. Then subtract the start from the end.</p>
+  <p>For example: start time 09:15 equals 9 x 60 + 15 = 555 minutes. End time 17:45 equals 17 x 60 + 45 = 1065 minutes. Duration = 1065 minus 555 = 510 minutes = 8 hours and 30 minutes.</p>
+  <p>To convert to decimal hours, divide the total minutes by 60. In the example above: 510 / 60 = 8.5 decimal hours. A person working this shift at $20 per hour would earn $20 x 8.5 = $170 before deductions.</p>
+  <p>For overnight shifts, add 1440 (the number of minutes in a day) to the end time before subtracting. A shift from 22:00 to 06:00 = (6 x 60) + 1440 - (22 x 60) = 360 + 1440 - 1320 = 480 minutes = 8 hours.</p>
+</section>
+
+<section class="examples">
+  <h2>Time Calculation Examples</h2>
+  <ul>
+    <li><strong>Standard work shift:</strong> Start 08:30, End 17:00. Duration: 8 hours 30 minutes. Total minutes: 510. Decimal: 8.5 hours.</li>
+    <li><strong>Overnight shift:</strong> Start 22:30, End 06:15. Duration: 7 hours 45 minutes. Total minutes: 465. Decimal: 7.75 hours.</li>
+    <li><strong>Meeting countdown:</strong> It is 14:20 now. The meeting lasts 1 hour 45 minutes. Add 1h 45m to 14:20. Result: 16:05.</li>
+    <li><strong>Payroll calculation:</strong> 7.75 decimal hours at $18.50 per hour = $143.38 gross pay.</li>
+  </ul>
+</section>
+
+{{ adSlot(site, "incontent") }}
+
+<section class="faq">
+  <h2>Frequently Asked Questions</h2>
+
+  <h3>How do I calculate hours worked between two times?</h3>
+  <p>Enter the start time and end time in the Time Between tab and click Calculate. The result shows the duration in hours and minutes, the total number of minutes, and the decimal hours value. For payroll just multiply the decimal hours figure by your hourly rate.</p>
+
+  <h3>Can this calculator handle overnight shifts?</h3>
+  <p>Yes. When the end time is earlier than the start time the calculator automatically adds 24 hours to the end time before calculating. A shift starting at 22:00 and ending at 06:00 is correctly shown as 8 hours, not as a negative number.</p>
+
+  <h3>What is the decimal hours format used for?</h3>
+  <p>Decimal hours express time as a single number rather than splitting it into hours and minutes. One hour and 30 minutes equals 1.5 decimal hours. Employers use this format because you can multiply it directly by an hourly wage rate to find the gross pay for a shift without additional conversion steps.</p>
+
+  <h3>Can I add or subtract time with this tool?</h3>
+  <p>Switch to the Add or Subtract tab. Enter a starting time, then enter the hours and minutes to add or remove. Choose whether to add or subtract using the buttons and click Calculate. This is useful for working out what time a task ends or what clock time results from adding a time zone offset.</p>
+
+  <h3>Why does AM and PM matter so much in time calculations?</h3>
+  <p>The tool uses 24-hour time internally. 3:00 PM is 15:00 in 24-hour format, not 3:00. Entering the wrong AM or PM value shifts your result by exactly 12 hours and is one of the most common errors in manual time calculations. The time input field on modern browsers usually enforces this automatically.</p>
+</section>
+
+<section class="related">
+  <h2>Related Date and Time Tools</h2>
+  <ul>
+    <li><a href="/age-calculator/">Age Calculator</a></li>
+    <li><a href="/date-calculator/">Date Calculator</a></li>
+    <li><a href="/">Browse All Tools</a></li>
+  </ul>
+</section>
+
+{% from "cluster.njk" import clusterGuides %}
+{{ clusterGuides(tools | findByKey("slug", page.fileSlug)) }}
+
+<div class="author">
+  <p><em>Published by the QuixCalc Team. Time calculation logic verified for standard and overnight shifts. Last updated: August 2026.</em></p>
+</div>
+
+<script src="timedur.js" defer></script>

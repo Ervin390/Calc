@@ -22,6 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const P = parseFloat(iPrin.value) || 0;
         const rate = parseFloat(iRate.value) || 0;
         const years = parseFloat(iTerm.value) || 0;
+        const extraInput = document.getElementById('amo-extra');
+        const extra = extraInput ? (parseFloat(extraInput.value) || 0) : 0;
         
         tbody.innerHTML = '';
         currentSchedule = [];
@@ -30,6 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
             oM.textContent = '$0.00';
             oI.textContent = '$0.00';
             oT.textContent = '$0.00';
+            const savingsBox = document.getElementById('extra-savings-box');
+            if (savingsBox) savingsBox.style.display = 'none';
             return;
         }
 
@@ -42,9 +46,24 @@ document.addEventListener('DOMContentLoaded', () => {
             oM.textContent = '$0.00';
             oI.textContent = '$0.00';
             oT.textContent = '$0.00';
+            const savingsBox = document.getElementById('extra-savings-box');
+            if (savingsBox) savingsBox.style.display = 'none';
             return;
         }
 
+        // Calculate standard baseline interest
+        let standardTotalInterest = 0;
+        let baselineBalance = P;
+        for (let i = 1; i <= n; i++) {
+            let interestForMonth = baselineBalance * r;
+            let principalForMonth = M - interestForMonth;
+            if (i === n) {
+                principalForMonth = baselineBalance;
+            }
+            baselineBalance -= principalForMonth;
+            standardTotalInterest += interestForMonth;
+        }
+        
         const totalCost = M * n;
         const totalInterest = totalCost - P;
 
@@ -54,37 +73,83 @@ document.addEventListener('DOMContentLoaded', () => {
         
         let balance = P;
         let html = '';
+        let actualTotalInterest = 0;
+        let paymentCount = 0;
         
         for (let i = 1; i <= n; i++) {
             let interestForMonth = balance * r;
-            let principalForMonth = M - interestForMonth;
+            if (interestForMonth < 0) interestForMonth = 0;
             
-            if (i === n) {
+            let principalForMonth = M - interestForMonth;
+            if (principalForMonth < 0) principalForMonth = 0;
+            
+            let actualExtra = extra;
+            
+            if (balance <= principalForMonth) {
                 principalForMonth = balance;
-                interestForMonth = (M * n) - P - currentSchedule.reduce((sum, row) => sum + row.interest, 0); 
+                actualExtra = 0;
+                balance = 0;
+            } else {
+                if (balance - principalForMonth <= actualExtra) {
+                    actualExtra = balance - principalForMonth;
+                    balance = 0;
+                } else {
+                    balance -= (principalForMonth + actualExtra);
+                }
             }
             
-            balance -= principalForMonth;
-            if (balance < 0) balance = 0;
+            const totalPaymentThisMonth = principalForMonth + interestForMonth + actualExtra;
+            actualTotalInterest += interestForMonth;
+            paymentCount = i;
             
             currentSchedule.push({
                 payment: i,
-                amount: M,
-                principal: principalForMonth,
+                amount: totalPaymentThisMonth,
+                principal: principalForMonth + actualExtra,
                 interest: interestForMonth,
                 balance: balance
             });
             
             html += `<tr>
                 <td style="padding: 0.75rem; text-align: left; border-bottom: 1px solid #e5e7eb;">${i}</td>
-                <td style="padding: 0.75rem; text-align: right; border-bottom: 1px solid #e5e7eb;">${fmt.format(M)}</td>
-                <td style="padding: 0.75rem; text-align: right; border-bottom: 1px solid #e5e7eb;">${fmt.format(principalForMonth)}</td>
+                <td style="padding: 0.75rem; text-align: right; border-bottom: 1px solid #e5e7eb;">${fmt.format(totalPaymentThisMonth)}</td>
+                <td style="padding: 0.75rem; text-align: right; border-bottom: 1px solid #e5e7eb;">${fmt.format(principalForMonth + actualExtra)}</td>
                 <td style="padding: 0.75rem; text-align: right; border-bottom: 1px solid #e5e7eb;">${fmt.format(interestForMonth)}</td>
                 <td style="padding: 0.75rem; text-align: right; border-bottom: 1px solid #e5e7eb;">${fmt.format(balance)}</td>
             </tr>`;
+            
+            if (balance <= 0) {
+                break;
+            }
         }
         
         tbody.innerHTML = html;
+
+        // Update savings impact card
+        const savingsBox = document.getElementById('extra-savings-box');
+        const outSavedInterest = document.getElementById('out-saved-interest');
+        const outSavedTime = document.getElementById('out-saved-time');
+        
+        if (savingsBox && outSavedInterest && outSavedTime) {
+            if (extra > 0) {
+                const interestSaved = Math.max(0, standardTotalInterest - actualTotalInterest);
+                const monthsSaved = Math.max(0, n - paymentCount);
+                
+                outSavedInterest.textContent = fmt.format(interestSaved);
+                
+                if (monthsSaved >= 12) {
+                    const yrs = Math.floor(monthsSaved / 12);
+                    const mos = monthsSaved % 12;
+                    outSavedTime.textContent = `${yrs} yr${yrs > 1 ? 's' : ''} ${mos > 0 ? mos + ' mo' : ''}`;
+                } else {
+                    outSavedTime.textContent = `${monthsSaved} mo${monthsSaved !== 1 ? 's' : ''}`;
+                }
+                
+                savingsBox.style.display = 'flex';
+            } else {
+                savingsBox.style.display = 'none';
+            }
+        }
     }
     
     function exportCSV() {

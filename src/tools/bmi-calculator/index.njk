@@ -1,0 +1,146 @@
+---
+layout: layout.njk
+title: BMI Calculator - Body Mass Index by Height and Weight
+description: Calculate your body mass index instantly using kg and cm or lbs and inches. See your BMI category, healthy weight range, and what the number actually means.
+appName: BMI Calculator
+category: health
+appCategory: HealthApplication
+permalink: /bmi-calculator/
+updated: 2026-08-02
+faqSchema:
+  - q: "What is a healthy BMI range?"
+    a: "The World Health Organization defines a healthy BMI as between 18.5 and 24.9 for adults. A BMI under 18.5 is considered underweight, 25 to 29.9 is overweight, and 30 or above is classified as obese. These thresholds are general guidelines and do not account for factors like muscle mass, age, or ethnicity."
+  - q: "Is BMI the same for men and women?"
+    a: "The BMI formula itself is identical for men and women. However, women naturally carry a higher percentage of body fat at the same BMI than men due to differences in body composition. This means two people with the same BMI can have quite different health profiles depending on sex, age, and muscle mass."
+  - q: "Can I have a normal BMI but still be unhealthy?"
+    a: "Yes. BMI does not measure body fat directly. A very muscular person can have a high BMI while having low body fat and excellent health. Conversely, someone called skinny fat can have a normal BMI with high body fat and poor metabolic health. BMI is a screening tool not a diagnosis."
+  - q: "How do I calculate BMI in kg and cm?"
+    a: "Divide your weight in kilograms by your height in metres squared. For example a person weighing 70 kg who is 175 cm tall has a BMI of 70 divided by 1.75 squared, which equals 22.9. This calculator does the maths automatically in both metric and imperial units."
+  - q: "Does BMI change with age?"
+    a: "The standard BMI formula does not adjust for age in adults. However, body composition naturally shifts as we get older. Adults over 65 often carry more body fat at the same BMI compared to younger adults. Some clinicians use slightly different thresholds for older populations, but the standard WHO ranges are still the most widely used."
+---
+{% from "ad-slot.njk" import adSlot %}
+
+<h1>BMI Calculator</h1>
+<p>Enter your height and weight below to get your body mass index and see exactly which WHO category you fall into. The calculator works in both metric and imperial units.</p>
+
+<section class="tool">
+  <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+    <div class="tool-controls" style="flex: 1; min-width: 280px;">
+
+      <div style="display: flex; gap: 0.5rem; margin-bottom: 1.25rem;">
+        <button id="btn-metric" onclick="setUnit('metric')" style="flex:1;">Metric (kg / cm)</button>
+        <button id="btn-imperial" onclick="setUnit('imperial')" class="secondary" style="flex:1;">Imperial (lb / in)</button>
+      </div>
+
+      <div id="metric-fields">
+        <label for="bmi-weight-kg">Weight (kg)</label>
+        <input type="number" id="bmi-weight-kg" value="75" min="20" max="300" step="0.5" inputmode="decimal">
+        <label for="bmi-height-cm">Height (cm)</label>
+        <input type="number" id="bmi-height-cm" value="175" min="100" max="250" step="1" inputmode="numeric">
+      </div>
+      <div id="imperial-fields" hidden>
+        <label for="bmi-weight-lb">Weight (lbs)</label>
+        <input type="number" id="bmi-weight-lb" value="165" min="44" max="660" step="1" inputmode="decimal">
+        <label for="bmi-height-ft">Height (feet)</label>
+        <input type="number" id="bmi-height-ft" value="5" min="3" max="8" step="1" inputmode="numeric">
+        <label for="bmi-height-in">Height (inches)</label>
+        <input type="number" id="bmi-height-in" value="9" min="0" max="11" step="1" inputmode="numeric">
+      </div>
+
+      <button id="btn-calc-bmi" style="width:100%; margin-top:0.5rem;">Calculate BMI</button>
+    </div>
+
+    <div style="flex: 1; min-width: 280px;" id="bmi-results">
+      <div style="display: grid; gap: 1rem;">
+        <div style="background:var(--input-bg); padding:1.5rem; border-radius:8px; border:1px solid var(--border); text-align:center;">
+          <div style="font-size:0.85rem; color:var(--text-muted); margin-bottom:0.4rem;">Your BMI</div>
+          <div id="out-bmi" style="font-size:3rem; font-weight:800; color:var(--primary);">--</div>
+          <div id="out-category" style="font-size:1rem; font-weight:600; margin-top:0.5rem; color:var(--text-sub);">--</div>
+        </div>
+        <div style="background:var(--accent-light); padding:1rem; border-radius:8px; border:1px solid var(--border);">
+          <div style="font-size:0.8rem; color:var(--text-muted); margin-bottom:0.5rem; font-weight:600; text-transform:uppercase; letter-spacing:0.04em;">Healthy Weight Range</div>
+          <div id="out-range" style="font-size:1.1rem; font-weight:700; color:var(--primary);">--</div>
+        </div>
+        <div style="background:var(--input-bg); padding:0.9rem 1rem; border-radius:8px; border:1px solid var(--border);">
+          <table style="width:100%; font-size:0.85rem; border-collapse:collapse;">
+            <tr><td style="padding:0.3rem 0; color:var(--text-muted);">Underweight</td><td style="text-align:right; color:var(--text-sub);">Below 18.5</td></tr>
+            <tr><td style="padding:0.3rem 0; color:var(--text-muted);">Normal weight</td><td style="text-align:right; color:var(--text-sub);">18.5 to 24.9</td></tr>
+            <tr><td style="padding:0.3rem 0; color:var(--text-muted);">Overweight</td><td style="text-align:right; color:var(--text-sub);">25.0 to 29.9</td></tr>
+            <tr><td style="padding:0.3rem 0; color:var(--text-muted);">Obese</td><td style="text-align:right; color:var(--text-sub);">30.0 and above</td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="tool-actions" style="margin-top:1rem;">
+        <button type="button" class="secondary" data-share>Share link</button>
+        <span class="tool-actions-msg" role="status" aria-live="polite"></span>
+      </div>
+    </div>
+  </div>
+</section>{{ adSlot(site, "inline") }}
+
+<section class="how">
+  <h2>How to Use This BMI Calculator</h2>
+  <p>Choose your preferred unit system at the top. Enter your current weight and height then hit Calculate. Your BMI and category appear instantly on the right.</p>
+  <p>The healthy weight range shown beneath your number tells you exactly what weight you would need to be at your current height to sit in the 18.5 to 24.9 zone. This gives you a concrete target rather than just a category label.</p>
+  <p>Use this alongside the <a href="/calorie-calculator/">Calorie Calculator</a> and <a href="/tdee-calculator/">TDEE Calculator</a> for a complete picture of your health metrics. BMI is a useful screening number but it works best when combined with other data points.</p>
+</section>
+
+<section class="formula">
+  <h2>The BMI Formula</h2>
+  <p>BMI stands for body mass index. The formula divides weight by the square of height:</p>
+  <p><strong>Metric:</strong> BMI = weight (kg) / height (m)²</p>
+  <p><strong>Imperial:</strong> BMI = (weight (lb) / height (in)²) x 703</p>
+  <p>The number was created by Belgian mathematician Adolphe Quetelet in the 1830s. It became a medical screening tool in the 1970s when Ancel Keys validated it against body fat measurements. The World Health Organization adopted the current category thresholds in 1995.</p>
+  <p>The formula does not account for where fat is distributed on the body. Waist circumference is often a better predictor of metabolic disease because abdominal fat is more metabolically active than fat stored around the hips and thighs.</p>
+</section>
+
+<section class="examples">
+  <h2>BMI Calculation Examples</h2>
+  <ul>
+    <li><strong>Person A: 70 kg, 175 cm.</strong> BMI = 70 / (1.75 x 1.75) = 22.9. Normal weight. Healthy weight range at this height: 56.7 to 76.3 kg.</li>
+    <li><strong>Person B: 90 kg, 180 cm.</strong> BMI = 90 / (1.80 x 1.80) = 27.8. Overweight. To reach the top of the healthy range this person would need to weigh around 80.6 kg.</li>
+    <li><strong>Person C: 155 lb, 5 ft 6 in (168 cm).</strong> BMI = (155 / (66 x 66)) x 703 = 25.0. Right on the border of normal and overweight. This illustrates why a single pound up or down can shift your category.</li>
+  </ul>
+</section>
+
+{{ adSlot(site, "incontent") }}
+
+<section class="faq">
+  <h2>Frequently Asked Questions</h2>
+
+  <h3>What is a healthy BMI range?</h3>
+  <p>The World Health Organization defines healthy adult BMI as 18.5 to 24.9. Below 18.5 is underweight. Between 25 and 29.9 is overweight. A BMI of 30 or above falls into the obese category. These are broad population-level benchmarks and individual health depends on many more factors than this single number.</p>
+
+  <h3>Is BMI the same for men and women?</h3>
+  <p>The formula is identical. However women naturally carry a higher percentage of body fat at the same BMI than men because of biological differences in body composition. A woman with a BMI of 22 and a man with a BMI of 22 will typically have quite different body fat percentages. This is normal and expected, not a flaw in the formula.</p>
+
+  <h3>Can I have a normal BMI but still be unhealthy?</h3>
+  <p>Absolutely. A very muscular athlete can have a BMI of 27 with extremely low body fat and excellent cardiovascular health. Someone who is sedentary could have a BMI of 23 while carrying dangerous levels of visceral fat. BMI is a population-level screening tool. It is not designed to diagnose individual health status on its own.</p>
+
+  <h3>How do I calculate BMI in kg and cm?</h3>
+  <p>Convert your height to metres first. Then divide your weight in kilograms by your height in metres squared. A person who is 70 kg and 175 cm tall: 1.75 x 1.75 = 3.0625, then 70 / 3.0625 = 22.9. This calculator does that calculation for you the moment you enter your numbers.</p>
+
+  <h3>Does BMI change with age?</h3>
+  <p>The standard formula does not adjust for age in adults. In practice, body composition shifts significantly between your 20s and your 60s. Muscle mass decreases and body fat increases even when your weight stays the same. Some researchers suggest adjusting thresholds upward for adults over 65, but the WHO ranges remain the standard reference point in clinical settings worldwide.</p>
+</section>
+
+<section class="related">
+  <h2>Related Health Tools</h2>
+  <ul>
+    <li><a href="/calorie-calculator/">Calorie Calculator</a></li>
+    <li><a href="/bmr-calculator/">BMR Calculator</a></li>
+    <li><a href="/tdee-calculator/">TDEE Calculator</a></li>
+    <li><a href="/macro-calculator/">Macro Calculator</a></li>
+    <li><a href="/">Browse All Tools</a></li>
+  </ul>
+</section>
+
+{% from "cluster.njk" import clusterGuides %}
+{{ clusterGuides(tools | findByKey("slug", page.fileSlug)) }}
+
+<div class="author">
+  <p><em>Published by the QuixCalc Team. BMI formula and WHO category thresholds verified against World Health Organization guidelines. Last updated: August 2026.</em></p>
+</div>
+
+<script src="bmi.js" defer></script>

@@ -1,0 +1,110 @@
+---
+layout: layout.njk
+title: Love Calculator - Test Your Compatibility by Name
+description: Enter two names and find out your love compatibility percentage. A fun novelty love calculator that runs entirely in your browser with no sign-up needed.
+appName: Love Calculator
+category: fun
+appCategory: GameApplication
+permalink: /love-calculator/
+updated: 2026-08-02
+faqSchema:
+  - q: "How does a love calculator work?"
+    a: "This love calculator uses a deterministic algorithm that converts both names into numeric values and combines them to produce a compatibility percentage. The same two names will always produce the same result. It is designed as a fun novelty tool and not a scientific measurement of romantic compatibility."
+  - q: "Is the love percentage accurate?"
+    a: "No love calculator can accurately predict real romantic compatibility. Real relationships depend on communication, shared values, timing, and thousands of personal factors that no algorithm can measure. This tool is purely for entertainment. Think of it like a fortune cookie, fun to read, not a life plan."
+  - q: "Can I use it for celebrity names?"
+    a: "You can enter any two names including celebrity couples, fictional characters, or historical figures. The algorithm works the same way regardless of who the names belong to. Many people enjoy testing famous couples to see what numbers come up."
+  - q: "Why do I get the same result every time?"
+    a: "The algorithm is deterministic, meaning it always produces the same output for the same input. This is intentional. If the result changed every time you ran it the tool would feel random and meaningless. The consistent result makes it feel more like a quirky personality quiz."
+  - q: "What is the highest possible love score?"
+    a: "The maximum score is 100 percent, representing a perfect match in the calculator's algorithm. Scores above 80 are labelled as a strong connection. Scores between 60 and 80 are described as a good match. Below 60 the tool suggests there may be some work to do, all in good fun of course."
+---
+{% from "ad-slot.njk" import adSlot %}
+
+<h1>Love Calculator</h1>
+<p>Type two names below and discover your love compatibility score. This fun novelty calculator runs completely in your browser, no data is sent anywhere, and you get an instant result.</p>
+
+<section class="tool">
+  <div style="max-width: 520px; margin: 0 auto;">
+    <label for="love-name1">First Name</label>
+    <input type="text" id="love-name1" placeholder="e.g. Jessica" autocomplete="off">
+
+    <div style="text-align:center; font-size:1.5rem; margin: 0 0 1rem; color:var(--text-muted);">❤️</div>
+
+    <label for="love-name2">Second Name</label>
+    <input type="text" id="love-name2" placeholder="e.g. Michael" autocomplete="off">
+
+    <button id="btn-calc-love" style="width:100%; margin-top:0.5rem;">Calculate Love</button>
+
+    <div id="love-results" style="display:none; margin-top:1.5rem; text-align:center;">
+      <div style="font-size:5rem; margin-bottom:0.5rem;" id="love-heart">❤️</div>
+      <div style="font-size:3.5rem; font-weight:800; color:var(--primary);" id="out-love-pct">--</div>
+      <div style="font-size:1rem; color:var(--text-muted); margin-bottom:1rem;">compatibility</div>
+      <div style="font-size:1.25rem; font-weight:700; color:var(--text-sub);" id="out-love-label">--</div>
+
+      <div style="margin-top:1.5rem;">
+        <div style="background:var(--bg-deeper); border-radius:99px; height:12px; overflow:hidden; border:1px solid var(--border); max-width: 320px; margin: 0 auto;">
+          <div id="love-bar" style="height:100%; background:linear-gradient(90deg, #e63946, #ff6b6b); width:0%; border-radius:99px; transition:width 0.8s ease;"></div>
+        </div>
+      </div>
+
+      <div class="tool-actions" style="margin-top:1.5rem; justify-content:center;">
+        <button type="button" class="secondary" data-share>Share your result</button>
+        <span class="tool-actions-msg" role="status" aria-live="polite"></span>
+      </div>
+    </div>
+  </div>
+</section>{{ adSlot(site, "inline") }}
+
+<section class="how">
+  <h2>How to Use This Love Calculator</h2>
+  <p>Type in the first person's name and the second person's name. Click Calculate Love and your score appears with a fun compatibility label. The calculation runs entirely inside your browser so nothing is stored or sent to a server.</p>
+  <p>Try entering your own name and a celebrity crush. Try fictional couples from your favourite books or shows. You can also test friends and find out who the algorithm thinks is your best match. The same combination of names will always give the same result, so you can share your score with confidence that your friend will see the exact same number.</p>
+</section>
+
+<section class="formula">
+  <h2>How the Algorithm Works</h2>
+  <p>The calculator converts each character in both names into a numeric value based on its position in the alphabet. It combines both names into a single string, processes the digits through a series of reductions, and produces a final number between 1 and 100.</p>
+  <p>This method is a classic love calculator algorithm that has been used on novelty websites since the early days of the internet. It is entirely deterministic and designed for entertainment. The same type of algorithm runs on many popular love test apps and websites.</p>
+  <p>Real romantic compatibility research from psychology suggests factors like attachment style, communication patterns, shared goals, and conflict resolution ability are far better predictors of relationship success. This calculator captures none of those things, and that is completely fine because it is meant to be fun.</p>
+</section>
+
+{{ adSlot(site, "incontent") }}
+
+<section class="faq">
+  <h2>Frequently Asked Questions</h2>
+
+  <h3>How does a love calculator work?</h3>
+  <p>This tool converts both names into numeric values using a deterministic algorithm and combines them to produce a percentage between 1 and 100. The same two names will always produce the exact same result. It is a novelty entertainment tool rather than a scientific compatibility test.</p>
+
+  <h3>Is the love percentage accurate?</h3>
+  <p>No. Real romantic compatibility depends on communication, shared values, emotional availability, and countless personal factors that no name-based algorithm can measure. Think of the score as you would a fortune cookie: fun to read and share, but not something to base life decisions on.</p>
+
+  <h3>Can I use it for celebrity names?</h3>
+  <p>Yes, absolutely. Enter any names you like including celebrity couples, fictional characters from books and films, or historical figures. Many people enjoy testing famous pairs to see what result comes up. There are no restrictions on what names you enter.</p>
+
+  <h3>Why do I get the same result every time?</h3>
+  <p>The algorithm is intentionally consistent. If it produced a different number each time it would feel random and meaningless. A stable result means you can share your score and your friend will see the same number when they check. It makes the tool feel more like a personality quiz than a coin flip.</p>
+
+  <h3>What is the highest possible love score?</h3>
+  <p>The maximum is 100 percent. Scores above 80 get a "perfect match" label. Between 60 and 80 you will see "great connection". Below 60 the tool describes it as "work in progress" and below 30 as "just friends". All of these labels are meant to be taken lightly and with a smile.</p>
+</section>
+
+<section class="related">
+  <h2>Related Fun Tools</h2>
+  <ul>
+    <li><a href="/random-name-generator/">Random Name Generator</a></li>
+    <li><a href="/fantasy-name-generator/">Fantasy Name Generator</a></li>
+    <li><a href="/spinner-wheel/">Spinner Wheel</a></li>
+    <li><a href="/">Browse All Tools</a></li>
+  </ul>
+</section>
+
+{% from "cluster.njk" import clusterGuides %}
+{{ clusterGuides(tools | findByKey("slug", page.fileSlug)) }}
+
+<div class="author">
+  <p><em>Published by the QuixCalc Team. Designed as a fun novelty tool for entertainment only. Last updated: August 2026.</em></p>
+</div>
+
+<script src="love.js" defer></script>

@@ -91,6 +91,54 @@ document.addEventListener('DOMContentLoaded', () => {
         outSample.textContent = n > 1 ? sampStd.toFixed(4).replace(/\.?0+$/, '') : 'N/A';
         outVar.textContent = sampVar ? sampVar.toFixed(4).replace(/\.?0+$/, '') : popVar.toFixed(4).replace(/\.?0+$/, '');
         
+        const outSteps = document.getElementById('out-steps');
+        if (outSteps) {
+            let stepsHtml = '';
+            
+            // Step 1: Mean
+            stepsHtml += `<p style="margin-top:0;"><strong>Step 1: Calculate the Mean (Average)</strong><br>`;
+            stepsHtml += `Sum the values: ${arr.join(' + ')} = <strong>${sum}</strong><br>`;
+            stepsHtml += `Divide by the count (n = ${n}): ${sum} / ${n} = <strong>${mean.toFixed(4).replace(/\.?0+$/, '')}</strong></p>`;
+            
+            // Step 2: Squared Differences
+            stepsHtml += `<p><strong>Step 2: Calculate Each Squared Difference From the Mean</strong><br>`;
+            stepsHtml += `<div style="overflow-x:auto;"><table style="width:100%; border-collapse:collapse; margin: 10px 0; font-size:0.85rem;">`;
+            stepsHtml += `<tr style="border-bottom:1.5px solid var(--border); font-weight:700;"><td style="padding:6px; color:var(--text-sub);">Value (x)</td><td style="padding:6px; color:var(--text-sub);">x - Mean</td><td style="padding:6px; color:var(--text-sub); text-align:right;">(x - Mean)²</td></tr>`;
+            
+            let sumSqDev = 0;
+            arr.forEach(val => {
+                const dev = val - mean;
+                const sqDev = Math.pow(dev, 2);
+                sumSqDev += sqDev;
+                stepsHtml += `<tr style="border-bottom:1px solid var(--border);"><td style="padding:6px; font-weight:600;">${val}</td><td style="padding:6px;">${val} - ${mean.toFixed(2)} = ${dev.toFixed(2)}</td><td style="padding:6px; text-align:right; font-family:monospace;">${sqDev.toFixed(4).replace(/\.?0+$/, '')}</td></tr>`;
+            });
+            stepsHtml += `<tr style="font-weight:700; background:var(--card-bg);"><td colspan="2" style="padding:6px;">Sum of Squared Differences (SS)</td><td style="padding:6px; text-align:right; font-family:monospace; color:var(--primary);">${sumSqDev.toFixed(4).replace(/\.?0+$/, '')}</td></tr>`;
+            stepsHtml += `</table></div></p>`;
+
+            // Step 3 & 4: Variance and Standard Deviation
+            stepsHtml += `<p style="margin-bottom:0;"><strong>Step 3: Calculate Variance and Standard Deviation</strong><br>`;
+            
+            // Sample
+            if (n > 1) {
+                const sVarVal = sumSqDev / (n - 1);
+                const sStdVal = Math.sqrt(sVarVal);
+                stepsHtml += `<span style="display:block; margin-top:0.5rem;"><strong>Sample</strong> (Bessel's correction):</span>`;
+                stepsHtml += `• Variance (s²) = ${sumSqDev.toFixed(4).replace(/\.?0+$/, '')} / (${n} - 1) = <strong>${sVarVal.toFixed(4).replace(/\.?0+$/, '')}</strong><br>`;
+                stepsHtml += `• Std Dev (s) = √${sVarVal.toFixed(4).replace(/\.?0+$/, '')} = <strong>${sStdVal.toFixed(4).replace(/\.?0+$/, '')}</strong><br>`;
+            } else {
+                stepsHtml += `<span style="display:block; margin-top:0.5rem; color:var(--warning);"><strong>Sample Std Dev (s):</strong> N/A (requires at least 2 data points)</span>`;
+            }
+            
+            // Population
+            const pVarVal = sumSqDev / n;
+            const pStdVal = Math.sqrt(pVarVal);
+            stepsHtml += `<span style="display:block; margin-top:0.5rem;"><strong>Population</strong>:</span>`;
+            stepsHtml += `• Variance (σ²) = ${sumSqDev.toFixed(4).replace(/\.?0+$/, '')} / ${n} = <strong>${pVarVal.toFixed(4).replace(/\.?0+$/, '')}</strong><br>`;
+            stepsHtml += `• Std Dev (σ) = √${pVarVal.toFixed(4).replace(/\.?0+$/, '')} = <strong>${pStdVal.toFixed(4).replace(/\.?0+$/, '')}</strong></p>`;
+
+            outSteps.innerHTML = stepsHtml;
+        }
+
         drawHistogram(arr);
     }
 

@@ -38,7 +38,7 @@ if (!fs.existsSync(SITE)) {
 
 const allFiles = walk(SITE);
 const htmlFiles = allFiles.filter((f) => f.endsWith(".html"));
-const rel = (f) => f.slice(SITE.length);
+const rel = (f) => f.slice(SITE.length).replace(/\\/g, "/");
 
 // Set of every path the built site can actually serve.
 const served = new Set();

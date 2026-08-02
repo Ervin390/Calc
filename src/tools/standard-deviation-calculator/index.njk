@@ -55,6 +55,11 @@ updated: 2026-07-26
             <p style="font-weight: 600; color: var(--text-sub); margin-top: 0;">Data Distribution</p>
             <canvas id="hist-canvas" style="max-width: 100%; height: 120px;"></canvas>
         </div>
+
+        <div id="std-step-by-step" style="margin-top: 1.5rem; padding: 1.25rem; background: var(--input-bg); border: 1px solid var(--border); border-radius: 8px;">
+            <p style="font-weight: 600; color: var(--text-sub); margin-top: 0; margin-bottom: 0.75rem;">Step-by-Step Calculation (Worked Example)</p>
+            <div id="out-steps" style="font-size: 0.9rem; line-height: 1.6; color: var(--text-muted);"></div>
+        </div>
     </div>
 
     <div class="tool-actions">
@@ -70,18 +75,24 @@ updated: 2026-07-26
     <p>Use sample standard deviation (s) when your numbers are a sample taken from a larger population. Use population standard deviation (sigma) when you have complete data for the entire group you are measuring. When in doubt, sample standard deviation is the safer choice for most school and research work.</p>
 </section>
 
-<section class="formula">
-    <h2>Standard Deviation Formulas</h2>
-    <p><strong>Step 1, Find the Mean:</strong> Add all values together and divide by the count.</p>
-    <p>Mean (x̄) = (x1 + x2 + ... + xn) / n</p>
-    <p><strong>Step 2, Find Each Squared Deviation:</strong> Subtract the mean from each value and square the result.</p>
-    <p>(xi - x̄)²</p>
-    <p><strong>Step 3, Population Standard Deviation (σ):</strong> Take the square root of the average squared deviation.</p>
-    <p>σ = sqrt[ Sum(xi - x̄)² / n ]</p>
-    <p><strong>Step 4, Sample Standard Deviation (s):</strong> Same formula but divide by n-1 instead of n. This is called Bessel's correction and reduces bias when working from a sample.</p>
-    <p>s = sqrt[ Sum(xi - x̄)² / (n-1) ]</p>
-    <p><strong>Variance</strong> is simply the standard deviation squared. So if σ = 4, variance = 16.</p>
-</section>
+<details style="margin: 2rem 0; border: 1px solid var(--border); border-radius: 8px; padding: 0.25rem 1.25rem; background: var(--input-bg);">
+    <summary style="font-size: 1.25rem; font-weight: 700; cursor: pointer; color: var(--text-main); padding: 1rem 0; outline: none; display: flex; justify-content: space-between; align-items: center;">
+        <span>How Does It Work? Formulas &amp; Method</span>
+        <span style="font-size: 0.9rem; color: var(--text-muted);">[Click to Expand]</span>
+    </summary>
+    <div style="padding-bottom: 1.25rem; border-top: 1px solid var(--border); padding-top: 1rem;">
+        <p><strong>Step 1, Find the Mean:</strong> Add all values together and divide by the count.</p>
+        <p style="font-family: monospace; background: var(--card-bg); padding: 0.5rem; border-radius: 4px; display: inline-block;">Mean (x̄) = (x1 + x2 + ... + xn) / n</p>
+        <p><strong>Step 2, Find Each Squared Deviation:</strong> Subtract the mean from each value and square the result.</p>
+        <p style="font-family: monospace; background: var(--card-bg); padding: 0.5rem; border-radius: 4px; display: inline-block;">(xi - x̄)²</p>
+        <p><strong>Step 3, Population Standard Deviation (σ):</strong> Take the square root of the average squared deviation.</p>
+        <p style="font-family: monospace; background: var(--card-bg); padding: 0.5rem; border-radius: 4px; display: inline-block;">σ = sqrt[ Sum(xi - x̄)² / n ]</p>
+        <p><strong>Step 4, Sample Standard Deviation (s):</strong> Same formula but divide by n-1 instead of n. This is called Bessel's correction and reduces bias when working from a sample.</p>
+        <p style="font-family: monospace; background: var(--card-bg); padding: 0.5rem; border-radius: 4px; display: inline-block;">s = sqrt[ Sum(xi - x̄)² / (n-1) ]</p>
+        <p><strong>Variance</strong> is simply the standard deviation squared. So if σ = 4, variance = 16.</p>
+    </div>
+</details>
+
 
 <section class="examples">
     <h2>Standard Deviation Examples</h2>

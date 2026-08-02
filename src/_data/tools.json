@@ -129,6 +129,14 @@
       {
         "url": "/blog/wow-guild-naming-fantasy-realm-tips/",
         "title": "Naming Your WoW Guild or Fantasy Realm"
+      },
+      {
+        "url": "/blog/dnd-5e-name-guide-by-race-class/",
+        "title": "D&D 5e Name Guide: Best Names for Every Race and Class"
+      },
+      {
+        "url": "/blog/dnd-character-backstory-fits-name/",
+        "title": "How to Build a D&D Backstory That Fits Your Name"
       }
     ]
   },
@@ -186,6 +194,14 @@
       {
         "url": "/blog/extra-mortgage-payment-saves-thousands/",
         "title": "One Extra Mortgage Payment a Year"
+      },
+      {
+        "url": "/blog/pay-off-mortgage-5-years-early/",
+        "title": "How to Pay Off Your Mortgage 5 Years Early"
+      },
+      {
+        "url": "/blog/fixed-vs-variable-rate-mortgage/",
+        "title": "Fixed vs Variable Rate Mortgage: Total Cost Comparison"
       }
     ]
   },
@@ -281,6 +297,14 @@
       {
         "url": "/blog/understanding-variance-and-mean-statistics/",
         "title": "Variance and Mean: A Beginner's Guide"
+      },
+      {
+        "url": "/blog/standard-deviation-step-by-step/",
+        "title": "How to Calculate Standard Deviation Step by Step"
+      },
+      {
+        "url": "/blog/normal-distribution-standard-deviation-explained/",
+        "title": "Normal Distribution and Standard Deviation Explained"
       }
     ]
   },
@@ -378,5 +402,139 @@
         "title": "Counting Days Between Historical Events"
       }
     ]
+  },
+  {
+    "slug": "percentage-calculator",
+    "name": "Percentage Calculator",
+    "icon": "%",
+    "description": "Calculate percentages, percentage change, and reverse percentages instantly.",
+    "category": "math",
+    "popular": true,
+    "url": "/percentage-calculator/",
+    "posts": [
+      {
+        "url": "/blog/how-to-calculate-percentage-3-formulas/",
+        "title": "How to Calculate a Percentage: 3 Formulas Everyone Should Know"
+      },
+      {
+        "url": "/blog/percentage-change-vs-percentage-points/",
+        "title": "Percentage Change vs Percentage Points Explained"
+      }
+    ]
+  },
+  {
+    "slug": "calorie-calculator",
+    "name": "Calorie Calculator",
+    "icon": "🥗",
+    "description": "Find your daily calorie needs with maintenance, fat loss, and muscle gain targets.",
+    "category": "health",
+    "popular": true,
+    "url": "/calorie-calculator/",
+    "posts": [
+      {
+        "url": "/blog/calories-to-lose-1kg-per-week/",
+        "title": "How Many Calories to Lose 1kg Per Week?"
+      },
+      {
+        "url": "/blog/what-is-tdee-vs-bmi/",
+        "title": "What Is TDEE and Why It Matters More Than BMI"
+      }
+    ]
+  },
+  {
+    "slug": "dnd-name-generator",
+    "name": "D&D Name Generator",
+    "icon": "🐉",
+    "description": "Generate lore-accurate D&D character names for every race in 5e.",
+    "category": "fun",
+    "popular": true,
+    "url": "/dnd-name-generator/",
+    "posts": [
+      {
+        "url": "/blog/dnd-5e-name-guide-by-race-class/",
+        "title": "D&D 5e Name Guide: Best Names for Every Race and Class"
+      },
+      {
+        "url": "/blog/dnd-character-backstory-fits-name/",
+        "title": "How to Build a D&D Character Backstory That Fits Your Name"
+      }
+    ]
+  },
+  {
+    "slug": "bmi-calculator",
+    "name": "BMI Calculator",
+    "icon": "⚕️",
+    "description": "Calculate your body mass index in seconds. Get your category, healthy weight range, and WHO thresholds.",
+    "category": "health",
+    "popular": true,
+    "url": "/bmi-calculator/",
+    "posts": [
+      {
+        "url": "/blog/bmi-calculator-women-over-40/",
+        "title": "BMI Calculator for Women Over 40: Why the Same Number Means Something Different"
+      },
+      {
+        "url": "/blog/bmi-vs-body-fat-percentage/",
+        "title": "BMI vs Body Fat Percentage: Which One Actually Matters?"
+      }
+    ]
+  },
+  {
+    "slug": "love-calculator",
+    "name": "Love Calculator",
+    "icon": "❤️",
+    "description": "Find out your love compatibility percentage by name. A fun novelty tool that runs entirely in your browser.",
+    "category": "fun",
+    "popular": true,
+    "url": "/love-calculator/",
+    "posts": [
+      {
+        "url": "/blog/love-calculator-names-psychology/",
+        "title": "Love Calculator by Name: Fun Novelty or Something More?"
+      },
+      {
+        "url": "/blog/compatibility-quiz-online-love-test/",
+        "title": "Online Love Compatibility Tests: What They Can and Cannot Tell You"
+      }
+    ]
+  },
+  {
+    "slug": "password-generator",
+    "name": "Password Generator",
+    "icon": "🔐",
+    "description": "Generate strong random passwords up to 64 characters. Uses Web Crypto API. No sign-up, runs in browser.",
+    "category": "dev",
+    "popular": true,
+    "url": "/password-generator/",
+    "posts": [
+      {
+        "url": "/blog/how-long-should-password-be/",
+        "title": "How Long Should a Password Be in 2026?"
+      },
+      {
+        "url": "/blog/password-manager-vs-browser-save/",
+        "title": "Password Manager vs Saving in Browser: The Real Security Difference"
+      }
+    ]
+  },
+  {
+    "slug": "time-duration-calculator",
+    "name": "Time Duration Calculator",
+    "icon": "⏱️",
+    "description": "Calculate the exact duration between two times or add and subtract hours and minutes. Handles overnight shifts.",
+    "category": "date",
+    "popular": false,
+    "url": "/time-duration-calculator/",
+    "posts": [
+      {
+        "url": "/blog/hours-worked-calculator-payroll/",
+        "title": "How to Calculate Hours Worked for Payroll Without Getting It Wrong"
+      },
+      {
+        "url": "/blog/elapsed-time-calculator-guide/",
+        "title": "Elapsed Time Calculator: How Long Did That Actually Take?"
+      }
+    ]
   }
 ]
+
