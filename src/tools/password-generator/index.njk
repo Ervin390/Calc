@@ -44,17 +44,22 @@ faqSchema:
     <label for="pwd-length">Password Length: <strong id="length-display">16</strong></label>
     <input type="range" id="pwd-length" min="8" max="64" value="16" step="1" style="margin-bottom:1.25rem;">
 
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem; margin-top:1.25rem;">
+      <span style="font-weight:600; font-size:0.9rem; color:var(--text-sub);">Character Options</span>
+      <button type="button" id="btn-select-all" class="secondary" style="font-size:0.75rem; padding:0.25rem 0.6rem; margin:0; height:auto; line-height:1;">Select All</button>
+    </div>
+
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; margin-bottom:1.25rem;">
-      <label class="inline-label" style="display:flex; align-items:center; gap:0.5rem; font-weight:500; font-size:0.9rem;">
+      <label class="pwd-opt-card" style="margin: 0; display:flex; align-items:center; gap:0.5rem; font-weight:500; font-size:0.9rem;">
         <input type="checkbox" id="opt-upper" checked style="width:auto; margin:0;"> Uppercase (A-Z)
       </label>
-      <label class="inline-label" style="display:flex; align-items:center; gap:0.5rem; font-weight:500; font-size:0.9rem;">
+      <label class="pwd-opt-card" style="margin: 0; display:flex; align-items:center; gap:0.5rem; font-weight:500; font-size:0.9rem;">
         <input type="checkbox" id="opt-lower" checked style="width:auto; margin:0;"> Lowercase (a-z)
       </label>
-      <label class="inline-label" style="display:flex; align-items:center; gap:0.5rem; font-weight:500; font-size:0.9rem;">
+      <label class="pwd-opt-card" style="margin: 0; display:flex; align-items:center; gap:0.5rem; font-weight:500; font-size:0.9rem;">
         <input type="checkbox" id="opt-numbers" checked style="width:auto; margin:0;"> Numbers (0-9)
       </label>
-      <label class="inline-label" style="display:flex; align-items:center; gap:0.5rem; font-weight:500; font-size:0.9rem;">
+      <label class="pwd-opt-card" style="margin: 0; display:flex; align-items:center; gap:0.5rem; font-weight:500; font-size:0.9rem;">
         <input type="checkbox" id="opt-symbols" style="width:auto; margin:0;"> Symbols (!@#$)
       </label>
     </div>

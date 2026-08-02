@@ -95,6 +95,17 @@
       if (el) el.addEventListener('change', updatePassword);
     });
 
+    var selectAllBtn = document.getElementById('btn-select-all');
+    if (selectAllBtn) {
+      selectAllBtn.addEventListener('click', function () {
+        ['opt-upper', 'opt-lower', 'opt-numbers', 'opt-symbols'].forEach(function (id) {
+          var el = document.getElementById(id);
+          if (el) el.checked = true;
+        });
+        updatePassword();
+      });
+    }
+
     updatePassword();
   });
 })();

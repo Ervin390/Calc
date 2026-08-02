@@ -41,15 +41,19 @@
     var btn = document.getElementById('btn-calc-bmi');
     if (btn) btn.addEventListener('click', calculate);
 
-    ['bmi-weight-kg', 'bmi-height-cm', 'bmi-weight-lb', 'bmi-height-ft', 'bmi-height-in'].forEach(function (id) {
+    ['bmi-gender', 'bmi-weight-kg', 'bmi-height-cm', 'bmi-weight-lb', 'bmi-height-ft', 'bmi-height-in'].forEach(function (id) {
       var el = document.getElementById(id);
-      if (el) el.addEventListener('input', calculate);
+      if (el) {
+        el.addEventListener('input', calculate);
+        el.addEventListener('change', calculate);
+      }
     });
 
     calculate();
   });
 
   function calculate() {
+    var gender = document.getElementById('bmi-gender').value;
     var weightKg, heightM;
 
     if (unit === 'metric') {

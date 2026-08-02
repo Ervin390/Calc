@@ -48,7 +48,7 @@
       heightCm = inches * 2.54;
     }
 
-    if ([gender, age, activity, weightKg, heightCm].some(function (v) { return isNaN(v) || v <= 0; })) return;
+    if (!gender || [age, activity, weightKg, heightCm].some(function (v) { return isNaN(v) || v <= 0; })) return;
 
     var bmr = calcBMR(gender, age, weightKg, heightCm);
     var maintenance = bmr * activity;
