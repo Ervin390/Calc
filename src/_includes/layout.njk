@@ -292,6 +292,43 @@
 
         {{ content | safe }}
 
+        {%- if isTool %}
+        <div class="embed-cta">
+            <button type="button" class="secondary embed-open-btn" id="embed-open-btn"
+                    aria-haspopup="dialog" aria-controls="embed-modal">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                     aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                Embed this tool
+            </button>
+        </div>
+
+        <div id="embed-modal" class="embed-modal" role="dialog" aria-modal="true"
+             aria-label="Embed this tool" hidden>
+            <div class="embed-modal-box">
+                <div class="embed-modal-header">
+                    <h2 class="embed-modal-title">Embed this tool on your site</h2>
+                    <button type="button" class="embed-modal-close" id="embed-modal-close"
+                            aria-label="Close embed dialog">&#x2715;</button>
+                </div>
+                <p class="embed-modal-desc">Copy the code below and paste it anywhere on your page. The tool runs entirely in the visitor's browser — no tracking, no ads.</p>
+                <div class="embed-code-wrap">
+                    <code id="embed-code" class="embed-code"></code>
+                </div>
+                <div class="embed-modal-actions">
+                    <button type="button" class="embed-copy-btn" id="embed-copy-btn">Copy code</button>
+                    <span class="embed-copy-msg" id="embed-copy-msg" role="status" aria-live="polite"></span>
+                </div>
+                <div class="embed-preview">
+                    <p class="embed-preview-label">Preview</p>
+                    <iframe id="embed-preview-frame" src="" title="Tool preview" loading="lazy"
+                            width="100%" height="420" frameborder="0"
+                            style="border-radius:8px;border:1px solid var(--border);background:var(--card-bg);"></iframe>
+                </div>
+            </div>
+        </div>
+        {%- endif %}
+
         {%- if isPost %}
         {#- Close the cluster loop: every guide points back at its money page,
             its sibling guide and its category hub. -#}
@@ -435,6 +472,67 @@ rejectButton.onclick = function () {
     cookieBanner.style.display = "none";
 };
 
+</script>
+
+<script>
+(function () {
+  // Move embed-cta button to sit right after section.tool (below calc, above SEO text)
+  var cta  = document.querySelector('.embed-cta');
+  var tool = document.querySelector('section.tool');
+  if (cta && tool && tool.parentNode) {
+    tool.parentNode.insertBefore(cta, tool.nextSibling);
+  }
+
+  var openBtn  = document.getElementById('embed-open-btn');
+  var modal    = document.getElementById('embed-modal');
+  var closeBtn = document.getElementById('embed-modal-close');
+  var codeEl   = document.getElementById('embed-code');
+  var copyBtn  = document.getElementById('embed-copy-btn');
+  var copyMsg  = document.getElementById('embed-copy-msg');
+  var preview  = document.getElementById('embed-preview-frame');
+
+  if (!openBtn || !modal) return;
+
+  var embedUrl = window.location.origin + window.location.pathname.replace(/\/?$/, '/') + '?embed=1';
+  var snippet  = '<iframe\n  src="' + embedUrl + '"\n  width="100%"\n  height="520"\n  frameborder="0"\n  title="Free calculator by QuixCalc"\n  loading="lazy"\n  style="border:none;border-radius:8px;">\n</iframe>';
+
+  if (codeEl)  codeEl.textContent  = snippet;
+  if (preview) preview.src = embedUrl;
+
+  function openModal() {
+    modal.removeAttribute('hidden');
+    document.body.style.overflow = 'hidden';
+    if (closeBtn) closeBtn.focus();
+  }
+
+  function closeModal() {
+    modal.setAttribute('hidden', '');
+    document.body.style.overflow = '';
+    openBtn.focus();
+  }
+
+  openBtn.addEventListener('click', openModal);
+  closeBtn.addEventListener('click', closeModal);
+
+  modal.addEventListener('click', function (e) {
+    if (e.target === modal) closeModal();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !modal.hasAttribute('hidden')) closeModal();
+  });
+
+  if (copyBtn) {
+    copyBtn.addEventListener('click', function () {
+      navigator.clipboard.writeText(snippet).then(function () {
+        copyMsg.textContent = 'Copied!';
+        setTimeout(function () { copyMsg.textContent = ''; }, 2500);
+      }).catch(function () {
+        copyMsg.textContent = 'Copy failed — select and copy manually.';
+      });
+    });
+  }
+})();
 </script>
 </body>
 </html>

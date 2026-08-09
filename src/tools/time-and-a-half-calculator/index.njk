@@ -1,0 +1,118 @@
+---
+layout: layout.njk
+title: Time and a Half Calculator - Overtime Pay in Seconds
+description: Calculate your time and a half overtime pay instantly. Enter your hourly rate and overtime hours to see exact earnings. Free, no signup, works offline.
+appName: Time and a Half Calculator
+category: payroll
+permalink: /time-and-a-half-calculator/
+updated: 2026-08-09
+---
+
+<h1>Time and a Half Calculator</h1>
+<p>Enter your hourly rate and hours worked to calculate your regular pay, overtime pay, and total earnings for any pay period.</p>
+
+<section class="tool">
+    <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+        <div class="tool-controls" style="flex: 1; min-width: 300px;">
+            <label for="tah-rate">Your Hourly Rate ($)</label>
+            <input type="number" id="tah-rate" value="20" min="0" step="0.25" inputmode="decimal">
+
+            <label for="tah-regular">Regular Hours Worked</label>
+            <input type="number" id="tah-regular" value="40" min="0" step="0.5" inputmode="decimal">
+
+            <label for="tah-overtime">Overtime Hours Worked</label>
+            <input type="number" id="tah-overtime" value="5" min="0" step="0.5" inputmode="decimal">
+
+            <label for="tah-period">Pay Period</label>
+            <select id="tah-period">
+                <option value="1">Weekly</option>
+                <option value="2">Bi-Weekly</option>
+                <option value="1">Single Period</option>
+            </select>
+        </div>
+
+        <div style="flex: 1; min-width: 300px;">
+            <div style="background: #f9fafb; padding: 1.5rem; border-radius: 8px; border: 1px solid #e5e7eb; text-align: center; margin-bottom: 1rem;">
+                <p style="font-weight: 600; color: #4b5563; margin-top: 0;">Total Gross Pay</p>
+                <div id="out-tah-total" style="font-size: 2.5rem; font-weight: 800; color: #059669; line-height: 1;">$0.00</div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb; text-align: center;">
+                    <div style="font-size: 0.85rem; color: #6b7280; margin-bottom: 0.25rem;">Regular Pay</div>
+                    <div id="out-tah-regular" style="font-size: 1.4rem; font-weight: 700; color: #111827;">$0.00</div>
+                    <div style="font-size: 0.8rem; color: #9ca3af;" id="out-tah-regular-rate"></div>
+                </div>
+                <div style="background: #eff6ff; padding: 1rem; border-radius: 8px; border: 1px solid #bfdbfe; text-align: center;">
+                    <div style="font-size: 0.85rem; color: #6b7280; margin-bottom: 0.25rem;">Overtime Pay</div>
+                    <div id="out-tah-ot" style="font-size: 1.4rem; font-weight: 700; color: #2563eb;">$0.00</div>
+                    <div style="font-size: 0.8rem; color: #9ca3af;" id="out-tah-ot-rate"></div>
+                </div>
+            </div>
+            <div style="margin-top: 1rem; background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb;">
+                <div style="font-size: 0.85rem; color: #6b7280;">Your overtime rate: <strong id="out-tah-ot-hourly" style="color: #2563eb;">$0.00 / hr</strong></div>
+                <div style="font-size: 0.85rem; color: #6b7280; margin-top: 0.25rem;">Annual estimate (same schedule): <strong id="out-tah-annual" style="color: #059669;">$0.00</strong></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="how">
+    <h2>How to Use This Calculator</h2>
+    <p>Start by entering your regular hourly rate. This is the number on your employment contract or pay stub before any overtime multipliers.</p>
+    <p>Next, put in how many regular hours you worked during the pay period. In the US, standard full-time is 40 hours per week. Hours worked beyond that threshold are typically overtime.</p>
+    <p>Enter how many overtime hours you logged. The calculator automatically multiplies those hours by 1.5 times your regular rate, which is the standard federal overtime rate under the Fair Labor Standards Act. Your total gross pay appears instantly.</p>
+</section>
+
+<section class="formula">
+    <h2>How Time and a Half Pay Is Calculated</h2>
+    <p>Time and a half simply means your employer multiplies your normal hourly rate by 1.5 for every hour worked beyond the standard threshold. The law in the US sets that threshold at 40 hours per workweek for most non-exempt employees.</p>
+    <p><strong>Overtime rate = Hourly rate x 1.5</strong></p>
+    <p><strong>Regular pay = Regular hours x Hourly rate</strong></p>
+    <p><strong>Overtime pay = Overtime hours x (Hourly rate x 1.5)</strong></p>
+    <p><strong>Total gross pay = Regular pay + Overtime pay</strong></p>
+    <p>So if you earn $20 per hour, your overtime rate is $30 per hour. Five hours of overtime on top of a 40-hour week adds $150 to your paycheck, bringing the weekly gross to $950 instead of $800.</p>
+    <p>Some states like California have daily overtime rules where hours beyond 8 in a single day count as overtime regardless of your weekly total. Check your state labor board if you think your employer might owe you more.</p>
+</section>
+
+<section class="examples">
+    <h2>Real Examples</h2>
+    <p>Here are three common situations people run through this calculator every day.</p>
+    <ul>
+        <li><strong>Warehouse worker at $18/hr:</strong> Works 45 hours in a week. Regular pay is $720 (40 x $18). Overtime pay is $135 (5 x $27). Total gross is $855 for the week.</li>
+        <li><strong>Nurse at $35/hr:</strong> Works a 12-hour shift that runs to 13 hours due to a handoff delay. That extra hour is overtime. Regular pay for the shift is $420 (12 x $35). Overtime is $52.50 (1 x $52.50). Total gross for the shift is $472.50.</li>
+        <li><strong>Contractor at $50/hr:</strong> Takes on a large project and clocks 50 hours in one week. Regular pay is $2,000 (40 x $50). Overtime pay is $750 (10 x $75). Total gross for that week reaches $2,750.</li>
+    </ul>
+</section>
+
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>Does my employer have to pay time and a half?</h3>
+    <p>Most employers in the US must pay overtime under the Fair Labor Standards Act. Exemptions exist for salaried workers who earn above a certain threshold and perform executive, administrative, or professional duties. Hourly employees are almost always entitled to overtime pay for hours beyond 40 per week.</p>
+
+    <h3>What is double time and when does it apply?</h3>
+    <p>Double time means your rate is multiplied by 2 instead of 1.5. Federal law does not require double time, but California mandates it for hours worked beyond 12 in a single day or for any hours worked on the seventh consecutive day in a workweek. Some union contracts also include double time provisions.</p>
+
+    <h3>Is overtime pay before or after taxes?</h3>
+    <p>This calculator shows gross pay, which is your earnings before any deductions. Overtime income is taxed the same way as regular income. The IRS does not have a special overtime tax rate. Your effective tax burden may feel higher on an overtime-heavy paycheck because withholding tables can temporarily over-withhold, but you settle that at tax time.</p>
+
+    <h3>What if I am paid a salary?</h3>
+    <p>Salaried employees who are classified as non-exempt still earn overtime. The calculation converts the weekly salary to an effective hourly rate first. Divide your weekly salary by hours expected each week, then apply the 1.5 multiplier to any hours above 40.</p>
+</section>
+
+<section class="related">
+    <h2>Related Payroll Tools</h2>
+    <ul>
+        <li><a href="/pay-raise-calculator/">Pay Raise Calculator</a></li>
+        <li><a href="/hourly-to-salary-calculator/">Hourly to Salary Calculator</a></li>
+        <li><a href="/tip-calculator/">Tip Calculator</a></li>
+        <li><a href="/compound-interest-calculator/">Compound Interest Calculator</a></li>
+        <li><a href="/">Browse All Tools</a></li>
+    </ul>
+</section>
+
+<div class="author">
+    <p><em>Published by the QuixCalc Team. Overtime formulas verified against the US Fair Labor Standards Act. Last updated: August 2026.</em></p>
+</div>
+
+<script src="time-and-a-half.js" defer></script>

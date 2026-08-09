@@ -1,0 +1,31 @@
+---
+layout: layout.njk
+title: Payroll and Income Calculators
+description: Free online calculators for overtime pay, salary conversion, and pay raises. Clear calculations, no signup, works offline.
+category: payroll
+appName: Payroll Calc
+---
+
+<h1>Payroll & Income Calculators</h1>
+<p>Manage and calculate your work earnings. Find out the impact of overtime hours, analyze salary offers, and calculate the exact dollar value of a raise in seconds.</p>
+
+{% from "tool-grid.njk" import toolGrid %}
+{{ toolGrid(tools, category) }}
+
+<section style="margin-top: 4rem; padding-top: 2rem; border-top: 2px solid var(--border);">
+    <h2 style="font-size: 1.6rem; color: var(--text-main); margin-bottom: 1rem;">Accurate Income and Payroll Calculations</h2>
+    <p style="margin-bottom: 1rem; color: var(--text-muted); line-height: 1.6;">Understanding your payroll details should be clear and straightforward. When evaluating a new job benefit package or negotiating wages, being able to verify the mathematics is crucial.</p>
+    <p style="margin-bottom: 2.5rem; color: var(--text-muted); line-height: 1.6;">Working overtime is a common way to build savings. The federal Fair Labor Standards Act requires overtime pay at a minimum of 1.5 times the hourly rate for non-exempt positions. You can also benchmark hourly rates against annual figures easily using our conversion tables. If you are comparing saving goals see our <a href="/finance/" style="color: var(--primary); text-decoration: underline;">Finance &amp; Money</a> section for growth rates.</p>
+</section>
+
+<section class="faq" style="margin-top: 3rem;">
+    <h2 style="font-size: 1.6rem; color: var(--text-main); margin-bottom: 1.5rem;">Frequently Asked Questions</h2>
+    <article style="margin-bottom: 1.5rem; background: var(--input-bg); padding: 1.25rem; border-radius: 8px;">
+        <h3 style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.5rem; margin-top: 0;">How do hours worked affect federal overtime?</h3>
+        <p style="margin: 0; color: var(--text-muted);">The FLSA mandates overtime for any hours worked beyond 40 per workweek. Selected states apply daily limits as well.</p>
+    </article>
+    <article style="margin-bottom: 1.5rem; background: var(--input-bg); padding: 1.25rem; border-radius: 8px;">
+        <h3 style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.5rem; margin-top: 0;">What is the normal work year in standard hours?</h3>
+        <p style="margin: 0; color: var(--text-muted);">Standard full-time employment uses a baseline of 2,080 working hours, representing 40 hours per week for 52 weeks.</p>
+    </article>
+</section>

@@ -1,0 +1,129 @@
+---
+layout: layout.njk
+title: Pay Raise Calculator - See Your New Salary Instantly
+description: Calculate exactly how much more you will earn after a raise. Enter your current pay and raise percentage to see your new salary, monthly increase, and annual gain.
+appName: Pay Raise Calculator
+category: payroll
+permalink: /pay-raise-calculator/
+updated: 2026-08-09
+---
+
+<h1>Pay Raise Calculator</h1>
+<p>Find out exactly how much a raise is worth in real dollars. Enter your current pay and the raise amount or percentage to see your new salary broken down by hour, week, month, and year.</p>
+
+<section class="tool">
+    <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+        <div class="tool-controls" style="flex: 1; min-width: 300px;">
+            <label for="pr-current">Current Salary or Hourly Rate ($)</label>
+            <input type="number" id="pr-current" value="50000" min="0" step="500" inputmode="decimal">
+
+            <label for="pr-type">Salary Type</label>
+            <select id="pr-type">
+                <option value="annual">Annual Salary</option>
+                <option value="hourly">Hourly Rate</option>
+            </select>
+
+            <label for="pr-raise-mode">Raise Entered As</label>
+            <select id="pr-raise-mode">
+                <option value="percent">Percentage (%)</option>
+                <option value="amount">Fixed Amount ($)</option>
+            </select>
+
+            <label for="pr-raise">Raise Amount</label>
+            <input type="number" id="pr-raise" value="5" min="0" step="0.1" inputmode="decimal">
+
+            <div id="pr-hours-wrap" style="display:none;">
+                <label for="pr-hours">Hours Per Week</label>
+                <input type="number" id="pr-hours" value="40" min="1" max="80" step="1" inputmode="numeric">
+            </div>
+        </div>
+
+        <div style="flex: 1; min-width: 300px;">
+            <div style="background: #f0fdf4; padding: 1.5rem; border-radius: 8px; border: 1px solid #bbf7d0; text-align: center; margin-bottom: 1rem;">
+                <p style="font-weight: 600; color: #4b5563; margin-top: 0;">New Annual Salary</p>
+                <div id="out-pr-new-annual" style="font-size: 2.5rem; font-weight: 800; color: #059669; line-height: 1;">$0.00</div>
+                <div style="font-size: 0.9rem; color: #6b7280; margin-top: 0.5rem;">up from <span id="out-pr-old-annual" style="font-weight:600;">$0.00</span></div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                <div style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb; text-align: center;">
+                    <div style="font-size: 0.8rem; color: #6b7280;">Monthly Increase</div>
+                    <div id="out-pr-monthly-diff" style="font-size: 1.3rem; font-weight: 700; color: #059669;">+$0.00</div>
+                </div>
+                <div style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb; text-align: center;">
+                    <div style="font-size: 0.8rem; color: #6b7280;">Annual Increase</div>
+                    <div id="out-pr-annual-diff" style="font-size: 1.3rem; font-weight: 700; color: #059669;">+$0.00</div>
+                </div>
+            </div>
+            <div style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb;">
+                <table style="width:100%; border-collapse: collapse; font-size: 0.9rem;">
+                    <thead>
+                        <tr style="border-bottom: 1px solid #e5e7eb;">
+                            <th style="text-align:left; padding: 0.4rem 0.5rem; color: #6b7280; font-weight:600;">Period</th>
+                            <th style="text-align:right; padding: 0.4rem 0.5rem; color: #6b7280; font-weight:600;">Before</th>
+                            <th style="text-align:right; padding: 0.4rem 0.5rem; color: #059669; font-weight:600;">After</th>
+                        </tr>
+                    </thead>
+                    <tbody id="out-pr-table"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="how">
+    <h2>How to Use This Calculator</h2>
+    <p>Enter your current pay. If you are salaried, input your annual figure. If you are paid hourly, select the hourly option and also enter how many hours you typically work each week.</p>
+    <p>Then enter the raise. You can type it as a percentage, which is the most common way raises are offered, or as a fixed dollar amount if your employer gave you a specific number. The calculator instantly shows your new salary alongside a before-and-after comparison by hour, week, month, and year.</p>
+</section>
+
+<section class="formula">
+    <h2>The Math Behind a Pay Raise</h2>
+    <p>When a raise is given as a percentage, the calculation is straightforward.</p>
+    <p><strong>New salary = Current salary x (1 + raise% / 100)</strong></p>
+    <p>If you earn $50,000 per year and receive a 5% raise, your new salary is $50,000 x 1.05, which equals $52,500. The annual increase is $2,500, or about $208 per month before taxes.</p>
+    <p>When a raise is given as a flat dollar amount, the percentage equivalent is:</p>
+    <p><strong>Raise % = (Raise amount / Current salary) x 100</strong></p>
+    <p>A $2,500 raise on a $50,000 salary equals 5%. Knowing both figures helps you evaluate whether the offer is competitive for your field and experience level.</p>
+</section>
+
+<section class="examples">
+    <h2>Real Raise Scenarios</h2>
+    <ul>
+        <li><strong>Annual review, 3% raise:</strong> Starting at $45,000 per year, a 3% raise adds $1,350 annually. That is $112.50 extra per month before taxes.</li>
+        <li><strong>Job offer negotiation, 12% increase:</strong> Leaving a $60,000 job for one paying $67,200 is a 12% raise. The annual difference is $7,200, or $600 per month. Worth evaluating against any benefits changes.</li>
+        <li><strong>Hourly worker, $1.50 raise:</strong> Going from $17.50 to $19.00 per hour at 40 hours per week adds $60 per week before taxes, or about $3,120 per year.</li>
+    </ul>
+</section>
+
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>What is a good raise percentage in 2026?</h3>
+    <p>Salary budget surveys consistently show average raises in the US cluster around 3% to 4% for employees who meet performance expectations. A raise above 5% is generally considered strong. High performers or people with specific in-demand skills often see 8% to 15%. Anything under 2% is typically below inflation and represents a real-terms pay cut.</p>
+
+    <h3>Should I negotiate a raise as a percentage or a dollar amount?</h3>
+    <p>Anchoring in dollars tends to be more psychologically concrete for both parties. Saying you want $5,000 more is clearer than 7%. However, percentage framing is useful when your employer is comparing you to a salary band system, because their internal budgets are often tracked that way. Know which approach fits your workplace culture.</p>
+
+    <h3>Does a raise affect my tax bracket?</h3>
+    <p>A raise may push some of your income into a higher federal tax bracket, but the US uses a progressive system, meaning only the dollars above the bracket threshold get taxed at the higher rate. Your entire income does not suddenly get taxed more. The net result is almost always a higher take-home amount even after accounting for the bracket creep.</p>
+
+    <h3>How do I calculate a raise from bi-weekly pay?</h3>
+    <p>Multiply your bi-weekly gross pay by 26 to get your annual salary. Enter that number into this calculator, then apply your raise percentage. The result gives you both the new annual figure and the new bi-weekly amount for easy comparison.</p>
+</section>
+
+<section class="related">
+    <h2>Related Payroll Tools</h2>
+    <ul>
+        <li><a href="/time-and-a-half-calculator/">Time and a Half Calculator</a></li>
+        <li><a href="/hourly-to-salary-calculator/">Hourly to Salary Calculator</a></li>
+        <li><a href="/tip-calculator/">Tip Calculator</a></li>
+        <li><a href="/compound-interest-calculator/">Compound Interest Calculator</a></li>
+        <li><a href="/">Browse All Tools</a></li>
+    </ul>
+</section>
+
+<div class="author">
+    <p><em>Published by the QuixCalc Team. Salary calculations based on standard US pay period conventions. Last updated: August 2026.</em></p>
+</div>
+
+<script src="pay-raise.js" defer></script>

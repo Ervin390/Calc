@@ -1,0 +1,113 @@
+---
+layout: layout.njk
+title: Days Until Calculator - Countdown to Any Date or Event
+description: Calculate how many days until Christmas, New Year, or any custom date. Free days until calculator with hours and minutes countdown. Works for birthdays, holidays, and deadlines.
+appName: Days Until Calculator
+category: date
+permalink: /days-until-calculator/
+updated: 2026-08-09
+---
+
+<h1>Days Until Calculator</h1>
+<p>Enter any future date and instantly see how many days, hours, and minutes are left until that moment arrives. Great for countdowns to holidays, birthdays, trips, and deadlines.</p>
+
+<section class="tool">
+    <div class="tool-controls">
+        <label>Quick Presets</label>
+        <div class="btn-group" style="flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;" id="preset-buttons">
+            <button class="secondary" data-preset="christmas">🎄 Christmas</button>
+            <button class="secondary" data-preset="newyear">🎆 New Year</button>
+            <button class="secondary" data-preset="halloween">🎃 Halloween</button>
+            <button class="secondary" data-preset="valentines">❤️ Valentine's Day</button>
+            <button class="secondary" data-preset="thanksgiving">🦃 Thanksgiving</button>
+        </div>
+
+        <label for="target-date">Or Enter a Custom Date</label>
+        <input type="date" id="target-date" style="font-size: 1.1rem;">
+
+        <label for="event-name">Event Name (Optional)</label>
+        <input type="text" id="event-name" placeholder="e.g. My Birthday, Project Deadline">
+
+        <button id="btn-calc-days" style="width: 100%; margin-top: 1rem; font-size: 1.1rem;">Calculate Countdown</button>
+    </div>
+
+    <div class="tool-output" id="days-result" style="margin-top: 2rem; display: none;">
+        <div style="text-align: center; padding: 2rem; background: var(--card-bg); border-radius: 12px; border: 1px solid var(--border);">
+            <p id="event-label" style="font-weight: 600; color: var(--text-muted); margin-top: 0; font-size: 1.1rem;"></p>
+            <div id="out-days" style="font-size: 5rem; font-weight: 900; color: var(--primary); line-height: 1;">0</div>
+            <div style="font-size: 1.3rem; font-weight: 600; color: var(--text-muted); margin-bottom: 1.5rem;">days away</div>
+            <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+                <div style="text-align: center;">
+                    <div id="out-hours" style="font-size: 2rem; font-weight: 800; color: var(--accent, #f97316);">0</div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted);">hours</div>
+                </div>
+                <div style="text-align: center;">
+                    <div id="out-minutes" style="font-size: 2rem; font-weight: 800; color: #059669;">0</div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted);">minutes</div>
+                </div>
+                <div style="text-align: center;">
+                    <div id="out-weeks" style="font-size: 2rem; font-weight: 800; color: #8b5cf6;">0</div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted);">weeks</div>
+                </div>
+            </div>
+            <p id="out-date-str" style="margin-top: 1.5rem; font-size: 1rem; color: var(--text-muted); margin-bottom: 0;"></p>
+        </div>
+    </div>
+</section>
+
+<section class="how">
+    <h2>How to Use the Days Until Calculator</h2>
+    <p>Select a preset holiday from the quick buttons or type a custom date into the date picker. Add an event name if you want a personalized countdown label. Hit Calculate and the result shows instantly.</p>
+    <p>The countdown updates to the exact second. It counts full days remaining based on midnight of the target date. So if you check it on December 23rd, it shows 2 days until Christmas, meaning Christmas Day itself is 2 days away.</p>
+    <p>You can also use this to count backward. If the date you enter is in the past, the tool will show you how many days ago that event occurred.</p>
+</section>
+
+<section class="formula">
+    <h2>How Days Until Is Calculated</h2>
+    <p>The formula is simple. The tool takes the target date's midnight timestamp in milliseconds, subtracts today's current timestamp, and divides the difference by the number of milliseconds in a day (86,400,000).</p>
+    <p><strong>Days Until = (Target Date - Today) / 86,400,000</strong></p>
+    <p>The remaining milliseconds after extracting full days are divided by 3,600,000 for hours, and 60,000 for minutes. Weeks are calculated by dividing the total days by 7.</p>
+</section>
+
+<section class="examples">
+    <h2>Popular Days Until Countdowns</h2>
+    <ul>
+        <li><strong>Days until Christmas 2026:</strong> December 25th is the most searched countdown in the world each year.</li>
+        <li><strong>Days until New Year 2027:</strong> January 1st, a fresh slate and a popular motivational countdown.</li>
+        <li><strong>Days until a birthday:</strong> Enter your own birthday or a friend's for a personal countdown.</li>
+        <li><strong>Days until a project deadline:</strong> Use the custom input to track work deliverables and exam dates.</li>
+        <li><strong>Days until summer:</strong> June 21st, the summer solstice, marks the official start of summer in the northern hemisphere.</li>
+    </ul>
+</section>
+
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>How many days until Christmas?</h3>
+    <p>Click the Christmas preset button above for an instant countdown. Christmas is always December 25th. The result updates to show exactly how many days, hours, and minutes remain until 12:00 AM on December 25th.</p>
+
+    <h3>How many days until New Year?</h3>
+    <p>Select the New Year preset or enter January 1st of the next year. New Year's Day falls on January 1st every year. The countdown will reflect the exact time remaining in your local timezone.</p>
+
+    <h3>Can I use this as a birthday countdown?</h3>
+    <p>Yes. Enter your birthday in the custom date field and optionally type your name or "My Birthday" in the event name box. The countdown will display with your custom label and update every time you visit.</p>
+
+    <h3>Does the countdown account for my time zone?</h3>
+    <p>Yes. The calculator uses your device's local time and timezone automatically. The target date is set to midnight local time on the day you enter, so results are accurate wherever you are in the world.</p>
+</section>
+
+<section class="related">
+    <h2>Related Date and Time Tools</h2>
+    <ul>
+        <li><a href="/date-calculator/">Date Calculator</a></li>
+        <li><a href="/age-calculator/">Age Calculator</a></li>
+        <li><a href="/hours-calculator/">Hours Calculator</a></li>
+        <li><a href="/90-days-from-today/">90 Days From Today</a></li>
+    </ul>
+</section>
+
+<div class="author">
+    <p><em>Published by the QuixCalc Team. Countdown uses your device's local clock and timezone. Last updated: August 2026.</em></p>
+</div>
+
+<script src="days-until.js" defer></script>

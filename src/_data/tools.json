@@ -160,6 +160,16 @@
     ]
   },
   {
+    "slug": "payload-size-calculator",
+    "name": "Payload Size Calculator",
+    "icon": "📦",
+    "description": "Calculate JSON payload size in KB/MB and network transmission speed.",
+    "category": "dev",
+    "popular": false,
+    "url": "/payload-size-calculator/",
+    "posts": []
+  },
+  {
     "slug": "uuid-generator",
     "name": "UUID Generator",
     "icon": "🔑",
@@ -242,6 +252,16 @@
         "title": "The Modern Tipping Guide for 2026"
       }
     ]
+  },
+  {
+    "slug": "stripe-fee-calculator",
+    "name": "Stripe Fee Calculator",
+    "icon": "💳",
+    "description": "Calculate payment processing merchant deductions and reverse-engineer targets.",
+    "category": "finance",
+    "popular": false,
+    "url": "/stripe-fee-calculator/",
+    "posts": []
   },
   {
     "slug": "fraction-calculator",
@@ -535,6 +555,118 @@
         "title": "Elapsed Time Calculator: How Long Did That Actually Take?"
       }
     ]
+  },
+  {
+    "slug": "days-until-calculator",
+    "name": "Days Until Calculator",
+    "icon": "📅",
+    "description": "Calculate how many days, hours, and minutes are left until a custom date, birthday, or upcoming holiday.",
+    "category": "date",
+    "popular": false,
+    "url": "/days-until-calculator/",
+    "posts": []
+  },
+  {
+    "slug": "gas-mileage-calculator",
+    "name": "Gas Mileage Calculator",
+    "icon": "⛽",
+    "description": "Track fuel efficiency in MPG or L/100km and calculate your real cost per mile.",
+    "category": "fuel",
+    "popular": false,
+    "url": "/gas-mileage-calculator/",
+    "posts": [
+      {
+        "url": "/blog/how-to-improve-gas-mileage-tips/",
+        "title": "How to Improve Your Gas Mileage"
+      },
+      {
+        "url": "/blog/gas-prices-by-state-2026/",
+        "title": "Gas Prices by State in 2026"
+      }
+    ]
+  },
+  {
+    "slug": "trip-cost-calculator",
+    "name": "Trip Cost Calculator",
+    "icon": "🚗",
+    "description": "Estimate the total fuel budget for a road trip and split costs among passengers.",
+    "category": "fuel",
+    "popular": false,
+    "url": "/trip-cost-calculator/",
+    "posts": [
+      {
+        "url": "/blog/road-trip-budgeting-guide/",
+        "title": "Road Trip Budgeting Guide"
+      }
+    ]
+  },
+  {
+    "slug": "hours-calculator",
+    "name": "Hours Calculator",
+    "icon": "⏰",
+    "description": "Add up timecard hours, convert to decimal, and estimate gross pay for any number of shifts.",
+    "category": "fuel",
+    "popular": false,
+    "url": "/hours-calculator/",
+    "posts": []
+  },
+  {
+    "slug": "pay-raise-calculator",
+    "name": "Pay Raise Calculator",
+    "icon": "💰",
+    "description": "See exactly how much an increase in hourly or annual pay adds to your paycheck.",
+    "category": "payroll",
+    "popular": false,
+    "url": "/pay-raise-calculator/",
+    "posts": [
+      {
+        "url": "/blog/average-pay-raise-percentage-by-industry-2026/",
+        "title": "Average Pay Raise Percentage by Industry"
+      }
+    ]
+  },
+  {
+    "slug": "hourly-to-salary-calculator",
+    "name": "Hourly to Salary",
+    "icon": "💼",
+    "description": "Convert hourly wages to annual salary or break down any salary by pay period.",
+    "category": "payroll",
+    "popular": false,
+    "url": "/hourly-to-salary-calculator/",
+    "posts": [
+      {
+        "url": "/blog/convert-hourly-to-salary-formula/",
+        "title": "How to Convert Hourly to Salary"
+      },
+      {
+        "url": "/blog/hourly-rate-annual-salary-chart/",
+        "title": "Hourly Rate to Annual Salary Chart"
+      },
+      {
+        "url": "/blog/salary-vs-hourly-which-is-better/",
+        "title": "Salary vs Hourly: Which Is Better?"
+      }
+    ]
+  },
+  {
+    "slug": "time-and-a-half-calculator",
+    "name": "Time and a Half",
+    "icon": "⏱️",
+    "description": "Calculate regular pay, overtime pay, and total earnings for any work week.",
+    "category": "payroll",
+    "popular": false,
+    "url": "/time-and-a-half-calculator/",
+    "posts": [
+      {
+        "url": "/blog/what-is-time-and-a-half-pay/",
+        "title": "What Is Time and a Half Pay?"
+      },
+      {
+        "url": "/blog/how-to-calculate-overtime-pay-examples/",
+        "title": "How to Calculate Overtime Pay"
+      }
+    ]
   }
 ]
+
 

@@ -1,0 +1,113 @@
+---
+layout: layout.njk
+title: Trip Cost Calculator - Gas Cost for Any Road Trip
+description: Calculate the total gas cost for any road trip. Enter distance, MPG, and fuel price to see exact fuel cost, cost per person, and what to budget before you leave.
+appName: Trip Cost Calculator
+category: fuel
+permalink: /trip-cost-calculator/
+updated: 2026-08-09
+---
+
+<h1>Trip Cost Calculator</h1>
+<p>Figure out how much gas your road trip will actually cost before you leave. Enter the distance, your vehicle's fuel efficiency, and the current gas price to see the full fuel budget in seconds.</p>
+
+<section class="tool">
+    <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+        <div class="tool-controls" style="flex: 1; min-width: 300px;">
+            <label for="tc-distance">Trip Distance (miles)</label>
+            <input type="number" id="tc-distance" value="300" min="0" step="10" inputmode="decimal">
+
+            <label for="tc-mpg">Vehicle Fuel Economy (MPG)</label>
+            <input type="number" id="tc-mpg" value="30" min="1" step="0.5" inputmode="decimal">
+
+            <label for="tc-price">Gas Price ($ per gallon)</label>
+            <input type="number" id="tc-price" value="3.50" min="0" step="0.01" inputmode="decimal">
+
+            <label for="tc-passengers">Number of Passengers (for split)</label>
+            <input type="number" id="tc-passengers" value="1" min="1" max="20" step="1" inputmode="numeric">
+
+            <label for="tc-extra">Additional Costs: Tolls, Parking ($)</label>
+            <input type="number" id="tc-extra" value="0" min="0" step="1" inputmode="decimal">
+        </div>
+
+        <div style="flex: 1; min-width: 300px;">
+            <div style="background: #fef9c3; padding: 1.5rem; border-radius: 8px; border: 1px solid #fde68a; text-align: center; margin-bottom: 1rem;">
+                <p style="font-weight: 600; color: #78350f; margin-top: 0;">Total Trip Cost</p>
+                <div id="out-tc-total" style="font-size: 2.5rem; font-weight: 800; color: #b45309; line-height: 1;">$0.00</div>
+                <div style="font-size: 0.85rem; color: #92400e; margin-top: 0.5rem;">gas + extras</div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                <div style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb; text-align: center;">
+                    <div style="font-size: 0.8rem; color: #6b7280;">Fuel Cost Only</div>
+                    <div id="out-tc-fuel" style="font-size: 1.3rem; font-weight: 700; color: #111827;">$0.00</div>
+                </div>
+                <div style="background: #eff6ff; padding: 1rem; border-radius: 8px; border: 1px solid #bfdbfe; text-align: center;">
+                    <div style="font-size: 0.8rem; color: #6b7280;">Per Person</div>
+                    <div id="out-tc-per-person" style="font-size: 1.3rem; font-weight: 700; color: #2563eb;">$0.00</div>
+                </div>
+            </div>
+            <div style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb; font-size: 0.9rem; color: #6b7280;">
+                <div>Gallons needed: <strong id="out-tc-gallons" style="color: #111827;">0.0 gal</strong></div>
+                <div style="margin-top: 0.4rem;">Cost per mile: <strong id="out-tc-per-mile" style="color: #111827;">$0.00</strong></div>
+                <div style="margin-top: 0.4rem;">Round trip total: <strong id="out-tc-roundtrip" style="color: #111827;">$0.00</strong></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="how">
+    <h2>How to Use This Calculator</h2>
+    <p>Start with your trip distance. If you are not sure of the exact mileage, a quick Google Maps search for your route gives a reliable figure. Enter the one-way distance and the calculator also shows you the round trip cost automatically.</p>
+    <p>Enter your vehicle's MPG. You can find this on the window sticker of your car, in your owner's manual, or use our Gas Mileage Calculator to measure it accurately from your own driving data. If you are renting a vehicle, the rental company's website usually lists fuel economy for each vehicle class.</p>
+    <p>Set the current gas price. Prices vary by state, so use the price near your route for the most accurate estimate. Add tolls and parking costs if you know them. The final number tells you what to budget and exactly how to split the cost if you are traveling with others.</p>
+</section>
+
+<section class="formula">
+    <h2>How the Road Trip Cost Is Calculated</h2>
+    <p><strong>Gallons needed = Distance / MPG</strong></p>
+    <p><strong>Fuel cost = Gallons needed x Gas price</strong></p>
+    <p><strong>Total trip cost = Fuel cost + Additional costs (tolls, parking)</strong></p>
+    <p><strong>Cost per person = Total trip cost / Number of passengers</strong></p>
+    <p>For a 500-mile drive at 28 MPG with gas at $3.60 per gallon, you need 17.86 gallons of fuel. That fuel costs $64.29. Add $15 in tolls and the full trip budget is $79.29. Split three ways, each person owes $26.43.</p>
+</section>
+
+<section class="examples">
+    <h2>Road Trip Examples</h2>
+    <ul>
+        <li><strong>Weekend drive, 400 miles, sedan at 35 MPG, gas at $3.40:</strong> Needs 11.4 gallons costing $38.86. Very affordable solo trip.</li>
+        <li><strong>Cross-country, 2,800 miles, midsize SUV at 24 MPG, gas at $3.60:</strong> Needs 116.7 gallons costing $420. Add $50 in tolls and you are looking at $470. Split four ways that is $117.50 per person for the whole trip.</li>
+        <li><strong>Moving truck rental, 1,200 miles, 10 MPG, diesel at $3.90:</strong> Needs 120 gallons costing $468 in fuel alone. Budget $500 to $550 for fuel with diesel price variability.</li>
+    </ul>
+</section>
+
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>How do I find out my car's MPG before a road trip?</h3>
+    <p>Fill your tank completely, reset your trip odometer, drive at least 100 miles on a typical mix of roads, then fill up again. Divide the miles on your odometer by the gallons it took to refill. That is your actual real-world MPG for those driving conditions. Use our Gas Mileage Calculator to do this math instantly.</p>
+
+    <h3>Is it cheaper to drive or fly?</h3>
+    <p>For trips under 400 to 500 miles, driving is almost always cheaper when you have multiple passengers. The fuel cost gets split while flights are priced per person. For solo travel over 600 miles, budget airlines often undercut the full cost of driving once you factor in depreciation, wear on your vehicle, and any overnight hotel stays needed.</p>
+
+    <h3>Should I use regular or premium gas to save money?</h3>
+    <p>Use whatever grade your owner's manual recommends. If your car is designed for regular 87 octane, using premium is a waste of money with no performance or efficiency benefit. If your car requires premium, using regular can cause engine knock and actually reduce fuel economy, costing you more in the long run.</p>
+
+    <h3>How accurate is this calculator?</h3>
+    <p>It is as accurate as the numbers you put in. Actual costs can vary due to real-world MPG differences from highway versus city driving, fuel price changes along your route, and driving habits. Building in a 10% buffer over the calculated fuel cost gives you a comfortable safety margin for most trips.</p>
+</section>
+
+<section class="related">
+    <h2>Related Travel Tools</h2>
+    <ul>
+        <li><a href="/tools/gas-mileage-calculator/">Gas Mileage Calculator</a></li>
+        <li><a href="/tools/tip-calculator/">Tip Calculator</a></li>
+        <li><a href="/tools/compound-interest-calculator/">Compound Interest Calculator</a></li>
+        <li><a href="/">Browse All Tools</a></li>
+    </ul>
+</section>
+
+<div class="author">
+    <p><em>Published by the QuixCalc Team. Fuel cost formulas use standard US MPG calculations. Last updated: August 2026.</em></p>
+</div>
+
+<script src="trip-cost.js" defer></script>

@@ -1,0 +1,175 @@
+---
+layout: layout.njk
+title: Stripe Fee Calculator - Calculate Transaction Fees Instantly
+description: Calculate your merchant processing fees for Stripe. Compare US domestic, international, and custom rates. Find out what to charge to receive a specific amount.
+appName: Stripe Fee Calculator
+category: finance
+permalink: /stripe-fee-calculator/
+updated: 2026-08-09
+---
+
+<h1>Stripe Fee Calculator</h1>
+<p>Determine exactly how much Stripe will deduct from your payments and see your net payout. You can also calculate the exact amount to invoice or charge a client in order to receive a target payout after fees.</p>
+
+<section class="tool">
+    <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+        <div class="tool-controls" style="flex: 1; min-width: 300px;">
+            <label for="sf-amount">Transaction Amount ($)</label>
+            <input type="number" id="sf-amount" value="100.00" min="0.01" step="0.01" inputmode="decimal">
+
+            <label>Fee Rate Option</label>
+            <select id="sf-rate-option">
+                <option value="us-standard">Stripe US Standard (2.9% + $0.30)</option>
+                <option value="intl">Stripe International (3.9% + $0.30)</option>
+                <option value="us-keyed">Stripe Keyed-In / Manual (3.5% + $0.30)</option>
+                <option value="us-ach">Stripe ACH Transfer (0.8%, capped at $5.00)</option>
+                <option value="custom">Custom Rate</option>
+            </select>
+
+            <div id="sf-custom-rate-inputs" style="display: none; padding: 1rem; background: var(--input-bg); border-radius: var(--radius-sm); margin-bottom: 1.25rem; border: 1px solid var(--border);">
+                <div style="display: flex; gap: 1rem;">
+                    <div style="flex: 1;">
+                        <label for="sf-custom-pct" style="margin-bottom: 0.25rem;">Custom Percent (%)</label>
+                        <input type="number" id="sf-custom-pct" value="2.9" min="0" max="100" step="0.1" inputmode="decimal" style="margin-bottom: 0;">
+                    </div>
+                    <div style="flex: 1;">
+                        <label for="sf-custom-fixed" style="margin-bottom: 0.25rem;">Custom Fixed ($)</label>
+                        <input type="number" id="sf-custom-fixed" value="0.30" min="0" step="0.01" inputmode="decimal" style="margin-bottom: 0;">
+                    </div>
+                </div>
+            </div>
+
+            <label>Calculation Mode</label>
+            <div class="btn-group" id="sf-mode-group" style="margin-bottom: 1rem;">
+                <button type="button" class="preset-btn active" id="sf-mode-standard" data-mode="standard">Standard: What I Receive</button>
+                <button type="button" class="preset-btn secondary" id="sf-mode-reverse" data-mode="reverse">Reverse: What to Charge</button>
+            </div>
+            
+            <p id="sf-mode-hint" style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem; margin-bottom: 0;">
+                Calculates the net payout you will receive from a total payment of $100.
+            </p>
+        </div>
+
+        <div style="flex: 1; min-width: 300px;">
+            <div style="background: var(--input-bg); padding: 1.5rem; border-radius: var(--radius-md); border: 1px solid var(--border); box-shadow: var(--shadow-sm); text-align: center; margin-bottom: 1.5rem;">
+                <p id="sf-main-payout-label" style="font-weight: 600; color: var(--text-sub); margin-top: 0; margin-bottom: 0.25rem;">You Receive (Net Payout)</p>
+                <div id="sf-main-output" style="font-size: 2.75rem; font-weight: 800; color: var(--success); line-height: 1;">$96.80</div>
+                <p id="sf-main-subtext" style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; margin-bottom: 0;">from a $100.00 charge</p>
+            </div>
+
+            <div style="background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1.25rem;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem; font-size: 0.95rem;">
+                    <span style="color: var(--text-sub); font-weight: 500;">Original Amount</span>
+                    <span id="sf-breakdown-original" style="font-weight: 600; color: var(--text-main);">$100.00</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem; font-size: 0.95rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border);">
+                    <span style="color: var(--text-sub); font-weight: 500;">Total Stripe Fees</span>
+                    <span id="sf-breakdown-fees" style="font-weight: 600; color: var(--danger); font-size: 1.05rem;">-$3.20</span>
+                </div>
+                
+                <div style="font-size: 0.8rem; color: var(--text-muted); display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-bottom: 0.5rem;">
+                    <div>Percentage Fee (<span id="sf-breakdown-rate-pct">2.9%</span>)</div>
+                    <div style="text-align: right;" id="sf-breakdown-pct-amount">$2.90</div>
+
+                    <div>Fixed Fee</div>
+                    <div style="text-align: right;" id="sf-breakdown-fixed-amount">$0.30</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="how">
+    <h2>How to Calculate Stripe Transaction Fees</h2>
+    <p>Processing transactions online involves fee structures designed to offset compliance, fraud risk, and network expenses. With standard Stripe US processing, the formula consists of a percentage rate plus a flat fee per charge.</p>
+    <p>Using this calculator is simple: enter the dollar value of your invoice or sales receipt and select your typical transaction category. Our tool instantly determines the precise cut Stripe takes, your actual payout, and also works backward to specify the gross billing amount needed to clear your target net earnings.</p>
+</section>
+
+<section class="formula">
+    <h2>The Stripe Fee Equations</h2>
+    <p>To calculate what you will receive (Standard payout math):</p>
+    <p><code>Net Payout = Charge Amount - (Charge Amount × Rate Percentage) - Fixed Fee</code></p>
+    <p>For example, at 2.9% + $0.30 on a <strong>$100.00</strong> transaction, the fee is: <code>($100.00 × 0.029) + $0.30 = $3.20</code>. Your net payout is <strong>$96.80</strong>.</p>
+    <p>To calculate what you must invoice (Reverse charge math):</p>
+    <p><code>Gross Invoice = (Net Target + Fixed Fee) / (1 - Rate Percentage)</code></p>
+    <p>For example, if you want to clear exactly <strong>$100.00</strong> after a 2.9% + $0.30 fee: <code>($100.00 + $0.30) / (1 - 0.029) = $103.30 / 0.971 = $106.39</code>. You must charge <strong>$106.39</strong>.</p>
+</section>
+
+<section class="examples">
+    <h2>Common Stripe Fee Reference Table</h2>
+    <p>Here is a breakdown of standard US processing fees (2.9% + $0.30) for typical payment amounts.</p>
+    <table style="width: 100%; border-collapse: collapse; margin-top: 1rem; border-top: 1px solid var(--border); font-size: 0.95rem;">
+        <thead>
+            <tr style="border-bottom: 2px solid var(--border); background-color: var(--input-bg);">
+                <th style="text-align: left; padding: 0.6rem 0.75rem; color: var(--text-sub);">Target/Sale Amount</th>
+                <th style="text-align: right; padding: 0.6rem 0.75rem; color: var(--text-sub);">Standard Fee</th>
+                <th style="text-align: right; padding: 0.6rem 0.75rem; color: var(--success);">Standard Net Payout</th>
+                <th style="text-align: right; padding: 0.6rem 0.75rem; color: var(--primary);">Invoice to Receive Sale</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.6rem 0.75rem; font-weight: 500;">$10.00</td>
+                <td style="text-align: right; padding: 0.6rem 0.75rem; color: var(--danger);">$0.59</td>
+                <td style="text-align: right; padding: 0.6rem 0.75rem;">$9.41</td>
+                <td style="text-align: right; padding: 0.6rem 0.75rem; font-weight: 500;">$10.61</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.6rem 0.75rem; font-weight: 500;">$50.00</td>
+                <td style="text-align: right; padding: 0.6rem 0.75rem; color: var(--danger);">$1.75</td>
+                <td style="text-align: right; padding: 0.6rem 0.75rem;">$48.25</td>
+                <td style="text-align: right; padding: 0.6rem 0.75rem; font-weight: 500;">$51.80</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.6rem 0.75rem; font-weight: 500;">$100.00</td>
+                <td style="text-align: right; padding: 0.6rem 0.75rem; color: var(--danger);">$3.20</td>
+                <td style="text-align: right; padding: 0.6rem 0.75rem;">$96.80</td>
+                <td style="text-align: right; padding: 0.6rem 0.75rem; font-weight: 500;">$103.30</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.6rem 0.75rem; font-weight: 500;">$500.00</td>
+                <td style="text-align: right; padding: 0.6rem 0.75rem; color: var(--danger);">$14.80</td>
+                <td style="text-align: right; padding: 0.6rem 0.75rem;">$485.20</td>
+                <td style="text-align: right; padding: 0.6rem 0.75rem; font-weight: 500;">$515.24</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.6rem 0.75rem; font-weight: 500;">$1,000.00</td>
+                <td style="text-align: right; padding: 0.6rem 0.75rem; color: var(--danger);">$29.30</td>
+                <td style="text-align: right; padding: 0.6rem 0.75rem;">$970.70</td>
+                <td style="text-align: right; padding: 0.6rem 0.75rem; font-weight: 500;">$1,030.18</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+    
+    <h3>How do I avoid paying Stripe transaction fees?</h3>
+    <p>While you cannot force Stripe to discount transaction charges on standard credit cards, merchants frequently adjust agreements or utilize custom item pricing to request that customers contribute equivalent Processing Fee overhead. Alternatively, selecting ACH Direct Debit transactions reduces processing rate charges to 0.8% per transaction, capped at a maximum of $5.00.</p>
+    
+    <h3>Are Stripe fees refunded when I issue client refunds?</h3>
+    <p>No. Effective in recent fee policy terms, Stripe does not return credit card processing interchange fees when a payments merchant issues a refund. You retain responsibility for the original percentage and flat processing expenses, meaning the cost of returns is borne entirely by the merchant.</p>
+    
+    <h3>Does Stripe charge a regular monthly recurring fee?</h3>
+    <p>No. Stripe utilizes a pay-as-you-go financial format and does not demand set monthly minimums, subscription fees, or initial setup charges. You are solely billed for transactions processed through your Stripe account.</p>
+
+    <h3>What determines an international card processing charge?</h3>
+    <p>Stripe applies a 1% additional fee on credit cards issued outside of the United States. Furthermore, if currency conversion is required, a standard 1% fee is applied to the transaction total.</p>
+</section>
+
+<section class="related">
+    <h2>Related Financing and Mathematical Tools</h2>
+    <ul>
+        <li><a href="/percentage-calculator/">Percentage Calculator</a></li>
+        <li><a href="/tip-calculator/">Tip Calculator</a></li>
+        <li><a href="/compound-interest-calculator/">Compound Interest Calculator</a></li>
+        <li><a href="/">Browse All Tools</a></li>
+    </ul>
+</section>
+
+<div class="author">
+    <p><em>Published by the QuixCalc Team. Fee structures verified against current Stripe Merchant Rates. Last updated: August 2026.</em></p>
+</div>
+
+<script src="stripe-fee.js" defer></script>

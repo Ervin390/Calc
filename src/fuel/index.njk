@@ -1,0 +1,31 @@
+---
+layout: layout.njk
+title: Gas and Fuel Cost Calculators
+description: Free online tools to calculate trip costs, gas mileage efficiency, and road trip travel budgets. Easy to use, fast, and mobile-friendly.
+category: fuel
+appName: Fuel & Travel
+---
+
+<h1>Fuel & Travel Calculators</h1>
+<p>Budget for your travel expenses and track vehicle performance. Calculate exact trip fuel costs, estimate costs per person, and benchmark vehicle gas mileage in imperial or metric.</p>
+
+{% from "tool-grid.njk" import toolGrid %}
+{{ toolGrid(tools, category) }}
+
+<section style="margin-top: 4rem; padding-top: 2rem; border-top: 2px solid var(--border);">
+    <h2 style="font-size: 1.6rem; color: var(--text-main); margin-bottom: 1rem;">Simple Fuel Economics</h2>
+    <p style="margin-bottom: 1rem; color: var(--text-muted); line-height: 1.6;">Fuel is one of the most volatile day-to-day expenditures. Keeping track of vehicle mileage ensures you catch efficiency issues early, while estimating road trip costs keeps collective travels stress-free.</p>
+    <p style="margin-bottom: 2.5rem; color: var(--text-muted); line-height: 1.6;">Our trip estimators account for multiple passenger cost splitting and extra fees like highway tolls. If you are comparing vehicle loan payments or dinner bills, visit our <a href="/finance/" style="color: var(--primary); text-decoration: underline;">Finance &amp; Money</a> section.</p>
+</section>
+
+<section class="faq" style="margin-top: 3rem;">
+    <h2 style="font-size: 1.6rem; color: var(--text-main); margin-bottom: 1.5rem;">Frequently Asked Questions</h2>
+    <article style="margin-bottom: 1.5rem; background: var(--input-bg); padding: 1.25rem; border-radius: 8px;">
+        <h3 style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.5rem; margin-top: 0;">How does driving behavior affect MPG?</h3>
+        <p style="margin: 0; color: var(--text-muted);">Avoiding aggressive acceleration and staying below 60 miles per hour on the highway are the most effective ways to conserve gasoline.</p>
+    </article>
+    <article style="margin-bottom: 1.5rem; background: var(--input-bg); padding: 1.25rem; border-radius: 8px;">
+        <h3 style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.5rem; margin-top: 0;">Why do gas prices vary across states?</h3>
+        <p style="margin: 0; color: var(--text-muted);">Discrepancies are determined by state tax rates, geographic proximity to refineries, and local environmental standards.</p>
+    </article>
+</section>

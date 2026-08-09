@@ -1,0 +1,245 @@
+---
+layout: layout.njk
+title: Payload Size Calculator - JSON Size & Network Speed Estimator
+description: Measure JSON payload size in bytes, KB, or MB. Estimate network transmittal duration over 3G, 4G, and 5G connections. Check regex patterns for performance and complexity.
+appName: Payload Size Calculator
+category: dev
+permalink: /payload-size-calculator/
+updated: 2026-08-09
+---
+
+<h1>Payload Size Calculator & Network Speed Estimator</h1>
+<p>Analyze API payloads, JSON payloads, or raw string data. Instantly calculate byte weight, assess potential Gzip saving, project real-world transmission times across various mobile networks, and audit regex complexity.</p>
+
+<section class="tool">
+    <!-- Tab navigation -->
+    <div style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; flex-wrap: wrap;">
+        <button type="button" class="tab-btn active" id="tab-payload" style="background: var(--primary); padding: 0.5rem 1rem; font-size: 0.9rem;">1. Payload Size</button>
+        <button type="button" class="tab-btn secondary" id="tab-speed" style="background: transparent; color: var(--text-main); border: 1px solid var(--border-strong); padding: 0.5rem 1rem; font-size: 0.9rem;">2. Network Speed</button>
+        <button type="button" class="tab-btn secondary" id="tab-regex" style="background: transparent; color: var(--text-main); border: 1px solid var(--border-strong); padding: 0.5rem 1rem; font-size: 0.9rem;">3. Regex Complexity</button>
+    </div>
+
+    <!-- Active Tab 1: Payload Size -->
+    <div id="panel-payload">
+        <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+            <div class="tool-controls" style="flex: 1.5; min-width: 300px;">
+                <label for="ps-text">Paste JSON, XML, or Text Payload</label>
+                <textarea id="ps-text" rows="8" placeholder='{"status": "success", "data": {"users": [{"id": 1, "name": "Alice"}]}}' style="font-family: ui-monospace, monospace; font-size: 0.9rem; resize: vertical; margin-bottom: 1rem;"></textarea>
+
+                <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1rem;">
+                    <label class="inline-label" style="margin-right: 0; margin-bottom: 0;">
+                        <input type="checkbox" id="ps-format-json" checked> Auto-Format JSON
+                    </label>
+                    <label class="inline-label" style="margin-right: 0; margin-bottom: 0;">
+                        <input type="checkbox" id="ps-utf16"> Use UTF-16 Encoding (2 bytes/char)
+                    </label>
+                </div>
+            </div>
+
+            <div style="flex: 1; min-width: 280px; display: flex; flex-direction: column; gap: 1rem;">
+                <div style="background: var(--input-bg); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1.25rem; text-align: center;">
+                    <p style="font-weight: 600; color: var(--text-sub); margin-top: 0; margin-bottom: 0.25rem;">Uncompressed Size</p>
+                    <div id="ps-uncompressed-val" style="font-size: 2.25rem; font-weight: 800; color: var(--primary); line-height: 1.1;">0 B</div>
+                    <p id="ps-char-count" style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; margin-bottom: 0;">0 characters</p>
+                </div>
+
+                <div style="background: var(--accent-light); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1.25rem; text-align: center;">
+                    <p style="font-weight: 600; color: var(--text-sub); margin-top: 0; margin-bottom: 0.25rem;">Gzip Size (Estimated ~70% savings)</p>
+                    <div id="ps-compressed-val" style="font-size: 2.25rem; font-weight: 800; color: var(--success); line-height: 1.1;">0 B</div>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; margin-bottom: 0;">Typical HTTP payload compression</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Active Tab 2: Speed estimation -->
+    <div id="panel-speed" style="display: none;">
+        <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+            <div class="tool-controls" style="flex: 1; min-width: 300px;">
+                <label for="ps-speed-size">Payload Size to Evaluate</label>
+                <div style="display: flex; gap: 0.5rem; margin-bottom: 1.25rem;">
+                    <input type="number" id="ps-speed-size" value="512" min="1" step="any" inputmode="decimal" style="margin-bottom: 0; flex: 2;">
+                    <select id="ps-speed-unit" style="margin-bottom: 0; flex: 1;">
+                        <option value="b">B</option>
+                        <option value="kb" selected>KB</option>
+                        <option value="mb">MB</option>
+                        <option value="gb">GB</option>
+                    </select>
+                </div>
+
+                <p style="font-size: 0.9rem; color: var(--text-sub);">
+                    Based on standard network processing margins, real-world data speeds represent actual data throughput after taking packet headers and interference overhead into consideration.
+                </p>
+            </div>
+
+            <div style="flex: 1.5; min-width: 300px;">
+                <div style="background: var(--input-bg); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1.25rem;">
+                    <h3 style="margin-top: 0; margin-bottom: 1rem; font-size: 1.1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem;">Estimated Transmission Times</h3>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 0.75rem;" id="ps-speed-results">
+                        <!-- Networks grid -->
+                        <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.95rem; border-bottom: 1px dashed var(--border); padding-bottom: 0.5rem;">
+                            <span style="font-weight: 500;">5G Cellular <small style="color:var(--text-muted);">(Real ~150 Mbps)</small></span>
+                            <span id="ps-speed-5g" style="font-weight: 700; color: var(--success);">0.00s</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.95rem; border-bottom: 1px dashed var(--border); padding-bottom: 0.5rem;">
+                            <span style="font-weight: 500;">4G LTE Cellular <small style="color:var(--text-muted);">(Real ~25 Mbps)</small></span>
+                            <span id="ps-speed-4g" style="font-weight: 700; color: var(--text-main);">0.00s</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.95rem; border-bottom: 1px dashed var(--border); padding-bottom: 0.5rem;">
+                            <span style="font-weight: 500;">3G Mobile <small style="color:var(--text-muted);">(Real ~2 Mbps)</small></span>
+                            <span id="ps-speed-3g" style="font-weight: 700; color: var(--warning);">0.00s</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.95rem; border-bottom: 1px dashed var(--border); padding-bottom: 0.5rem;">
+                            <span style="font-weight: 500;">High-Speed Wi-Fi <small style="color:var(--text-muted);">(Real ~300 Mbps)</small></span>
+                            <span id="ps-speed-wifi" style="font-weight: 700; color: var(--success);">0.00s</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.95rem;">
+                            <span style="font-weight: 500;">ADSL Broadband <small style="color:var(--text-muted);">(Real ~8 Mbps)</small></span>
+                            <span id="ps-speed-adsl" style="font-weight: 700; color: var(--text-main);">0.00s</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Active Tab 3: Regex complexity -->
+    <div id="panel-regex" style="display: none;">
+        <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+            <div class="tool-controls" style="flex: 1.5; min-width: 300px;">
+                <label for="ps-regex-input">Regular Expression (Pattern)</label>
+                <input type="text" id="ps-regex-input" value="^(a+)+$" placeholder="e.g. ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" style="font-family: ui-monospace, monospace; font-size: 1rem;">
+
+                <label for="ps-regex-test-str">Test String against Pattern</label>
+                <input type="text" id="ps-regex-test-str" value="aaaaaaaaaaaaaaaaaaaaaaaaaaaaab" placeholder="Match targets" style="font-family: ui-monospace, monospace; font-size: 1rem;">
+
+                <div style="display: flex; gap: 1rem;">
+                    <button type="button" id="ps-btn-regex-run" style="flex: 1;">Run Performance Check</button>
+                </div>
+            </div>
+
+            <div style="flex: 1; min-width: 280px;">
+                <div style="background: var(--input-bg); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1.25rem;">
+                    <h3 style="margin-top: 0; margin-bottom: 0.75rem; font-size: 1.1rem;">Complexity Analysis</h3>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.9rem;">
+                        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); padding-bottom: 0.4rem;">
+                            <span>Validation Match</span>
+                            <span id="ps-re-match" style="font-weight: 700;">No match</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); padding-bottom: 0.4rem;">
+                            <span>Capturing Groups</span>
+                            <span id="ps-re-groups" style="font-weight: 700;">0</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); padding-bottom: 0.4rem;">
+                            <span>Step Count Limit</span>
+                            <span id="ps-re-steps" style="font-weight: 700;">0</span>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 0.25rem;">
+                            <span style="font-weight:600;">Backtracking Check</span>
+                            <div id="ps-re-backtrack-status" style="padding: 0.5rem; border-radius: 4px; font-weight: 700; text-align: center; background: #fee2e2; color: #dc2626;">
+                                Risk: Low
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="how">
+    <h2>Understanding API Payloads and Transmission Performance</h2>
+    <p>API payload weight directly determines speed response curves across clients. For instance, when designing interfaces for mobile users, large JSON datasets could introduce high latencies, increase processor rendering spikes, and deplete network data caps unnecessarily.</p>
+    <p>Using this calculator, engineers can quickly assess payload weights in UTF-8 or UTF-16, estimate gzip savings (which is standard on Nginx and major CDNs), compare transmission times on variable connections, and safeguard backend nodes by testing regular expressions against heavy backtracking bottlenecks.</p>
+</section>
+
+<section class="formula">
+    <h2>The Tech Calculations Behind Payload Processing</h2>
+    <p>String binary conversion relies on character map encodings:</p>
+    <ul>
+        <li><strong>UTF-8:</strong> Standard text uses 1 byte per ASCII character, while special symbols and emoji characters occupy between 2 to 4 bytes.</li>
+        <li><strong>UTF-16:</strong> Commonly utilized inside memory states for JavaScript, Windows systems, and C# environments, assigning 2 bytes (or 4 bytes for supplementary characters) to every character.</li>
+        <li><strong>Base64 Overhead:</strong> Converting binary files to Base64 strings (for inclusion in JSON payloads) bumps payload size by roughly <strong>33%</strong> due to raw binary character mappings.</li>
+    </ul>
+    <p>Estimation of transmission latency uses this formula:</p>
+    <p><code>Transmission Time (Seconds) = Payload Size (Bits) / Connection Throughput (Bits per Second)</code></p>
+    <p>Remember that 1 KB = 1024 Bytes, 1 Byte = 8 bits, and 1 Mbps = 1,000,000 bits per second.</p>
+</section>
+
+<section class="examples">
+    <h2>Standard Mobile Network Velocity Differences</h2>
+    <p>Theoretical network speeds rarely align with real-world cellular data throughput due to latency lag, network degradation, and signal quality loss. Below represents standard speed brackets calculated by our simulator:</p>
+    <table style="width: 100%; border-collapse: collapse; margin-top: 1rem; border-top: 1px solid var(--border); font-size: 0.95rem;">
+        <thead>
+            <tr style="border-bottom: 2px solid var(--border); background-color: var(--input-bg);">
+                <th style="text-align: left; padding: 0.6rem 0.75rem; color: var(--text-sub);">Network Generation</th>
+                <th style="text-align: left; padding: 0.6rem 0.75rem; color: var(--text-sub);">Lab Peak Speed</th>
+                <th style="text-align: left; padding: 0.6rem 0.75rem; color: var(--text-sub);">Real-World Data Expectation</th>
+                <th style="text-align: right; padding: 0.6rem 0.75rem; color: var(--primary);">Time for 10MB payload</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.6rem 0.75rem; font-weight: 500;">3G Mobile</td>
+                <td style="padding: 0.6rem 0.75rem;">7.2 Mbps</td>
+                <td style="padding: 0.6rem 0.75rem; color: var(--warning);">2.0 Mbps</td>
+                <td style="text-align: right; padding: 0.6rem 0.75rem; font-weight: 500;">~41.94 seconds</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.6rem 0.75rem; font-weight: 500;">4G LTE</td>
+                <td style="padding: 0.6rem 0.75rem;">150 Mbps</td>
+                <td style="padding: 0.6rem 0.75rem; color: var(--text-sub);">25.0 Mbps</td>
+                <td style="text-align: right; padding: 0.6rem 0.75rem; font-weight: 500;">~3.36 seconds</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.6rem 0.75rem; font-weight: 500;">5G Cellular</td>
+                <td style="padding: 0.6rem 0.75rem;">1 Gbps+</td>
+                <td style="padding: 0.6rem 0.75rem; color: var(--success);">150.0 Mbps</td>
+                <td style="text-align: right; padding: 0.6rem 0.75rem; font-weight: 500;">~0.56 seconds</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.6rem 0.75rem; font-weight: 500;">ADSL DSL Link</td>
+                <td style="padding: 0.6rem 0.75rem;">24 Mbps</td>
+                <td style="padding: 0.6rem 0.75rem; color: var(--text-sub);">8.0 Mbps</td>
+                <td style="text-align: right; padding: 0.6rem 0.75rem; font-weight: 500;">~10.49 seconds</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.6rem 0.75rem; font-weight: 500;">Wi-Fi BroadLink</td>
+                <td style="padding: 0.6rem 0.75rem;">1.2 Gbps</td>
+                <td style="padding: 0.6rem 0.75rem; color: var(--success);">300.0 Mbps</td>
+                <td style="text-align: right; padding: 0.6rem 0.75rem; font-weight: 500;">~0.28 seconds</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+    
+    <h3>What causes catastrophic backtracking in regex?</h3>
+    <p>Catastrophic backtracking happens when a regular expression contains nested quantifiers (like <code>(x+)*</code> or <code>(a+)+</code>) alongside matching statements that overlap. When processing strings with close but incomplete matches, the engine calculates all permutations recursively, locking system threads at O(2^n) exponential calculations.</p>
+    
+    <h3>How do I estimate Gzip compression ratios?</h3>
+    <p>Text structures such as JSON or XML contain repetitive structure delimiters (like square brackets, quotations, and property identifiers). Gzip replaces these duplicates with short byte pointers, yielding an average <strong>65% to 75% size reduction</strong>. In this tool, we apply a standard 70% compression multiplier to estimate final CDN network transit rates.</p>
+    
+    <h3>Why is my payload payload weight larger in the database than raw text?</h3>
+    <p>Most relational and database setups prepend headers or tracking keys to row values. Additionally, if the data store sets custom character-sets like UTF-16, the data layout sizes double, which can represent a sizeable overhead variation.</p>
+</section>
+
+<section class="related">
+    <h2>Related Developer Tools</h2>
+    <ul>
+        <li><a href="/character-counter/">Character Counter</a></li>
+        <li><a href="/json-formatter/">JSON Formatter</a></li>
+        <li><a href="/uuid-generator/">UUID Generator</a></li>
+        <li><a href="/">Browse All Tools</a></li>
+    </ul>
+</section>
+
+<div class="author">
+    <p><em>Published by the QuixCalc Team. Network throughput indexes validated against standard provider averages. Last updated: August 2026.</em></p>
+</div>
+
+<script src="payload-size.js" defer></script>

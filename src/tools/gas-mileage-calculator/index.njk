@@ -1,0 +1,126 @@
+---
+layout: layout.njk
+title: Gas Mileage Calculator - MPG and Fuel Cost Instantly
+description: Calculate your gas mileage in MPG or liters per 100km. See exact fuel cost per mile and annual fuel spending. Free gas mileage calculator, no signup needed.
+appName: Gas Mileage Calculator
+category: fuel
+permalink: /gas-mileage-calculator/
+updated: 2026-08-09
+---
+
+<h1>Gas Mileage Calculator</h1>
+<p>Calculate how many miles per gallon your vehicle gets and see exactly how much you spend on fuel. Switch between imperial and metric to work in whatever units make sense for you.</p>
+
+<section class="tool">
+    <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+        <div class="tool-controls" style="flex: 1; min-width: 300px;">
+            <div style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem;">
+                <button id="btn-imperial" style="flex:1; background: var(--primary, #2563eb); color: #fff; border: none; padding: 0.6rem; border-radius: 6px; cursor: pointer; font-weight: 600;">Imperial (MPG)</button>
+                <button id="btn-metric" style="flex:1; background: #e5e7eb; color: #374151; border: none; padding: 0.6rem; border-radius: 6px; cursor: pointer; font-weight: 600;">Metric (L/100km)</button>
+            </div>
+
+            <div id="imperial-inputs">
+                <label for="gm-miles">Miles Driven</label>
+                <input type="number" id="gm-miles" value="300" min="0" step="1" inputmode="decimal">
+
+                <label for="gm-gallons">Gallons of Gas Used</label>
+                <input type="number" id="gm-gallons" value="10" min="0" step="0.1" inputmode="decimal">
+            </div>
+
+            <div id="metric-inputs" style="display:none;">
+                <label for="gm-km">Kilometers Driven</label>
+                <input type="number" id="gm-km" value="480" min="0" step="1" inputmode="decimal">
+
+                <label for="gm-liters">Liters of Fuel Used</label>
+                <input type="number" id="gm-liters" value="38" min="0" step="0.1" inputmode="decimal">
+            </div>
+
+            <label for="gm-price">Fuel Price ($ per gallon / per liter)</label>
+            <input type="number" id="gm-price" value="3.50" min="0" step="0.01" inputmode="decimal">
+
+            <label for="gm-annual-miles">Miles (or km) Driven Per Year</label>
+            <input type="number" id="gm-annual-miles" value="15000" min="0" step="500" inputmode="numeric">
+        </div>
+
+        <div style="flex: 1; min-width: 300px;">
+            <div style="background: #f0fdf4; padding: 1.5rem; border-radius: 8px; border: 1px solid #bbf7d0; text-align: center; margin-bottom: 1rem;">
+                <p style="font-weight: 600; color: #4b5563; margin-top: 0;" id="out-gm-efficiency-label">Fuel Efficiency</p>
+                <div id="out-gm-mpg" style="font-size: 2.5rem; font-weight: 800; color: #059669; line-height: 1;">0 MPG</div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                <div style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb; text-align: center;">
+                    <div style="font-size: 0.8rem; color: #6b7280;">Cost Per Mile</div>
+                    <div id="out-gm-per-mile" style="font-size: 1.3rem; font-weight: 700; color: #111827;">$0.00</div>
+                </div>
+                <div style="background: #fefce8; padding: 1rem; border-radius: 8px; border: 1px solid #fde68a; text-align: center;">
+                    <div style="font-size: 0.8rem; color: #6b7280;">Annual Fuel Cost</div>
+                    <div id="out-gm-annual" style="font-size: 1.3rem; font-weight: 700; color: #b45309;">$0.00</div>
+                </div>
+            </div>
+            <div style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb; font-size: 0.9rem; color: #6b7280;">
+                <div>Cost for this trip: <strong id="out-gm-trip-cost" style="color: #111827;">$0.00</strong></div>
+                <div style="margin-top: 0.4rem;">Gallons used this trip: <strong id="out-gm-trip-gallons" style="color: #111827;">0.0</strong></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="how">
+    <h2>How to Use This Calculator</h2>
+    <p>Choose your unit system first. Most US drivers use imperial, which means miles and gallons. Drivers in Canada, Europe, and Australia typically work with kilometers and liters.</p>
+    <p>Enter the distance you drove and how much fuel you filled up to cover that distance. The most accurate way to measure this is to fill your tank completely, drive your usual route, then fill up again and note the exact gallons or liters it takes to top off the tank. That refill amount is your actual fuel consumption for that trip.</p>
+    <p>Add your current local fuel price and your estimated yearly mileage to see your annual fuel cost. This number is useful for comparing the real running cost of different vehicles before you buy.</p>
+</section>
+
+<section class="formula">
+    <h2>How Gas Mileage Is Calculated</h2>
+    <p>The formula is different depending on which system you use.</p>
+    <p><strong>MPG (miles per gallon) = Miles driven / Gallons used</strong></p>
+    <p><strong>L/100km (liters per 100 kilometers) = (Liters used / km driven) x 100</strong></p>
+    <p>Note that higher MPG means better efficiency. But with L/100km it is the opposite: a lower number is better. A vehicle at 6 L/100km is more efficient than one at 10 L/100km. This trips people up when comparing across units.</p>
+    <p>To convert MPG to L/100km, divide 235.21 by your MPG figure. So 30 MPG equals 235.21 / 30, which is approximately 7.84 L/100km.</p>
+    <p><strong>Cost per mile = Fuel price per gallon / MPG</strong></p>
+    <p><strong>Annual fuel cost = Cost per mile x Annual miles driven</strong></p>
+</section>
+
+<section class="examples">
+    <h2>Real Fuel Cost Examples</h2>
+    <ul>
+        <li><strong>Average sedan at 35 MPG, gas at $3.50:</strong> Cost per mile is $0.10. Driving 15,000 miles per year costs $1,500 in fuel.</li>
+        <li><strong>Large pickup truck at 18 MPG, gas at $3.80:</strong> Cost per mile is $0.21. Annual fuel cost for the same 15,000 miles is $3,167. Nearly twice the cost of the sedan.</li>
+        <li><strong>Hybrid at 52 MPG, gas at $3.50:</strong> Cost per mile drops to $0.067. Annual cost for 15,000 miles is just $1,010. The savings over the pickup truck are $2,157 per year.</li>
+    </ul>
+    <p>These numbers make it clear why fuel efficiency matters so much when picking a vehicle. The difference compounds over a few years of ownership.</p>
+</section>
+
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>What is considered good gas mileage?</h3>
+    <p>For a passenger car, anything above 30 MPG is considered good. Compact cars and sedans often hit 35 to 42 MPG. Hybrids typically reach 45 to 55 MPG combined. Full-size trucks and SUVs usually sit between 16 and 24 MPG. Electric vehicles do not have a direct MPG equivalent but are often rated as MPGe, or miles per gallon equivalent.</p>
+
+    <h3>Why does my real-world MPG differ from the EPA estimate?</h3>
+    <p>EPA estimates are measured under lab conditions designed to be repeatable. Real-world driving involves traffic, hills, climate control use, cold engine starts, and varying speeds. Most drivers see fuel economy 10% to 20% below the EPA label in everyday driving. Highway driving tends to be closer to the estimate than city driving.</p>
+
+    <h3>How can I improve my gas mileage?</h3>
+    <p>The biggest gains come from steady driving speeds. Aggressive acceleration and heavy braking can reduce fuel economy by 15% to 30% at highway speeds. Checking tire pressure is also worthwhile since under-inflated tires increase rolling resistance. Removing heavy items from your trunk and using cruise control on the highway help too.</p>
+
+    <h3>How do gas prices affect annual fuel costs?</h3>
+    <p>The relationship is completely linear. If gas prices rise by 20%, your annual fuel bill rises by exactly 20%, assuming the same driving distance and vehicle. The only factor you can control is how much you drive or what vehicle you drive. A more fuel-efficient car insulates you from price spikes more effectively than a less efficient one.</p>
+</section>
+
+<section class="related">
+    <h2>Related Travel Tools</h2>
+    <ul>
+        <li><a href="/trip-cost-calculator/">Trip Cost Calculator</a></li>
+        <li><a href="/tip-calculator/">Tip Calculator</a></li>
+        <li><a href="/amortization-calculator/">Amortization Calculator</a></li>
+        <li><a href="/">Browse All Tools</a></li>
+    </ul>
+</section>
+
+<div class="author">
+    <p><em>Published by the QuixCalc Team. Fuel efficiency formulas verified against US EPA and EU standards. Last updated: August 2026.</em></p>
+</div>
+
+<script src="gas-mileage.js" defer></script>
