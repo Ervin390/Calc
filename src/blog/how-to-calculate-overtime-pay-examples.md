@@ -25,7 +25,7 @@ tags: blog
 
 <div style="background:#f0f7ff; border-left: 4px solid #2563eb; padding: 1.25rem; border-radius: 4px; margin: 2rem 0;">
   <strong>Get the exact number for your situation in seconds.</strong><br><br>
-  <a href="/tools/time-and-a-half-calculator/" style="background:#2563eb; color:#fff; padding:0.65rem 1.5rem; border-radius:6px; text-decoration:none; font-weight:600; display:inline-block;">Open Time and a Half Calculator</a>
+  <a href="/time-and-a-half-calculator/" style="background:#2563eb; color:#fff; padding:0.65rem 1.5rem; border-radius:6px; text-decoration:none; font-weight:600; display:inline-block;">Open Time and a Half Calculator</a>
 </div>
 
 <h2>Example 2: Bi-Weekly Pay Period</h2>
@@ -53,8 +53,8 @@ tags: blog
 <section class="related" style="margin-top: 3rem;">
   <h3>Related Payroll Tools</h3>
   <ul>
-    <li><a href="/tools/time-and-a-half-calculator/">Time and a Half Calculator</a></li>
-    <li><a href="/tools/pay-raise-calculator/">Pay Raise Calculator</a></li>
-    <li><a href="/tools/hourly-to-salary-calculator/">Hourly to Salary Calculator</a></li>
+    <li><a href="/time-and-a-half-calculator/">Time and a Half Calculator</a></li>
+    <li><a href="/pay-raise-calculator/">Pay Raise Calculator</a></li>
+    <li><a href="/hourly-to-salary-calculator/">Hourly to Salary Calculator</a></li>
   </ul>
 </section>

@@ -58,8 +58,9 @@ updated: 2026-08-09
             <div class="tool-controls" style="flex: 1; min-width: 300px;">
                 <label for="ps-speed-size">Payload Size to Evaluate</label>
                 <div style="display: flex; gap: 0.5rem; margin-bottom: 1.25rem;">
-                    <input type="number" id="ps-speed-size" value="512" min="1" step="any" inputmode="decimal" style="margin-bottom: 0; flex: 2;">
-                    <select id="ps-speed-unit" style="margin-bottom: 0; flex: 1;">
+                    <input type="number" id="ps-speed-size" value="512" min="1" step="any" inputmode="decimal" style="margin-bottom: 0; flex: 2;" aria-label="Payload size value">
+                    <label for="ps-speed-unit" class="sr-only">Size unit</label>
+                    <select id="ps-speed-unit" style="margin-bottom: 0; flex: 1;" aria-label="Size unit">
                         <option value="b">B</option>
                         <option value="kb" selected>KB</option>
                         <option value="mb">MB</option>

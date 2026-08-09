@@ -21,7 +21,7 @@ tags: blog
 
 <div style="background:#fefce8; border-left: 4px solid #ca8a04; padding: 1.25rem; border-radius: 4px; margin: 2rem 0;">
   <strong>Estimate your full road trip gas budget instantly.</strong><br><br>
-  <a href="/tools/trip-cost-calculator/" style="background:#ca8a04; color:#fff; padding:0.65rem 1.5rem; border-radius:6px; text-decoration:none; font-weight:600; display:inline-block;">Open Trip Cost Calculator</a>
+  <a href="/trip-cost-calculator/" style="background:#ca8a04; color:#fff; padding:0.65rem 1.5rem; border-radius:6px; text-decoration:none; font-weight:600; display:inline-block;">Open Trip Cost Calculator</a>
 </div>
 
 <h2>Determine Your Real Highway MPG</h2>
@@ -49,8 +49,8 @@ tags: blog
 <section class="related" style="margin-top: 3rem;">
   <h3>Related Travel Tools</h3>
   <ul>
-    <li><a href="/tools/trip-cost-calculator/">Trip Cost Calculator</a></li>
-    <li><a href="/tools/gas-mileage-calculator/">Gas Mileage Calculator</a></li>
-    <li><a href="/tools/tip-calculator/">Tip Calculator</a></li>
+    <li><a href="/trip-cost-calculator/">Trip Cost Calculator</a></li>
+    <li><a href="/gas-mileage-calculator/">Gas Mileage Calculator</a></li>
+    <li><a href="/tip-calculator/">Tip Calculator</a></li>
   </ul>
 </section>

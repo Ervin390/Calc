@@ -46,7 +46,7 @@ updated: 2026-08-09
                     </div>
                     <div style="flex: 0.5; min-width: 80px;">
                         <label>Break (min)</label>
-                        <input type="number" class="shift-break" value="30" min="0" max="480" style="margin-bottom: 0;">
+                        <input type="number" class="shift-break" value="30" min="0" max="480" inputmode="numeric" style="margin-bottom: 0;">
                     </div>
                 </div>
             </div>
@@ -56,7 +56,7 @@ updated: 2026-08-09
             <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
                 <div style="flex: 1; min-width: 150px;">
                     <label for="hourly-rate">Hourly Rate (Optional)</label>
-                    <input type="number" id="hourly-rate" placeholder="e.g. 18.50" step="0.01" min="0" style="margin-bottom: 0;">
+                    <input type="number" id="hourly-rate" placeholder="e.g. 18.50" step="0.01" min="0" inputmode="decimal" style="margin-bottom: 0;">
                 </div>
             </div>
 
@@ -76,7 +76,7 @@ updated: 2026-08-09
                 </div>
             </div>
             <label for="between-break">Break / Lunch (minutes)</label>
-            <input type="number" id="between-break" value="30" min="0">
+            <input type="number" id="between-break" value="30" min="0" inputmode="numeric">
             <button id="btn-calc-between" style="width: 100%; margin-top: 1rem; font-size: 1.1rem;">Calculate Time Between</button>
         </div>
     </div>
@@ -111,8 +111,8 @@ updated: 2026-08-09
 <section class="formula">
     <h2>Hours to Decimal Conversion Formula</h2>
     <p>To calculate worked decimal hours from clock time, use this formula:</p>
-    <p><strong>Decimal Hours = (End – Start in minutes – Break minutes) / 60</strong></p>
-    <p>For example, a 9:00 AM to 5:30 PM shift with a 30-minute break gives: (8.5 hours × 60 = 510 minutes) – 30 minutes = 480 minutes / 60 = <strong>8.00 decimal hours</strong>.</p>
+    <p><strong>Decimal Hours = (End - Start in minutes - Break minutes) / 60</strong></p>
+    <p>For example, a 9:00 AM to 5:30 PM shift with a 30-minute break gives: (8.5 hours x 60 = 510 minutes) - 30 minutes = 480 minutes / 60 = <strong>8.00 decimal hours</strong>.</p>
     <p>Multiplying decimal hours by your hourly rate gives gross wages before any deductions.</p>
 </section>
 
@@ -121,8 +121,8 @@ updated: 2026-08-09
     <ul>
         <li><strong>9:00 AM to 5:00 PM (30-min break):</strong> 7.5 decimal hours worked.</li>
         <li><strong>10:00 PM to 6:30 AM (overnight, 0 break):</strong> 8.5 hours. Overnight shifts are handled correctly by calculating the difference in total minutes across midnight.</li>
-        <li><strong>Full week — 5 days × 8h each:</strong> 40 total hours. At $18/hr rate = $720 gross pay.</li>
-        <li><strong>Bi-weekly timecard — 2 weeks × 40 hours:</strong> 80 hours. Useful for salaried employees verifying accrued time.</li>
+        <li><strong>Full week - 5 days x 8h each:</strong> 40 total hours. At $18/hr rate = $720 gross pay.</li>
+        <li><strong>Bi-weekly timecard - 2 weeks x 40 hours:</strong> 80 hours. Useful for salaried employees verifying accrued time.</li>
     </ul>
 </section>
 
@@ -139,7 +139,7 @@ updated: 2026-08-09
     <p>Yes. The hours calculator correctly handles overnight shifts. If your end time is earlier than your start time, the tool assumes the shift crossed midnight and adds 24 hours to the end time before calculating the difference.</p>
 
     <h3>Can I calculate my weekly paycheck with this?</h3>
-    <p>Yes. Add all your shifts for the week, enter your hourly rate in the optional field, and the Estimated Pay section appears automatically. Note that this shows gross pay only and does not include taxes, deductions, or overtime calculations. Use our <a href="/tools/time-and-a-half-calculator/">Time and a Half Calculator</a> if you worked overtime hours.</p>
+    <p>Yes. Add all your shifts for the week, enter your hourly rate in the optional field, and the Estimated Pay section appears automatically. Note that this shows gross pay only and does not include taxes, deductions, or overtime calculations. Use our <a href="/time-and-a-half-calculator/">Time and a Half Calculator</a> if you worked overtime hours.</p>
 </section>
 
 <section class="related">

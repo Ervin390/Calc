@@ -4,6 +4,7 @@ pagination:
   data: datePages
   size: 1
   alias: datePage
+  addAllPagesToCollections: true
 permalink: "/{{ datePage.days }}-days-from-today/index.html"
 eleventyComputed:
   title: "{{ datePage.days }} Days From Today - Exact Date Calculator"
@@ -56,7 +57,7 @@ eleventyComputed:
         <h2>Custom Date Arithmetic</h2>
         <p>If you prefer calculating schedule dates manually, divide the total days by 7 to determine the number of weeks involved. Any remaining remainder represents the leftover days to count forward individually.</p>
         <p><strong>{{ datePage.days }} days = {{ (datePage.days / 7) | int }} weeks and {{ datePage.days % 7 }} days</strong></p>
-        <p>This layout helps when checking deadlines or billing cycles that must span specific intervals. If you need to add or subtract standard calendar months or years, visit our dedicated <a href="/tools/date-calculator/" style="color: var(--primary); text-decoration: underline;">Date Calculator</a>.</p>
+        <p>This layout helps when checking deadlines or billing cycles that must span specific intervals. If you need to add or subtract standard calendar months or years, visit our dedicated <a href="/date-calculator/" style="color: var(--primary); text-decoration: underline;">Date Calculator</a>.</p>
     </section>
 
     <section class="faq">
@@ -75,9 +76,9 @@ eleventyComputed:
         <h3 style="margin-top:0;">Essential Finance and Wealth Tools</h3>
         <p style="font-size:0.95rem; color: #6b7280; line-height: 1.5;">Planning schedule dates is often the first step in financial forecasting. Use our compound interest growth tool to model how investments accumulate wealth over fixed periods, or construct detailed amortization table exports to analyze your debts.</p>
         <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
-            <a href="/tools/compound-interest-calculator/" style="background: #2563eb; color: #fff; text-decoration: none; padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600;">Compound Interest Calculator</a>
-            <a href="/tools/amortization-calculator/" style="background: #4b5563; color: #fff; text-decoration: none; padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600;">Amortization Calculator</a>
-            <a href="/tools/date-calculator/" style="background: #10b981; color: #fff; text-decoration: none; padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600;">Full Date Calculator</a>
+            <a href="/compound-interest-calculator/" style="background: #2563eb; color: #fff; text-decoration: none; padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600;">Compound Interest Calculator</a>
+            <a href="/amortization-calculator/" style="background: #4b5563; color: #fff; text-decoration: none; padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600;">Amortization Calculator</a>
+            <a href="/date-calculator/" style="background: #10b981; color: #fff; text-decoration: none; padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600;">Full Date Calculator</a>
         </div>
     </section>
 </div>

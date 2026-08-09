@@ -21,7 +21,7 @@ tags: blog
 
 <div style="background:#f0f7ff; border-left: 4px solid #2563eb; padding: 1.25rem; border-radius: 4px; margin: 2rem 0;">
   <strong>Measure your actual gas mileage before and after making changes.</strong><br><br>
-  <a href="/tools/gas-mileage-calculator/" style="background:#2563eb; color:#fff; padding:0.65rem 1.5rem; border-radius:6px; text-decoration:none; font-weight:600; display:inline-block;">Open Gas Mileage Calculator</a>
+  <a href="/gas-mileage-calculator/" style="background:#2563eb; color:#fff; padding:0.65rem 1.5rem; border-radius:6px; text-decoration:none; font-weight:600; display:inline-block;">Open Gas Mileage Calculator</a>
 </div>
 
 <h2>Check Your Tire Pressure Once a Month</h2>
@@ -47,8 +47,8 @@ tags: blog
 <section class="related" style="margin-top: 3rem;">
   <h3>Related Fuel Tools</h3>
   <ul>
-    <li><a href="/tools/gas-mileage-calculator/">Gas Mileage Calculator</a></li>
-    <li><a href="/tools/trip-cost-calculator/">Trip Cost Calculator</a></li>
-    <li><a href="/tools/tip-calculator/">Tip Calculator</a></li>
+    <li><a href="/gas-mileage-calculator/">Gas Mileage Calculator</a></li>
+    <li><a href="/trip-cost-calculator/">Trip Cost Calculator</a></li>
+    <li><a href="/tip-calculator/">Tip Calculator</a></li>
   </ul>
 </section>

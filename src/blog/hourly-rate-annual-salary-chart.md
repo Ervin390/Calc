@@ -36,7 +36,7 @@ tags: blog
 
 <div style="background:#f0f7ff; border-left: 4px solid #2563eb; padding: 1.25rem; border-radius: 4px; margin: 2rem 0;">
   <strong>Convert your custom rate and hours worked.</strong><br><br>
-  <a href="/tools/hourly-to-salary-calculator/" style="background:#2563eb; color:#fff; padding:0.65rem 1.5rem; border-radius:6px; text-decoration:none; font-weight:600; display:inline-block;">Open Hourly to Salary Calculator</a>
+  <a href="/hourly-to-salary-calculator/" style="background:#2563eb; color:#fff; padding:0.65rem 1.5rem; border-radius:6px; text-decoration:none; font-weight:600; display:inline-block;">Open Hourly to Salary Calculator</a>
 </div>
 
 <h2>Why Monthly Pay Does Not Equal Weekly Pay Multiplied by Four</h2>
@@ -56,8 +56,8 @@ tags: blog
 <section class="related" style="margin-top: 3rem;">
   <h3>Related Payroll Tools</h3>
   <ul>
-    <li><a href="/tools/hourly-to-salary-calculator/">Hourly to Salary Calculator</a></li>
-    <li><a href="/tools/pay-raise-calculator/">Pay Raise Calculator</a></li>
-    <li><a href="/tools/time-and-a-half-calculator/">Time and a Half Calculator</a></li>
+    <li><a href="/hourly-to-salary-calculator/">Hourly to Salary Calculator</a></li>
+    <li><a href="/pay-raise-calculator/">Pay Raise Calculator</a></li>
+    <li><a href="/time-and-a-half-calculator/">Time and a Half Calculator</a></li>
   </ul>
 </section>

@@ -21,13 +21,13 @@ tags: blog
 
 <h2>What Hourly Really Means</h2>
 
-<p>Hourly pay tracks your actual time worked. You get paid for every hour you log. If you work fewer hours, you earn less. If you work more, you earn more — and those extra hours often come with an overtime premium.</p>
+<p>Hourly pay tracks your actual time worked. You get paid for every hour you log. If you work fewer hours, you earn less. If you work more, you earn more - and those extra hours often come with an overtime premium.</p>
 
 <p>Hourly workers are generally protected by the FLSA for overtime pay in a way that salaried workers above the salary threshold are not. That protection has real dollar value when you crunch the numbers on industries like retail, healthcare, and skilled trades where overtime is common.</p>
 
 <div style="background:#f0f7ff; border-left: 4px solid #2563eb; padding: 1.25rem; border-radius: 4px; margin: 2rem 0;">
   <strong>Convert any hourly rate to annual salary or vice versa.</strong><br><br>
-  <a href="/tools/hourly-to-salary-calculator/" style="background:#2563eb; color:#fff; padding:0.65rem 1.5rem; border-radius:6px; text-decoration:none; font-weight:600; display:inline-block;">Open Hourly to Salary Calculator</a>
+  <a href="/hourly-to-salary-calculator/" style="background:#2563eb; color:#fff; padding:0.65rem 1.5rem; border-radius:6px; text-decoration:none; font-weight:600; display:inline-block;">Open Hourly to Salary Calculator</a>
 </div>
 
 <h2>The Real Comparison: Effective Hourly Rate</h2>
@@ -57,8 +57,8 @@ tags: blog
 <section class="related" style="margin-top: 3rem;">
   <h3>Related Payroll Tools</h3>
   <ul>
-    <li><a href="/tools/hourly-to-salary-calculator/">Hourly to Salary Calculator</a></li>
-    <li><a href="/tools/pay-raise-calculator/">Pay Raise Calculator</a></li>
-    <li><a href="/tools/time-and-a-half-calculator/">Time and a Half Calculator</a></li>
+    <li><a href="/hourly-to-salary-calculator/">Hourly to Salary Calculator</a></li>
+    <li><a href="/pay-raise-calculator/">Pay Raise Calculator</a></li>
+    <li><a href="/time-and-a-half-calculator/">Time and a Half Calculator</a></li>
   </ul>
 </section>
