@@ -1,6 +1,6 @@
 ---
 layout: layout.njk
-title: "Online Love Compatibility Tests - What They Can and Cannot Tell You"
+title: "Online Love Tests & Relationship Compatibility"
 description: Dating apps and love tests promise to match you with your ideal partner. Here is what the research actually says about compatibility testing and what to look for instead.
 category: blog
 date: 2026-08-02

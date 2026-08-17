@@ -1,5 +1,5 @@
 ---
-title: "Gas Prices by State in 2026: Budgeting for Your Next Trip"
+title: "Gas Prices by State: 2026 Road Trip Budgeting"
 description: Compare gas prices across the United States. See which states have the cheapest and most expensive fuel, and how to plan your road trip budget.
 date: 2026-08-09
 tags: blog

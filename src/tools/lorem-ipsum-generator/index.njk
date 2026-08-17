@@ -1,0 +1,156 @@
+---
+layout: layout.njk
+title: "Lorem Ipsum Generator: Free Placeholder Text Tool"
+description: Generate customizable Lorem Ipsum placeholder text in paragraphs, sentences, words, HTML, or Markdown format for UI design and web development.
+appName: Lorem Ipsum Generator
+category: dev
+permalink: /lorem-ipsum-generator/
+updated: 2026-08-17
+---
+
+{% from "ad-slot.njk" import adSlot %}
+
+<h1>Lorem Ipsum Generator</h1>
+<p>Generate clean, customizable Lorem Ipsum dummy text for website mockups, print layouts, and graphic designs. Choose paragraph counts, word limits, HTML tags, or Markdown output.</p>
+
+<section class="tool">
+    <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+        <div class="tool-controls" style="flex: 1; min-width: 280px;">
+            <label for="lig-count">Quantity</label>
+            <input type="number" id="lig-count" value="3" min="1" max="1000" inputmode="numeric">
+
+            <label for="lig-unit">Generation Unit</label>
+            <select id="lig-unit">
+                <option value="paragraphs" selected>Paragraphs</option>
+                <option value="sentences">Sentences</option>
+                <option value="words">Words</option>
+                <option value="bytes">Bytes</option>
+                <option value="list">Bullet List Items</option>
+            </select>
+
+            <label for="lig-format">Output Format</label>
+            <select id="lig-format">
+                <option value="text" selected>Plain Text</option>
+                <option value="html">HTML Tags (&lt;p&gt;, &lt;ul&gt;)</option>
+                <option value="markdown">Markdown Format (##, *)</option>
+            </select>
+
+            <div style="margin-top: 1rem; margin-bottom: 1.25rem;">
+                <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; font-weight: 500; text-transform: none;">
+                    <input type="checkbox" id="lig-start-lorem" checked style="width: auto; margin-bottom: 0;">
+                    Start with "Lorem ipsum dolor sit amet..."
+                </label>
+            </div>
+        </div>
+
+        <div style="flex: 2; min-width: 320px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                <label for="lig-output" style="margin-bottom: 0;">Generated Placeholder Text</label>
+                <button type="button" id="lig-btn-copy" style="padding: 0.4rem 1rem; font-size: 0.85rem;">Copy Output</button>
+            </div>
+            
+            <textarea id="lig-output" rows="10" readonly style="width: 100%; font-family: var(--font-mono, monospace); font-size: 0.9rem; line-height: 1.5; padding: 1rem; border-radius: 8px; border: 1px solid var(--border); background: var(--input-bg); color: var(--text-main); resize: vertical; margin-bottom: 0.75rem;"></textarea>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: var(--text-muted);">
+                <div>
+                    <strong>Words:</strong> <span id="lig-stat-words">0</span> | 
+                    <strong>Characters:</strong> <span id="lig-stat-chars">0</span> | 
+                    <strong>Paragraphs:</strong> <span id="lig-stat-paragraphs">0</span>
+                </div>
+                <span id="lig-copy-msg" style="color: #059669; font-weight: 600;" role="status" aria-live="polite"></span>
+            </div>
+        </div>
+    </div>
+    <div class="tool-actions" style="margin-top: 2rem;">
+        <button type="button" class="secondary" data-share>Share link</button>
+        <span class="tool-actions-msg" role="status" aria-live="polite"></span>
+    </div>
+</section>
+
+{{ adSlot(site, "inline") }}
+
+<section class="how">
+    <h2>How to Use the Lorem Ipsum Generator</h2>
+    <p>Our generator creates natural-looking pseudo-Latin placeholder text for digital and print designers. Select your desired quantity (paragraphs, sentences, words, or bytes) and choose your preferred code output.</p>
+    <p>Developers can export text wrapped directly in HTML paragraph tags (<code>&lt;p&gt;</code>) or list items (<code>&lt;li&gt;</code>) for instant pasting into React, Vue, or HTML templates.</p>
+</section>
+
+<section class="formula">
+    <h2>The Origin and History of Lorem Ipsum</h2>
+    <p>While Lorem Ipsum looks like random gibberish, it has roots in classical Latin literature dating back to 45 BC. The passage originates from sections 1.10.32 and 1.10.33 of Marcus Tullius Cicero's treatise <em>De finibus bonorum et malorum</em> (On the Ends of Good and Evil).</p>
+    <p>The standard passage begins:</p>
+    <p><code>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</code></p>
+    <p>Translating roughly to: <em>"Nor is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure."</em></p>
+</section>
+
+<section class="examples">
+    <h2>Output Format Matrix</h2>
+    <p>Compare how our generator formats placeholder content across different digital development environments.</p>
+    <table style="width: 100%; border-collapse: collapse; margin-top: 1rem; border-top: 1px solid var(--border); font-size: 0.95rem;">
+        <thead>
+            <tr style="border-bottom: 2px solid var(--border); background-color: var(--input-bg);">
+                <th style="text-align: left; padding: 0.6rem 0.75rem; color: var(--text-sub);">Format Mode</th>
+                <th style="text-align: left; padding: 0.6rem 0.75rem; color: var(--text-sub);">Sample Output Snippet</th>
+                <th style="text-align: left; padding: 0.6rem 0.75rem; color: var(--text-sub);">Best Used For</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.6rem 0.75rem; font-weight: 600;">Plain Text</td>
+                <td style="padding: 0.6rem 0.75rem; font-family: monospace;">Lorem ipsum dolor sit amet...</td>
+                <td style="padding: 0.6rem 0.75rem;">Figma, Adobe XD, Canva UI mockups</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border); background: var(--card-bg, #f9fafb);">
+                <td style="padding: 0.6rem 0.75rem; font-weight: 600; color: #2563eb;">HTML Tags</td>
+                <td style="padding: 0.6rem 0.75rem; font-family: monospace;">&lt;p&gt;Lorem ipsum dolor...&lt;/p&gt;</td>
+                <td style="padding: 0.6rem 0.75rem;">Web components & HTML templates</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.6rem 0.75rem; font-weight: 600; color: #059669;">Markdown</td>
+                <td style="padding: 0.6rem 0.75rem; font-family: monospace;">## Heading\n\nLorem ipsum...</td>
+                <td style="padding: 0.6rem 0.75rem;">GitHub READMEs & Contentful CMS</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border); background: var(--card-bg, #f9fafb);">
+                <td style="padding: 0.6rem 0.75rem; font-weight: 600;">Bullet List</td>
+                <td style="padding: 0.6rem 0.75rem; font-family: monospace;">* Lorem ipsum dolor sit amet</td>
+                <td style="padding: 0.6rem 0.75rem;">Feature comparison lists & dropdowns</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+{{ adSlot(site, "incontent") }}
+
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+    
+    <h3>What is Lorem Ipsum text?</h3>
+    <p>Lorem Ipsum is standard dummy placeholder text used by printers, typesetters, and web developers to demonstrate the visual layout of a page before final written copy is available.</p>
+    
+    <h3>Why use dummy text instead of real English copy?</h3>
+    <p>Using readable English text during layout design distracts reviewers because they focus on reading the content rather than evaluating visual typography, spacing, and UI hierarchy. Lorem Ipsum provides a natural distribution of letter frequencies without readable distraction.</p>
+    
+    <h3>Is Lorem Ipsum copyright free?</h3>
+    <p>Yes. Because the text derives from classical Latin literature published over 2,000 years ago, Cicero original work sits firmly in the public domain.</p>
+
+    <h3>Can I generate specific word counts or byte sizes?</h3>
+    <p>Yes. Use the Generation Unit dropdown to select Words or Bytes and specify your exact target length for testing database string limits or component truncation.</p>
+</section>
+
+<section class="related">
+    <h2>Related Developer and Text Tools</h2>
+    <ul>
+        <li><a href="/fancy-text-generator/">Fancy Text Generator</a></li>
+        <li><a href="/character-counter/">Character Counter</a></li>
+        <li><a href="/json-formatter/">JSON Formatter</a></li>
+        <li><a href="/uuid-generator/">UUID Generator</a></li>
+        <li><a href="/morse-code-translator/">Morse Code Translator</a></li>
+        <li><a href="/">Browse All Tools</a></li>
+    </ul>
+</section>
+
+<div class="author">
+    <p><em>Published by the QuixCalc Team. Text generation logic verified for typography and design compliance. Last updated: August 2026.</em></p>
+</div>
+
+<script src="lorem.js" defer></script>

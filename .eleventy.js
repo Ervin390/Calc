@@ -58,7 +58,16 @@ module.exports = function (eleventyConfig) {
     if (!str) return "";
     const clean = String(str).replace(/<[^>]*>/g, "").trim();
     if (clean.length <= len) return clean;
-    return clean.slice(0, clean.lastIndexOf(" ", len - 1)) + "…";
+    const sub = clean.slice(0, len);
+    const lastSentence = sub.match(/.*[.!?](?=\s|$)/);
+    if (lastSentence && lastSentence[0].length >= Math.floor(len * 0.5)) {
+      return lastSentence[0].trim();
+    }
+    const lastSpace = sub.lastIndexOf(" ");
+    if (lastSpace > 0) {
+      return clean.slice(0, lastSpace).trim();
+    }
+    return sub;
   });
 
   // Escape a string for safe embedding inside JSON-LD.

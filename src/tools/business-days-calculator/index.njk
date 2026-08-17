@@ -1,0 +1,216 @@
+---
+layout: layout.njk
+title: "Business Days Calculator: Count Working Days"
+description: Count the number of business days between two dates, or add/subtract business days. Excludes weekends and custom holidays (US, UK, etc.).
+appName: Business Days Calculator
+category: date
+appCategory: UtilitiesApplication
+permalink: /business-days-calculator/
+updated: 2026-08-17
+---
+{% from "ad-slot.njk" import adSlot %}
+
+<h1>Business Days Calculator</h1>
+<p>Count the exact number of business days, working days, and weekends between two dates. You can also add or subtract business days to calculate legal deadlines and invoice due dates, with optional US and UK holiday calendars.</p>
+
+<section class="tool">
+    <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem;">
+        <div class="btn-group" id="mode-toggle">
+            <button class="active" data-mode="between">Days Between</button>
+            <button class="secondary" data-mode="addsub">Add/Subtract Days</button>
+        </div>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
+        <div class="tool-controls" style="flex: 1.2; min-width: 300px;">
+            <!-- Start Date (All modes) -->
+            <label for="bd-start">Start Date</label>
+            <input type="date" id="bd-start" style="margin-bottom: 1.25rem;">
+
+            <!-- Mode 1: Between Dates -->
+            <div id="panel-between">
+                <label for="bd-end">End Date</label>
+                <input type="date" id="bd-end" style="margin-bottom: 1.25rem;">
+
+                <div style="display: flex; gap: 1.5rem; margin-bottom: 1.25rem; align-items: center;">
+                    <label style="display: flex; align-items: center; gap: 0.5rem; font-weight: 500; cursor: pointer; margin: 0;">
+                        <input type="checkbox" id="bd-include-end" style="width: auto; margin: 0;">
+                        Include End Date in Count
+                    </label>
+                </div>
+            </div>
+
+            <!-- Mode 2: Add/Subtract Days -->
+            <div id="panel-addsub" style="display: none;">
+                <div style="display: flex; gap: 1rem; margin-bottom: 1.25rem;">
+                    <div style="flex: 1;">
+                        <label for="bd-op">Action</label>
+                        <select id="bd-op" style="margin-bottom: 0;">
+                            <option value="add">Add (+)</option>
+                            <option value="sub">Subtract (-)</option>
+                        </select>
+                    </div>
+                    <div style="flex: 1.5;">
+                        <label for="bd-days-count">Number of Business Days</label>
+                        <input type="number" id="bd-days-count" value="10" min="1" max="100000" inputmode="numeric" style="margin-bottom: 0;">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Holiday Calendar Options -->
+            <label for="bd-holidays">Exclude Holidays for Country</label>
+            <select id="bd-holidays" style="margin-bottom: 1.25rem;">
+                <option value="none">None (Weekends Only)</option>
+                <option value="us">United States (Federal Holidays)</option>
+                <option value="uk">United Kingdom (England & Wales Bank Holidays)</option>
+            </select>
+
+            <button id="btn-calc-bd" style="width: 100%; margin-top: 0.5rem; font-size: 1.1rem;">Calculate Working Days</button>
+        </div>
+
+        <!-- Output Column -->
+        <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column; gap: 1rem;">
+            <!-- Main Result Banner -->
+            <div style="background: var(--input-bg); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1.5rem; text-align: center; display: flex; flex-direction: column; justify-content: center; min-height: 140px;">
+                <p id="out-bd-label" style="font-weight: 600; color: var(--text-sub); margin-top: 0; margin-bottom: 0.5rem;">Resulting Business Days</p>
+                <div id="out-bd-main" role="status" aria-live="polite" aria-atomic="true" style="font-size: 3rem; font-weight: 800; color: var(--primary); line-height: 1.1;">0</div>
+                <p id="out-bd-sub" style="font-size: 0.95rem; color: var(--text-muted); margin-top: 0.5rem; margin-bottom: 0;"></p>
+            </div>
+
+            <!-- Breakdown Summary -->
+            <div style="background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1.25rem; font-size: 0.95rem;">
+                <h3 style="margin-top: 0; margin-bottom: 0.75rem; font-size: 1.05rem; font-weight: 600;">Time Breakdown</h3>
+                <div style="display: flex; flex-direction: column; gap: 0.6rem;" id="bd-breakdown">
+                    <div style="display: flex; justify-content: space-between;">
+                        <span style="color: var(--text-sub);">Calendar Days</span>
+                        <strong id="out-bd-calendar" style="color: var(--text-main);">0 days</strong>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <span style="color: var(--text-sub);">Weekend Days (Sat/Sun)</span>
+                        <strong id="out-bd-weekends" style="color: var(--text-main);">0 days</strong>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <span style="color: var(--text-sub);">Holidays Excluded</span>
+                        <strong id="out-bd-holidays-count" style="color: var(--text-main);">0 days</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Active Holidays Section -->
+    <div id="bd-holidays-box" style="margin-top: 1.5rem; display: none; background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1.25rem;">
+        <h3 style="margin-top: 0; margin-bottom: 0.5rem; font-size: 1.05rem;" id="holiday-list-title">Observed Holidays in Range</h3>
+        <ul id="holiday-list" style="margin: 0; padding-left: 1.2rem; font-size: 0.9rem; color: var(--text-sub);"></ul>
+    </div>
+
+    <div class="tool-actions" style="margin-top: 2rem;">
+        <p style="margin: 0 0 0.5rem; font-size: 0.9rem; color: var(--text-muted); text-align: center; width: 100%;">
+            Want this calculator on your site? <a href="/embed/" style="color: var(--primary); font-weight: 600; text-decoration: underline;">Grab the embed code</a>.
+        </p>
+        <button type="button" class="secondary" data-share>Share link</button>
+        <span class="tool-actions-msg" role="status" aria-live="polite"></span>
+    </div>
+</section>
+
+{{ adSlot(site, "inline") }}
+
+<section class="how">
+    <h2>How to Calculate Business Days</h2>
+    <p>Calculating the exact number of working days between two dates is highly critical for legal contract deadlines, employee timesheets, shipping calculations, and invoice payment terms. Standard business days count Monday through Friday, skipping Saturday and Sunday.</p>
+    
+    <h3>Steps to Count Working Days</h3>
+    <ol>
+        <li>Identify your starting date and ending date. Deciding whether you should include the start date in the final tally depends on your contract phrasing (e.g. "commencing on" includes the day itself).</li>
+        <li>Count the total number of calendar days in the period.</li>
+        <li>Subtract all weekends (Saturday and Sunday). For every complete week, subtract exactly two days.</li>
+        <li>Check for any recognized public or bank holidays that fall on a weekday within that range and subtract them. If a holiday falls on a Saturday or Sunday, check whether it is officially observed on the neighboring Monday or Friday.</li>
+    </ol>
+
+    <p>Using our interactive tool speeds up this process and prevents calculation errors. You can toggle between United States federal holidays or United Kingdom bank holidays to automatically screen out days when financial institutions and courts are closed.</p>
+</section>
+
+<section class="formula">
+    <h2>Working Day Equations and Calendar Logic</h2>
+    <p>To calculate calendar days to business days manually, you can use the following mathematical approximation before subtracting specific public holidays:</p>
+    <p><strong>Business Days &approx; (Calendar Days &times; 5) / 7</strong></p>
+    <p>For high-precision operations, developers and financial operations use calendar-matching algorithms. For example, to add business days programmatically:</p>
+    <pre style="background:var(--input-bg); padding:1rem; border-radius:6px; overflow-x:auto; font-size:0.9rem; border:1px solid var(--border);">
+let date = new Date(startDate);
+while (daysToAdd > 0) {
+    date.setDate(date.getDate() + 1);
+    if (isBusinessDay(date)) {
+        daysToAdd--;
+    }
+}
+return date;</pre>
+    <p>Our tool runs this exact loop on every recalculation, ensuring that leap years, varying month lengths, and multi-year ranges are completely accounted for without rounding issues.</p>
+</section>
+
+<section class="examples">
+    <h2>Common Contract & Deadline Examples</h2>
+    <table style="width:100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.95rem; text-align: left;">
+        <thead>
+            <tr style="border-bottom: 2px solid var(--border);">
+                <th style="padding: 0.75rem 0.5rem; font-weight: 600;">Scenario</th>
+                <th style="padding: 0.75rem 0.5rem; font-weight: 600;">Calendar Period</th>
+                <th style="padding: 0.75rem 0.5rem; font-weight: 600;">Total Business Days (US)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.75rem 0.5rem;">Standard 14 Business Days Notice</td>
+                <td style="padding: 0.75rem 0.5rem;">Oct 1 to Oct 21, 2026</td>
+                <td style="padding: 0.75rem 0.5rem;">14 Business Days (excludes Columbus Day)</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.75rem 0.5rem;">Net 30 Invoice Term</td>
+                <td style="padding: 0.75rem 0.5rem;">Nov 1 to Dec 1, 2026</td>
+                <td style="padding: 0.75rem 0.5rem;">19 Business Days (excludes Veterans Day & Thanksgiving)</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.75rem 0.5rem;">End of Year Audit Period</td>
+                <td style="padding: 0.75rem 0.5rem;">Dec 15, 2026 to Jan 5, 2027</td>
+                <td style="padding: 0.75rem 0.5rem;">13 Business Days (excludes Christmas & New Year's)</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+{{ adSlot(site, "incontent") }}
+
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+    
+    <h3>What is the difference between working days and business days?</h3>
+    <p>In most commercial contexts, the terms are interchangeable. Both define days of the week on which normal business operations are conducted (usually Monday through Friday) excluding Saturdays, Sundays, and public bank holidays. In some specific industries (like retail, shipping, or healthcare), working days may include Saturdays or Sundays if staff is actively scheduled.</p>
+
+    <h3>How many business days are in a typical year?</h3>
+    <p>A standard calendar year of 365 days has either 261 or 262 weekdays. After subtracting 10 to 11 standard national public holidays, there are typically between 250 and 252 business days in a year depending on weekends and leap years.</p>
+
+    <h3>Does a bank holiday count as a business day?</h3>
+    <p>No. Standard financial transactions, bank clearances (such as ACH transfers), and court deadlines do not count bank holidays. If your contract payment deadline lands on an official bank holiday, the transaction is processed on the next available business day.</p>
+
+    <h3>How do I calculate 10 business days from today?</h3>
+    <p>Set the start date to today's date in our "Add/Subtract Days" mode, select "Add (+)", and input 10. The calculator will automatically jump past the next two weekends and any intermediate public holidays, showing the exact calendar date of your deadline.</p>
+</section>
+
+<section class="related">
+    <h2>Related Date and Time Calculators</h2>
+    <ul>
+        <li><a href="/date-calculator/">Date Calculator</a></li>
+        <li><a href="/days-until-calculator/">Days Until Calculator</a></li>
+        <li><a href="/time-duration-calculator/">Time Duration Calculator</a></li>
+        <li><a href="/hours-calculator/">Hours Calculator</a></li>
+        <li><a href="/">Browse All Tools</a></li>
+    </ul>
+</section>
+
+{% from "cluster.njk" import clusterGuides %}
+{{ clusterGuides(tools | findByKey("slug", page.fileSlug)) }}
+
+<div class="author">
+    <p><em>Published by the QuixCalc Team. Calculation algorithms conform to standard ISO 8601 working day logic. Last updated: August 2026.</em></p>
+</div>
+
+<script src="business-days.js" defer></script>

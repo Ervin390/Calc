@@ -1,6 +1,6 @@
 ---
 layout: layout.njk
-title: "Love Calculator by Name - Fun Novelty or Something More?"
+title: "Love Calculator by Name: Novelty or Real Science"
 description: Love calculators have been around since the early internet. Here is why they are still popular, how the algorithm works, and what they actually can and cannot tell you.
 category: blog
 date: 2026-08-02

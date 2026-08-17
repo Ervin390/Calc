@@ -1,6 +1,6 @@
 ---
 layout: layout.njk
-title: Payload Size Calculator - JSON Size & Network Speed Estimator
+title: "Payload Size Calculator: JSON & Network Speed"
 description: Measure JSON payload size in bytes, KB, or MB. Estimate network transmittal duration over 3G, 4G, and 5G connections. Check regex patterns for performance and complexity.
 appName: Payload Size Calculator
 category: dev
@@ -110,10 +110,10 @@ updated: 2026-08-09
         <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
             <div class="tool-controls" style="flex: 1.5; min-width: 300px;">
                 <label for="ps-regex-input">Regular Expression (Pattern)</label>
-                <input type="text" id="ps-regex-input" value="^(a+)+$" placeholder="e.g. ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" style="font-family: ui-monospace, monospace; font-size: 1rem;">
+                <input type="text" id="ps-regex-input" value="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" placeholder="e.g. ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" style="font-family: ui-monospace, monospace; font-size: 1rem;">
 
                 <label for="ps-regex-test-str">Test String against Pattern</label>
-                <input type="text" id="ps-regex-test-str" value="aaaaaaaaaaaaaaaaaaaaaaaaaaaaab" placeholder="Match targets" style="font-family: ui-monospace, monospace; font-size: 1rem;">
+                <input type="text" id="ps-regex-test-str" value="user@example.com" placeholder="Match targets" style="font-family: ui-monospace, monospace; font-size: 1rem;">
 
                 <div style="display: flex; gap: 1rem;">
                     <button type="button" id="ps-btn-regex-run" style="flex: 1;">Run Performance Check</button>
@@ -147,6 +147,10 @@ updated: 2026-08-09
                 </div>
             </div>
         </div>
+    </div>
+    <div class="tool-actions" style="margin-top: 2rem;">
+        <button type="button" class="secondary" data-share>Share link</button>
+        <span class="tool-actions-msg" role="status" aria-live="polite"></span>
     </div>
 </section>
 
@@ -232,6 +236,8 @@ updated: 2026-08-09
 <section class="related">
     <h2>Related Developer Tools</h2>
     <ul>
+        <li><a href="/aspect-ratio-calculator/">Aspect Ratio Calculator</a></li>
+        <li><a href="/lorem-ipsum-generator/">Lorem Ipsum Generator</a></li>
         <li><a href="/character-counter/">Character Counter</a></li>
         <li><a href="/json-formatter/">JSON Formatter</a></li>
         <li><a href="/uuid-generator/">UUID Generator</a></li>

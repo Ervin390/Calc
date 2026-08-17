@@ -1,0 +1,187 @@
+---
+layout: layout.njk
+title: "Aspect Ratio Calculator: Rescale Images & Video"
+description: Calculate missing image and video dimensions, crop proportions, and aspect ratios with presets for 16:9, 4:3, 9:16, and 4K.
+appName: Aspect Ratio Calculator
+category: dev
+permalink: /aspect-ratio-calculator/
+updated: 2026-08-17
+---
+
+{% from "ad-slot.njk" import adSlot %}
+
+<h1>Aspect Ratio Calculator</h1>
+<p>Calculate missing width or height dimensions while keeping the exact aspect ratio of your image or video. Select popular presets for 16:9 widescreen, 4:3 SD, 9:16 vertical video, 4K, and 1080p.</p>
+
+<section class="tool">
+    <div style="display: flex; gap: 2rem; flex-wrap: wrap; align-items: flex-start;">
+        <div style="flex: 1; min-width: 290px;">
+            <label for="arc-preset">Common Resolution Presets</label>
+            <select id="arc-preset" style="margin-bottom: 1.25rem;">
+                <option value="" disabled selected>-- Select a Preset Resolution --</option>
+                <option value="3840x2160">4K UHD Video (3840 × 2160 - 16:9)</option>
+                <option value="1920x1080">1080p Full HD (1920 × 1080 - 16:9)</option>
+                <option value="1280x720">720p HD Video (1280 × 720 - 16:9)</option>
+                <option value="1080x1080">Instagram Post (1080 × 1080 - 1:1)</option>
+                <option value="1080x1920">TikTok / Instagram Reels (1080 × 1920 - 9:16)</option>
+                <option value="1200x630">Facebook / OpenGraph Image (1200 × 630 - 1.91:1)</option>
+                <option value="2560x1080">Ultrawide Monitor (2560 × 1080 - 21:9)</option>
+            </select>
+
+            <div style="margin-bottom: 1.25rem;">
+                <label style="margin-bottom: 0.5rem;">Quick Ratio Presets</label>
+                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                    <button type="button" class="secondary" data-ratio="16:9" style="padding: 0.35rem 0.75rem; font-size: 0.85rem;">16:9</button>
+                    <button type="button" class="secondary" data-ratio="4:3" style="padding: 0.35rem 0.75rem; font-size: 0.85rem;">4:3</button>
+                    <button type="button" class="secondary" data-ratio="1:1" style="padding: 0.35rem 0.75rem; font-size: 0.85rem;">1:1</button>
+                    <button type="button" class="secondary" data-ratio="9:16" style="padding: 0.35rem 0.75rem; font-size: 0.85rem;">9:16</button>
+                    <button type="button" class="secondary" data-ratio="21:9" style="padding: 0.35rem 0.75rem; font-size: 0.85rem;">21:9</button>
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
+                <div>
+                    <label for="arc-w1">Original Width (W1)</label>
+                    <input type="number" id="arc-w1" value="1920" min="1" max="50000" inputmode="numeric">
+                </div>
+                <div>
+                    <label for="arc-h1">Original Height (H1)</label>
+                    <input type="number" id="arc-h1" value="1080" min="1" max="50000" inputmode="numeric">
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div>
+                    <label for="arc-w2">New Width (W2)</label>
+                    <input type="number" id="arc-w2" value="1280" min="1" max="50000" inputmode="numeric">
+                </div>
+                <div>
+                    <label for="arc-h2">New Height (H2)</label>
+                    <input type="number" id="arc-h2" value="720" min="1" max="50000" inputmode="numeric">
+                </div>
+            </div>
+        </div>
+
+        <div style="flex: 1; min-width: 280px; background: var(--input-bg); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+            <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.4rem;">Simplified Aspect Ratio</div>
+            <div id="arc-out-ratio" style="font-size: 2.25rem; font-weight: 800; color: var(--primary); margin-bottom: 0.25rem;">16:9</div>
+            <div style="font-size: 0.9rem; color: var(--text-sub); margin-bottom: 1.5rem;">Decimal Ratio: <strong id="arc-out-decimal">1.78:1</strong></div>
+
+            <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem;">Proportional Box Preview</div>
+            <div style="display: flex; justify-content: center; align-items: center; min-height: 230px; background: var(--card-bg, #fff); border-radius: 6px; border: 1px dashed var(--border); padding: 1rem;">
+                <div id="arc-preview-box" style="width: 220px; height: 124px; background: var(--primary); opacity: 0.9; border-radius: 4px; display: flex; justify-content: center; align-items: center; transition: all 0.2s ease;">
+                    <span id="arc-preview-label" style="color: #fff; font-size: 0.8rem; font-weight: 700; text-align: center; padding: 0.25rem;">1920 × 1080</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tool-actions" style="margin-top: 2rem;">
+        <button type="button" class="secondary" data-share>Share link</button>
+        <span class="tool-actions-msg" role="status" aria-live="polite"></span>
+    </div>
+</section>
+
+{{ adSlot(site, "inline") }}
+
+<section class="how">
+    <h2>How to Use the Aspect Ratio Calculator</h2>
+    <p>This calculator automatically maintains proportional scaling when resizing images, video clips, or responsive web containers.</p>
+    <ul>
+        <li><strong>Calculate New Dimensions:</strong> Enter your original width (W1) and height (H1). Type a new desired width (W2) to calculate the matching height (H2), or type a new height (H2) to get the corresponding width (W2).</li>
+        <li><strong>Find Simplified Ratio:</strong> Enter any resolution in W1 and H1 to find its simplified aspect ratio (e.g. 16:9, 4:3, 1:1) and decimal equivalent.</li>
+        <li><strong>Preset Buttons:</strong> Click quick ratio buttons like 16:9 or 9:16 to automatically load standard proportions.</li>
+    </ul>
+</section>
+
+<section class="formula">
+    <h2>The Mathematics of Aspect Ratio Calculation</h2>
+    <p>An aspect ratio represents the proportional relationship between a rectangle width and height. It is expressed as <code>W : H</code>.</p>
+    <p>To reduce any pixel resolution to its simplest whole-number ratio, divide both the width and height by their <strong>Greatest Common Divisor (GCD)</strong>:</p>
+    <p><code>Ratio Width = Width / GCD(Width, Height)</code><br><code>Ratio Height = Height / GCD(Width, Height)</code></p>
+    <p>To calculate a missing dimension while preserving the aspect ratio:</p>
+    <p><code>New Height (H2) = New Width (W2) × (Original Height / Original Width)</code><br><code>New Width (W2) = New Height (H2) × (Original Width / Original Height)</code></p>
+</section>
+
+<section class="examples">
+    <h2>Standard Digital Video & Image Resolutions Reference</h2>
+    <p>Refer to the standard resolution matrix below when preparing media for YouTube, social platforms, and digital monitors.</p>
+    <table style="width: 100%; border-collapse: collapse; margin-top: 1rem; border-top: 1px solid var(--border); font-size: 0.95rem;">
+        <thead>
+            <tr style="border-bottom: 2px solid var(--border); background-color: var(--input-bg);">
+                <th style="text-align: left; padding: 0.6rem 0.75rem; color: var(--text-sub);">Resolution Standard</th>
+                <th style="text-align: left; padding: 0.6rem 0.75rem; color: var(--text-sub);">Dimensions (Pixels)</th>
+                <th style="text-align: left; padding: 0.6rem 0.75rem; color: var(--text-sub); color: #2563eb;">Aspect Ratio</th>
+                <th style="text-align: left; padding: 0.6rem 0.75rem; color: var(--text-sub);">Common Use Case</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.6rem 0.75rem; font-weight: 600;">4K Ultra HD</td>
+                <td style="padding: 0.6rem 0.75rem;">3840 × 2160</td>
+                <td style="padding: 0.6rem 0.75rem; font-weight: 600; color: #2563eb;">16:9</td>
+                <td style="padding: 0.6rem 0.75rem;">4K YouTube, TV broadcasts</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border); background: var(--card-bg, #f9fafb);">
+                <td style="padding: 0.6rem 0.75rem; font-weight: 600;">1080p Full HD</td>
+                <td style="padding: 0.6rem 0.75rem;">1920 × 1080</td>
+                <td style="padding: 0.6rem 0.75rem; font-weight: 600; color: #2563eb;">16:9</td>
+                <td style="padding: 0.6rem 0.75rem;">Standard HD video & desktop screens</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.6rem 0.75rem; font-weight: 600;">Instagram / TikTok Story</td>
+                <td style="padding: 0.6rem 0.75rem;">1080 × 1920</td>
+                <td style="padding: 0.6rem 0.75rem; font-weight: 600; color: #059669;">9:16</td>
+                <td style="padding: 0.6rem 0.75rem;">Mobile vertical video & Stories</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border); background: var(--card-bg, #f9fafb);">
+                <td style="padding: 0.6rem 0.75rem; font-weight: 600;">Instagram Square Post</td>
+                <td style="padding: 0.6rem 0.75rem;">1080 × 1080</td>
+                <td style="padding: 0.6rem 0.75rem; font-weight: 600;">1:1</td>
+                <td style="padding: 0.6rem 0.75rem;">Social media feed posts</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.6rem 0.75rem; font-weight: 600;">Ultrawide Gaming</td>
+                <td style="padding: 0.6rem 0.75rem;">2560 × 1080</td>
+                <td style="padding: 0.6rem 0.75rem; font-weight: 600;">21:9</td>
+                <td style="padding: 0.6rem 0.75rem;">Curved ultrawide monitors</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+{{ adSlot(site, "incontent") }}
+
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>What is an aspect ratio?</h3>
+    <p>An aspect ratio is the proportional relationship between the width and height of an image, video frame, or display screen. It describes the shape of the rectangle rather than its physical size or pixel count.</p>
+
+    <h3>What aspect ratio is 1920 x 1080?</h3>
+    <p>1920 x 1080 pixels is a 16:9 aspect ratio. Dividing both 1920 and 1080 by their greatest common divisor (120) yields 16 and 9.</p>
+
+    <h3>What is the difference between resolution and aspect ratio?</h3>
+    <p>Resolution specifies the total number of pixels along the width and height (e.g., 3840x2160 pixels). Aspect ratio specifies the proportion between width and height (e.g., 16:9). Different resolutions like 1280x720, 1920x1080, and 3840x2160 all share the exact same 16:9 aspect ratio.</p>
+
+    <h3>Which aspect ratio should I use for social media video?</h3>
+    <p>For horizontal YouTube videos and desktop browsing, use 16:9 (1920x1080). For mobile vertical video platforms like TikTok, YouTube Shorts, and Instagram Reels, use 9:16 (1080x1920).</p>
+</section>
+
+<section class="related">
+    <h2>Related Developer and Design Tools</h2>
+    <ul>
+        <li><a href="/lorem-ipsum-generator/">Lorem Ipsum Generator</a></li>
+        <li><a href="/payload-size-calculator/">Payload Size Calculator</a></li>
+        <li><a href="/character-counter/">Character Counter</a></li>
+        <li><a href="/json-formatter/">JSON Formatter</a></li>
+        <li><a href="/fancy-text-generator/">Fancy Text Generator</a></li>
+        <li><a href="/">Browse All Tools</a></li>
+    </ul>
+</section>
+
+<div class="author">
+    <p><em>Published by the QuixCalc Team. Aspect ratio logic verified for media production standards. Last updated: August 2026.</em></p>
+</div>
+
+<script src="aspect.js" defer></script>

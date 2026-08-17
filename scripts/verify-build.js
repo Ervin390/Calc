@@ -86,7 +86,7 @@ for (const file of htmlFiles) {
   const title = (html.match(/<title>([\s\S]*?)<\/title>/) || [])[1];
   if (!title) fail(`${where}: missing <title>`);
   else {
-    if (title.length > 65) warn(`${where}: title is ${title.length} chars — "${title}"`);
+    if (title.length > 62) fail(`${where}: title is ${title.length} chars — "${title}"`);
     if (titles.has(title)) fail(`${where}: duplicate title, also on ${titles.get(title)}`);
     else titles.set(title, where);
   }
@@ -95,6 +95,7 @@ for (const file of htmlFiles) {
   const desc = (html.match(/<meta name="description" content="([^"]*)"/) || [])[1];
   if (!desc) fail(`${where}: missing meta description`);
   else {
+    if (desc.endsWith("...") || desc.endsWith("…")) fail(`${where}: description is truncated with ellipses — "${desc}"`);
     if (desc.length > 160) warn(`${where}: description is ${desc.length} chars`);
     if (desc.length < 60) warn(`${where}: description is only ${desc.length} chars`);
     if (descriptions.has(desc)) fail(`${where}: duplicate description, also on ${descriptions.get(desc)}`);

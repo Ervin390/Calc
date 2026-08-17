@@ -1,12 +1,12 @@
 ---
 layout: layout.njk
-title: Time Duration Calculator - Calculate Hours and Minutes Between Times
-description: Calculate the exact time duration between two times or add and subtract hours and minutes. Perfect for payroll, shifts, and project tracking. Free, no sign-up.
+title: "Time Duration Calculator: Hours between Times"
+description: Calculate the exact time duration between two times or add and subtract hours and minutes. Features a minute-to-decimal payroll conversion table.
 appName: Time Duration Calculator
 category: date
 appCategory: WebApplication
 permalink: /time-duration-calculator/
-updated: 2026-08-02
+updated: 2026-08-17
 faqSchema:
   - q: "How do I calculate hours worked between two times?"
     a: "Enter your start time and end time in the fields and click Calculate. The tool shows the duration in hours and minutes, total minutes, and decimal hours. The decimal format is particularly useful for payroll because it lets you multiply directly by an hourly rate."
@@ -17,12 +17,12 @@ faqSchema:
   - q: "Can I add or subtract time with this tool?"
     a: "Yes. Switch to the Add or Subtract tab, enter a starting time, and specify the hours and minutes to add or subtract. The calculator returns the resulting clock time. This is useful for working out meeting times across time zones or calculating deadlines."
   - q: "Why does the calculator show different results for AM and PM inputs?"
-    a: "The calculator uses 24-hour time internally. If you enter 3:00 and mean 3 PM you should enter 15:00 in 24-hour format. Alternatively use the AM and PM selectors if they appear for your input. Getting AM and PM wrong is the most common source of errors in manual time calculations."
+    a: "The calculator uses 24-hour time internally. If you enter 3:00 and mean 3 PM you should enter 15:00 in 24-hour format. Getting AM and PM wrong is the most common source of errors in manual time calculations."
 ---
 {% from "ad-slot.njk" import adSlot %}
 
 <h1>Time Duration Calculator</h1>
-<p>Calculate the exact time between two clock times, or add and subtract hours and minutes from a starting time. Results include hours and minutes, total minutes, and the decimal hours format used in payroll.</p>
+<p>Calculate the exact duration between two clock times, or add and subtract hours and minutes from a starting time. Results include hours and minutes, total minutes, and decimal hours for payroll.</p>
 
 <section class="tool">
   <div style="max-width: 560px; margin: 0 auto;">
@@ -87,27 +87,71 @@ faqSchema:
 
 <section class="how">
   <h2>How to Use This Time Duration Calculator</h2>
-  <p>The calculator has two modes. Choose the one that fits your task.</p>
-  <p><strong>Time Between</strong> calculates how long it is between a start time and an end time. This is ideal for working out shift lengths, meeting durations, or how long a task took. If the end time is before the start time the calculator assumes the period crosses midnight and adjusts automatically.</p>
-  <p><strong>Add or Subtract</strong> takes a starting time and adds or removes a number of hours and minutes from it. Use this to find out what time a deadline falls on, when a meeting ends, or what time it will be in another time zone after adding the offset.</p>
-  <p>The decimal hours output is particularly useful for payroll. Multiply that number by your hourly rate to get an exact payment amount without converting minutes manually.</p>
+  <p>The calculator features two distinct operational modes designed for work shift tracking and schedule planning.</p>
+  <p><strong>Time Between Mode:</strong> Calculates the exact elapsed time between a start time and end time. Ideal for computing shift lengths, meeting durations, or project billable hours. If the end time is numerically earlier than the start time, the calculator automatically detects an overnight shift and adds 24 hours to the calculation.</p>
+  <p><strong>Add or Subtract Mode:</strong> Takes a starting time and applies a specified hour and minute offset. Use this to determine exact task completion times, project deadlines, or clock time adjustments when coordinating across time zones.</p>
 </section>
 
 <section class="formula">
-  <h2>How to Calculate Time Duration Manually</h2>
-  <p>To find the duration between two times, convert both to minutes from midnight. Then subtract the start from the end.</p>
-  <p>For example: start time 09:15 equals 9 x 60 + 15 = 555 minutes. End time 17:45 equals 17 x 60 + 45 = 1065 minutes. Duration = 1065 minus 555 = 510 minutes = 8 hours and 30 minutes.</p>
-  <p>To convert to decimal hours, divide the total minutes by 60. In the example above: 510 / 60 = 8.5 decimal hours. A person working this shift at $20 per hour would earn $20 x 8.5 = $170 before deductions.</p>
-  <p>For overnight shifts, add 1440 (the number of minutes in a day) to the end time before subtracting. A shift from 22:00 to 06:00 = (6 x 60) + 1440 - (22 x 60) = 360 + 1440 - 1320 = 480 minutes = 8 hours.</p>
+  <h2>Minute-to-Decimal Payroll Conversion Reference Table</h2>
+  <p>Standard payroll systems express time in decimal hours rather than minutes. To convert minutes to decimal form manually, divide the minute count by 60. The reference table below provides standard 5-minute increment conversions for rapid pay calculations.</p>
+
+  <table style="width:100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.95rem;">
+    <thead>
+      <tr style="background: var(--card-bg, #f3f4f6); border-bottom: 2px solid var(--border, #e5e7eb);">
+        <th style="padding: 0.6rem; text-align: left;">Minutes</th>
+        <th style="padding: 0.6rem; text-align: left; color: #2563eb;">Decimal Hours</th>
+        <th style="padding: 0.6rem; text-align: left;">Minutes</th>
+        <th style="padding: 0.6rem; text-align: left; color: #2563eb;">Decimal Hours</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom: 1px solid var(--border, #e5e7eb);">
+        <td style="padding: 0.6rem;">05 min</td>
+        <td style="padding: 0.6rem; font-weight: 600;">0.08 hrs</td>
+        <td style="padding: 0.6rem;">35 min</td>
+        <td style="padding: 0.6rem; font-weight: 600;">0.58 hrs</td>
+      </tr>
+      <tr style="border-bottom: 1px solid var(--border, #e5e7eb); background: var(--card-bg, #f9fafb);">
+        <td style="padding: 0.6rem;">10 min</td>
+        <td style="padding: 0.6rem; font-weight: 600;">0.17 hrs</td>
+        <td style="padding: 0.6rem;">40 min</td>
+        <td style="padding: 0.6rem; font-weight: 600;">0.67 hrs</td>
+      </tr>
+      <tr style="border-bottom: 1px solid var(--border, #e5e7eb);">
+        <td style="padding: 0.6rem;">15 min</td>
+        <td style="padding: 0.6rem; font-weight: 600;">0.25 hrs</td>
+        <td style="padding: 0.6rem;">45 min</td>
+        <td style="padding: 0.6rem; font-weight: 600;">0.75 hrs</td>
+      </tr>
+      <tr style="border-bottom: 1px solid var(--border, #e5e7eb); background: var(--card-bg, #f9fafb);">
+        <td style="padding: 0.6rem;">20 min</td>
+        <td style="padding: 0.6rem; font-weight: 600;">0.33 hrs</td>
+        <td style="padding: 0.6rem;">50 min</td>
+        <td style="padding: 0.6rem; font-weight: 600;">0.83 hrs</td>
+      </tr>
+      <tr style="border-bottom: 1px solid var(--border, #e5e7eb);">
+        <td style="padding: 0.6rem;">25 min</td>
+        <td style="padding: 0.6rem; font-weight: 600;">0.42 hrs</td>
+        <td style="padding: 0.6rem;">55 min</td>
+        <td style="padding: 0.6rem; font-weight: 600;">0.92 hrs</td>
+      </tr>
+      <tr style="border-bottom: 1px solid var(--border, #e5e7eb); background: var(--card-bg, #f9fafb);">
+        <td style="padding: 0.6rem;">30 min</td>
+        <td style="padding: 0.6rem; font-weight: 600;">0.50 hrs</td>
+        <td style="padding: 0.6rem;">60 min</td>
+        <td style="padding: 0.6rem; font-weight: 600;">1.00 hrs</td>
+      </tr>
+    </tbody>
+  </table>
 </section>
 
 <section class="examples">
-  <h2>Time Calculation Examples</h2>
+  <h2>Practical Time Calculation Scenarios</h2>
   <ul>
-    <li><strong>Standard work shift:</strong> Start 08:30, End 17:00. Duration: 8 hours 30 minutes. Total minutes: 510. Decimal: 8.5 hours.</li>
-    <li><strong>Overnight shift:</strong> Start 22:30, End 06:15. Duration: 7 hours 45 minutes. Total minutes: 465. Decimal: 7.75 hours.</li>
-    <li><strong>Meeting countdown:</strong> It is 14:20 now. The meeting lasts 1 hour 45 minutes. Add 1h 45m to 14:20. Result: 16:05.</li>
-    <li><strong>Payroll calculation:</strong> 7.75 decimal hours at $18.50 per hour = $143.38 gross pay.</li>
+    <li><strong>Standard Shift with Lunch:</strong> Shift from 08:00 to 17:00 equals 9.0 hours gross. Subtracting a 30-minute unpaid break (0.50 decimal hours) leaves 8.50 net decimal hours. At $22.00 per hour, total gross pay is $187.00.</li>
+    <li><strong>Overnight Healthcare Shift:</strong> Start 21:45, End 06:15. Duration: 8 hours 30 minutes (510 total minutes = 8.50 decimal hours).</li>
+    <li><strong>Project Deadline Calculation:</strong> Starting at 11:30 AM with a 4-hour 45-minute task duration yields a completion time of 4:15 PM (16:15).</li>
   </ul>
 </section>
 
@@ -129,14 +173,19 @@ faqSchema:
   <p>Switch to the Add or Subtract tab. Enter a starting time, then enter the hours and minutes to add or remove. Choose whether to add or subtract using the buttons and click Calculate. This is useful for working out what time a task ends or what clock time results from adding a time zone offset.</p>
 
   <h3>Why does AM and PM matter so much in time calculations?</h3>
-  <p>The tool uses 24-hour time internally. 3:00 PM is 15:00 in 24-hour format, not 3:00. Entering the wrong AM or PM value shifts your result by exactly 12 hours and is one of the most common errors in manual time calculations. The time input field on modern browsers usually enforces this automatically.</p>
+  <p>The tool uses 24-hour time internally. 3:00 PM is 15:00 in 24-hour format, not 3:00. Entering the wrong AM or PM value shifts your result by exactly 12 hours and is one of the most common errors in manual time calculations.</p>
 </section>
 
 <section class="related">
   <h2>Related Date and Time Tools</h2>
   <ul>
-    <li><a href="/age-calculator/">Age Calculator</a></li>
+    <li><a href="/hours-calculator/">Hours Calculator</a></li>
+    <li><a href="/business-days-calculator/">Business Days Calculator</a></li>
+    <li><a href="/hourly-to-salary-calculator/">Hourly to Salary Calculator</a></li>
+    <li><a href="/pay-raise-calculator/">Pay Raise Calculator</a></li>
     <li><a href="/date-calculator/">Date Calculator</a></li>
+    <li><a href="/days-until-calculator/">Days Until Calculator</a></li>
+    <li><a href="/age-calculator/">Age Calculator</a></li>
     <li><a href="/">Browse All Tools</a></li>
   </ul>
 </section>

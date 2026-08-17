@@ -5,123 +5,156 @@ pagination:
   size: 1
   alias: datePage
   addAllPagesToCollections: true
-permalink: "/{{ datePage.days }}-days-from-today/index.html"
+permalink: "/{{ datePage.days }}-days-from-today/"
 eleventyComputed:
-  title: "{{ datePage.days }} Days From Today - Exact Date Calculator"
-  description: "Find out the exact date that is {{ datePage.days }} days from today. See the day of the week, total weeks, and days remaining."
+  title: "{{ datePage.days }} Days From Today: {{ datePage.targetDateShort }}"
+  description: "{{ datePage.days }} days from today is {{ datePage.targetDateLong }}. Breakdown: {{ datePage.weeks }} weeks and {{ datePage.remainderDays }} days, plus common uses."
 ---
 
 <div class="date-page-container">
     <h1>{{ datePage.days }} Days From Today</h1>
-    <p>Need to know the exact date? Below is the calculated calendar date corresponding to exactly {{ datePage.days }} days from today including day of the week detail.</p>
+    <p>Need the exact date {{ datePage.days }} days from today? The answer is already calculated below, no need to count on a calendar.</p>
 
-    <div style="background: #eff6ff; border: 1px solid #bfdbfe; padding: 2rem; border-radius: 12px; text-align: center; margin: 2rem 0; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">
-        <p style="font-size: 1rem; color: #4b5563; font-weight: 600; margin-top: 0; text-transform: uppercase; letter-spacing: 0.05em;">Calculated Future Date</p>
-        <div id="out-target-date" style="font-size: 2.6rem; font-weight: 800; color: #1e40af; line-height: 1.2; word-wrap: break-word;">Loading...</div>
-        <p style="color: #6b7280; font-size: 0.95rem; margin-bottom: 0;" id="out-countdown">Initializing countdown...</p>
+    {# ── MAIN ANSWER — baked at build time, visible in raw HTML ─────────── #}
+    <div style="background: var(--accent-light, #eff6ff); border: 1px solid var(--border-strong, #bfdbfe); padding: 2rem; border-radius: 12px; text-align: center; margin: 2rem 0; box-shadow: 0 4px 6px -1px rgba(0,0,0,.05);">
+        <p style="font-size: .9rem; color: var(--text-sub); font-weight: 600; margin-top: 0; text-transform: uppercase; letter-spacing: .05em;">Exact Date</p>
+        <div id="out-target-date" style="font-size: 2.4rem; font-weight: 800; color: var(--primary); line-height: 1.2; word-wrap: break-word;" aria-live="polite">{{ datePage.targetDateLong }}</div>
+        <p style="color: var(--text-muted); font-size: .95rem; margin-bottom: 0;">{{ datePage.days }} calendar days from today, {{ datePage.targetISO | readableDate }}</p>
     </div>
 
-    <div class="card-grid" style="margin-top: 2rem; margin-bottom: 2rem;">
-        <div style="background: #f9fafb; padding: 1.25rem; border-radius: 8px; border: 1px solid #e5e7eb;">
-            <div style="font-size: 0.85rem; color: #6b7280; text-transform: uppercase;">Standard Weeks</div>
-            <div style="font-size: 1.6rem; font-weight: 700; color: #111827; margin-top: 0.25rem;">
-                {{ (datePage.days / 7).toFixed(1) }} weeks
-            </div>
+    {# ── STATS GRID ───────────────────────────────────────────────────────── #}
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+        <div style="background: var(--input-bg); padding: 1.1rem; border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+            <div style="font-size: .8rem; color: var(--text-sub); text-transform: uppercase; margin-bottom: .25rem;">Weeks</div>
+            <div style="font-size: 1.7rem; font-weight: 700; color: var(--primary);">{{ datePage.weeks }}</div>
+            <div style="font-size: .75rem; color: var(--text-muted);">+ {{ datePage.remainderDays }} days remainder</div>
         </div>
-        <div style="background: #f9fafb; padding: 1.25rem; border-radius: 8px; border: 1px solid #e5e7eb;">
-            <div style="font-size: 0.85rem; color: #6b7280; text-transform: uppercase;">Business Days</div>
-            <div style="font-size: 1.6rem; font-weight: 700; color: #111827; margin-top: 0.25rem;">
-                {{ (datePage.days * 5 / 7).toFixed(0) }} days
-            </div>
-            <div style="font-size: 0.75rem; color: #9ca3af; margin-top: 0.25rem;">Excludes weekends</div>
+        <div style="background: var(--input-bg); padding: 1.1rem; border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+            <div style="font-size: .8rem; color: var(--text-sub); text-transform: uppercase; margin-bottom: .25rem;">Approx. Months</div>
+            <div style="font-size: 1.7rem; font-weight: 700; color: var(--primary);">{{ datePage.approxMonths }}</div>
+            <div style="font-size: .75rem; color: var(--text-muted);">calendar months</div>
         </div>
-    </div>
-
-    <!-- Quick shift control -->
-    <div style="background: #fdf2f8; border: 1px solid #fbcfe8; padding: 1.5rem; border-radius: 8px; margin-bottom: 3rem;">
-        <h3 style="margin-top: 0; font-size: 1.1rem; color: #9d174d;">Calculate a custom number of days</h3>
-        <p style="font-size: 0.9rem; color: #c21d56; margin-bottom: 1rem;">Change the number of days to instantly see the future date calculated in real time.</p>
-        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-            <input type="number" id="custom-days" value="{{ datePage.days }}" min="1" max="100000" style="flex: 1; min-width: 120px; padding: 0.6rem; border: 1px solid #fbcfe8; border-radius: 6px;" inputmode="numeric">
-            <button id="btn-custom-calc" style="background: #db2777; color: #fff; border:none; padding:0.6rem 1.2rem; border-radius:6px; cursor:pointer; font-weight:600;">Calculate</button>
+        <div style="background: var(--input-bg); padding: 1.1rem; border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+            <div style="font-size: .8rem; color: var(--text-sub); text-transform: uppercase; margin-bottom: .25rem;">Business Days</div>
+            <div style="font-size: 1.7rem; font-weight: 700; color: var(--primary);">~{{ datePage.businessDays }}</div>
+            <div style="font-size: .75rem; color: var(--text-muted);">weekdays (excl. weekends)</div>
         </div>
     </div>
 
+    {# ── CUSTOM DAYS CONTROL ──────────────────────────────────────────────── #}
+    <div class="tool" style="background: var(--input-bg); border: 1px solid var(--border); padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem;">
+        <h2 style="margin-top: 0; font-size: 1.1rem;">Calculate a Different Number of Days</h2>
+        <p style="font-size: .9rem; color: var(--text-sub); margin-bottom: 1rem;">Enter any number of days to see the resulting future date in real time.</p>
+        <div style="display: flex; gap: .5rem; flex-wrap: wrap;">
+            <label for="custom-days" class="sr-only">Number of days from today</label>
+            <input type="number" id="custom-days" value="{{ datePage.days }}" min="1" max="100000" inputmode="numeric" style="flex: 1; min-width: 120px; margin-bottom: 0;" aria-label="Number of days from today">
+            <button type="button" id="btn-custom-calc" style="flex-shrink: 0;">Calculate</button>
+        </div>
+        <div id="custom-result" style="margin-top: 1rem; font-weight: 600; color: var(--primary); min-height: 1.5rem;" aria-live="polite"></div>
+    </div>
+
+    {# ── SHARE ────────────────────────────────────────────────────────────── #}
+    <div style="display: flex; gap: .75rem; flex-wrap: wrap; margin-bottom: 2rem;">
+        <button type="button" id="btn-share" style="font-size: .9rem; padding: .45rem 1rem;">Share This Date</button>
+        <button type="button" id="btn-copy" style="font-size: .9rem; padding: .45rem 1rem;">Copy Result</button>
+    </div>
+
+    {# ── USE CASE CONTENT (unique per page) ───────────────────────────────── #}
     <section class="how">
-        <h2>How to Calculate {{ datePage.days }} Days From Today</h2>
-        <p>To find out what date falls exactly {{ datePage.days }} days in the future, you must add that number of calendar days to today's date. The calculation is simple but requires accounting for the variable lengths of calendar months (28, 30, or 31 days) as well as leap years.</p>
-        <p>For example, if you add {{ datePage.days }} days, you are checking a horizon that spans multiple months. Doing this calculation manually is prone to errors, which makes using a dedicated calendar arithmetic tool the safest option.</p>
+        <h2>When Is {{ datePage.days }} Days Used as a Deadline?</h2>
+        <p>{{ datePage.useCase }}</p>
+        <ul>
+            {% for ex in datePage.examples %}
+            <li>{{ ex }}</li>
+            {% endfor %}
+        </ul>
     </section>
 
     <section class="formula">
-        <h2>Custom Date Arithmetic</h2>
-        <p>If you prefer calculating schedule dates manually, divide the total days by 7 to determine the number of weeks involved. Any remaining remainder represents the leftover days to count forward individually.</p>
-        <p><strong>{{ datePage.days }} days = {{ (datePage.days / 7) | int }} weeks and {{ datePage.days % 7 }} days</strong></p>
-        <p>This layout helps when checking deadlines or billing cycles that must span specific intervals. If you need to add or subtract standard calendar months or years, visit our dedicated <a href="/date-calculator/" style="color: var(--primary); text-decoration: underline;">Date Calculator</a>.</p>
+        <h2>How to Calculate {{ datePage.days }} Days From Today Manually</h2>
+        <p>Start from today's date. Count forward by individual calendar days, making sure to account for the variable lengths of months (28, 29, 30, or 31 days) and whether the year is a leap year.</p>
+        <p><strong>{{ datePage.days }} days = {{ datePage.weeks }} full weeks and {{ datePage.remainderDays }} days.</strong></p>
+        <p>You can also think of it as approximately <strong>{{ datePage.approxMonths }} calendar months</strong> (using an average month of 30.44 days). In working-day terms, you are looking at roughly <strong>{{ datePage.businessDays }} business days</strong>, excluding Saturdays and Sundays. Public holidays may further reduce that count depending on your country and jurisdiction.</p>
+        <p>For adding or subtracting months and years, or for finding the difference between two specific dates, use our full <a href="/date-calculator/">Date Calculator</a>.</p>
     </section>
 
     <section class="faq">
         <h2>Frequently Asked Questions</h2>
-        <h3>Does this date calculation include weekends?</h3>
-        <p>Yes. The future date is calculated by adding calendar days. This includes all Saturdays, Sundays, and public holidays.</p>
 
-        <h3>Does the calculation change during leap years?</h3>
-        <p>Yes. The underlying arithmetic accounts for years that contain 366 days instead of 365, ensuring that the target date is completely accurate regardless of the year.</p>
+        <h3>What date is {{ datePage.days }} days from today?</h3>
+        <p>{{ datePage.days }} days from today is <strong>{{ datePage.targetDateLong }}</strong>. This is calculated by adding {{ datePage.days }} calendar days to today's date at the time of the most recent site build.</p>
 
-        <h3>Can I schedule payments using this date?</h3>
-        <p>Yes, though it is best to verify whether the calculated day falls on a bank holiday or weekend. Financial transactions are typically processed on the next business day.</p>
+        <h3>Does the {{ datePage.days }}-day count include weekends?</h3>
+        <p>Yes. Calendar days include every day of the week. If you need only business days, the equivalent is approximately {{ datePage.businessDays }} working days (excluding weekends but not public holidays, which vary by country).</p>
+
+        <h3>Does a leap year change the {{ datePage.days }}-day result?</h3>
+        <p>Only if your {{ datePage.days }}-day window crosses the 29th of February. The underlying calendar arithmetic handles leap years automatically, so the date shown above is always accurate.</p>
+
+        <h3>How do I add {{ datePage.days }} days in Excel or Google Sheets?</h3>
+        <p>Type today's date in cell A1. In B1, enter <code>=A1+{{ datePage.days }}</code>. Both spreadsheet applications treat dates as integers, so adding {{ datePage.days }} to a date cell moves it exactly {{ datePage.days }} calendar days forward. Format B1 as a date to see the result in readable form.</p>
+
+        <h3>What is {{ datePage.days }} days from today in weeks?</h3>
+        <p>{{ datePage.days }} days equals <strong>{{ datePage.weeks }} complete weeks and {{ datePage.remainderDays }} day{{ datePage.remainderDays !== 1 | string }}{{ "s" if datePage.remainderDays !== 1 }}</strong>.</p>
     </section>
 
-    <section style="background: #f9fafb; border: 1px solid #e5e7eb; padding: 1.5rem; border-radius: 8px; margin-top: 3rem;">
-        <h3 style="margin-top:0;">Essential Finance and Wealth Tools</h3>
-        <p style="font-size:0.95rem; color: #6b7280; line-height: 1.5;">Planning schedule dates is often the first step in financial forecasting. Use our compound interest growth tool to model how investments accumulate wealth over fixed periods, or construct detailed amortization table exports to analyze your debts.</p>
-        <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
-            <a href="/compound-interest-calculator/" style="background: #2563eb; color: #fff; text-decoration: none; padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600;">Compound Interest Calculator</a>
-            <a href="/amortization-calculator/" style="background: #4b5563; color: #fff; text-decoration: none; padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600;">Amortization Calculator</a>
-            <a href="/date-calculator/" style="background: #10b981; color: #fff; text-decoration: none; padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600;">Full Date Calculator</a>
-        </div>
+    {# ── CLUSTER NAVIGATION ───────────────────────────────────────────────── #}
+    <section class="related">
+        <h2>Related Date Calculators</h2>
+        <ul>
+            <li><a href="/date-calculator/">Date Calculator: add or subtract any date interval</a></li>
+            <li><a href="/days-until-calculator/">Days Until Calculator: days remaining until a target date</a></li>
+            <li><a href="/age-calculator/">Age Calculator</a></li>
+            <li><a href="/7-days-from-today/">7 Days From Today</a></li>
+            <li><a href="/14-days-from-today/">14 Days From Today</a></li>
+            <li><a href="/30-days-from-today/">30 Days From Today</a></li>
+            <li><a href="/60-days-from-today/">60 Days From Today</a></li>
+            <li><a href="/90-days-from-today/">90 Days From Today</a></li>
+            <li><a href="/180-days-from-today/">180 Days From Today</a></li>
+        </ul>
+        <p>Want to embed this tool on your site? <a href="/embed/">Grab the embed code</a> and get a live date calculator in one line of HTML.</p>
     </section>
 </div>
 
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const offset = {{ datePage.days }};
-        const outTarget = document.getElementById('out-target-date');
-        const outCountdown = document.getElementById('out-countdown');
-        const customDaysInput = document.getElementById('custom-days');
-        const btnCustomCalc = document.getElementById('btn-custom-calc');
+(function() {
+    var days = {{ datePage.days }};
+    var customInput = document.getElementById('custom-days');
+    var btnCalc = document.getElementById('btn-custom-calc');
+    var resultDiv = document.getElementById('custom-result');
+    var outTarget = document.getElementById('out-target-date');
+    var btnShare = document.getElementById('btn-share');
+    var btnCopy = document.getElementById('btn-copy');
 
-        function updateDate(daysToAdd) {
-            const today = new Date();
-            const target = new Date();
-            target.setDate(today.getDate() + daysToAdd);
+    function getDateString(n) {
+        var d = new Date();
+        d.setDate(d.getDate() + n);
+        return d.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    }
 
-            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-            outTarget.textContent = target.toLocaleDateString('en-US', options);
-
-            // Compute countdown
-            const timeDiff = target.getTime() - today.getTime();
-            const daysRemaining = Math.max(0, Math.ceil(timeDiff / (1000 * 3600 * 24)));
-            
-            if (daysRemaining === 0) {
-                outCountdown.textContent = "The date is today!";
-            } else if (daysRemaining === 1) {
-                outCountdown.textContent = "Exactly tomorrow";
-            } else {
-                outCountdown.textContent = "Exactly " + daysRemaining + " days remaining";
-            }
+    btnCalc.addEventListener('click', function () {
+        var val = parseInt(customInput.value, 10);
+        if (val > 0) {
+            resultDiv.textContent = val + ' days from today is ' + getDateString(val);
         }
-
-        // Initialize with default query offset
-        updateDate(offset);
-
-        btnCustomCalc.addEventListener('click', () => {
-            const customVal = parseInt(customDaysInput.value) || 0;
-            if (customVal > 0) {
-                updateDate(customVal);
-                // Dynamically update the header for UX clarity (without reloading)
-                document.querySelector('.date-page-container h1').textContent = customVal + " Days From Today";
-            }
-        });
     });
+
+    btnShare.addEventListener('click', function () {
+        if (navigator.share) {
+            navigator.share({ title: '{{ datePage.days }} Days From Today', url: window.location.href });
+        } else if (navigator.clipboard) {
+            navigator.clipboard.writeText(window.location.href);
+            btnShare.textContent = 'Link Copied!';
+            setTimeout(function () { btnShare.textContent = 'Share This Date'; }, 2000);
+        }
+    });
+
+    btnCopy.addEventListener('click', function () {
+        var text = outTarget.textContent + ' (' + days + ' days from today)';
+        if (navigator.clipboard) {
+            navigator.clipboard.writeText(text);
+            btnCopy.textContent = 'Copied!';
+            setTimeout(function () { btnCopy.textContent = 'Copy Result'; }, 2000);
+        }
+    });
+})();
 </script>

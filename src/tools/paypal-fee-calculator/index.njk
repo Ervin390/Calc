@@ -1,0 +1,189 @@
+---
+layout: layout.njk
+title: "PayPal Fee Calculator: Calculate Merchant Fees"
+description: Calculate your PayPal transaction fees, net payout, and exact billing amount to invoice clients. Compare US domestic, international, and QR rates.
+appName: PayPal Fee Calculator
+category: finance
+permalink: /paypal-fee-calculator/
+updated: 2026-08-17
+---
+
+{% from "ad-slot.njk" import adSlot %}
+
+<h1>PayPal Fee Calculator</h1>
+<p>Determine exactly how much PayPal will deduct from your payments and see your net payout. You can also calculate the exact amount to invoice or charge a client in order to receive a target payout after fees.</p>
+
+<section class="tool">
+    <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+        <div class="tool-controls" style="flex: 1; min-width: 300px;">
+            <label for="pf-amount">Transaction Amount ($)</label>
+            <input type="number" id="pf-amount" value="100.00" min="0.01" step="0.01" inputmode="decimal">
+
+            <label for="pf-rate-option">PayPal Fee Option</label>
+            <select id="pf-rate-option">
+                <option value="us-standard">US Goods & Services (3.49% + $0.49)</option>
+                <option value="intl">International Goods & Services (4.99% + $0.49)</option>
+                <option value="keyed">Invoicing / Keyed Cards (3.49% + $0.49)</option>
+                <option value="qr-high">QR Code Payments $10 or more (1.90% + $0.10)</option>
+                <option value="qr-low">QR Code Payments under $10 (2.40% + $0.05)</option>
+                <option value="micro">PayPal Micropayments (5.00% + $0.05)</option>
+                <option value="custom">Custom Rate</option>
+            </select>
+
+            <div id="pf-custom-rate-inputs" style="display: none; padding: 1rem; background: var(--input-bg); border-radius: 8px; margin-bottom: 1.25rem; border: 1px solid var(--border);">
+                <div style="display: flex; gap: 1rem;">
+                    <div style="flex: 1;">
+                        <label for="pf-custom-pct" style="margin-bottom: 0.25rem;">Custom Percent (%)</label>
+                        <input type="number" id="pf-custom-pct" value="3.49" min="0" max="100" step="0.1" inputmode="decimal" style="margin-bottom: 0;">
+                    </div>
+                    <div style="flex: 1;">
+                        <label for="pf-custom-fixed" style="margin-bottom: 0.25rem;">Custom Fixed ($)</label>
+                        <input type="number" id="pf-custom-fixed" value="0.49" min="0" step="0.01" inputmode="decimal" style="margin-bottom: 0;">
+                    </div>
+                </div>
+            </div>
+
+            <label>Calculation Mode</label>
+            <div class="btn-group" id="pf-mode-group" style="margin-bottom: 1rem;">
+                <button type="button" class="preset-btn active" id="pf-mode-standard" data-mode="standard">Standard: What I Receive</button>
+                <button type="button" class="preset-btn secondary" id="pf-mode-reverse" data-mode="reverse">Reverse: What to Charge</button>
+            </div>
+            
+            <p id="pf-mode-hint" style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem; margin-bottom: 0;">
+                Calculates the net payout you will receive from a total payment of $100.
+            </p>
+        </div>
+
+        <div style="flex: 1; min-width: 300px;">
+            <div style="background: var(--input-bg); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border); box-shadow: var(--shadow-sm); text-align: center; margin-bottom: 1.5rem;">
+                <p id="pf-main-payout-label" style="font-weight: 600; color: var(--text-sub); margin-top: 0; margin-bottom: 0.25rem;">You Receive (Net Payout)</p>
+                <div id="pf-main-output" style="font-size: 2.75rem; font-weight: 800; color: #059669; line-height: 1;">$96.02</div>
+                <p id="pf-main-subtext" style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; margin-bottom: 0;">from a $100.00 charge</p>
+            </div>
+
+            <div style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem; font-size: 0.95rem;">
+                    <span style="color: var(--text-sub); font-weight: 500;">Original Amount</span>
+                    <span id="pf-breakdown-original" style="font-weight: 600; color: var(--text-main);">$100.00</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem; font-size: 0.95rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border);">
+                    <span style="color: var(--text-sub); font-weight: 500;">Total PayPal Fees</span>
+                    <span id="pf-breakdown-fees" style="font-weight: 600; color: #dc2626; font-size: 1.05rem;">-$3.98</span>
+                </div>
+                
+                <div style="font-size: 0.8rem; color: var(--text-muted); display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-bottom: 0.5rem;">
+                    <div>Percentage Fee (<span id="pf-breakdown-rate-pct">3.49%</span>)</div>
+                    <div style="text-align: right;" id="pf-breakdown-pct-amount">$3.49</div>
+ 
+                    <div>Fixed Fee</div>
+                    <div style="text-align: right;" id="pf-breakdown-fixed-amount">$0.49</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tool-actions" style="margin-top: 2rem;">
+        <button type="button" class="secondary" data-share>Share link</button>
+        <span class="tool-actions-msg" role="status" aria-live="polite"></span>
+    </div>
+</section>
+
+{{ adSlot(site, "inline") }}
+
+<section class="how">
+    <h2>How to Calculate PayPal Transaction Fees</h2>
+    <p>Processing payments through PayPal involves merchant percentage rates plus fixed fees per transaction. Under PayPal's current US standard pricing structure, commercial transactions incur a rate of 3.49% plus a $0.49 fixed fee per invoice.</p>
+    <p>Using this calculator is simple: enter your invoice or transaction amount and select your processing category. Our tool instantly determines your exact net payout and also works backward to specify the precise gross billing amount needed to clear your target net earnings after fees.</p>
+</section>
+
+<section class="formula">
+    <h2>The PayPal Fee Equations</h2>
+    <p>To calculate what you will receive (Standard payout math):</p>
+    <p><code>Net Payout = Charge Amount - (Charge Amount x Rate Percentage) - Fixed Fee</code></p>
+    <p>For example, at 3.49% + $0.49 on a <strong>$100.00</strong> transaction: <code>($100.00 x 0.0349) + $0.49 = $3.98</code> total fee. Your net payout is <strong>$96.02</strong>.</p>
+    <p>To calculate what you must invoice (Reverse charge math):</p>
+    <p><code>Gross Invoice = (Target Payout + Fixed Fee) / (1 - Rate Percentage)</code></p>
+    <p>For example, if you want to clear exactly <strong>$100.00</strong> net after a 3.49% + $0.49 fee: <code>($100.00 + $0.49) / (1 - 0.0349) = $100.49 / 0.9651 = $104.12</code>. You must charge <strong>$104.12</strong>.</p>
+</section>
+
+<section class="examples">
+    <h2>Common PayPal Fee Reference Table</h2>
+    <p>Here is a breakdown of standard US commercial processing fees (3.49% + $0.49) for typical payment amounts.</p>
+    <table style="width: 100%; border-collapse: collapse; margin-top: 1rem; border-top: 1px solid var(--border); font-size: 0.95rem;">
+        <thead>
+            <tr style="border-bottom: 2px solid var(--border); background-color: var(--input-bg);">
+                <th style="text-align: left; padding: 0.6rem 0.75rem; color: var(--text-sub);">Sale Amount</th>
+                <th style="text-align: right; padding: 0.6rem 0.75rem; color: #dc2626;">Standard Fee</th>
+                <th style="text-align: right; padding: 0.6rem 0.75rem; color: #059669;">Standard Net Payout</th>
+                <th style="text-align: right; padding: 0.6rem 0.75rem; color: #2563eb;">Invoice to Receive Sale</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.6rem 0.75rem; font-weight: 500;">$10.00</td>
+                <td style="text-align: right; padding: 0.6rem 0.75rem; color: #dc2626;">$0.84</td>
+                <td style="text-align: right; padding: 0.6rem 0.75rem;">$9.16</td>
+                <td style="text-align: right; padding: 0.6rem 0.75rem; font-weight: 500;">$10.87</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.6rem 0.75rem; font-weight: 500;">$50.00</td>
+                <td style="text-align: right; padding: 0.6rem 0.75rem; color: #dc2626;">$2.24</td>
+                <td style="text-align: right; padding: 0.6rem 0.75rem;">$47.76</td>
+                <td style="text-align: right; padding: 0.6rem 0.75rem; font-weight: 500;">$52.32</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.6rem 0.75rem; font-weight: 500;">$100.00</td>
+                <td style="text-align: right; padding: 0.6rem 0.75rem; color: #dc2626;">$3.98</td>
+                <td style="text-align: right; padding: 0.6rem 0.75rem;">$96.02</td>
+                <td style="text-align: right; padding: 0.6rem 0.75rem; font-weight: 500;">$104.12</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.6rem 0.75rem; font-weight: 500;">$500.00</td>
+                <td style="text-align: right; padding: 0.6rem 0.75rem; color: #dc2626;">$17.94</td>
+                <td style="text-align: right; padding: 0.6rem 0.75rem;">$482.06</td>
+                <td style="text-align: right; padding: 0.6rem 0.75rem; font-weight: 500;">$518.59</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.6rem 0.75rem; font-weight: 500;">$1,000.00</td>
+                <td style="text-align: right; padding: 0.6rem 0.75rem; color: #dc2626;">$35.39</td>
+                <td style="text-align: right; padding: 0.6rem 0.75rem;">$964.61</td>
+                <td style="text-align: right; padding: 0.6rem 0.75rem; font-weight: 500;">$1,036.67</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+{{ adSlot(site, "incontent") }}
+
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+    
+    <h3>How do I avoid paying PayPal transaction fees?</h3>
+    <p>While standard commercial transactions incur merchant fees, personal transfers between friends and family using a linked bank account or PayPal balance are completely fee-free within the US. For commercial invoices, businesses frequently use reverse fee calculation to pass processing costs to clients or offer alternative payment options like ACH bank transfers.</p>
+    
+    <h3>What is the difference between PayPal standard and international rates?</h3>
+    <p>International transactions carry an additional 1.50% cross-border processing fee on top of standard commercial rates, raising the percentage fee from 3.49% to 4.99% plus currency-specific fixed charges.</p>
+    
+    <h3>Are PayPal micropayments cheaper for low dollar sales?</h3>
+    <p>Yes. For transactions under $10.00, PayPal offers a micropayments pricing structure (5.00% + $0.05). Because the fixed fee drops from $0.49 to $0.05, micro transactions retain significantly higher net margins on low-priced digital items.</p>
+
+    <h3>How does PayPal pricing compare to Stripe?</h3>
+    <p>Standard PayPal online invoicing rates (3.49% + $0.49) are higher than standard Stripe US card processing (2.90% + $0.30). However, PayPal offers brand recognition and embedded wallet convenience that can increase checkout conversion rates.</p>
+</section>
+
+<section class="related">
+    <h2>Related Financing and Payment Tools</h2>
+    <ul>
+        <li><a href="/stripe-fee-calculator/">Stripe Fee Calculator</a></li>
+        <li><a href="/margin-calculator/">Margin & Markup Calculator</a></li>
+        <li><a href="/pay-raise-calculator/">Pay Raise Calculator</a></li>
+        <li><a href="/hourly-to-salary-calculator/">Hourly to Salary Calculator</a></li>
+        <li><a href="/percentage-calculator/">Percentage Calculator</a></li>
+        <li><a href="/">Browse All Tools</a></li>
+    </ul>
+</section>
+
+<div class="author">
+    <p><em>Published by the QuixCalc Team. Fee structures verified against current PayPal Merchant Rates. Last updated: August 2026.</em></p>
+</div>
+
+<script src="paypal.js" defer></script>

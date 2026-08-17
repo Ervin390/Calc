@@ -408,18 +408,29 @@
     "slug": "date-calculator",
     "name": "Date Calculator",
     "icon": "📅",
-    "description": "Determine exact business days remaining between two calendar dates.",
+    "description": "Add or subtract days, weeks, and months from any starting date.",
     "category": "date",
     "popular": false,
     "url": "/date-calculator/",
     "posts": [
       {
-        "url": "/blog/business-days-calculator-contract-deadlines/",
-        "title": "How to Count Business Days Between Dates"
-      },
-      {
         "url": "/blog/days-between-historical-events/",
         "title": "Counting Days Between Historical Events"
+      }
+    ]
+  },
+  {
+    "slug": "business-days-calculator",
+    "name": "Business Days Calculator",
+    "icon": "💼",
+    "description": "Calculate the number of business days between two dates or add/subtract business days.",
+    "category": "date",
+    "popular": true,
+    "url": "/business-days-calculator/",
+    "posts": [
+      {
+        "url": "/blog/business-days-calculator-contract-deadlines/",
+        "title": "How to Count Business Days Between Dates"
       }
     ]
   },
@@ -666,6 +677,46 @@
         "title": "How to Calculate Overtime Pay"
       }
     ]
+  },
+  {
+    "slug": "margin-calculator",
+    "name": "Margin & Markup Calculator",
+    "icon": "📈",
+    "description": "Calculate profit margin, markup percentage, cost ratio, and selling price easily for business and e-commerce.",
+    "category": "finance",
+    "popular": true,
+    "url": "/margin-calculator/",
+    "posts": []
+  },
+  {
+    "slug": "paypal-fee-calculator",
+    "name": "PayPal Fee Calculator",
+    "icon": "💳",
+    "description": "Calculate PayPal transaction fees, net payout, and exact billing amount to invoice clients.",
+    "category": "finance",
+    "popular": true,
+    "url": "/paypal-fee-calculator/",
+    "posts": []
+  },
+  {
+    "slug": "lorem-ipsum-generator",
+    "name": "Lorem Ipsum Generator",
+    "icon": "📝",
+    "description": "Generate customizable Lorem Ipsum placeholder text in paragraphs, sentences, words, HTML, or Markdown.",
+    "category": "dev",
+    "popular": true,
+    "url": "/lorem-ipsum-generator/",
+    "posts": []
+  },
+  {
+    "slug": "aspect-ratio-calculator",
+    "name": "Aspect Ratio Calculator",
+    "icon": "📐",
+    "description": "Calculate missing image and video dimensions, crop proportions, and aspect ratios with presets for 16:9, 4:3, 9:16, and 4K.",
+    "category": "dev",
+    "popular": true,
+    "url": "/aspect-ratio-calculator/",
+    "posts": []
   }
 ]
 

@@ -1,6 +1,6 @@
 ---
 layout: layout.njk
-title: "Password Manager vs Saving Passwords in Your Browser - The Real Security Difference"
+title: "Password Manager vs Browser Save: Security"
 description: Saving passwords in Chrome or Safari feels convenient but it comes with real security tradeoffs. Here is what browser-saved passwords protect against and what they do not.
 category: blog
 date: 2026-08-02

@@ -1,5 +1,5 @@
 ---
-title: "How to Convert Hourly Wage to Annual Salary: The Simple Formula"
+title: "Convert Hourly Wage to Salary: Simple Formula"
 description: Convert your hourly pay rate to an annual salary with standard or custom work schedules. Learn the double and add three zeros trick.
 date: 2026-08-09
 tags: blog

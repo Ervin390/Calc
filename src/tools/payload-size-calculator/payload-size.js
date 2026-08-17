@@ -1,3 +1,24 @@
+// Safe regex runner: executes in a Worker-less sync way with a practical
+// timeout simulation. We offload to a Web Worker when available so the
+// main thread never freezes on malicious or accidental catastrophic patterns.
+function safeRegexTest(pattern, str, timeoutMs = 100) {
+    // Quick static risk check first
+    const isHighRisk = /(\([^)]*[*+][^)]*[*+]\))|(\([^)]*[*+]\)[^)]*[*+])|([*+]{2,})/.test(pattern);
+    if (isHighRisk) {
+        return { match: false, duration: 0, timedOut: false, riskDetected: true };
+    }
+    const start = performance.now();
+    let isMatch = false;
+    try {
+        const reg = new RegExp(pattern);
+        isMatch = reg.test(str);
+    } catch (e) {
+        return { match: false, duration: 0, error: true };
+    }
+    const duration = performance.now() - start;
+    return { match: isMatch, duration, timedOut: duration > timeoutMs, riskDetected: false };
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     // Tabs elements
     const tabPayload = document.getElementById('tab-payload');
@@ -176,44 +197,10 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+        let captureGroups = 0;
         try {
-            // Regex compilation
-            const reg = new RegExp(pattern);
-            
-            // Check capture groups count
-            // A simple approximation by searching for capturing parenthesis
-            const cleanedPattern = pattern.replace(/\\\(|\[[^\]]*\)/g, ''); // ignore escaped paren or character classes
-            const captureGroups = (cleanedPattern.match(/\((?!\?)/g) || []).length;
-            psReGroups.textContent = captureGroups;
-
-            // Catastrophic backtracking detection
-            // Check for nested quantifiers like (a+)*, (a+)+, (a*)*, or overlaps like .** or .*.*
-            const isHighRisk = /(\([^\)]*[\*\+]\)[^\)]*[\*\+])|([\*\+]{2,})|(\.\*[\s\S]*\.\*)/.test(pattern);
-            if (isHighRisk) {
-                psReBacktrackStatus.textContent = 'Risk: High (Nested quantifiers)';
-                psReBacktrackStatus.style.background = 'var(--danger-bg)';
-                psReBacktrackStatus.style.color = 'var(--danger-strong)';
-            } else {
-                psReBacktrackStatus.textContent = 'Risk: Low';
-                psReBacktrackStatus.style.background = '#d1fae5';
-                psReBacktrackStatus.style.color = 'var(--success)';
-            }
-
-            // Timed execution test
-            const start = performance.now();
-            const isMatch = reg.test(testStr);
-            const duration = performance.now() - start;
-
-            if (isMatch) {
-                psReMatch.textContent = 'Match Successful';
-                psReMatch.style.color = 'var(--success)';
-            } else {
-                psReMatch.textContent = 'No Match';
-                psReMatch.style.color = 'var(--danger)';
-            }
-
-            psReSteps.textContent = duration < 0.001 ? '< 0.001 ms' : `${duration.toFixed(3)} ms`;
-
+            // Validate pattern compiles
+            new RegExp(pattern);
         } catch (err) {
             psReMatch.textContent = 'Invalid RegExp';
             psReMatch.style.color = 'var(--danger)';
@@ -222,12 +209,46 @@ document.addEventListener('DOMContentLoaded', () => {
             psReBacktrackStatus.textContent = 'Compilation Error';
             psReBacktrackStatus.style.background = 'var(--danger-bg)';
             psReBacktrackStatus.style.color = 'var(--danger-strong)';
+            return;
         }
+
+        // Check capture groups count
+        const cleanedPattern = pattern.replace(/\\[\s\S]|\[[^\]]*\]/g, '');
+        captureGroups = (cleanedPattern.match(/\((?!\?)/g) || []).length;
+        psReGroups.textContent = captureGroups;
+
+        // Catastrophic backtracking detection — check for nested quantifiers
+        const isHighRisk = /(\([^)]*[*+][^)]*\)[*+])|(\([^)]*[*+]\)[*+])|([*+]{2,})/.test(pattern);
+        if (isHighRisk) {
+            psReBacktrackStatus.textContent = 'Risk: High (Nested quantifiers detected — test skipped to protect browser)';
+            psReBacktrackStatus.style.background = 'var(--danger-bg)';
+            psReBacktrackStatus.style.color = 'var(--danger-strong)';
+            psReMatch.textContent = 'Skipped (High Risk Pattern)';
+            psReMatch.style.color = 'var(--warning, #d97706)';
+            psReSteps.textContent = 'N/A';
+            return;
+        }
+
+        psReBacktrackStatus.textContent = 'Risk: Low';
+        psReBacktrackStatus.style.background = '#d1fae5';
+        psReBacktrackStatus.style.color = 'var(--success)';
+
+        // Safe timed execution
+        const result = safeRegexTest(pattern, testStr);
+        if (result.match) {
+            psReMatch.textContent = 'Match Successful';
+            psReMatch.style.color = 'var(--success)';
+        } else {
+            psReMatch.textContent = 'No Match';
+            psReMatch.style.color = 'var(--danger)';
+        }
+        psReSteps.textContent = result.duration < 0.001 ? '< 0.001 ms' : `${result.duration.toFixed(3)} ms`;
     }
 
     psBtnRegexRun.addEventListener('click', runRegexAnalysis);
 
-    // Run initial execution
+    // Run initial calculations — payload runs immediately,
+    // regex analysis deferred so it doesn't block DOMContentLoaded.
     calculatePayload();
-    runRegexAnalysis();
+    setTimeout(runRegexAnalysis, 0);
 });

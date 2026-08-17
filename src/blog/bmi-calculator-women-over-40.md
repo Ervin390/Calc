@@ -1,6 +1,6 @@
 ---
 layout: layout.njk
-title: "BMI Calculator for Women Over 40 - What Changes and What Stays the Same"
+title: "BMI Calculator for Women Over 40: What Changes"
 description: Your BMI after 40 can be misleading. Learn why the same number means something different as you age and how to use it alongside better metrics.
 category: blog
 date: 2026-08-02
