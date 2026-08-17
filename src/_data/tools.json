@@ -716,7 +716,92 @@
     "category": "dev",
     "popular": true,
     "url": "/aspect-ratio-calculator/",
-    "posts": []
+    "posts": [
+      {
+        "url": "/blog/best-aspect-ratio-for-youtube-tiktok-instagram/",
+        "title": "Best Aspect Ratios for YouTube, TikTok & Instagram"
+      },
+      {
+        "url": "/blog/how-to-resize-images-without-stretching-proportions/",
+        "title": "How to Resize Images Without Distortion or Stretch"
+      }
+    ]
+  },
+  {
+    "slug": "paint-calculator",
+    "name": "Paint Calculator",
+    "icon": "🎨",
+    "description": "Calculate how much paint you need in gallons and liters for walls, ceilings, doors, and windows.",
+    "category": "home",
+    "popular": true,
+    "url": "/paint-calculator/",
+    "posts": [
+      {
+        "url": "/blog/how-much-paint-do-i-need-for-a-room-guide/",
+        "title": "How Much Paint Do I Need for a Room? Complete Guide"
+      },
+      {
+        "url": "/blog/how-to-calculate-paint-coverage-per-gallon/",
+        "title": "How to Calculate Paint Coverage Per Gallon & Liter"
+      }
+    ]
+  },
+  {
+    "slug": "tile-calculator",
+    "name": "Tile Calculator",
+    "icon": "🧱",
+    "description": "Calculate total floor and wall tiles required, square footage, grout line allowances, and waste percentage.",
+    "category": "home",
+    "popular": true,
+    "url": "/tile-calculator/",
+    "posts": [
+      {
+        "url": "/blog/how-many-tiles-do-i-need-for-a-bathroom-floor/",
+        "title": "How Many Tiles Do I Need for a Bathroom Floor?"
+      },
+      {
+        "url": "/blog/how-much-tile-waste-percentage-to-calculate/",
+        "title": "How Much Tile Waste Percentage to Calculate for Jobs"
+      }
+    ]
+  },
+  {
+    "slug": "mulch-calculator",
+    "name": "Mulch Calculator",
+    "icon": "🪵",
+    "description": "Calculate required mulch volume in cubic yards, cubic meters, and 2 cu ft bag counts for garden beds.",
+    "category": "gardening",
+    "popular": true,
+    "url": "/mulch-calculator/",
+    "posts": [
+      {
+        "url": "/blog/how-many-bags-of-mulch-in-a-cubic-yard/",
+        "title": "How Many Bags of Mulch in a Cubic Yard? Calculation"
+      },
+      {
+        "url": "/blog/how-deep-should-mulch-be-in-garden-beds/",
+        "title": "How Deep Should Mulch Be in Garden Beds & Lawns?"
+      }
+    ]
+  },
+  {
+    "slug": "soil-calculator",
+    "name": "Soil Calculator",
+    "icon": "🪴",
+    "description": "Calculate topsoil and potting soil volume in cubic yards, cubic feet, and bag counts for raised beds and gardens.",
+    "category": "gardening",
+    "popular": true,
+    "url": "/soil-calculator/",
+    "posts": [
+      {
+        "url": "/blog/how-much-topsoil-do-i-need-for-raised-beds/",
+        "title": "How Much Topsoil Do I Need for Raised Beds & Gardens?"
+      },
+      {
+        "url": "/blog/how-to-calculate-soil-volume-cubic-yards/",
+        "title": "How to Calculate Soil Volume in Cubic Yards & Feet"
+      }
+    ]
   }
 ]
 

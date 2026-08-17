@@ -1,0 +1,37 @@
+---
+layout: layout.njk
+title: Gardening and Outdoors Calculators
+description: Mulch, topsoil, and garden volume calculators. Free landscaping tools that calculate bulk materials and bag counts accurately.
+category: gardening
+appName: Gardening & Outdoors
+---
+
+<h1>Gardening & Outdoors Tools</h1>
+<p>Calculators designed to help gardeners, landscapers, and homeowners estimate soil, mulch, and outdoor materials.</p>
+
+{% from "tool-grid.njk" import toolGrid %}
+{{ toolGrid(tools, category) }}
+
+
+<section style="margin-top: 4rem; padding-top: 2rem; border-top: 2px solid var(--border);">
+    <h2 style="font-size: 1.6rem; color: var(--text-main); margin-bottom: 1rem;">Accurate Landscaping and Gardening Calculators</h2>
+    <p style="margin-bottom: 1rem; color: var(--text-muted); line-height: 1.6;">Ordering bulk landscaping materials can be challenging without exact volume calculations. Our mulch calculator helps you determine required cubic yards and standard 2 cubic foot bag counts for flower beds and garden pathways to prevent overspending on bulk deliveries.</p>
+    <p style="margin-bottom: 2.5rem; color: var(--text-muted); line-height: 1.6;">Building raised vegetable beds or laying fresh lawn topsoil requires exact volume math. Our soil calculator handles rectangular beds, circular planters, and topdressing projects seamlessly. Be sure to check our <a href="/home/" style="color: var(--primary); text-decoration: underline;">Home Improvement</a> calculators for interior renovation tools.</p>
+</section>
+
+<section class="faq" style="margin-top: 3rem;">
+
+    <h2 style="font-size: 1.6rem; color: var(--text-main); margin-bottom: 1.5rem;">Frequently Asked Questions</h2>
+    <article style="margin-bottom: 1.5rem; background: var(--input-bg); padding: 1.25rem; border-radius: 8px;">
+        <h3 style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.5rem; margin-top: 0;">How deep should mulch be laid in garden beds?</h3>
+        <p style="margin: 0; color: var(--text-muted);">A depth of 2 to 3 inches (5 to 8 cm) is recommended for weed suppression and moisture retention around trees and shrubs.</p>
+    </article>
+    <article style="margin-bottom: 1.5rem; background: var(--input-bg); padding: 1.25rem; border-radius: 8px;">
+        <h3 style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.5rem; margin-top: 0;">How many bags of soil are in a cubic yard?</h3>
+        <p style="margin: 0; color: var(--text-muted);">There are 27 cubic feet in one cubic yard. That equals thirty-six 0.75 cu ft bags or twenty-seven 1 cu ft bags of soil.</p>
+    </article>
+    <article style="margin-bottom: 1.5rem; background: var(--input-bg); padding: 1.25rem; border-radius: 8px;">
+        <h3 style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.5rem; margin-top: 0;">Can I calculate circular flower beds?</h3>
+        <p style="margin: 0; color: var(--text-muted);">Yes. Our mulch and soil tools let you switch between rectangular areas and circular garden planters easily.</p>
+    </article>
+</section>

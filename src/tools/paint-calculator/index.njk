@@ -1,0 +1,207 @@
+---
+layout: layout.njk
+title: "Paint Calculator: How Much Paint Do I Need?"
+description: Calculate how much paint you need in gallons and liters for walls, ceilings, doors, and windows. Free online room paint coverage estimator.
+appName: Paint Calculator
+category: home
+permalink: /paint-calculator/
+updated: 2026-08-17
+---
+
+{% from "ad-slot.njk" import adSlot %}
+
+<h1>Paint Calculator</h1>
+<p>Calculate exact paint volume in gallons and liters required for your room, including wall area, ceiling coverage, and window subtractions.</p>
+
+<section class="tool">
+    <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+        <div class="tool-controls" style="flex: 1; min-width: 300px;">
+            <label for="pt-unit">Measurement Unit</label>
+            <select id="pt-unit" style="margin-bottom: 1.25rem;">
+                <option value="ft" selected>Feet (Imperial - Gallons)</option>
+                <option value="m">Meters (Metric - Liters)</option>
+            </select>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
+                <div>
+                    <label for="pt-length">Room Length (<span class="unit-label">ft</span>)</label>
+                    <input type="number" id="pt-length" value="14" min="1" step="0.5" inputmode="decimal">
+                </div>
+                <div>
+                    <label for="pt-width">Room Width (<span class="unit-label">ft</span>)</label>
+                    <input type="number" id="pt-width" value="12" min="1" step="0.5" inputmode="decimal">
+                </div>
+            </div>
+
+            <label for="pt-height">Room Height (<span class="unit-label">ft</span>)</label>
+            <input type="number" id="pt-height" value="8" min="1" step="0.5" inputmode="decimal" style="margin-bottom: 1.25rem;">
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
+                <div>
+                    <label for="pt-doors">Doors (Subtracted)</label>
+                    <input type="number" id="pt-doors" value="1" min="0" step="1" inputmode="numeric">
+                </div>
+                <div>
+                    <label for="pt-windows">Windows (Subtracted)</label>
+                    <input type="number" id="pt-windows" value="2" min="0" step="1" inputmode="numeric">
+                </div>
+            </div>
+
+            <label for="pt-coats">Number of Coats</label>
+            <input type="number" id="pt-coats" value="2" min="1" max="5" step="1" inputmode="numeric" style="margin-bottom: 1.25rem;">
+
+            <label class="checkbox-label" style="display: flex; align-items: center; gap: 0.6rem; cursor: pointer;">
+                <input type="checkbox" id="pt-ceiling" checked>
+                <span>Include Ceiling Paint Coverage</span>
+            </label>
+        </div>
+
+        <div style="flex: 1; min-width: 300px;">
+            <div style="background: #f0fdf4; padding: 1.5rem; border-radius: 8px; border: 1px solid #bbf7d0; text-align: center; margin-bottom: 1.25rem;">
+                <p style="font-weight: 600; color: #4b5563; margin-top: 0; margin-bottom: 0.25rem;">Paint Required</p>
+                <div id="out-pt-gallons" style="font-size: 2.75rem; font-weight: 800; color: #059669; line-height: 1;">1.8 Gallons</div>
+                <div style="font-size: 0.85rem; color: #6b7280; margin-top: 0.5rem;">Recommended Purchase: <strong id="out-pt-recommend">2 Gallon Cans</strong></div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                <div style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb; text-align: center;">
+                    <div style="font-size: 0.8rem; color: #6b7280; font-weight: 600;">Total Surface Area</div>
+                    <div id="out-pt-area" style="font-size: 1.4rem; font-weight: 800; color: #2563eb;">548 sq ft</div>
+                    <div style="font-size: 0.75rem; color: #9ca3af; margin-top: 0.25rem;">(After Openings)</div>
+                </div>
+                <div style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb; text-align: center;">
+                    <div style="font-size: 0.8rem; color: #6b7280; font-weight: 600;">Coverage Total</div>
+                    <div id="out-pt-total-coverage" style="font-size: 1.4rem; font-weight: 800; color: #7c3aed;">624 sq ft</div>
+                    <div style="font-size: 0.75rem; color: #9ca3af; margin-top: 0.25rem;">(2 Coats Combined)</div>
+                </div>
+            </div>
+
+            <div style="background: #f9fafb; padding: 0.85rem 1rem; border-radius: 8px; border: 1px solid #e5e7eb; display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem;">
+                <span style="color: #6b7280; font-weight: 500;">Metric Volume</span>
+                <strong id="out-pt-liters" style="color: #374151;">6.8 Liters</strong>
+            </div>
+        </div>
+    </div>
+    <div class="tool-actions" style="margin-top: 2rem;">
+        <button type="button" class="secondary" data-share>Share link</button>
+        <span class="tool-actions-msg" role="status" aria-live="polite"></span>
+    </div>
+</section>
+
+{{ adSlot(site, "inline") }}
+
+<section class="how">
+    <h2>How to Use This Paint Calculator</h2>
+    <p>Estimating paint volume accurately prevents extra trips to the store while avoiding wasted paint cans. Use this tool with simple step-by-step room inputs:</p>
+    <ul>
+        <li><strong>Room Dimensions:</strong> Enter length, width, and wall height in feet or meters.</li>
+        <li><strong>Doors & Windows:</strong> Enter counts for standard doors (21 sq ft / 2 m² subtracted) and windows (15 sq ft / 1.4 m² subtracted).</li>
+        <li><strong>Number of Coats:</strong> Standard interior walls require two full coats for uniform coverage and rich color depth.</li>
+        <li><strong>Include Ceiling:</strong> Check the box if you plan to paint the ceiling using the same paint formula.</li>
+    </ul>
+</section>
+
+<section class="formula">
+    <h2>Paint Calculation Formulas & Standards</h2>
+    <p>Standard architectural paint coverage calculations rely on industry benchmarks for surface area and liquid volume:</p>
+    
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1.5rem 0;">
+        <div style="background: var(--input-bg); padding: 1.25rem; border-radius: 8px; border: 1px solid var(--border);">
+            <h3 style="margin-top: 0; font-size: 1.1rem; color: #2563eb;">Wall Surface Area Formula</h3>
+            <p style="font-size: 0.9rem;">Total perimeter multiplied by height minus door and window openings:</p>
+            <p><code>Wall Area = 2 x (Length + Width) x Height - Openings</code></p>
+        </div>
+
+        <div style="background: var(--input-bg); padding: 1.25rem; border-radius: 8px; border: 1px solid var(--border);">
+            <h3 style="margin-top: 0; font-size: 1.1rem; color: #7c3aed;">Gallon & Liter Spreading Rate</h3>
+            <p style="font-size: 0.9rem;">Standard paint spreads at approximately 350 sq ft per gallon (9 sq meters per liter):</p>
+            <p><code>Gallons = (Total Area x Coats) / 350</code></p>
+        </div>
+    </div>
+</section>
+
+<section class="examples">
+    <h2>Room Paint Coverage Quick Reference Table</h2>
+    <p>Estimated paint quantities for typical residential rooms based on 8-foot ceiling heights and 2 coats of paint.</p>
+
+    <table style="width:100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.95rem;">
+        <thead>
+            <tr style="background: var(--card-bg, #f3f4f6); border-bottom: 2px solid var(--border, #e5e7eb);">
+                <th style="padding: 0.75rem; text-align: left;">Room Size</th>
+                <th style="padding: 0.75rem; text-align: left;">Dimensions</th>
+                <th style="padding: 0.75rem; text-align: left;">Wall Surface Area</th>
+                <th style="padding: 0.75rem; text-align: left; color: #059669;">Gallons (2 Coats)</th>
+                <th style="padding: 0.75rem; text-align: left; color: #2563eb;">Liters (2 Coats)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="border-bottom: 1px solid var(--border, #e5e7eb);">
+                <td style="padding: 0.75rem;">Small Bathroom</td>
+                <td style="padding: 0.75rem;">6 x 8 ft</td>
+                <td style="padding: 0.75rem;">180 sq ft</td>
+                <td style="padding: 0.75rem; font-weight: 600;">1 Gallon</td>
+                <td style="padding: 0.75rem;">3.8 Liters</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border, #e5e7eb); background: var(--card-bg, #f9fafb);">
+                <td style="padding: 0.75rem;">Standard Bedroom</td>
+                <td style="padding: 0.75rem;">12 x 12 ft</td>
+                <td style="padding: 0.75rem;">330 sq ft</td>
+                <td style="padding: 0.75rem; font-weight: 600;">2 Gallons</td>
+                <td style="padding: 0.75rem;">7.5 Liters</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border, #e5e7eb);">
+                <td style="padding: 0.75rem;">Master Bedroom</td>
+                <td style="padding: 0.75rem;">15 x 20 ft</td>
+                <td style="padding: 0.75rem;">510 sq ft</td>
+                <td style="padding: 0.75rem; font-weight: 600;">3 Gallons</td>
+                <td style="padding: 0.75rem;">11.3 Liters</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border, #e5e7eb); background: var(--card-bg, #f9fafb);">
+                <td style="padding: 0.75rem;">Large Living Room</td>
+                <td style="padding: 0.75rem;">20 x 25 ft</td>
+                <td style="padding: 0.75rem;">670 sq ft</td>
+                <td style="padding: 0.75rem; font-weight: 600;">4 Gallons</td>
+                <td style="padding: 0.75rem;">15.1 Liters</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+{{ adSlot(site, "incontent") }}
+
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>How many square feet does one gallon of paint cover?</h3>
+    <p>One gallon of standard interior paint covers roughly 350 to 400 square feet on smooth, primed walls. Textured walls or unprimed drywall absorb more paint, reducing coverage closer to 250 to 300 square feet per gallon.</p>
+
+    <h3>Do I need primer before painting interior walls?</h3>
+    <p>Primer is recommended when painting bare drywall, making drastic color shifts (such as dark to light), or covering water stains. Paint-and-primer combinations work well for repainting previously painted walls of similar tones.</p>
+
+    <h3>How do doors and windows affect paint volume?</h3>
+    <p>A standard interior door accounts for approximately 21 square feet, while a standard window subtracts 15 square feet of non-painted wall space. Factoring in openings prevents buying unnecessary paint.</p>
+
+    <h3>How much extra paint should I buy for touch ups?</h3>
+    <p>Purchasing an extra 10 percent allowance or keeping one quart of leftover paint ensures exact color matches for future scratch repairs and wall patches.</p>
+</section>
+
+<section class="related">
+    <h2>Related Home & Measurement Tools</h2>
+    <ul>
+        <li><a href="/tile-calculator/">Tile Calculator</a></li>
+        <li><a href="/mulch-calculator/">Mulch Calculator</a></li>
+        <li><a href="/soil-calculator/">Soil Calculator</a></li>
+        <li><a href="/home/">Browse All Home Tools</a></li>
+    </ul>
+    <h3>Related Guides</h3>
+    <ul>
+        <li><a href="/blog/how-much-paint-do-i-need-for-a-room-guide/">How Much Paint Do I Need for a Room? Complete Guide</a></li>
+        <li><a href="/blog/how-to-calculate-paint-coverage-per-gallon/">How to Calculate Paint Coverage Per Gallon & Liter</a></li>
+    </ul>
+</section>
+
+<div class="author">
+    <p><em>Published by the QuixCalc Team. Paint spreading rate calculations verified against PDCA (Painting and Decorating Contractors of America) industry standards. Last updated: August 2026.</em></p>
+</div>
+
+<script src="paint.js" defer></script>

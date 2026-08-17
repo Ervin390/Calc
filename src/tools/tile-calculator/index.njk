@@ -1,0 +1,210 @@
+---
+layout: layout.njk
+title: "Tile Calculator: How Many Tiles Do I Need?"
+description: Calculate total floor and wall tiles required, square footage, grout line allowances, and waste percentage. Free online tile quantity estimator.
+appName: Tile Calculator
+category: home
+permalink: /tile-calculator/
+updated: 2026-08-17
+---
+
+{% from "ad-slot.njk" import adSlot %}
+
+<h1>Tile Calculator</h1>
+<p>Calculate exact ceramic, porcelain, or stone tile quantities required for floor and wall projects, including grout joints, waste percentages, and box counts.</p>
+
+<section class="tool">
+    <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+        <div class="tool-controls" style="flex: 1; min-width: 300px;">
+            <label for="tl-unit">Measurement Unit</label>
+            <select id="tl-unit" style="margin-bottom: 1.25rem;">
+                <option value="ft" selected>Feet & Inches (Imperial)</option>
+                <option value="m">Meters & Centimeters (Metric)</option>
+            </select>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
+                <div>
+                    <label for="tl-length">Room Length (<span class="unit-room">ft</span>)</label>
+                    <input type="number" id="tl-length" value="12" min="1" step="0.5" inputmode="decimal">
+                </div>
+                <div>
+                    <label for="tl-width">Room Width (<span class="unit-room">ft</span>)</label>
+                    <input type="number" id="tl-width" value="10" min="1" step="0.5" inputmode="decimal">
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
+                <div>
+                    <label for="tl-tile-l">Tile Length (<span class="unit-tile">in</span>)</label>
+                    <input type="number" id="tl-tile-l" value="12" min="1" step="0.5" inputmode="decimal">
+                </div>
+                <div>
+                    <label for="tl-tile-w">Tile Width (<span class="unit-tile">in</span>)</label>
+                    <input type="number" id="tl-tile-w" value="12" min="1" step="0.5" inputmode="decimal">
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
+                <div>
+                    <label for="tl-grout">Grout Joint (<span class="unit-grout">in</span>)</label>
+                    <input type="number" id="tl-grout" value="0.125" min="0" step="0.0625" inputmode="decimal">
+                </div>
+                <div>
+                    <label for="tl-waste">Cutting Waste (%)</label>
+                    <input type="number" id="tl-waste" value="10" min="0" max="30" step="1" inputmode="numeric">
+                </div>
+            </div>
+
+            <label for="tl-box-count">Tiles Per Box</label>
+            <input type="number" id="tl-box-count" value="10" min="1" step="1" inputmode="numeric">
+        </div>
+
+        <div style="flex: 1; min-width: 300px;">
+            <div style="background: #f0fdf4; padding: 1.5rem; border-radius: 8px; border: 1px solid #bbf7d0; text-align: center; margin-bottom: 1.25rem;">
+                <p style="font-weight: 600; color: #4b5563; margin-top: 0; margin-bottom: 0.25rem;">Tiles Needed (With Waste)</p>
+                <div id="out-tl-total-tiles" style="font-size: 2.75rem; font-weight: 800; color: #059669; line-height: 1;">132 Tiles</div>
+                <div style="font-size: 0.85rem; color: #6b7280; margin-top: 0.5rem;">Recommended Purchase: <strong id="out-tl-boxes">14 Boxes</strong></div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                <div style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb; text-align: center;">
+                    <div style="font-size: 0.8rem; color: #6b7280; font-weight: 600;">Net Floor Area</div>
+                    <div id="out-tl-area" style="font-size: 1.4rem; font-weight: 800; color: #2563eb;">120 sq ft</div>
+                    <div style="font-size: 0.75rem; color: #9ca3af; margin-top: 0.25rem;">(Exact Surface)</div>
+                </div>
+                <div style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb; text-align: center;">
+                    <div style="font-size: 0.8rem; color: #6b7280; font-weight: 600;">Coverage Needed</div>
+                    <div id="out-tl-coverage" style="font-size: 1.4rem; font-weight: 800; color: #7c3aed;">132 sq ft</div>
+                    <div style="font-size: 0.75rem; color: #9ca3af; margin-top: 0.25rem;">(Includes 10% Waste)</div>
+                </div>
+            </div>
+
+            <div style="background: #f9fafb; padding: 0.85rem 1rem; border-radius: 8px; border: 1px solid #e5e7eb; display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem;">
+                <span style="color: #6b7280; font-weight: 500;">Individual Tile Coverage</span>
+                <strong id="out-tl-single-tile" style="color: #374151;">1.00 sq ft / tile</strong>
+            </div>
+        </div>
+    </div>
+    <div class="tool-actions" style="margin-top: 2rem;">
+        <button type="button" class="secondary" data-share>Share link</button>
+        <span class="tool-actions-msg" role="status" aria-live="polite"></span>
+    </div>
+</section>
+
+{{ adSlot(site, "inline") }}
+
+<section class="how">
+    <h2>How to Use This Tile Calculator</h2>
+    <p>Installing floor or wall tiles requires calculating total coverage while factoring in edge cuts and grout lines. Use this tool with simple parameters:</p>
+    <ul>
+        <li><strong>Room Dimensions:</strong> Enter overall room length and width in feet or meters.</li>
+        <li><strong>Tile Dimensions:</strong> Enter individual tile length and width in inches or centimeters (e.g., 12x12 inches or 30x30 cm).</li>
+        <li><strong>Grout Joint Width:</strong> Standard grout line spacing ranges from 1/16 in (1.5 mm) for rectified tile up to 1/4 in (6 mm) for regular ceramic.</li>
+        <li><strong>Waste Percentage:</strong> Standard straight installations require a 10% waste buffer. Diagonal layouts or complex rooms with obstacles require 15%.</li>
+    </ul>
+</section>
+
+<section class="formula">
+    <h2>Tile Coverage Formulas & Grout Calculations</h2>
+    <p>Calculating tile quantities requires converting room dimensions and tile dimensions into identical unit metrics before applying waste multipliers:</p>
+    
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1.5rem 0;">
+        <div style="background: var(--input-bg); padding: 1.25rem; border-radius: 8px; border: 1px solid var(--border);">
+            <h3 style="margin-top: 0; font-size: 1.1rem; color: #2563eb;">Single Tile Area Formula</h3>
+            <p style="font-size: 0.9rem;">Includes individual tile dimensions plus grout joint width:</p>
+            <p><code>Effective Area = (Length + Grout) x (Width + Grout)</code></p>
+        </div>
+
+        <div style="background: var(--input-bg); padding: 1.25rem; border-radius: 8px; border: 1px solid var(--border);">
+            <h3 style="margin-top: 0; font-size: 1.1rem; color: #7c3aed;">Total Tiles & Box Count Formula</h3>
+            <p style="font-size: 0.9rem;">Total net tiles required multiplied by cutting waste factor:</p>
+            <p><code>Total Tiles = (Floor Area / Tile Area) x (1 + Waste %)</code></p>
+        </div>
+    </div>
+</section>
+
+<section class="examples">
+    <h2>Standard Tile Size & Quantity Guide</h2>
+    <p>Estimated tile quantities for a standard 100 sq ft room with 10% waste calculation applied.</p>
+
+    <table style="width:100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.95rem;">
+        <thead>
+            <tr style="background: var(--card-bg, #f3f4f6); border-bottom: 2px solid var(--border, #e5e7eb);">
+                <th style="padding: 0.75rem; text-align: left;">Tile Format</th>
+                <th style="padding: 0.75rem; text-align: left;">Dimensions</th>
+                <th style="padding: 0.75rem; text-align: left;">Tile Area</th>
+                <th style="padding: 0.75rem; text-align: left; color: #059669;">Total Tiles Needed</th>
+                <th style="padding: 0.75rem; text-align: left; color: #2563eb;">Boxes (10 Tiles/Box)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="border-bottom: 1px solid var(--border, #e5e7eb);">
+                <td style="padding: 0.75rem;">Small Subway Tile</td>
+                <td style="padding: 0.75rem;">3 x 6 in</td>
+                <td style="padding: 0.75rem;">0.125 sq ft</td>
+                <td style="padding: 0.75rem; font-weight: 600;">880 Tiles</td>
+                <td style="padding: 0.75rem;">88 Boxes</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border, #e5e7eb); background: var(--card-bg, #f9fafb);">
+                <td style="padding: 0.75rem;">Square Ceramic</td>
+                <td style="padding: 0.75rem;">12 x 12 in</td>
+                <td style="padding: 0.75rem;">1.00 sq ft</td>
+                <td style="padding: 0.75rem; font-weight: 600;">110 Tiles</td>
+                <td style="padding: 0.75rem;">11 Boxes</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border, #e5e7eb);">
+                <td style="padding: 0.75rem;">Large Format Porcelain</td>
+                <td style="padding: 0.75rem;">12 x 24 in</td>
+                <td style="padding: 0.75rem;">2.00 sq ft</td>
+                <td style="padding: 0.75rem; font-weight: 600;">55 Tiles</td>
+                <td style="padding: 0.75rem;">6 Boxes</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border, #e5e7eb); background: var(--card-bg, #f9fafb);">
+                <td style="padding: 0.75rem;">Extra Large Slab</td>
+                <td style="padding: 0.75rem;">24 x 24 in</td>
+                <td style="padding: 0.75rem;">4.00 sq ft</td>
+                <td style="padding: 0.75rem; font-weight: 600;">28 Tiles</td>
+                <td style="padding: 0.75rem;">3 Boxes</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+{{ adSlot(site, "incontent") }}
+
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>Why do I need to calculate a tile waste percentage?</h3>
+    <p>Cutting tiles to fit room edges, plumbing pipes, and corners leaves unusable tile remnants. Standard straight layouts require 10 percent waste, while diagonal patterns require 15 percent extra tile volume.</p>
+
+    <h3>How does grout line width affect total tile count?</h3>
+    <p>Wider grout lines slightly increase the overall coverage area of each tile, reducing total raw tile count marginally. However, grout joint spacing is primarily calculated to ensure straight, professional installations.</p>
+
+    <h3>How many extra tiles should I keep after installation?</h3>
+    <p>Keeping at least one full box of extra tiles ensures exact dye-lot color matching for future repairs if tiles crack or chip over time.</p>
+
+    <h3>Can I use this calculator for wall tiles and backsplashes?</h3>
+    <p>Yes. Enter the total height and width of your wall or kitchen backsplash area into the room length and width fields to calculate wall tile coverage accurately.</p>
+</section>
+
+<section class="related">
+    <h2>Related Home & Measurement Tools</h2>
+    <ul>
+        <li><a href="/paint-calculator/">Paint Calculator</a></li>
+        <li><a href="/mulch-calculator/">Mulch Calculator</a></li>
+        <li><a href="/soil-calculator/">Soil Calculator</a></li>
+        <li><a href="/home/">Browse All Home Tools</a></li>
+    </ul>
+    <h3>Related Guides</h3>
+    <ul>
+        <li><a href="/blog/how-many-tiles-do-i-need-for-a-bathroom-floor/">How Many Tiles Do I Need for a Bathroom Floor?</a></li>
+        <li><a href="/blog/how-much-tile-waste-percentage-to-calculate/">How Much Tile Waste Percentage to Calculate for Jobs</a></li>
+    </ul>
+</section>
+
+<div class="author">
+    <p><em>Published by the QuixCalc Team. Tile coverage formulas verified against TCNA (Tile Council of North America) installation specifications. Last updated: August 2026.</em></p>
+</div>
+
+<script src="tile.js" defer></script>

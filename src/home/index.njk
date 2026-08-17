@@ -1,0 +1,37 @@
+---
+layout: layout.njk
+title: Home Improvement Calculators
+description: Paint consumption and tile coverage calculators. Free DIY estimation tools that calculate exact material requirements for home projects.
+category: home
+appName: Home Improvement
+---
+
+<h1>Home Improvement Tools</h1>
+<p>Calculators designed to help homeowners and contractors estimate material needs accurately for renovation projects.</p>
+
+{% from "tool-grid.njk" import toolGrid %}
+{{ toolGrid(tools, category) }}
+
+
+<section style="margin-top: 4rem; padding-top: 2rem; border-top: 2px solid var(--border);">
+    <h2 style="font-size: 1.6rem; color: var(--text-main); margin-bottom: 1rem;">Accurate Home Improvement and Renovation Calculators</h2>
+    <p style="margin-bottom: 1rem; color: var(--text-muted); line-height: 1.6;">Planning home renovation projects requires accurate material estimation to prevent mid-project hardware store runs or buying excess supplies. Calculating exact wall paint volume is fast with our room paint estimator. It factors in wall dimensions, ceiling area, multiple coats, and window subtractions.</p>
+    <p style="margin-bottom: 2.5rem; color: var(--text-muted); line-height: 1.6;">Flooring and tile installation projects require precise tile count calculations. Our tile calculator accounts for grout line gaps and standard cutting waste percentages. Be sure to check our <a href="/gardening/" style="color: var(--primary); text-decoration: underline;">Gardening & Outdoors</a> tools if you are working on outdoor landscaping projects.</p>
+</section>
+
+<section class="faq" style="margin-top: 3rem;">
+
+    <h2 style="font-size: 1.6rem; color: var(--text-main); margin-bottom: 1.5rem;">Frequently Asked Questions</h2>
+    <article style="margin-bottom: 1.5rem; background: var(--input-bg); padding: 1.25rem; border-radius: 8px;">
+        <h3 style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.5rem; margin-top: 0;">Does the paint calculator subtract windows and doors?</h3>
+        <p style="margin: 0; color: var(--text-muted);">Yes. You can enter the number of standard doors and windows in your room to subtract non-painted wall areas automatically.</p>
+    </article>
+    <article style="margin-bottom: 1.5rem; background: var(--input-bg); padding: 1.25rem; border-radius: 8px;">
+        <h3 style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.5rem; margin-top: 0;">How much tile waste should I calculate for my floor?</h3>
+        <p style="margin: 0; color: var(--text-muted);">A standard allowance of 10 percent accounts for cutting edges and tile breakage. For complex diagonal layouts, standard recommendations suggest 15 percent.</p>
+    </article>
+    <article style="margin-bottom: 1.5rem; background: var(--input-bg); padding: 1.25rem; border-radius: 8px;">
+        <h3 style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.5rem; margin-top: 0;">Are these home improvement calculators free to use?</h3>
+        <p style="margin: 0; color: var(--text-muted);">Yes. All tools run completely free in your web browser without requiring signups or app downloads.</p>
+    </article>
+</section>

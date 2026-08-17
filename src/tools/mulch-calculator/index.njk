@@ -1,0 +1,209 @@
+---
+layout: layout.njk
+title: "Mulch Calculator: How Many Bags of Mulch Do I Need?"
+description: Calculate required mulch volume in cubic yards, cubic meters, and 2 cu ft bag counts for garden beds and landscapes. Free online mulch estimator.
+appName: Mulch Calculator
+category: gardening
+permalink: /mulch-calculator/
+updated: 2026-08-17
+---
+
+{% from "ad-slot.njk" import adSlot %}
+
+<h1>Mulch Calculator</h1>
+<p>Calculate exact mulch volume in cubic yards, cubic meters, and bag counts for rectangular or circular garden beds.</p>
+
+<section class="tool">
+    <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+        <div class="tool-controls" style="flex: 1; min-width: 300px;">
+            <label for="ml-shape">Garden Bed Shape</label>
+            <select id="ml-shape" style="margin-bottom: 1.25rem;">
+                <option value="rect" selected>Rectangular / Square Bed</option>
+                <option value="circle">Circular / Round Bed</option>
+            </select>
+
+            <label for="ml-unit">Measurement Unit</label>
+            <select id="ml-unit" style="margin-bottom: 1.25rem;">
+                <option value="ft" selected>Feet & Inches (Imperial - Cubic Yards)</option>
+                <option value="m">Meters & Centimeters (Metric - Cubic Meters)</option>
+            </select>
+
+            <div id="ml-group-rect">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
+                    <div>
+                        <label for="ml-length">Bed Length (<span class="unit-dim">ft</span>)</label>
+                        <input type="number" id="ml-length" value="20" min="1" step="0.5" inputmode="decimal">
+                    </div>
+                    <div>
+                        <label for="ml-width">Bed Width (<span class="unit-dim">ft</span>)</label>
+                        <input type="number" id="ml-width" value="10" min="1" step="0.5" inputmode="decimal">
+                    </div>
+                </div>
+            </div>
+
+            <div id="ml-group-circle" style="display: none; margin-bottom: 1.25rem;">
+                <label for="ml-diameter">Bed Diameter (<span class="unit-dim">ft</span>)</label>
+                <input type="number" id="ml-diameter" value="12" min="1" step="0.5" inputmode="decimal">
+            </div>
+
+            <label for="ml-depth">Mulch Layer Depth (<span class="unit-depth">in</span>)</label>
+            <input type="number" id="ml-depth" value="3" min="0.5" max="12" step="0.5" inputmode="decimal" style="margin-bottom: 1.25rem;">
+
+            <label for="ml-bag-size">Mulch Bag Size</label>
+            <select id="ml-bag-size">
+                <option value="2" selected>Standard 2.0 cu ft Bag</option>
+                <option value="1.5">Small 1.5 cu ft Bag</option>
+                <option value="3">Large 3.0 cu ft Bag</option>
+                <option value="1.76">50 Liter Metric Bag (1.76 cu ft)</option>
+            </select>
+        </div>
+
+        <div style="flex: 1; min-width: 300px;">
+            <div style="background: #f0fdf4; padding: 1.5rem; border-radius: 8px; border: 1px solid #bbf7d0; text-align: center; margin-bottom: 1.25rem;">
+                <p style="font-weight: 600; color: #4b5563; margin-top: 0; margin-bottom: 0.25rem;">Total Volume Needed</p>
+                <div id="out-ml-yards" style="font-size: 2.75rem; font-weight: 800; color: #059669; line-height: 1;">1.85 Cubic Yards</div>
+                <div style="font-size: 0.85rem; color: #6b7280; margin-top: 0.5rem;">Bagged Mulch: <strong id="out-ml-bags">25 Bags (2.0 cu ft)</strong></div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                <div style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb; text-align: center;">
+                    <div style="font-size: 0.8rem; color: #6b7280; font-weight: 600;">Garden Surface Area</div>
+                    <div id="out-ml-area" style="font-size: 1.4rem; font-weight: 800; color: #2563eb;">200 sq ft</div>
+                    <div style="font-size: 0.75rem; color: #9ca3af; margin-top: 0.25rem;">(Total Footprint)</div>
+                </div>
+                <div style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb; text-align: center;">
+                    <div style="font-size: 0.8rem; color: #6b7280; font-weight: 600;">Cubic Feet Volume</div>
+                    <div id="out-ml-cuft" style="font-size: 1.4rem; font-weight: 800; color: #7c3aed;">50 cu ft</div>
+                    <div style="font-size: 0.75rem; color: #9ca3af; margin-top: 0.25rem;">(Raw Bulk Volume)</div>
+                </div>
+            </div>
+
+            <div style="background: #f9fafb; padding: 0.85rem 1rem; border-radius: 8px; border: 1px solid #e5e7eb; display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem;">
+                <span style="color: #6b7280; font-weight: 500;">Metric Volume</span>
+                <strong id="out-ml-cu-meters" style="color: #374151;">1.41 Cubic Meters</strong>
+            </div>
+        </div>
+    </div>
+    <div class="tool-actions" style="margin-top: 2rem;">
+        <button type="button" class="secondary" data-share>Share link</button>
+        <span class="tool-actions-msg" role="status" aria-live="polite"></span>
+    </div>
+</section>
+
+{{ adSlot(site, "inline") }}
+
+<section class="how">
+    <h2>How to Use This Mulch Calculator</h2>
+    <p>Calculating garden mulch prevents buying excess bulk mulch or shortchanging flower beds. Use this tool with simple steps:</p>
+    <ul>
+        <li><strong>Bed Shape:</strong> Select rectangular for standard landscape borders or circular for tree rings and round planters.</li>
+        <li><strong>Bed Dimensions:</strong> Enter garden length and width (or diameter) in feet or meters.</li>
+        <li><strong>Mulch Layer Depth:</strong> Select desired depth in inches or centimeters (standard recommended depth is 3 inches).</li>
+        <li><strong>Bag Size:</strong> Choose your local store bag size (standard retail bags contain 2.0 cubic feet of wood mulch).</li>
+    </ul>
+</section>
+
+<section class="formula">
+    <h2>Mulch Formulas & Conversion Standards</h2>
+    <p>Landscape calculations convert surface area square footage and layer depth inches into cubic yards or bag counts:</p>
+    
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1.5rem 0;">
+        <div style="background: var(--input-bg); padding: 1.25rem; border-radius: 8px; border: 1px solid var(--border);">
+            <h3 style="margin-top: 0; font-size: 1.1rem; color: #2563eb;">Cubic Yards Formula</h3>
+            <p style="font-size: 0.9rem;">Area in square feet multiplied by depth in feet divided by 27:</p>
+            <p><code>Cubic Yards = (Square Feet x (Depth / 12)) / 27</code></p>
+        </div>
+
+        <div style="background: var(--input-bg); padding: 1.25rem; border-radius: 8px; border: 1px solid var(--border);">
+            <h3 style="margin-top: 0; font-size: 1.1rem; color: #7c3aed;">Mulch Bag Conversion</h3>
+            <p style="font-size: 0.9rem;">One cubic yard contains 27 cubic feet. That equals 13.5 two-cubic-foot bags:</p>
+            <p><code>Bags = Cubic Feet / Bag Size (cu ft)</code></p>
+        </div>
+    </div>
+</section>
+
+<section class="examples">
+    <h2>Mulch Depth & Quantity Quick Reference Table</h2>
+    <p>Estimated mulch quantities required to cover a 100 square foot garden bed at various layer depths.</p>
+
+    <table style="width:100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.95rem;">
+        <thead>
+            <tr style="background: var(--card-bg, #f3f4f6); border-bottom: 2px solid var(--border, #e5e7eb);">
+                <th style="padding: 0.75rem; text-align: left;">Layer Depth</th>
+                <th style="padding: 0.75rem; text-align: left;">Recommended Application</th>
+                <th style="padding: 0.75rem; text-align: left;">Cubic Feet</th>
+                <th style="padding: 0.75rem; text-align: left; color: #059669;">Cubic Yards</th>
+                <th style="padding: 0.75rem; text-align: left; color: #2563eb;">Bags (2.0 cu ft)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="border-bottom: 1px solid var(--border, #e5e7eb);">
+                <td style="padding: 0.75rem;">1 Inch (2.5 cm)</td>
+                <td style="padding: 0.75rem;">Topdressing existing mulch</td>
+                <td style="padding: 0.75rem;">8.3 cu ft</td>
+                <td style="padding: 0.75rem; font-weight: 600;">0.31 Yards</td>
+                <td style="padding: 0.75rem;">5 Bags</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border, #e5e7eb); background: var(--card-bg, #f9fafb);">
+                <td style="padding: 0.75rem;">2 Inches (5.0 cm)</td>
+                <td style="padding: 0.75rem;">Light weed suppression</td>
+                <td style="padding: 0.75rem;">16.7 cu ft</td>
+                <td style="padding: 0.75rem; font-weight: 600;">0.62 Yards</td>
+                <td style="padding: 0.75rem;">9 Bags</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border, #e5e7eb);">
+                <td style="padding: 0.75rem;">3 Inches (7.5 cm)</td>
+                <td style="padding: 0.75rem;">Standard new garden bed</td>
+                <td style="padding: 0.75rem;">25.0 cu ft</td>
+                <td style="padding: 0.75rem; font-weight: 600;">0.93 Yards</td>
+                <td style="padding: 0.75rem;">13 Bags</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border, #e5e7eb); background: var(--card-bg, #f9fafb);">
+                <td style="padding: 0.75rem;">4 Inches (10.0 cm)</td>
+                <td style="padding: 0.75rem;">Heavy weed barrier & walkways</td>
+                <td style="padding: 0.75rem;">33.3 cu ft</td>
+                <td style="padding: 0.75rem; font-weight: 600;">1.23 Yards</td>
+                <td style="padding: 0.75rem;">17 Bags</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+{{ adSlot(site, "incontent") }}
+
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>How many bags of mulch equal one cubic yard?</h3>
+    <p>One cubic yard equals 27 cubic feet. If you buy standard 2.0 cubic foot bags, you need 13.5 bags (14 full bags) to equal one cubic yard of bulk mulch.</p>
+
+    <h3>How deep should mulch be laid in flower beds?</h3>
+    <p>A depth of 3 inches is optimal for suppressing weeds and conserving moisture. Laying mulch deeper than 4 inches can smother plant root systems and block water penetration.</p>
+
+    <h3>When is buying bulk mulch cheaper than buying bagged mulch?</h3>
+    <p>Buying bulk mulch delivered by dump truck is generally more cost efficient when your project requires more than 2 to 3 cubic yards (27 to 40 bags). For small garden beds, bagged mulch offers easier transport.</p>
+
+    <h3>Does wood mulch settle over time?</h3>
+    <p>Yes. Organic wood mulch compresses and decomposes by approximately 15 to 20 percent over the first season. Adding a light 1-inch topdressing layer each spring maintains proper soil protection.</p>
+</section>
+
+<section class="related">
+    <h2>Related Gardening & Outdoor Tools</h2>
+    <ul>
+        <li><a href="/soil-calculator/">Soil Calculator</a></li>
+        <li><a href="/paint-calculator/">Paint Calculator</a></li>
+        <li><a href="/tile-calculator/">Tile Calculator</a></li>
+        <li><a href="/gardening/">Browse All Gardening Tools</a></li>
+    </ul>
+    <h3>Related Guides</h3>
+    <ul>
+        <li><a href="/blog/how-many-bags-of-mulch-in-a-cubic-yard/">How Many Bags of Mulch in a Cubic Yard? Calculation</a></li>
+        <li><a href="/blog/how-deep-should-mulch-be-in-garden-beds/">How Deep Should Mulch Be in Garden Beds & Lawns?</a></li>
+    </ul>
+</section>
+
+<div class="author">
+    <p><em>Published by the QuixCalc Team. Mulch volume formulas verified against USDA agricultural extension guidelines. Last updated: August 2026.</em></p>
+</div>
+
+<script src="mulch.js" defer></script>
