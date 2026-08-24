@@ -1,0 +1,36 @@
+---
+layout: layout.njk
+title: SaaS and B2B Financial Calculators
+description: Free interactive B2B and SaaS metric calculators. Compute MRR, ARR, LTV, CAC, NRR, gross margin, and break-even in seconds. No login, no signup, runs offline.
+category: saas
+appName: SaaS & B2B Tools
+---
+
+<h1>SaaS & B2B Financial Calculators</h1>
+<p>Calculators built for software founders, operators, and finance teams who need fast, reliable metrics. Each tool runs entirely in your browser, so your data never leaves your device.</p>
+
+{% from "tool-grid.njk" import toolGrid %}
+{{ toolGrid(tools, category) }}
+
+<section style="margin-top: 4rem; padding-top: 2rem; border-top: 2px solid var(--border);">
+    <h2 style="font-size: 1.6rem; color: var(--text-main); margin-bottom: 1rem;">The Key SaaS Metrics Explained</h2>
+    <p style="margin-bottom: 1rem; color: var(--text-muted); line-height: 1.6;">Running a subscription business means tracking a handful of numbers obsessively. MRR tells you how much recurring revenue you have right now. ARR annualizes that figure for board decks and investor conversations. LTV tells you the total value of a customer over their lifetime, while CAC tells you what it costs to win them. The ratio between the two is one of the most watched signals in SaaS.</p>
+    <p style="margin-bottom: 1rem; color: var(--text-muted); line-height: 1.6;">NRR captures whether your existing revenue base is growing or shrinking without counting new sales. Gross margin shows how efficiently you deliver the product. And break-even analysis tells you exactly how many subscribers you need to cover fixed overhead. These eight tools cover all of it in one place.</p>
+    <p style="margin-bottom: 2.5rem; color: var(--text-muted); line-height: 1.6;">If you are looking for broader financial tools, see our <a href="/finance/" style="color: var(--primary); text-decoration: underline;">Finance & Money</a> section for amortization, compound interest, and margin calculators.</p>
+</section>
+
+<section class="faq" style="margin-top: 3rem;">
+    <h2 style="font-size: 1.6rem; color: var(--text-main); margin-bottom: 1.5rem;">Frequently Asked Questions</h2>
+    <article style="margin-bottom: 1.5rem; background: var(--input-bg); padding: 1.25rem; border-radius: 8px;">
+        <h3 style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.5rem; margin-top: 0;">What is the difference between MRR and ARR?</h3>
+        <p style="margin: 0; color: var(--text-muted);">MRR is your total recurring revenue collected each month from active subscriptions. ARR is simply MRR multiplied by 12. Companies use ARR in investor reports and forecasts because it presents the business on an annual scale. For operational decisions, MRR is usually more useful because it reflects what is happening right now.</p>
+    </article>
+    <article style="margin-bottom: 1.5rem; background: var(--input-bg); padding: 1.25rem; border-radius: 8px;">
+        <h3 style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.5rem; margin-top: 0;">What is a healthy LTV to CAC ratio?</h3>
+        <p style="margin: 0; color: var(--text-muted);">The widely cited benchmark is 3:1 or better. An LTV of $1,500 against a CAC of $500 means you recover acquisition costs three times over during a customer's lifetime. Below 3:1 suggests you may be overspending on acquisition relative to the value each customer delivers. Above 5:1 can indicate you are underinvesting in growth.</p>
+    </article>
+    <article style="margin-bottom: 1.5rem; background: var(--input-bg); padding: 1.25rem; border-radius: 8px;">
+        <h3 style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.5rem; margin-top: 0;">Are these calculators accurate for enterprise SaaS?</h3>
+        <p style="margin: 0; color: var(--text-muted);">Yes. The formulas used are standard SaaS accounting definitions. Enterprise deals often involve annual contracts and usage tiers, which can make some inputs like ARPU less straightforward. Use the contract value divided by 12 as your monthly equivalent, and the calculators will handle the rest correctly.</p>
+    </article>
+</section>

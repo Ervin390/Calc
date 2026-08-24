@@ -1,0 +1,136 @@
+---
+layout: layout.njk
+title: "Prorated Rent Calculator: Daily Move-In Rate"
+description: Calculate your first or last month prorated rent by move-in or move-out date. Uses actual days in the month or the 30.42 average day method.
+appName: Prorated Rent Calculator
+category: payroll
+permalink: /prorated-rent-calculator/
+updated: 2026-08-24
+---
+
+<h1>Prorated Rent Calculator</h1>
+<p>Calculate exactly how much rent you owe for a partial month. Enter your monthly rent and your move-in or move-out date, and this calculator gives you the daily rate and total charge using either the actual days method or the standard 30.42-day average.</p>
+
+<section class="tool">
+    <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+        <div class="tool-controls" style="flex: 1; min-width: 300px;">
+            <label for="pr-rent">Monthly Rent ($)</label>
+            <input type="number" id="pr-rent" value="1500" min="0" step="50" inputmode="decimal">
+
+            <label for="pr-mode">Calculation Type</label>
+            <select id="pr-mode">
+                <option value="movein">Move-In (days remaining in month)</option>
+                <option value="moveout">Move-Out (days occupied)</option>
+            </select>
+
+            <label for="pr-day">Move-In or Move-Out Day</label>
+            <input type="number" id="pr-day" value="17" min="1" max="31" step="1" inputmode="numeric">
+
+            <label for="pr-month">Month</label>
+            <select id="pr-month">
+                <option value="1">January (31 days)</option>
+                <option value="2">February (28 days)</option>
+                <option value="2l">February (29 days, leap year)</option>
+                <option value="3">March (31 days)</option>
+                <option value="4">April (30 days)</option>
+                <option value="5">May (31 days)</option>
+                <option value="6">June (30 days)</option>
+                <option value="7" selected>July (31 days)</option>
+                <option value="8">August (31 days)</option>
+                <option value="9">September (30 days)</option>
+                <option value="10">October (31 days)</option>
+                <option value="11">November (30 days)</option>
+                <option value="12">December (31 days)</option>
+            </select>
+
+            <label for="pr-method">Calculation Method</label>
+            <select id="pr-method">
+                <option value="actual">Actual days in month</option>
+                <option value="avg">30.42-day average (annual method)</option>
+            </select>
+        </div>
+
+        <div style="flex: 1; min-width: 300px;">
+            <div style="background: #f0fdf4; padding: 1.5rem; border-radius: 8px; border: 1px solid #bbf7d0; text-align: center; margin-bottom: 1rem;">
+                <p style="font-weight: 600; color: #4b5563; margin-top: 0;">Prorated Rent Due</p>
+                <div id="out-pr-total" style="font-size: 2.5rem; font-weight: 800; color: #059669; line-height: 1;">$0.00</div>
+                <div style="font-size: 0.9rem; color: #6b7280; margin-top: 0.5rem;">for <span id="out-pr-days">0</span> day(s)</div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                <div style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb; text-align: center;">
+                    <div style="font-size: 0.8rem; color: #6b7280;">Daily Rate</div>
+                    <div id="out-pr-daily" style="font-size: 1.3rem; font-weight: 700; color: #111827;">$0.00</div>
+                </div>
+                <div style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb; text-align: center;">
+                    <div style="font-size: 0.8rem; color: #6b7280;">Days in Month</div>
+                    <div id="out-pr-month-days" style="font-size: 1.3rem; font-weight: 700; color: #111827;">0</div>
+                </div>
+            </div>
+            <div style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb; font-size: 0.9rem; color: #6b7280;">
+                <strong style="color: #374151;">Remaining balance:</strong> <span id="out-pr-remaining">$0.00</span> for the rest of the month.
+            </div>
+        </div>
+    </div>
+    <div class="tool-actions" style="margin-top: 2rem;">
+        <button type="button" class="secondary" data-share>Share link</button>
+        <span class="tool-actions-msg" role="status" aria-live="polite"></span>
+    </div>
+</section>
+
+<section class="how">
+    <h2>How to Use This Calculator</h2>
+    <p>Enter your full monthly rent amount. Then select whether you are moving in or moving out. Enter the specific day number (for example, the 17th). Pick your month so the calculator knows the correct number of days.</p>
+    <p>Choose your calculation method. Most landlords use actual days in the month. Some use the 30.42-day average, which spreads 365 days evenly across 12 months. Ask your landlord which method they use before signing anything.</p>
+</section>
+
+<section class="formula">
+    <h2>How Prorated Rent Is Calculated</h2>
+    <p>Both methods start from the same daily rate formula, but with different denominators:</p>
+    <p><strong>Actual days method: Daily rate = Monthly rent / Days in that month</strong></p>
+    <p>If your rent is $1,500 and you move in on the 17th of July (31 days), you occupy 15 days. Daily rate = $1,500 / 31 = $48.39. Prorated rent = $48.39 x 15 = $725.81.</p>
+    <p><strong>30.42-day method: Daily rate = Monthly rent / 30.42</strong></p>
+    <p>Same scenario: $1,500 / 30.42 = $49.31 per day. Prorated rent = $49.31 x 15 = $739.65. The difference may seem small, but it adds up in shorter months.</p>
+</section>
+
+<section class="examples">
+    <h2>Prorated Rent Examples</h2>
+    <ul>
+        <li><strong>Move-in on the 20th of a 30-day month, $1,200 rent:</strong> Actual days method gives 11 days at $40/day = $440.00 prorated.</li>
+        <li><strong>Move-out on the 10th of a 31-day month, $2,000 rent:</strong> You occupied 10 days at $64.52/day = $645.16 prorated.</li>
+        <li><strong>Move-in on February 15th (28 days), $1,800 rent:</strong> 14 days remaining at $64.29/day = $900.00 prorated.</li>
+    </ul>
+</section>
+
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>Which prorated rent method is most common?</h3>
+    <p>The actual days method is standard in most US states. It uses the real number of days in the month, so February prorates higher per day than March. The 30.42 average method is less common but fully legal where agreed upon in writing. Check your lease to see which one applies.</p>
+
+    <h3>Does my landlord have to prorate rent?</h3>
+    <p>In most US states, landlords are legally required to prorate rent when a tenant moves in or out mid-month. The specific method may not be mandated, but charging a full month for a partial occupancy is generally not permitted. A few states allow landlords to require the first full month regardless of move-in date, so review your local tenant law if you are unsure.</p>
+
+    <h3>What if I move in on the first day of the month?</h3>
+    <p>You owe the full month's rent. No proration applies when you take possession on the first day. Proration only comes into play when your occupancy starts or ends on any day other than the first.</p>
+
+    <h3>How does this differ from a prorated salary calculation?</h3>
+    <p>The math is similar: divide a fixed amount by a time unit to get a daily rate, then multiply by days. For salary, see our <a href="/prorated-salary-calculator/">Prorated Salary Calculator</a> which uses working days or calendar days.</p>
+</section>
+
+<section class="related">
+    <h2>Related Payroll & Finance Tools</h2>
+    <ul>
+        <li><a href="/blog/how-to-calculate-prorated-rent-move-in/">How to Calculate Prorated Rent on Move-In Day</a></li>
+        <li><a href="/blog/actual-days-vs-30-day-proration-method/">Actual Days vs 30-Day Method for Prorated Rent</a></li>
+        <li><a href="/prorated-salary-calculator/">Prorated Salary Calculator</a></li>
+        <li><a href="/mortgage-overpayment-calculator/">Mortgage Overpayment Calculator</a></li>
+        <li><a href="/amortization-calculator/">Amortization Calculator</a></li>
+        <li><a href="/commute-cost-calculator/">Commute Cost Calculator</a></li>
+    </ul>
+</section>
+
+<div class="author">
+    <p><em>Published by the QuixCalc Team. Prorated rent formulas verified against standard US landlord-tenant accounting practices. Last updated: August 2026.</em></p>
+</div>
+
+<script src="prorated-rent.js" defer></script>

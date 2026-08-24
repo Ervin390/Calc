@@ -1,0 +1,128 @@
+---
+layout: layout.njk
+title: "Concrete Calculator: Cubic Yards and Bag Count"
+description: Calculate concrete volume in cubic yards, cubic feet, and cubic meters for slabs, footings, and columns. Get 40lb, 60lb, and 80lb bag counts plus a ready-mix cost estimate.
+appName: Concrete Calculator
+category: home
+permalink: /concrete-calculator/
+updated: 2026-08-24
+---
+
+<h1>Concrete Calculator</h1>
+<p>Calculate how much concrete you need for a slab, footing, or column. Get the volume in cubic yards and cubic feet, a complete bag count by bag size, and a ready-mix cost estimate so you can compare both options before your pour.</p>
+
+<section class="tool">
+    <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+        <div class="tool-controls" style="flex: 1; min-width: 300px;">
+            <label for="cn-shape">Project Shape</label>
+            <select id="cn-shape">
+                <option value="slab">Slab (L x W x Depth)</option>
+                <option value="column">Column or Post (Diameter x Height)</option>
+                <option value="footing">Wall Footing (L x W x Depth)</option>
+            </select>
+
+            <div id="cn-slab-inputs">
+                <label for="cn-length">Length (ft)</label>
+                <input type="number" id="cn-length" value="12" min="0.1" step="0.5" inputmode="decimal">
+                <label for="cn-width">Width (ft)</label>
+                <input type="number" id="cn-width" value="16" min="0.1" step="0.5" inputmode="decimal">
+                <label for="cn-depth-in">Depth (inches)</label>
+                <input type="number" id="cn-depth-in" value="4" min="1" max="36" step="0.5" inputmode="decimal">
+            </div>
+
+            <div id="cn-column-inputs" style="display:none;">
+                <label for="cn-diameter">Diameter (inches)</label>
+                <input type="number" id="cn-diameter" value="12" min="1" max="72" step="1" inputmode="decimal">
+                <label for="cn-height">Height (ft)</label>
+                <input type="number" id="cn-height" value="3" min="0.1" step="0.5" inputmode="decimal">
+            </div>
+
+            <label for="cn-price">Ready-Mix Price ($/cu yd)</label>
+            <input type="number" id="cn-price" value="125" min="50" max="500" step="5" inputmode="decimal">
+        </div>
+
+        <div style="flex: 1; min-width: 300px;">
+            <div style="background: #f0fdf4; padding: 1.5rem; border-radius: 8px; border: 1px solid #bbf7d0; text-align: center; margin-bottom: 1rem;">
+                <p style="font-weight: 600; color: #4b5563; margin-top: 0;">Concrete Volume</p>
+                <div id="out-cn-yards" style="font-size: 2.5rem; font-weight: 800; color: #059669; line-height: 1;">0.00 cu yd</div>
+                <div style="font-size: 0.9rem; color: #6b7280; margin-top: 0.5rem;"><span id="out-cn-cuft">0.0</span> cubic feet</div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                <div style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb; text-align: center;">
+                    <div style="font-size: 0.8rem; color: #6b7280;">Ready-Mix Cost Est.</div>
+                    <div id="out-cn-readymix" style="font-size: 1.3rem; font-weight: 700; color: #111827;">$0.00</div>
+                </div>
+                <div style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb; text-align: center;">
+                    <div style="font-size: 0.8rem; color: #6b7280;">Cubic Meters</div>
+                    <div id="out-cn-meters" style="font-size: 1.3rem; font-weight: 700; color: #111827;">0.00</div>
+                </div>
+            </div>
+            <div style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb; font-size: 0.9rem;">
+                <strong style="color: #374151; display:block; margin-bottom: 0.5rem;">Bag count (add 10% for waste):</strong>
+                <table style="width:100%; border-collapse: collapse;">
+                    <tr><td style="padding: 0.3rem 0; color: #6b7280;">40 lb bags (0.30 cu ft):</td><td style="text-align:right; font-weight:600; color: #111827;" id="out-cn-40lb">0 bags</td></tr>
+                    <tr><td style="padding: 0.3rem 0; color: #6b7280;">60 lb bags (0.45 cu ft):</td><td style="text-align:right; font-weight:600; color: #111827;" id="out-cn-60lb">0 bags</td></tr>
+                    <tr><td style="padding: 0.3rem 0; color: #6b7280;">80 lb bags (0.60 cu ft):</td><td style="text-align:right; font-weight:600; color: #111827;" id="out-cn-80lb">0 bags</td></tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="tool-actions" style="margin-top: 2rem;">
+        <button type="button" class="secondary" data-share>Share link</button>
+        <span class="tool-actions-msg" role="status" aria-live="polite"></span>
+    </div>
+</section>
+
+<section class="how">
+    <h2>How to Use This Calculator</h2>
+    <p>Choose your project shape from the dropdown. Most residential jobs are slabs: patios, driveways, garage floors, and sidewalks. Select Column for posts, piers, or tube forms. Wall footing uses the same inputs as a slab but describes a narrow, deep trench.</p>
+    <p>Enter your dimensions. Depth is in inches because that is how most contractors specify slab thickness. A 4-inch patio slab is standard residential. A 6-inch slab handles vehicles and heavier loads. Edit the ready-mix price if your local rate differs from the $125/cu yd default.</p>
+</section>
+
+<section class="formula">
+    <h2>How Concrete Volume Is Calculated</h2>
+    <p><strong>Slab or footing:</strong> Volume (cu ft) = Length x Width x (Depth in inches / 12)</p>
+    <p>A 12 x 16 ft patio at 4 inches deep: 12 x 16 x (4/12) = 12 x 16 x 0.333 = 64 cu ft. Divided by 27 = 2.37 cubic yards.</p>
+    <p><strong>Column:</strong> Volume (cu ft) = pi x radius squared x height. A 12-inch diameter, 3-ft post: pi x (0.5)^2 x 3 = 2.36 cu ft = 0.09 cu yards.</p>
+    <p><strong>Bag count:</strong> Bags needed = Volume in cu ft / cu ft per bag. Round up to nearest whole bag. Standard bag yields: 40 lb = 0.30 cu ft, 60 lb = 0.45 cu ft, 80 lb = 0.60 cu ft. Always add 10 percent for spillage and waste.</p>
+</section>
+
+<section class="examples">
+    <h2>Concrete Calculation Examples</h2>
+    <ul>
+        <li><strong>12 x 16 ft patio, 4 inches thick:</strong> 2.37 cu yd. About 133 x 40-lb bags or 89 x 60-lb bags. Ready-mix at $125/cu yd would cost $296. At this volume, bags and ready-mix cost similarly.</li>
+        <li><strong>Driveway, 20 x 40 ft, 6 inches thick:</strong> 14.81 cu yd. Ready-mix at $125/cu yd = $1,851. Using bags would require 822 of the 80-lb size and take far longer to mix properly. Ready-mix makes far more sense here.</li>
+        <li><strong>Deck post, 12-inch diameter tube, 3 ft deep:</strong> 0.09 cu yd = about 2.36 cu ft. Five 40-lb bags are enough for one post with some left over for rounding.</li>
+    </ul>
+</section>
+
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>Should I order extra concrete?</h3>
+    <p>Always order 5 to 10 percent more than your calculated volume. Forms are rarely perfectly level, subgrade can have low spots, and some concrete is lost in the truck chute or spills at the pour site. Running short means a cold joint in your slab, which is a weak point that cracks over time.</p>
+
+    <h3>When should I use bags instead of ready-mix?</h3>
+    <p>Bags work well for projects under one cubic yard. That is small fence post holes, repair patches, or a single deck post. Once you hit one yard and above, ready-mix delivers faster, mixes more consistently, and usually costs less per cubic foot than buying and hand-mixing 50-plus bags.</p>
+
+    <h3>How thick should a concrete slab be?</h3>
+    <p>Four inches is the residential standard for patios, walkways, and shed floors. Six inches handles driveways and any surface that sees vehicle traffic. Eight inches or more is for heavy commercial loads. Reinforcing with rebar increases structural strength regardless of thickness. Use our <a href="/rebar-calculator/">Rebar Calculator</a> to size the reinforcement for your slab.</p>
+</section>
+
+<section class="related">
+    <h2>Related Home Improvement Tools</h2>
+    <ul>
+        <li><a href="/blog/how-to-calculate-concrete-for-a-patio-slab/">How to Calculate Concrete for a Patio Slab</a></li>
+        <li><a href="/blog/ready-mix-vs-bags-concrete-cost/">Ready-Mix vs Bags: Which Concrete Costs Less</a></li>
+        <li><a href="/rebar-calculator/">Rebar Calculator</a></li>
+        <li><a href="/tile-calculator/">Tile Calculator</a></li>
+        <li><a href="/epdm-roofing-calculator/">EPDM Roofing Calculator</a></li>
+        <li><a href="/paint-calculator/">Paint Calculator</a></li>
+    </ul>
+</section>
+
+<div class="author">
+    <p><em>Published by the QuixCalc Team. Concrete volume formulas and bag yields based on Portland Cement Association standard specifications. Last updated: August 2026.</em></p>
+</div>
+
+<script src="concrete.js" defer></script>

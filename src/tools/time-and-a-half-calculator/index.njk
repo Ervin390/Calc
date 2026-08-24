@@ -123,6 +123,9 @@ updated: 2026-08-09
     </ul>
 </section>
 
+{% from "cluster.njk" import clusterGuides %}
+{{ clusterGuides(tools | findByKey("slug", page.fileSlug)) }}
+
 <div class="author">
     <p><em>Published by the QuixCalc Team. Overtime formulas verified against the US Fair Labor Standards Act. Last updated: August 2026.</em></p>
 </div>

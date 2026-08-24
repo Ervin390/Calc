@@ -7,7 +7,7 @@
   "private": true,
   "type": "commonjs",
   "scripts": {
-    "clean": "rm -rf _site",
+    "clean": "node -e \"require('fs').rmSync('_site', {recursive:true, force:true})\"",
     "build": "npm run clean && eleventy",
     "serve": "eleventy --serve --port=8080",
     "watch": "eleventy --watch",

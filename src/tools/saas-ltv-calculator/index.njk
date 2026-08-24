@@ -1,0 +1,162 @@
+---
+layout: layout.njk
+title: "SaaS LTV Calculator: Customer Lifetime Value"
+description: Calculate SaaS customer lifetime value, average subscriber lifespan in months, and gross margin adjusted revenue per customer.
+appName: SaaS LTV Calculator
+category: finance
+permalink: /saas-ltv-calculator/
+updated: 2026-08-24
+---
+
+{% from "ad-slot.njk" import adSlot %}
+
+<h1>SaaS LTV Calculator</h1>
+<p>Calculate your SaaS Customer Lifetime Value (LTV), average subscriber lifespan, and margin-adjusted account revenue to evaluate customer acquisition unit economics.</p>
+
+<section class="tool">
+    <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+        <div class="tool-controls" style="flex: 1; min-width: 300px;">
+            <label for="ltv-arpu">Average Monthly Revenue Per User / ARPU ($)</label>
+            <input type="number" id="ltv-arpu" value="100.00" min="0.01" step="0.01" inputmode="decimal">
+
+            <label for="ltv-churn">Monthly Churn Rate (%)</label>
+            <input type="number" id="ltv-churn" value="2.5" min="0.01" max="100" step="0.1" inputmode="decimal">
+
+            <label for="ltv-margin">Gross Margin Percentage (%)</label>
+            <input type="number" id="ltv-margin" value="80" min="1" max="100" step="1" inputmode="decimal">
+        </div>
+
+        <div style="flex: 1; min-width: 300px;">
+            <div style="background: #f0fdf4; padding: 1.5rem; border-radius: 8px; border: 1px solid #bbf7d0; text-align: center; margin-bottom: 1.25rem;">
+                <p style="font-weight: 600; color: #4b5563; margin-top: 0; margin-bottom: 0.25rem;">Gross Customer Lifetime Value</p>
+                <div id="out-ltv-gross" style="font-size: 2.75rem; font-weight: 800; color: #059669; line-height: 1;">$4,000.00</div>
+                <div style="font-size: 0.85rem; color: #6b7280; margin-top: 0.5rem;">Average Account Duration: <strong id="out-ltv-lifespan">40.0 months</strong></div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                <div style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb; text-align: center;">
+                    <div style="font-size: 0.8rem; color: #6b7280; font-weight: 600;">Net Margin-Adjusted LTV</div>
+                    <div id="out-ltv-net" style="font-size: 1.5rem; font-weight: 800; color: #2563eb;">$3,200.00</div>
+                    <div style="font-size: 0.75rem; color: #9ca3af; margin-top: 0.25rem;">(LTV x Gross Margin)</div>
+                </div>
+                <div style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb; text-align: center;">
+                    <div style="font-size: 0.8rem; color: #6b7280; font-weight: 600;">Annualized Revenue / Customer</div>
+                    <div id="out-ltv-annual" style="font-size: 1.5rem; font-weight: 800; color: #7c3aed;">$1,200.00</div>
+                    <div style="font-size: 0.75rem; color: #9ca3af; margin-top: 0.25rem;">(ARPU x 12 months)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tool-actions" style="margin-top: 2rem;">
+        <button type="button" class="secondary" data-share>Share link</button>
+        <span class="tool-actions-msg" role="status" aria-live="polite"></span>
+    </div>
+</section>
+
+{{ adSlot(site, "inline") }}
+
+<section class="how">
+    <h2>How to Calculate SaaS Customer Lifetime Value</h2>
+    <p>Customer Lifetime Value measures the overall gross revenue or net profit a single account generates before cancelling their subscription. SaaS executives use LTV alongside Customer Acquisition Cost (CAC) to determine how much capital can be deployed into sales and marketing while maintaining profitable unit economics.</p>
+    <p>Calculating your LTV requires three core metrics:</p>
+    <ul>
+        <li><strong>Average Revenue Per User (ARPU):</strong> The monthly recurring revenue earned per active customer account.</li>
+        <li><strong>Monthly Churn Rate:</strong> The percentage of active subscribers who cancel or non-renew their subscription each month.</li>
+        <li><strong>Gross Margin Percentage:</strong> The proportion of revenue remaining after subtracting direct operational costs such as server hosting, customer support, and payment gateways.</li>
+    </ul>
+</section>
+
+<section class="formula">
+    <h2>The SaaS LTV Formulas</h2>
+    <p>Gross Lifetime Value is determined by dividing ARPU by your monthly churn rate:</p>
+    <p><code>Gross LTV = ARPU / Monthly Churn Rate</code></p>
+    <p>For example, if your ARPU is $100 and your monthly churn rate is 2.5% (0.025), average customer lifespan is 40 months (1 / 0.025). Gross LTV equals $100 / 0.025 = <strong>$4,000.00</strong>.</p>
+    
+    <h3>Margin-Adjusted Net LTV Formula</h3>
+    <p>To accurately measure gross profit contribution rather than top-line revenue, factor in your SaaS gross margin:</p>
+    <p><code>Net LTV = (ARPU x Gross Margin %) / Monthly Churn Rate</code></p>
+    <p>If your gross margin is 80%, Net LTV is $4,000 x 0.80 = <strong>$3,200.00</strong>. This figure represents the true margin cap for target CAC benchmarks.</p>
+</section>
+
+<section class="examples">
+    <h2>LTV Benchmarks Across Monthly ARPU and Churn Tiers</h2>
+    <p>The reference matrix below illustrates how churn rates impact overall customer lifetime value at an 80% gross margin.</p>
+    <table style="width:100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.95rem;">
+        <thead>
+            <tr style="background: var(--card-bg, #f3f4f6); border-bottom: 2px solid var(--border, #e5e7eb);">
+                <th style="padding: 0.75rem; text-align: left;">Monthly ARPU</th>
+                <th style="padding: 0.75rem; text-align: left;">Monthly Churn</th>
+                <th style="padding: 0.75rem; text-align: left;">Customer Lifespan</th>
+                <th style="padding: 0.75rem; text-align: left; color: #059669;">Gross LTV</th>
+                <th style="padding: 0.75rem; text-align: left; color: #2563eb;">Net LTV (80% Margin)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="border-bottom: 1px solid var(--border, #e5e7eb);">
+                <td style="padding: 0.75rem;">$25.00</td>
+                <td style="padding: 0.75rem;">5.0%</td>
+                <td style="padding: 0.75rem;">20 months</td>
+                <td style="padding: 0.75rem; font-weight: 600;">$500.00</td>
+                <td style="padding: 0.75rem;">$400.00</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border, #e5e7eb); background: var(--card-bg, #f9fafb);">
+                <td style="padding: 0.75rem;">$100.00</td>
+                <td style="padding: 0.75rem;">2.5%</td>
+                <td style="padding: 0.75rem;">40 months</td>
+                <td style="padding: 0.75rem; font-weight: 600;">$4,000.00</td>
+                <td style="padding: 0.75rem;">$3,200.00</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border, #e5e7eb);">
+                <td style="padding: 0.75rem;">$250.00</td>
+                <td style="padding: 0.75rem;">1.5%</td>
+                <td style="padding: 0.75rem;">66.7 months</td>
+                <td style="padding: 0.75rem; font-weight: 600;">$16,666.67</td>
+                <td style="padding: 0.75rem;">$13,333.33</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border, #e5e7eb); background: var(--card-bg, #f9fafb);">
+                <td style="padding: 0.75rem;">$1,000.00</td>
+                <td style="padding: 0.75rem;">1.0%</td>
+                <td style="padding: 0.75rem;">100 months</td>
+                <td style="padding: 0.75rem; font-weight: 600;">$100,000.00</td>
+                <td style="padding: 0.75rem;">$80,000.00</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+{{ adSlot(site, "incontent") }}
+
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>What is a healthy LTV to CAC ratio for SaaS?</h3>
+    <p>A benchmark LTV to CAC ratio for growing software companies is 3:1 or higher. A ratio of 3:1 indicates that a customer generates three times more lifetime value than the cost required to acquire them, leaving sufficient margin for overhead, research, and expansion.</p>
+
+    <h3>How does annual churn differ from monthly churn in LTV?</h3>
+    <p>If you track annual churn instead of monthly churn, divide annual churn by 12 to approximate your monthly churn rate before running monthly LTV calculations. Alternatively, divide annual ARPU by annual churn to compute multi-year account value.</p>
+
+    <h3>Why is gross margin critical when analyzing LTV?</h3>
+    <p>Top-line revenue LTV ignores server hosting, third-party API dependencies, and customer success expenses. Margin-adjusted LTV ensures you do not overspend on customer acquisition relative to your true gross profit output.</p>
+</section>
+
+<section class="related">
+    <h2>Related SaaS & Financial Utilities</h2>
+    <ul>
+        <li><a href="/blog/how-to-calculate-customer-lifetime-value-saas/">How to Calculate Customer Lifetime Value in SaaS</a></li>
+        <li><a href="/blog/arpu-churn-ltv-calculation-guide/">ARPU Churn and LTV Calculation Guide for SaaS</a></li>
+        <li><a href="/cac-calculator/">CAC Calculator</a></li>
+        <li><a href="/cac-payback-calculator/">CAC Payback Calculator</a></li>
+        <li><a href="/nrr-calculator/">NRR Calculator</a></li>
+        <li><a href="/mrr-calculator/">MRR Calculator</a></li>
+        <li><a href="/arr-calculator/">ARR Calculator</a></li>
+        <li><a href="/saas-break-even-calculator/">SaaS Break-Even Calculator</a></li>
+        <li><a href="/gross-margin-calculator/">Gross Margin Calculator</a></li>
+        <li><a href="/stripe-fee-calculator/">Stripe Fee Calculator</a></li>
+    </ul>
+</section>
+
+<div class="author">
+    <p><em>Published by the QuixCalc Team. Financial and SaaS unit economics verified against standard SaaS accounting benchmarks. Last updated: August 2026.</em></p>
+</div>
+
+<script src="saas-ltv.js" defer></script>

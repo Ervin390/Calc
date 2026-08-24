@@ -1,0 +1,149 @@
+---
+layout: layout.njk
+title: "MRR Calculator: Monthly Recurring Revenue"
+description: Calculate Monthly Recurring Revenue, Annual Run Rate, and Average Revenue Per User for subscription businesses.
+appName: MRR Calculator
+category: finance
+permalink: /mrr-calculator/
+updated: 2026-08-24
+---
+
+{% from "ad-slot.njk" import adSlot %}
+
+<h1>MRR Calculator</h1>
+<p>Calculate your SaaS Monthly Recurring Revenue (MRR), Annual Run Rate (ARR), and Average Revenue Per User (ARPU) across account subscription tiers.</p>
+
+<section class="tool">
+    <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+        <div class="tool-controls" style="flex: 1; min-width: 300px;">
+            <label for="mrr-subscribers">Total Active Paid Subscribers (#)</label>
+            <input type="number" id="mrr-subscribers" value="250" min="1" step="1" inputmode="numeric">
+
+            <label for="mrr-arpu">Average Monthly Price / ARPU ($)</label>
+            <input type="number" id="mrr-arpu" value="49.00" min="0.01" step="0.01" inputmode="decimal">
+
+            <label for="mrr-addons">Monthly Add-on & Extra Seat Revenue ($)</label>
+            <input type="number" id="mrr-addons" value="1250.00" min="0" step="0.01" inputmode="decimal">
+        </div>
+
+        <div style="flex: 1; min-width: 300px;">
+            <div style="background: #f0fdf4; padding: 1.5rem; border-radius: 8px; border: 1px solid #bbf7d0; text-align: center; margin-bottom: 1.25rem;">
+                <p style="font-weight: 600; color: #4b5563; margin-top: 0; margin-bottom: 0.25rem;">Total Monthly Recurring Revenue (MRR)</p>
+                <div id="out-mrr-total" style="font-size: 2.75rem; font-weight: 800; color: #059669; line-height: 1;">$13,500.00</div>
+                <div style="font-size: 0.85rem; color: #6b7280; margin-top: 0.5rem;">Annualized Run Rate (ARR): <strong id="out-mrr-arr">$162,000.00</strong></div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                <div style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb; text-align: center;">
+                    <div style="font-size: 0.8rem; color: #6b7280; font-weight: 600;">Blended ARPU</div>
+                    <div id="out-mrr-blended-arpu" style="font-size: 1.5rem; font-weight: 800; color: #2563eb;">$54.00</div>
+                    <div style="font-size: 0.75rem; color: #9ca3af; margin-top: 0.25rem;">(Total MRR / Subscribers)</div>
+                </div>
+                <div style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb; text-align: center;">
+                    <div style="font-size: 0.8rem; color: #6b7280; font-weight: 600;">Daily Recurring Average</div>
+                    <div id="out-mrr-daily" style="font-size: 1.5rem; font-weight: 800; color: #7c3aed;">$450.00</div>
+                    <div style="font-size: 0.75rem; color: #9ca3af; margin-top: 0.25rem;">(Total MRR / 30 Days)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tool-actions" style="margin-top: 2rem;">
+        <button type="button" class="secondary" data-share>Share link</button>
+        <span class="tool-actions-msg" role="status" aria-live="polite"></span>
+    </div>
+</section>
+
+{{ adSlot(site, "inline") }}
+
+<section class="how">
+    <h2>How to Calculate Monthly Recurring Revenue</h2>
+    <p>Monthly Recurring Revenue (MRR) measures normalized monthly subscription earnings across all active customer accounts. MRR excludes one-time installation fees, non-recurring consulting revenue, and irregular charges to provide a stable operating metric.</p>
+    <p>Using this calculator requires inputting:</p>
+    <ul>
+        <li><strong>Active Paid Subscribers:</strong> The total number of unique paying accounts currently on active billing schedules.</li>
+        <li><strong>Average Monthly Price (ARPU):</strong> Your base monthly subscription price per tier or account average.</li>
+        <li><strong>Monthly Expansion Add-ons:</strong> Recurring revenue generated from add-on modules, extra user seats, and usage baseline tiers.</li>
+    </ul>
+</section>
+
+<section class="formula">
+    <h2>The MRR Formula</h2>
+    <p>Basic Monthly Recurring Revenue is calculated by multiplying total active subscribers by your average revenue per user and adding expansion add-ons:</p>
+    <p><code>MRR = (Active Subscribers x Base ARPU) + Monthly Add-on Revenue</code></p>
+    <p>For example, if you have 250 subscribers paying $49 per month plus $1,250 in recurring add-ons: <code>(250 x $49) + $1,250 = $12,250 + $1,250 = $13,500.00 MRR</code>.</p>
+    
+    <h3>Annual Run Rate (ARR) Conversion</h3>
+    <p>To convert current MRR into your Annualized Run Rate (ARR):</p>
+    <p><code>ARR = MRR x 12</code></p>
+    <p>For $13,500 MRR, your ARR is <code>$13,500 x 12 = $162,000.00 ARR</code>.</p>
+</section>
+
+<section class="examples">
+    <h2>MRR Milestones Across Subscriber Scale</h2>
+    <p>The table below summarizes total MRR and ARR milestones based on subscriber account volume and pricing tiers.</p>
+    <table style="width:100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.95rem;">
+        <thead>
+            <tr style="background: var(--card-bg, #f3f4f6); border-bottom: 2px solid var(--border, #e5e7eb);">
+                <th style="padding: 0.75rem; text-align: left;">Active Accounts</th>
+                <th style="padding: 0.75rem; text-align: left;">Average ARPU</th>
+                <th style="padding: 0.75rem; text-align: left; color: #059669;">Total MRR</th>
+                <th style="padding: 0.75rem; text-align: left; color: #2563eb;">Annual Run Rate (ARR)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="border-bottom: 1px solid var(--border, #e5e7eb);">
+                <td style="padding: 0.75rem;">100</td>
+                <td style="padding: 0.75rem;">$29.00</td>
+                <td style="padding: 0.75rem; font-weight: 600;">$2,900.00</td>
+                <td style="padding: 0.75rem;">$34,800.00</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border, #e5e7eb); background: var(--card-bg, #f9fafb);">
+                <td style="padding: 0.75rem;">250</td>
+                <td style="padding: 0.75rem;">$54.00</td>
+                <td style="padding: 0.75rem; font-weight: 600;">$13,500.00</td>
+                <td style="padding: 0.75rem;">$162,000.00</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border, #e5e7eb);">
+                <td style="padding: 0.75rem;">1,000</td>
+                <td style="padding: 0.75rem;">$99.00</td>
+                <td style="padding: 0.75rem; font-weight: 600;">$99,000.00</td>
+                <td style="padding: 0.75rem;">$1,188,000.00 ($1.18M ARR)</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+{{ adSlot(site, "incontent") }}
+
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>What types of revenue should be excluded from MRR?</h3>
+    <p>Exclude one-off setup fees, custom implementation services, hardware sales, and non-recurring professional consulting revenue. MRR measures strictly predictable subscription cash flows.</p>
+
+    <h3>How do annual upfront payments affect MRR calculations?</h3>
+    <p>If a customer pays $1,200 upfront for an annual subscription, divide the total payment by 12 months to record $100 per month in MRR rather than recording $1,200 in a single month.</p>
+
+    <h3>What is Net New MRR?</h3>
+    <p>Net New MRR equals New MRR plus Expansion MRR minus Contraction MRR and Churned MRR. Net New MRR measures overall monthly revenue momentum.</p>
+</section>
+
+<section class="related">
+    <h2>Related SaaS & Financial Utilities</h2>
+    <ul>
+        <li><a href="/blog/how-to-calculate-monthly-recurring-revenue/">How to Calculate Monthly Recurring Revenue in SaaS</a></li>
+        <li><a href="/blog/net-new-mrr-formula-and-growth-guide/">Net New MRR Formula and Growth Guide for SaaS</a></li>
+        <li><a href="/arr-calculator/">ARR Calculator</a></li>
+        <li><a href="/nrr-calculator/">NRR Calculator</a></li>
+        <li><a href="/saas-ltv-calculator/">SaaS LTV Calculator</a></li>
+        <li><a href="/cac-calculator/">CAC Calculator</a></li>
+        <li><a href="/saas-break-even-calculator/">SaaS Break-Even Calculator</a></li>
+        <li><a href="/gross-margin-calculator/">Gross Margin Calculator</a></li>
+    </ul>
+</section>
+
+<div class="author">
+    <p><em>Published by the QuixCalc Team. MRR formulas verified against standard SaaS accounting guidelines. Last updated: August 2026.</em></p>
+</div>
+
+<script src="mrr.js" defer></script>

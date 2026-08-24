@@ -1,0 +1,133 @@
+---
+layout: layout.njk
+title: "Mini Split BTU Calculator: Room Size and Zones"
+description: Size a mini split air conditioner by room square footage, ceiling height, sun exposure, and occupancy. Multi-zone condenser sizing included.
+appName: Mini Split BTU Calculator
+category: home
+permalink: /mini-split-btu-calculator/
+updated: 2026-08-24
+---
+
+<h1>Mini Split BTU Calculator</h1>
+<p>Find the right mini split size for your room. Enter your square footage, ceiling height, sun exposure, and how many people regularly use the space. Add multiple rooms to get a combined BTU total for multi-zone system sizing.</p>
+
+<section class="tool">
+    <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+        <div class="tool-controls" style="flex: 1; min-width: 300px;">
+            <label for="bt-sqft">Room Size (sq ft)</label>
+            <input type="number" id="bt-sqft" value="300" min="50" max="5000" step="25" inputmode="decimal">
+
+            <label for="bt-ceiling">Ceiling Height</label>
+            <select id="bt-ceiling">
+                <option value="1.0">8 ft (standard)</option>
+                <option value="1.1">9 ft (slightly high)</option>
+                <option value="1.2">10+ ft (high ceiling)</option>
+            </select>
+
+            <label for="bt-sun">Sun Exposure</label>
+            <select id="bt-sun">
+                <option value="1.0">Shaded or north-facing</option>
+                <option value="1.05">Partial sun</option>
+                <option value="1.1">South-facing or heavy sun</option>
+            </select>
+
+            <label for="bt-insulation">Insulation Quality</label>
+            <select id="bt-insulation">
+                <option value="1.15">Poor (old build, no insulation)</option>
+                <option value="1.0" selected>Average (standard insulation)</option>
+                <option value="0.9">Good (well insulated or new build)</option>
+            </select>
+
+            <label for="bt-occupants">Regular Occupants (people)</label>
+            <input type="number" id="bt-occupants" value="2" min="1" max="20" step="1" inputmode="numeric">
+
+            <div style="margin-top: 1.5rem; border-top: 1px solid var(--border); padding-top: 1.5rem;">
+                <p style="font-weight: 600; color: var(--text-main); margin-bottom: 0.75rem;">Multi-Zone: Add More Rooms</p>
+                <div id="bt-zones-list"></div>
+                <button type="button" id="bt-add-zone" class="secondary" style="margin-top: 0.5rem; font-size: 0.85rem; padding: 0.4rem 0.9rem;">+ Add Another Room</button>
+            </div>
+        </div>
+
+        <div style="flex: 1; min-width: 300px;">
+            <div style="background: #eff6ff; padding: 1.5rem; border-radius: 8px; border: 1px solid #bfdbfe; text-align: center; margin-bottom: 1rem;">
+                <p style="font-weight: 600; color: #4b5563; margin-top: 0;">Recommended BTU Capacity</p>
+                <div id="out-bt-btu" style="font-size: 2.5rem; font-weight: 800; color: #2563eb; line-height: 1;">0 BTU</div>
+                <div style="font-size: 0.9rem; color: #6b7280; margin-top: 0.5rem;"><span id="out-bt-tons">0.0</span> tons</div>
+            </div>
+            <div style="background: #f0fdf4; padding: 1rem; border-radius: 8px; border: 1px solid #bbf7d0; text-align: center; margin-bottom: 1rem;">
+                <p style="font-size: 0.85rem; font-weight: 600; color: #4b5563; margin: 0 0 0.3rem 0;">Suggested Unit Class</p>
+                <div id="out-bt-unit" style="font-size: 1.4rem; font-weight: 700; color: #059669;">0,000 BTU unit</div>
+            </div>
+            <div id="out-bt-zones-total" style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb; font-size: 0.9rem; display:none;">
+                <strong style="color: #374151;">Multi-zone total:</strong>
+                <div id="out-bt-zones-detail" style="color: #6b7280; margin-top: 0.5rem;"></div>
+                <div style="font-weight: 700; color: #111827; margin-top: 0.5rem;">Condenser size needed: <span id="out-bt-condenser">0,000 BTU</span></div>
+            </div>
+        </div>
+    </div>
+    <div class="tool-actions" style="margin-top: 2rem;">
+        <button type="button" class="secondary" data-share>Share link</button>
+        <span class="tool-actions-msg" role="status" aria-live="polite"></span>
+    </div>
+</section>
+
+<section class="how">
+    <h2>How to Use This Calculator</h2>
+    <p>Enter your room's square footage and select your ceiling height. Higher ceilings hold more air volume, so they require more cooling capacity. Sun exposure matters a lot. A south-facing room that gets direct afternoon sun all summer needs more BTU than an identical north-facing room.</p>
+    <p>Add more rooms using the button below the main inputs if you are sizing a multi-zone system. The calculator adds up all the room BTUs and recommends a condenser size to cover the combined load.</p>
+</section>
+
+<section class="formula">
+    <h2>How Mini Split BTU Is Calculated</h2>
+    <p><strong>Base BTU = Room square footage x 25</strong></p>
+    <p>25 BTU per square foot is the standard HVAC baseline for moderate climates with 8-foot ceilings and average insulation.</p>
+    <p><strong>Adjustments applied:</strong></p>
+    <ul>
+        <li>Ceiling height above 8 ft: multiply by 1.1 (9 ft) or 1.2 (10+ ft)</li>
+        <li>South-facing or heavy sun exposure: multiply by 1.1</li>
+        <li>Poor insulation: multiply by 1.15</li>
+        <li>Occupants above 2: add 600 BTU per additional person</li>
+    </ul>
+    <p>Example: 300 sq ft room, 10-ft ceiling, south-facing, 3 occupants.</p>
+    <p>Base = 300 x 25 = 7,500 BTU. After ceiling factor (x1.2): 9,000. After sun (x1.1): 9,900. Extra occupant: +600. Total = 10,500 BTU. Nearest standard size: 12,000 BTU unit.</p>
+</section>
+
+<section class="examples">
+    <h2>Mini Split Sizing Examples</h2>
+    <ul>
+        <li><strong>Small bedroom, 150 sq ft, north-facing, good insulation:</strong> 150 x 25 x 0.9 = 3,375 BTU. A 9,000 BTU unit covers this comfortably with margin.</li>
+        <li><strong>Open-plan living room, 500 sq ft, partial sun:</strong> 500 x 25 x 1.05 = 13,125 BTU. Choose an 18,000 BTU unit, or split the zone across two 9,000 BTU heads if the layout allows it.</li>
+        <li><strong>Three-room multi-zone: 150 + 300 + 120 sq ft:</strong> Individual BTU totals around 3,375 + 7,500 + 3,000 = 13,875 BTU combined. A 18,000 BTU condenser handles this with one outdoor unit driving three air handlers.</li>
+    </ul>
+</section>
+
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>What happens if I buy a unit that is too large?</h3>
+    <p>Oversized mini splits short-cycle. They cool the room quickly, shut off, then restart when the temperature rises again. The problem is that short cycles do not run long enough to dehumidify the air properly. In a humid climate, this leaves you with a cool but clammy room. Match the BTU to your room as closely as possible.</p>
+
+    <h3>What are standard mini split unit sizes?</h3>
+    <p>Mini split units come in standard sizes: 9,000, 12,000, 18,000, 24,000, and 36,000 BTU. A 12,000 BTU unit is one ton of cooling. Most single-room residential applications fall between 9,000 and 18,000 BTU. Multi-zone condensers go up to 36,000 and 48,000 BTU for whole-house coverage.</p>
+
+    <h3>How many air handlers can one mini split condenser support?</h3>
+    <p>Most residential multi-zone condensers support 2 to 5 air handlers. The total BTU of connected air handlers should not exceed the condenser's rated capacity. A 36,000 BTU condenser can typically run 4 air handlers adding up to 36,000 BTU total, with some overhead factor built in.</p>
+</section>
+
+<section class="related">
+    <h2>Related Home Improvement Tools</h2>
+    <ul>
+        <li><a href="/blog/how-to-size-mini-split-btu-for-room/">How to Size a Mini Split BTU for Your Room</a></li>
+        <li><a href="/blog/multi-zone-mini-split-sizing-guide/">Multi-Zone Mini Split Sizing Complete Guide</a></li>
+        <li><a href="/epdm-roofing-calculator/">EPDM Roofing Calculator</a></li>
+        <li><a href="/paint-calculator/">Paint Calculator</a></li>
+        <li><a href="/tile-calculator/">Tile Calculator</a></li>
+        <li><a href="/concrete-calculator/">Concrete Calculator</a></li>
+    </ul>
+</section>
+
+<div class="author">
+    <p><em>Published by the QuixCalc Team. BTU sizing formulas based on standard ACCA Manual J load calculation methodology. Last updated: August 2026.</em></p>
+</div>
+
+<script src="mini-split-btu.js" defer></script>

@@ -4,6 +4,7 @@
     { "key": "dev",       "name": "Text & Developer",     "short": "Developer", "url": "/dev/",       "icon": "💻" },
     { "key": "finance",   "name": "Finance & Money",      "short": "Finance",   "url": "/finance/",   "icon": "💵" },
     { "key": "payroll",   "name": "Payroll Calc",         "short": "Payroll",   "url": "/payroll/",   "icon": "💼" },
+    { "key": "saas",      "name": "SaaS & B2B Tools",      "short": "SaaS",      "url": "/saas/",      "icon": "📊" },
     { "key": "fuel",      "name": "Fuel & Travel",        "short": "Fuel",      "url": "/fuel/",      "icon": "⛽" },
     { "key": "health",    "name": "Fitness & Health",     "short": "Health",    "url": "/health/",    "icon": "⚖️" },
     { "key": "math",      "name": "Math & Education",     "short": "Math",      "url": "/math/",      "icon": "➗" },

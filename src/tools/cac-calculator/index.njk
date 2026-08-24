@@ -1,0 +1,159 @@
+---
+layout: layout.njk
+title: "CAC Calculator: Customer Acquisition Cost"
+description: Calculate customer acquisition cost from marketing campaigns, sales team salaries, software tools, and total new accounts acquired.
+appName: CAC Calculator
+category: finance
+permalink: /cac-calculator/
+updated: 2026-08-24
+---
+
+{% from "ad-slot.njk" import adSlot %}
+
+<h1>CAC Calculator</h1>
+<p>Calculate your blended Customer Acquisition Cost (CAC) by combining ad spend, sales headcount costs, and software overhead against newly acquired customers.</p>
+
+<section class="tool">
+    <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+        <div class="tool-controls" style="flex: 1; min-width: 300px;">
+            <label for="cac-ad-spend">Ad & Marketing Campaign Expenses ($)</label>
+            <input type="number" id="cac-ad-spend" value="10000.00" min="0" step="0.01" inputmode="decimal">
+
+            <label for="cac-salaries">Sales & Marketing Payroll / Commissions ($)</label>
+            <input type="number" id="cac-salaries" value="15000.00" min="0" step="0.01" inputmode="decimal">
+
+            <label for="cac-overhead">Sales Software & Operational Overhead ($)</label>
+            <input type="number" id="cac-overhead" value="5000.00" min="0" step="0.01" inputmode="decimal">
+
+            <label for="cac-customers">New Customers Acquired (#)</label>
+            <input type="number" id="cac-customers" value="100" min="1" step="1" inputmode="numeric">
+        </div>
+
+        <div style="flex: 1; min-width: 300px;">
+            <div style="background: #f0fdf4; padding: 1.5rem; border-radius: 8px; border: 1px solid #bbf7d0; text-align: center; margin-bottom: 1.25rem;">
+                <p style="font-weight: 600; color: #4b5563; margin-top: 0; margin-bottom: 0.25rem;">Customer Acquisition Cost (CAC)</p>
+                <div id="out-cac-main" style="font-size: 2.75rem; font-weight: 800; color: #059669; line-height: 1;">$300.00</div>
+                <div style="font-size: 0.85rem; color: #6b7280; margin-top: 0.5rem;">Total Acquisition Expense: <strong id="out-cac-total">$30,000.00</strong></div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                <div style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb; text-align: center;">
+                    <div style="font-size: 0.8rem; color: #6b7280; font-weight: 600;">Marketing Cost / Customer</div>
+                    <div id="out-cac-mktg" style="font-size: 1.5rem; font-weight: 800; color: #2563eb;">$100.00</div>
+                    <div style="font-size: 0.75rem; color: #9ca3af; margin-top: 0.25rem;">(Ad Spend / New Users)</div>
+                </div>
+                <div style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb; text-align: center;">
+                    <div style="font-size: 0.8rem; color: #6b7280; font-weight: 600;">Sales & Overhead / Customer</div>
+                    <div id="out-cac-sales" style="font-size: 1.5rem; font-weight: 800; color: #7c3aed;">$200.00</div>
+                    <div style="font-size: 0.75rem; color: #9ca3af; margin-top: 0.25rem;">(Payroll & Tech / Users)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tool-actions" style="margin-top: 2rem;">
+        <button type="button" class="secondary" data-share>Share link</button>
+        <span class="tool-actions-msg" role="status" aria-live="polite"></span>
+    </div>
+</section>
+
+{{ adSlot(site, "inline") }}
+
+<section class="how">
+    <h2>How to Calculate Customer Acquisition Cost</h2>
+    <p>Customer Acquisition Cost measures the total financial outlay required to convert a prospective user into a paying customer during a given period. Calculating true CAC requires factoring in direct ad spending as well as internal sales team salaries, commissions, CRM software licenses, and agency retainers.</p>
+    <p>Using this calculator takes three steps:</p>
+    <ul>
+        <li>Input paid advertising campaign costs across search, display, and social media channels.</li>
+        <li>Add total payroll expenses for account executives, sales development reps, and marketing staff.</li>
+        <li>Enter total operational software overhead and the number of net new paying accounts acquired during the evaluation period.</li>
+    </ul>
+</section>
+
+<section class="formula">
+    <h2>The Customer Acquisition Cost Formula</h2>
+    <p>Blended Customer Acquisition Cost is calculated by summing all sales and marketing costs and dividing by newly acquired customers:</p>
+    <p><code>Blended CAC = (Marketing Spend + Sales Payroll + Software Overhead) / New Customers Acquired</code></p>
+    <p>For example, if marketing spend is $10,000, sales payroll is $15,000, software overhead is $5,000, and you acquire 100 customers: <code>($10,000 + $15,000 + $5,000) / 100 = $30,000 / 100 = $300.00</code> per customer.</p>
+</section>
+
+<section class="examples">
+    <h2>CAC Reference Table Across Acquisition Scale</h2>
+    <p>The table below breaks down blended CAC benchmarks across different budget allocations and acquisition volumes.</p>
+    <table style="width:100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.95rem;">
+        <thead>
+            <tr style="background: var(--card-bg, #f3f4f6); border-bottom: 2px solid var(--border, #e5e7eb);">
+                <th style="padding: 0.75rem; text-align: left;">Total Budget</th>
+                <th style="padding: 0.75rem; text-align: left;">Ad Spend Ratio</th>
+                <th style="padding: 0.75rem; text-align: left;">New Customers</th>
+                <th style="padding: 0.75rem; text-align: left; color: #059669;">Blended CAC</th>
+                <th style="padding: 0.75rem; text-align: left; color: #2563eb;">Paid Ad Cost / User</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="border-bottom: 1px solid var(--border, #e5e7eb);">
+                <td style="padding: 0.75rem;">$5,000.00</td>
+                <td style="padding: 0.75rem;">60% ($3,000)</td>
+                <td style="padding: 0.75rem;">50</td>
+                <td style="padding: 0.75rem; font-weight: 600;">$100.00</td>
+                <td style="padding: 0.75rem;">$60.00</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border, #e5e7eb); background: var(--card-bg, #f9fafb);">
+                <td style="padding: 0.75rem;">$30,000.00</td>
+                <td style="padding: 0.75rem;">33% ($10,000)</td>
+                <td style="padding: 0.75rem;">100</td>
+                <td style="padding: 0.75rem; font-weight: 600;">$300.00</td>
+                <td style="padding: 0.75rem;">$100.00</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border, #e5e7eb);">
+                <td style="padding: 0.75rem;">$75,000.00</td>
+                <td style="padding: 0.75rem;">40% ($30,000)</td>
+                <td style="padding: 0.75rem;">150</td>
+                <td style="padding: 0.75rem; font-weight: 600;">$500.00</td>
+                <td style="padding: 0.75rem;">$200.00</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border, #e5e7eb); background: var(--card-bg, #f9fafb);">
+                <td style="padding: 0.75rem;">$200,000.00</td>
+                <td style="padding: 0.75rem;">50% ($100,000)</td>
+                <td style="padding: 0.75rem;">100</td>
+                <td style="padding: 0.75rem; font-weight: 600;">$2,000.00</td>
+                <td style="padding: 0.75rem;">$1,000.00</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+{{ adSlot(site, "incontent") }}
+
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>What is the difference between paid CAC and blended CAC?</h3>
+    <p>Paid CAC considers only direct ad campaign spend divided by acquisitions generated through paid channels. Blended CAC includes all sales payroll, agency overhead, tools, and total new customers from organic and paid sources combined.</p>
+
+    <h3>Why is fully loaded CAC important for venture metrics?</h3>
+    <p>Evaluating paid ad spend alone distorts true profitability. Fully loaded CAC reflects the complete operational expense required to maintain sales momentum and scale recurring revenue.</p>
+
+    <h3>How can a software business lower its CAC?</h3>
+    <p>Companies reduce CAC by optimizing conversion rate funnels, leveraging product-led growth (PLG) self-serve onboarding, improving organic search traffic, and implementing customer referral programs.</p>
+</section>
+
+<section class="related">
+    <h2>Related SaaS & Financial Utilities</h2>
+    <ul>
+        <li><a href="/blog/how-to-calculate-customer-acquisition-cost-saas/">How to Calculate Customer Acquisition Cost in SaaS</a></li>
+        <li><a href="/blog/blended-cac-vs-paid-cac-explained/">Blended CAC vs Paid CAC Explained for SaaS</a></li>
+        <li><a href="/saas-ltv-calculator/">SaaS LTV Calculator</a></li>
+        <li><a href="/cac-payback-calculator/">CAC Payback Calculator</a></li>
+        <li><a href="/saas-break-even-calculator/">SaaS Break-Even Calculator</a></li>
+        <li><a href="/nrr-calculator/">NRR Calculator</a></li>
+        <li><a href="/mrr-calculator/">MRR Calculator</a></li>
+        <li><a href="/gross-margin-calculator/">Gross Margin Calculator</a></li>
+        <li><a href="/margin-calculator/">Margin & Markup Calculator</a></li>
+    </ul>
+</section>
+
+<div class="author">
+    <p><em>Published by the QuixCalc Team. Financial models verified against SaaS acquisition benchmarks. Last updated: August 2026.</em></p>
+</div>
+
+<script src="cac.js" defer></script>

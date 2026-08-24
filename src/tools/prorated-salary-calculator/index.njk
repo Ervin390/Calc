@@ -1,0 +1,125 @@
+---
+layout: layout.njk
+title: "Prorated Salary Calculator: Partial Month Pay"
+description: Calculate partial month gross pay for a new hire, departure, or leave period. Toggle between working days and calendar days proration methods.
+appName: Prorated Salary Calculator
+category: payroll
+permalink: /prorated-salary-calculator/
+updated: 2026-08-24
+---
+
+<h1>Prorated Salary Calculator</h1>
+<p>Calculate the exact gross pay owed for a partial pay period. Whether someone starts mid-month, leaves before month end, or takes unpaid leave, this prorated salary calculator handles it in seconds using either the working days method or the calendar days method.</p>
+
+<section class="tool">
+    <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+        <div class="tool-controls" style="flex: 1; min-width: 300px;">
+            <label for="ps-salary">Annual Salary ($)</label>
+            <input type="number" id="ps-salary" value="78000" min="0" step="1000" inputmode="decimal">
+
+            <label for="ps-method">Proration Method</label>
+            <select id="ps-method">
+                <option value="working">Working Days (52 weeks x 5 days = 260)</option>
+                <option value="calendar">Calendar Days (365 per year)</option>
+            </select>
+
+            <label for="ps-days-worked">Days Worked in Period</label>
+            <input type="number" id="ps-days-worked" value="13" min="1" max="365" step="1" inputmode="numeric">
+
+            <div id="ps-working-total-wrap">
+                <label for="ps-total-working">Total Working Days in Pay Period</label>
+                <input type="number" id="ps-total-working" value="22" min="1" max="31" step="1" inputmode="numeric">
+            </div>
+
+            <div id="ps-calendar-total-wrap" style="display:none;">
+                <label for="ps-total-calendar">Total Calendar Days in Pay Period</label>
+                <input type="number" id="ps-total-calendar" value="30" min="1" max="31" step="1" inputmode="numeric">
+            </div>
+        </div>
+
+        <div style="flex: 1; min-width: 300px;">
+            <div style="background: #f0fdf4; padding: 1.5rem; border-radius: 8px; border: 1px solid #bbf7d0; text-align: center; margin-bottom: 1rem;">
+                <p style="font-weight: 600; color: #4b5563; margin-top: 0;">Prorated Gross Pay</p>
+                <div id="out-ps-pay" style="font-size: 2.5rem; font-weight: 800; color: #059669; line-height: 1;">$0.00</div>
+                <div style="font-size: 0.9rem; color: #6b7280; margin-top: 0.5rem;">for <span id="out-ps-days">0</span> day(s) worked</div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                <div style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb; text-align: center;">
+                    <div style="font-size: 0.8rem; color: #6b7280;">Daily Rate</div>
+                    <div id="out-ps-daily" style="font-size: 1.3rem; font-weight: 700; color: #111827;">$0.00</div>
+                </div>
+                <div style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb; text-align: center;">
+                    <div style="font-size: 0.8rem; color: #6b7280;">Full Period Pay</div>
+                    <div id="out-ps-full" style="font-size: 1.3rem; font-weight: 700; color: #111827;">$0.00</div>
+                </div>
+            </div>
+            <div style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb; font-size: 0.9rem; color: #6b7280;">
+                <strong style="color: #374151;">Deducted amount:</strong> <span id="out-ps-deducted">$0.00</span> for <span id="out-ps-absent">0</span> day(s) not worked.
+            </div>
+        </div>
+    </div>
+    <div class="tool-actions" style="margin-top: 2rem;">
+        <button type="button" class="secondary" data-share>Share link</button>
+        <span class="tool-actions-msg" role="status" aria-live="polite"></span>
+    </div>
+</section>
+
+<section class="how">
+    <h2>How to Use This Calculator</h2>
+    <p>Enter the employee's annual salary. Then choose your proration method. Most companies use the working days method, which divides annual salary by 260 (52 weeks times 5 days) to get a daily rate. The calendar days method divides by 365 instead.</p>
+    <p>Enter how many days the employee actually worked in the partial period, then enter the total days in that period. The calculator shows gross prorated pay, daily rate, full period equivalent, and the amount being deducted.</p>
+</section>
+
+<section class="formula">
+    <h2>How Prorated Salary Is Calculated</h2>
+    <p><strong>Working days method:</strong></p>
+    <p>Daily rate = Annual salary / 260</p>
+    <p>Prorated pay = Daily rate x Days worked</p>
+    <p>Example: $78,000 salary. Employee starts on the 10th of a month with 22 working days total and works 13 days. Daily rate = $78,000 / 260 = $300. Pay = $300 x 13 = $3,900.</p>
+    <p><strong>Calendar days method:</strong></p>
+    <p>Daily rate = Annual salary / 365</p>
+    <p>Same employee, calendar method: $78,000 / 365 = $213.70/day x 13 days = $2,778 (lower than working days because weekends are included in the divisor).</p>
+</section>
+
+<section class="examples">
+    <h2>Prorated Salary Examples</h2>
+    <ul>
+        <li><strong>New hire starts on the 15th, $96,000/yr, 12 working days in a 22-day month:</strong> $96,000 / 260 = $369.23/day. Pay = $369.23 x 12 = $4,430.77.</li>
+        <li><strong>Employee resigns on the 8th, $60,000/yr, 6 working days in period:</strong> $60,000 / 260 = $230.77/day. Pay = $230.77 x 6 = $1,384.62.</li>
+        <li><strong>Unpaid leave deduction, $120,000/yr, 3 days absent:</strong> $120,000 / 260 = $461.54/day. Deduction = $461.54 x 3 = $1,384.62.</li>
+    </ul>
+</section>
+
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>Which method do most UK employers use?</h3>
+    <p>UK employers most commonly use the calendar days method, dividing annual salary by 365. Some use a 260-day working year instead. The method should be stated in the employment contract. If it is not, the calendar method is the safer default for compliance.</p>
+
+    <h3>How does this work for bi-weekly payroll?</h3>
+    <p>For bi-weekly payroll with a 26-period year, your per-period pay is annual salary / 26. For a partial period, use days worked / 10 (working days in 2 weeks) as the fraction to apply. Enter your annual salary and days worked, and set total period days to 10.</p>
+
+    <h3>Is prorated salary the same as a partial paycheck?</h3>
+    <p>Yes. Any time an employee works fewer days than the standard pay period, their check is prorated. The terms mean the same thing. The difference is in the calculation method used to determine the daily rate.</p>
+
+    <h3>How does this compare to rent proration?</h3>
+    <p>The math is similar. Both divide a fixed amount by a time base to get a daily rate. For rental calculations, see our <a href="/prorated-rent-calculator/">Prorated Rent Calculator</a>, which handles move-in and move-out scenarios.</p>
+</section>
+
+<section class="related">
+    <h2>Related Payroll Tools</h2>
+    <ul>
+        <li><a href="/blog/how-to-calculate-prorated-salary/">How to Calculate Prorated Salary Mid-Month</a></li>
+        <li><a href="/blog/working-days-vs-calendar-days-salary/">Working Days vs Calendar Days: Salary Proration</a></li>
+        <li><a href="/pay-raise-calculator/">Pay Raise Calculator</a></li>
+        <li><a href="/hourly-to-salary-calculator/">Hourly to Salary Calculator</a></li>
+        <li><a href="/sales-commission-calculator/">Sales Commission Calculator</a></li>
+        <li><a href="/prorated-rent-calculator/">Prorated Rent Calculator</a></li>
+    </ul>
+</section>
+
+<div class="author">
+    <p><em>Published by the QuixCalc Team. Salary proration formulas based on standard US and UK payroll accounting practices. Last updated: August 2026.</em></p>
+</div>
+
+<script src="prorated-salary.js" defer></script>

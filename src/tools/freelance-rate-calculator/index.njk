@@ -1,0 +1,128 @@
+---
+layout: layout.njk
+title: "Freelance Rate Calculator: Set Your Hourly Price"
+description: Calculate the minimum billable hourly rate you need to hit your target income after taxes, non-billable hours, vacation days, and annual expenses.
+appName: Freelance Rate Calculator
+category: payroll
+permalink: /freelance-rate-calculator/
+updated: 2026-08-24
+---
+
+<h1>Freelance Rate Calculator</h1>
+<p>Work out the minimum hourly rate you need to charge to reach your income goal. This freelance rate calculator factors in self-employment tax, non-billable time, vacation, and annual overhead so the number you get actually covers your life.</p>
+
+<section class="tool">
+    <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+        <div class="tool-controls" style="flex: 1; min-width: 300px;">
+            <label for="fr-income">Target Net Annual Income ($)</label>
+            <input type="number" id="fr-income" value="70000" min="0" step="1000" inputmode="decimal">
+
+            <label for="fr-expenses">Annual Business Expenses ($)</label>
+            <input type="number" id="fr-expenses" value="5000" min="0" step="500" inputmode="decimal">
+
+            <label for="fr-se-tax">SE Tax Buffer (%)</label>
+            <input type="number" id="fr-se-tax" value="15.3" min="0" max="50" step="0.1" inputmode="decimal">
+
+            <label for="fr-vacation">Vacation & Sick Days Per Year</label>
+            <input type="number" id="fr-vacation" value="15" min="0" max="365" step="1" inputmode="numeric">
+
+            <label for="fr-nonbillable">Non-Billable Time (%)</label>
+            <input type="number" id="fr-nonbillable" value="30" min="0" max="90" step="1" inputmode="numeric">
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">Admin, proposals, emails, marketing, learning</p>
+
+            <label for="fr-hours">Working Hours Per Week</label>
+            <input type="number" id="fr-hours" value="40" min="10" max="80" step="1" inputmode="numeric">
+        </div>
+
+        <div style="flex: 1; min-width: 300px;">
+            <div style="background: #f0fdf4; padding: 1.5rem; border-radius: 8px; border: 1px solid #bbf7d0; text-align: center; margin-bottom: 1rem;">
+                <p style="font-weight: 600; color: #4b5563; margin-top: 0;">Minimum Billable Rate</p>
+                <div id="out-fr-rate" style="font-size: 2.5rem; font-weight: 800; color: #059669; line-height: 1;">$0.00/hr</div>
+                <div style="font-size: 0.9rem; color: #6b7280; margin-top: 0.5rem;">to achieve <span id="out-fr-income-label">$0</span>/yr net</div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                <div style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb; text-align: center;">
+                    <div style="font-size: 0.8rem; color: #6b7280;">Billable Hours/Year</div>
+                    <div id="out-fr-billable-hrs" style="font-size: 1.3rem; font-weight: 700; color: #111827;">0</div>
+                </div>
+                <div style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb; text-align: center;">
+                    <div style="font-size: 0.8rem; color: #6b7280;">Gross Revenue Needed</div>
+                    <div id="out-fr-gross" style="font-size: 1.3rem; font-weight: 700; color: #111827;">$0</div>
+                </div>
+            </div>
+            <div style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb; font-size: 0.9rem;">
+                <table style="width:100%; border-collapse: collapse;">
+                    <tr><td style="padding: 0.3rem 0; color: #6b7280;">Daily rate (8 hrs):</td><td style="text-align:right; font-weight:600; color: #111827;" id="out-fr-daily">$0</td></tr>
+                    <tr><td style="padding: 0.3rem 0; color: #6b7280;">Weekly (billable):</td><td style="text-align:right; font-weight:600; color: #111827;" id="out-fr-weekly">$0</td></tr>
+                    <tr><td style="padding: 0.3rem 0; color: #6b7280;">Monthly equivalent:</td><td style="text-align:right; font-weight:600; color: #111827;" id="out-fr-monthly">$0</td></tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="tool-actions" style="margin-top: 2rem;">
+        <button type="button" class="secondary" data-share>Share link</button>
+        <span class="tool-actions-msg" role="status" aria-live="polite"></span>
+    </div>
+</section>
+
+<section class="how">
+    <h2>How to Use This Calculator</h2>
+    <p>Start with your target net annual income. That is the money you want to actually take home after taxes, not your gross. Add your expected annual business expenses: software, equipment, insurance, coworking fees, anything that is a real cost of running your practice.</p>
+    <p>The SE tax buffer is set to 15.3% by default, which is the US self-employment tax rate as of 2026. Adjust it if your situation differs. Enter your planned vacation and sick days, then your typical non-billable percentage. For most freelancers, 25 to 35 percent of working time goes to admin, sales, and learning. The calculator uses all of this to find the rate you need per billable hour.</p>
+</section>
+
+<section class="formula">
+    <h2>How the Freelance Rate Formula Works</h2>
+    <p>The calculation works in three steps.</p>
+    <p><strong>Step 1: Gross revenue needed</strong></p>
+    <p>Gross = (Target net income + Annual expenses) / (1 - SE tax rate)</p>
+    <p>If you want $70,000 net with $5,000 in expenses and 15.3% SE tax: Gross = $75,000 / 0.847 = $88,548.</p>
+    <p><strong>Step 2: Billable hours per year</strong></p>
+    <p>Total work hours = weeks per year x hours per week - vacation days x hours per day. Then reduce by non-billable percentage.</p>
+    <p>Example: 52 weeks x 40 hours = 2,080 hours. Minus 15 vacation days x 8 hours = 2,080 - 120 = 1,960 hours. Billable at 70% = 1,372 hours.</p>
+    <p><strong>Step 3: Minimum hourly rate</strong></p>
+    <p>Rate = Gross revenue / Billable hours = $88,548 / 1,372 = $64.54 per hour.</p>
+</section>
+
+<section class="examples">
+    <h2>Freelance Rate Scenarios</h2>
+    <ul>
+        <li><strong>Junior designer, $50k net goal, 20% non-billable:</strong> Gross needed ~$63k, billable hours ~1,600. Minimum rate: $39/hr. Most designers charge more than this, leaving margin for slow months.</li>
+        <li><strong>Senior consultant, $120k net goal, 35% non-billable:</strong> Gross needed ~$155k, billable hours ~1,170. Minimum rate: $132/hr. This is why experienced consultants charge $150 to $200 per hour.</li>
+        <li><strong>Part-time freelancer, $30k net goal, 20 hours/week:</strong> Gross needed ~$39k, billable hours ~650. Minimum rate: $60/hr. Even part-time work requires a higher hourly rate than a salaried job doing the same work.</li>
+    </ul>
+</section>
+
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>Why is my required rate higher than I expected?</h3>
+    <p>Most freelancers are surprised because they undercount non-billable time. If you bill 40 hours a week but spend 15 of those hours on admin and sales, only 25 are actually generating income. That gap between total hours and billable hours is the biggest reason freelancers underprice themselves early on.</p>
+
+    <h3>Should I charge the same rate for all clients?</h3>
+    <p>Not necessarily. The minimum rate this calculator shows is your floor, not your ceiling. You can and should charge more for rush projects, complex work, or clients in high-margin industries. The calculation just tells you the lowest you can go without losing money.</p>
+
+    <h3>What counts as a business expense?</h3>
+    <p>Software subscriptions, professional development courses, home office costs, liability insurance, accounting fees, equipment depreciation, and any direct project costs you cover before billing the client. Keep receipts for everything since these reduce your taxable income.</p>
+
+    <h3>How does this compare to a full-time salary?</h3>
+    <p>Use our <a href="/hourly-to-salary-calculator/">Hourly to Salary Calculator</a> to convert your freelance rate to an annual equivalent. Then factor in that you cover your own health insurance and retirement contributions, which a salaried employer typically pays. The true comparison is often closer than it looks at first.</p>
+</section>
+
+<section class="related">
+    <h2>Related Payroll Tools</h2>
+    <ul>
+        <li><a href="/blog/how-to-calculate-your-freelance-hourly-rate/">How to Calculate Your Freelance Hourly Rate</a></li>
+        <li><a href="/blog/billable-hours-vs-total-hours-freelance/">Billable Hours vs Total Hours for Freelancers</a></li>
+        <li><a href="/hourly-to-salary-calculator/">Hourly to Salary Calculator</a></li>
+        <li><a href="/pay-raise-calculator/">Pay Raise Calculator</a></li>
+        <li><a href="/commute-cost-calculator/">Commute Cost Calculator</a></li>
+        <li><a href="/sales-commission-calculator/">Sales Commission Calculator</a></li>
+    </ul>
+</section>
+
+<div class="author">
+    <p><em>Published by the QuixCalc Team. Freelance rate formula based on standard self-employment tax and billable hour accounting practices. Last updated: August 2026.</em></p>
+</div>
+
+<script src="freelance-rate.js" defer></script>

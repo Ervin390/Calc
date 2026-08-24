@@ -1,0 +1,129 @@
+---
+layout: layout.njk
+title: "EPDM Roofing Calculator: Membrane and Adhesive"
+description: Calculate EPDM rubber membrane square footage, adhesive gallons, seam tape linear feet, and roll count for flat and low-slope roofing projects.
+appName: EPDM Roofing Calculator
+category: home
+permalink: /epdm-roofing-calculator/
+updated: 2026-08-24
+---
+
+<h1>EPDM Roofing Calculator</h1>
+<p>Calculate how much EPDM rubber membrane, adhesive, and seam tape you need for a flat or low-slope roof project. Enter your roof dimensions, roll width, and waste factor, and get a complete materials list in seconds.</p>
+
+<section class="tool">
+    <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+        <div class="tool-controls" style="flex: 1; min-width: 300px;">
+            <label for="ep-length">Roof Length (ft)</label>
+            <input type="number" id="ep-length" value="20" min="0" step="1" inputmode="decimal">
+
+            <label for="ep-width">Roof Width (ft)</label>
+            <input type="number" id="ep-width" value="30" min="0" step="1" inputmode="decimal">
+
+            <label for="ep-roll-width">EPDM Roll Width (ft)</label>
+            <select id="ep-roll-width">
+                <option value="10">10 ft wide rolls</option>
+                <option value="15" selected>15 ft wide rolls</option>
+                <option value="20">20 ft wide rolls</option>
+            </select>
+
+            <label for="ep-waste">Waste Factor</label>
+            <select id="ep-waste">
+                <option value="5">5% (simple rectangular roof)</option>
+                <option value="10" selected>10% (standard, some cuts)</option>
+                <option value="15">15% (complex shape, penetrations)</option>
+            </select>
+
+            <label for="ep-overlap">Seam Overlap (inches)</label>
+            <select id="ep-overlap">
+                <option value="3">3 inches (bonded seam)</option>
+                <option value="6" selected>6 inches (standard lap seam)</option>
+                <option value="9">9 inches (high-wind area)</option>
+            </select>
+        </div>
+
+        <div style="flex: 1; min-width: 300px;">
+            <div style="background: #f0fdf4; padding: 1.5rem; border-radius: 8px; border: 1px solid #bbf7d0; text-align: center; margin-bottom: 1rem;">
+                <p style="font-weight: 600; color: #4b5563; margin-top: 0;">EPDM Membrane Needed</p>
+                <div id="out-ep-membrane" style="font-size: 2.5rem; font-weight: 800; color: #059669; line-height: 1;">0 sq ft</div>
+                <div style="font-size: 0.9rem; color: #6b7280; margin-top: 0.5rem;">including <span id="out-ep-waste-pct">10%</span> waste</div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                <div style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb; text-align: center;">
+                    <div style="font-size: 0.8rem; color: #6b7280;">Rolls Needed</div>
+                    <div id="out-ep-rolls" style="font-size: 1.3rem; font-weight: 700; color: #111827;">0</div>
+                </div>
+                <div style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb; text-align: center;">
+                    <div style="font-size: 0.8rem; color: #6b7280;">Net Roof Area</div>
+                    <div id="out-ep-net-area" style="font-size: 1.3rem; font-weight: 700; color: #111827;">0 sq ft</div>
+                </div>
+            </div>
+            <div style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb; font-size: 0.9rem;">
+                <table style="width:100%; border-collapse: collapse;">
+                    <tr><td style="padding: 0.3rem 0; color: #6b7280;">Adhesive (1 gal per 60 sq ft):</td><td style="text-align:right; font-weight:600; color: #111827;" id="out-ep-adhesive">0 gal</td></tr>
+                    <tr><td style="padding: 0.3rem 0; color: #6b7280;">Seam tape needed:</td><td style="text-align:right; font-weight:600; color: #111827;" id="out-ep-tape">0 lin ft</td></tr>
+                    <tr><td style="padding: 0.3rem 0; color: #6b7280;">Lap sealant tubes (1 per 100 ln ft):</td><td style="text-align:right; font-weight:600; color: #111827;" id="out-ep-sealant">0 tubes</td></tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="tool-actions" style="margin-top: 2rem;">
+        <button type="button" class="secondary" data-share>Share link</button>
+        <span class="tool-actions-msg" role="status" aria-live="polite"></span>
+    </div>
+</section>
+
+<section class="how">
+    <h2>How to Use This Calculator</h2>
+    <p>Measure your roof length and width in feet. If the roof has multiple sections, calculate each separately and add the results together. Select the roll width you plan to purchase. Standard EPDM rolls come in 10, 15, and 20-foot widths.</p>
+    <p>Pick your waste factor based on your roof's complexity. A simple rectangular roof with no vents or penetrations can get away with 5 to 10 percent. Add vents, skylights, or irregular edges and 15 percent is safer. The calculator also outputs adhesive gallons, seam tape, and lap sealant so you can order everything at once.</p>
+</section>
+
+<section class="formula">
+    <h2>How EPDM Material Quantities Are Calculated</h2>
+    <p><strong>Net roof area:</strong> Length x Width = roof square footage.</p>
+    <p><strong>Gross membrane area:</strong> Net area x (1 + waste factor). A 600 sq ft roof at 10% waste requires 660 sq ft of membrane.</p>
+    <p><strong>Roll count:</strong> Gross area / (roll width x roll length). Standard rolls are sold in 50-foot and 100-foot lengths. Divide gross area by roll coverage and round up.</p>
+    <p><strong>Adhesive:</strong> One gallon covers approximately 60 square feet of bonded membrane. Divide gross area by 60 and round up.</p>
+    <p><strong>Seam tape:</strong> Linear feet of all horizontal seams. For a 20x30 ft roof with 15-ft rolls, you have one seam running 30 linear feet. Add 6 inches of tape overlap per seam per foot.</p>
+    <p><strong>Lap sealant:</strong> One tube covers approximately 100 linear feet of finished seam edge.</p>
+</section>
+
+<section class="examples">
+    <h2>EPDM Material Examples</h2>
+    <ul>
+        <li><strong>20 x 30 ft flat roof, 15-ft rolls, 10% waste:</strong> Net area 600 sq ft. Gross 660 sq ft. 2 rolls of 15 x 50 ft. Adhesive: 11 gallons. Seam tape: 30 ft. Lap sealant: 1 tube.</li>
+        <li><strong>40 x 50 ft commercial roof, complex shape, 15% waste:</strong> Net area 2,000 sq ft. Gross 2,300 sq ft. 5 rolls of 20 x 50 ft. Adhesive: 39 gallons. Multiple seam lines required.</li>
+    </ul>
+</section>
+
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>What is EPDM roofing used for?</h3>
+    <p>EPDM (ethylene propylene diene monomer) is a synthetic rubber membrane used on flat and low-slope roofs. It is the dominant material for commercial flat roofing and increasingly popular on residential flat-roof additions, garages, and extensions. EPDM is durable, flexible in cold weather, and typically lasts 25 to 30 years when properly installed.</p>
+
+    <h3>Can I install EPDM myself?</h3>
+    <p>Experienced DIYers can handle EPDM on smaller roofs. The material is lightweight and bondable with standard adhesives. The most critical steps are surface preparation and correctly bonding seams. Any gap in seam adhesion becomes a leak path within a year or two. For roofs over 500 sq ft or those with many penetrations, professional installation is worth the cost.</p>
+
+    <h3>How long does EPDM roofing material last?</h3>
+    <p>A properly installed EPDM roof lasts 25 to 35 years. Quality largely depends on the thickness of membrane you use. 45-mil is the minimum for residential use. 60-mil is standard for commercial applications and extends lifespan noticeably. Thicker membranes also provide better resistance to puncture from foot traffic.</p>
+</section>
+
+<section class="related">
+    <h2>Related Home Improvement Tools</h2>
+    <ul>
+        <li><a href="/blog/how-to-calculate-epdm-roofing-materials/">How to Calculate EPDM Roofing Materials Needed</a></li>
+        <li><a href="/blog/epdm-roofing-waste-factor-seam-overlap/">EPDM Waste Factor and Seam Overlap Explained</a></li>
+        <li><a href="/tile-calculator/">Tile Calculator</a></li>
+        <li><a href="/paint-calculator/">Paint Calculator</a></li>
+        <li><a href="/concrete-calculator/">Concrete Calculator</a></li>
+        <li><a href="/mini-split-btu-calculator/">Mini Split BTU Calculator</a></li>
+    </ul>
+</section>
+
+<div class="author">
+    <p><em>Published by the QuixCalc Team. Material quantities based on standard EPDM roofing installation specifications. Last updated: August 2026.</em></p>
+</div>
+
+<script src="epdm-roofing.js" defer></script>

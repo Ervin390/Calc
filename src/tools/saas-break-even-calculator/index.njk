@@ -1,0 +1,150 @@
+---
+layout: layout.njk
+title: "SaaS Break-Even Calculator: Unit Economics"
+description: Calculate your SaaS break-even point in active subscriber count, required monthly recurring revenue, and gross profit margin safety limits.
+appName: SaaS Break-Even Calculator
+category: finance
+permalink: /saas-break-even-calculator/
+updated: 2026-08-24
+---
+
+{% from "ad-slot.njk" import adSlot %}
+
+<h1>SaaS Break-Even Calculator</h1>
+<p>Determine the exact subscriber count and monthly recurring revenue required for your SaaS business to cover fixed operational costs and break even.</p>
+
+<section class="tool">
+    <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+        <div class="tool-controls" style="flex: 1; min-width: 300px;">
+            <label for="be-fixed">Monthly Fixed Expenses / Overhead ($)</label>
+            <input type="number" id="be-fixed" value="15000.00" min="0.01" step="0.01" inputmode="decimal">
+
+            <label for="be-arpu">Average Revenue Per User / ARPU ($)</label>
+            <input type="number" id="be-arpu" value="50.00" min="0.01" step="0.01" inputmode="decimal">
+
+            <label for="be-margin">Gross Margin Percentage (%)</label>
+            <input type="number" id="be-margin" value="80" min="1" max="100" step="1" inputmode="decimal">
+
+            <label for="be-current">Current Active Subscribers (#)</label>
+            <input type="number" id="be-current" value="250" min="0" step="1" inputmode="numeric">
+        </div>
+
+        <div style="flex: 1; min-width: 300px;">
+            <div style="background: #f0fdf4; padding: 1.5rem; border-radius: 8px; border: 1px solid #bbf7d0; text-align: center; margin-bottom: 1.25rem;">
+                <p style="font-weight: 600; color: #4b5563; margin-top: 0; margin-bottom: 0.25rem;">Break-Even Customer Count</p>
+                <div id="out-be-customers" style="font-size: 2.75rem; font-weight: 800; color: #059669; line-height: 1;">375 accounts</div>
+                <div style="font-size: 0.85rem; color: #6b7280; margin-top: 0.5rem;">Required Monthly Revenue: <strong id="out-be-mrr">$18,750.00</strong></div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                <div style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb; text-align: center;">
+                    <div style="font-size: 0.8rem; color: #6b7280; font-weight: 600;">Subscriber Gap to Break-Even</div>
+                    <div id="out-be-gap" style="font-size: 1.5rem; font-weight: 800; color: #2563eb;">125 more needed</div>
+                    <div style="font-size: 0.75rem; color: #9ca3af; margin-top: 0.25rem;">(Break-Even - Current)</div>
+                </div>
+                <div style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb; text-align: center;">
+                    <div style="font-size: 0.8rem; color: #6b7280; font-weight: 600;">Net Monthly Profit / Loss</div>
+                    <div id="out-be-profit" style="font-size: 1.5rem; font-weight: 800; color: #7c3aed;">-$5,000.00</div>
+                    <div style="font-size: 0.75rem; color: #9ca3af; margin-top: 0.25rem;">(Current Gross Profit - Overhead)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tool-actions" style="margin-top: 2rem;">
+        <button type="button" class="secondary" data-share>Share link</button>
+        <span class="tool-actions-msg" role="status" aria-live="polite"></span>
+    </div>
+</section>
+
+{{ adSlot(site, "inline") }}
+
+<section class="how">
+    <h2>How to Calculate SaaS Break-Even Point</h2>
+    <p>The SaaS break-even point is the exact business volume where total gross profit contribution equals total monthly fixed operating expenses. Reaching break-even marks the transition from net cash burn to positive operating cash flow.</p>
+    <p>To run a break-even calculation, gather these four variables:</p>
+    <ul>
+        <li><strong>Monthly Fixed Expenses:</strong> Operating overhead including office rent, baseline salaries, software retainers, legal, and compliance fees.</li>
+        <li><strong>Average Revenue Per User (ARPU):</strong> Monthly subscription price charged per active customer account.</li>
+        <li><strong>Gross Margin Percentage:</strong> The revenue remaining after subtracting direct variable costs such as cloud infrastructure, API usage, and payment gateway deductions.</li>
+        <li><strong>Current Active Subscribers:</strong> Your existing active paying subscriber count.</li>
+    </ul>
+</section>
+
+<section class="formula">
+    <h2>The SaaS Break-Even Formula</h2>
+    <p>To determine the break-even subscriber account count:</p>
+    <p><code>Break-Even Subscribers = Fixed Monthly Expenses / (ARPU x Gross Margin %)</code></p>
+    <p>For example, if fixed expenses are $15,000, ARPU is $50, and gross margin is 80%: <code>Monthly Margin per User = $50 x 0.80 = $40.00</code>. Break-even equals <code>$15,000 / $40.00 = 375 accounts</code>.</p>
+    
+    <h3>Break-Even Monthly Revenue (MRR) Formula</h3>
+    <p>To convert break-even accounts into total gross recurring revenue required:</p>
+    <p><code>Break-Even MRR = Break-Even Subscribers x ARPU</code></p>
+    <p>With 375 accounts at $50 ARPU, required monthly recurring revenue equals <code>375 x $50 = $18,750.00 MRR</code>.</p>
+</section>
+
+<section class="examples">
+    <h2>Break-Even Benchmarks Across Overhead Tiers</h2>
+    <p>The table below summarizes required subscriber volume across overhead tiers at a $50 ARPU and 80% gross margin.</p>
+    <table style="width:100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.95rem;">
+        <thead>
+            <tr style="background: var(--card-bg, #f3f4f6); border-bottom: 2px solid var(--border, #e5e7eb);">
+                <th style="padding: 0.75rem; text-align: left;">Fixed Monthly Overhead</th>
+                <th style="padding: 0.75rem; text-align: left;">Margin Profit / User ($40 net)</th>
+                <th style="padding: 0.75rem; text-align: left; color: #059669;">Break-Even Accounts</th>
+                <th style="padding: 0.75rem; text-align: left; color: #2563eb;">Required Monthly MRR</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="border-bottom: 1px solid var(--border, #e5e7eb);">
+                <td style="padding: 0.75rem;">$5,000.00</td>
+                <td style="padding: 0.75rem;">$40.00</td>
+                <td style="padding: 0.75rem; font-weight: 600;">125 accounts</td>
+                <td style="padding: 0.75rem;">$6,250.00</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border, #e5e7eb); background: var(--card-bg, #f9fafb);">
+                <td style="padding: 0.75rem;">$15,000.00</td>
+                <td style="padding: 0.75rem;">$40.00</td>
+                <td style="padding: 0.75rem; font-weight: 600;">375 accounts</td>
+                <td style="padding: 0.75rem;">$18,750.00</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border, #e5e7eb);">
+                <td style="padding: 0.75rem;">$50,000.00</td>
+                <td style="padding: 0.75rem;">$40.00</td>
+                <td style="padding: 0.75rem; font-weight: 600;">1,250 accounts</td>
+                <td style="padding: 0.75rem;">$62,500.00</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+{{ adSlot(site, "incontent") }}
+
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>Why is gross margin critical when finding SaaS break-even?</h3>
+    <p>Ignoring gross margin assumes that every dollar of ARPU directly offsets fixed overhead. Because hosting, payment processing fees, and third-party APIs scale with usage, calculating break-even on unadjusted revenue underestimates required subscriber counts.</p>
+
+    <h3>How can a SaaS company lower its break-even threshold?</h3>
+    <p>Companies lower their break-even point by raising subscription pricing, reducing server COGS overhead, or paring back non-essential monthly SaaS subscriptions and administrative overhead.</p>
+</section>
+
+<section class="related">
+    <h2>Related SaaS & Financial Utilities</h2>
+    <ul>
+        <li><a href="/blog/how-to-calculate-saas-break-even-point/">How to Calculate SaaS Break Even Point</a></li>
+        <li><a href="/blog/saas-unit-economics-break-even-guide/">SaaS Unit Economics and Break Even Guide</a></li>
+        <li><a href="/gross-margin-calculator/">Gross Margin Calculator</a></li>
+        <li><a href="/saas-ltv-calculator/">SaaS LTV Calculator</a></li>
+        <li><a href="/cac-calculator/">CAC Calculator</a></li>
+        <li><a href="/mrr-calculator/">MRR Calculator</a></li>
+        <li><a href="/arr-calculator/">ARR Calculator</a></li>
+        <li><a href="/margin-calculator/">Margin & Markup Calculator</a></li>
+    </ul>
+</section>
+
+<div class="author">
+    <p><em>Published by the QuixCalc Team. SaaS unit economics verified against financial accounting standards. Last updated: August 2026.</em></p>
+</div>
+
+<script src="saas-break-even.js" defer></script>

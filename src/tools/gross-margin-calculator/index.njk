@@ -1,0 +1,142 @@
+---
+layout: layout.njk
+title: "Gross Margin Calculator: Gross Profit Margin"
+description: Calculate gross profit margin percentage, gross profit dollars, and cost of goods sold ratio for business and software products.
+appName: Gross Margin Calculator
+category: finance
+permalink: /gross-margin-calculator/
+updated: 2026-08-24
+---
+
+{% from "ad-slot.njk" import adSlot %}
+
+<h1>Gross Margin Calculator</h1>
+<p>Calculate gross profit margin percentage, net dollar gross profit, and cost of goods sold (COGS) ratio for software, product, and service sales.</p>
+
+<section class="tool">
+    <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+        <div class="tool-controls" style="flex: 1; min-width: 300px;">
+            <label for="gm-revenue">Total Revenue ($)</label>
+            <input type="number" id="gm-revenue" value="100000.00" min="0.01" step="0.01" inputmode="decimal">
+
+            <label for="gm-cogs">Cost of Goods Sold / Direct COGS ($)</label>
+            <input type="number" id="gm-cogs" value="20000.00" min="0" step="0.01" inputmode="decimal">
+        </div>
+
+        <div style="flex: 1; min-width: 300px;">
+            <div style="background: #f0fdf4; padding: 1.5rem; border-radius: 8px; border: 1px solid #bbf7d0; text-align: center; margin-bottom: 1.25rem;">
+                <p style="font-weight: 600; color: #4b5563; margin-top: 0; margin-bottom: 0.25rem;">Gross Margin Percentage</p>
+                <div id="out-gm-pct" style="font-size: 2.75rem; font-weight: 800; color: #059669; line-height: 1;">80.00%</div>
+                <div style="font-size: 0.85rem; color: #6b7280; margin-top: 0.5rem;">Net Gross Profit: <strong id="out-gm-profit">$80,000.00</strong></div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                <div style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb; text-align: center;">
+                    <div style="font-size: 0.8rem; color: #6b7280; font-weight: 600;">COGS Ratio</div>
+                    <div id="out-gm-cogs-ratio" style="font-size: 1.5rem; font-weight: 800; color: #2563eb;">20.00%</div>
+                    <div style="font-size: 0.75rem; color: #9ca3af; margin-top: 0.25rem;">(COGS / Revenue)</div>
+                </div>
+                <div style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb; text-align: center;">
+                    <div style="font-size: 0.8rem; color: #6b7280; font-weight: 600;">Markup Equivalent</div>
+                    <div id="out-gm-markup" style="font-size: 1.5rem; font-weight: 800; color: #7c3aed;">400.00%</div>
+                    <div style="font-size: 0.75rem; color: #9ca3af; margin-top: 0.25rem;">(Gross Profit / COGS)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tool-actions" style="margin-top: 2rem;">
+        <button type="button" class="secondary" data-share>Share link</button>
+        <span class="tool-actions-msg" role="status" aria-live="polite"></span>
+    </div>
+</section>
+
+{{ adSlot(site, "inline") }}
+
+<section class="how">
+    <h2>How to Calculate Gross Margin Percentage</h2>
+    <p>Gross margin measures the percentage of total revenue remaining after deducting direct production expenses or software hosting COGS. High gross margins allow businesses to re-invest heavily in customer acquisition, product research, and enterprise expansion.</p>
+    <p>Calculating gross profit margin requires two fundamental inputs:</p>
+    <ul>
+        <li><strong>Total Revenue:</strong> The total gross sales earnings generated over a given financial period.</li>
+        <li><strong>Cost of Goods Sold (COGS):</strong> Direct variable expenses such as cloud hosting, server infrastructure, payment gateway processing fees, third-party API costs, and customer support payroll.</li>
+    </ul>
+</section>
+
+<section class="formula">
+    <h2>The Gross Margin Formula</h2>
+    <p>Gross Profit Margin is calculated by subtracting COGS from total revenue and dividing by total revenue:</p>
+    <p><code>Gross Margin % = [(Total Revenue - COGS) / Total Revenue] x 100</code></p>
+    <p>For example, if Total Revenue is $100,000 and COGS is $20,000: <code>Gross Profit = $100,000 - $20,000 = $80,000.00</code>. Margin percentage equals <code>($80,000 / $100,000) x 100 = 80.00%</code>.</p>
+    
+    <h3>Markup vs Gross Margin Formula</h3>
+    <p>While gross margin measures profit relative to selling price, markup measures profit relative to cost:</p>
+    <p><code>Markup % = (Gross Profit / COGS) x 100</code></p>
+    <p>With $80,000 gross profit and $20,000 COGS, markup equals <code>($80,000 / $20,000) x 100 = 400.00%</code>.</p>
+</section>
+
+<section class="examples">
+    <h2>Gross Margin Benchmarks Across Industries</h2>
+    <p>The table below summarizes standard gross profit margin and COGS benchmarks across commercial business sectors.</p>
+    <table style="width:100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.95rem;">
+        <thead>
+            <tr style="background: var(--card-bg, #f3f4f6); border-bottom: 2px solid var(--border, #e5e7eb);">
+                <th style="padding: 0.75rem; text-align: left;">Industry Sector</th>
+                <th style="padding: 0.75rem; text-align: left;">Average Gross Margin %</th>
+                <th style="padding: 0.75rem; text-align: left;">Typical COGS Ratio</th>
+                <th style="padding: 0.75rem; text-align: left; color: #059669;">Profit Characteristics</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="border-bottom: 1px solid var(--border, #e5e7eb);">
+                <td style="padding: 0.75rem;">Pure Software / SaaS</td>
+                <td style="padding: 0.75rem; font-weight: 600; color: #059669;">75% to 85%+</td>
+                <td style="padding: 0.75rem;">15% to 25%</td>
+                <td style="padding: 0.75rem;">Low variable infrastructure cost per user account</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border, #e5e7eb); background: var(--card-bg, #f9fafb);">
+                <td style="padding: 0.75rem;">E-commerce & Retail</td>
+                <td style="padding: 0.75rem; font-weight: 600;">40% to 55%</td>
+                <td style="padding: 0.75rem;">45% to 60%</td>
+                <td style="padding: 0.75rem;">Physical inventory manufacturing and shipping costs</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border, #e5e7eb);">
+                <td style="padding: 0.75rem;">Professional Services</td>
+                <td style="padding: 0.75rem; font-weight: 600;">30% to 50%</td>
+                <td style="padding: 0.75rem;">50% to 70%</td>
+                <td style="padding: 0.75rem;">Direct billable consultant payroll and delivery hours</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+{{ adSlot(site, "incontent") }}
+
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>What items belong in SaaS Cost of Goods Sold (COGS)?</h3>
+    <p>SaaS COGS includes AWS/GCP server hosting, database fees, payment gateway transaction charges, third-party API subscriptions integrated into the software, and customer support personnel salaries.</p>
+
+    <h3>What is the difference between gross margin and net margin?</h3>
+    <p>Gross margin measures earnings after subtracting direct production COGS. Net margin subtracts all indirect overhead including marketing ad spend, sales payroll, R&D engineering salaries, taxes, and legal fees.</p>
+</section>
+
+<section class="related">
+    <h2>Related SaaS & Financial Utilities</h2>
+    <ul>
+        <li><a href="/blog/how-to-calculate-saas-gross-margin-percentage/">How to Calculate SaaS Gross Margin Percentage</a></li>
+        <li><a href="/blog/software-cogs-gross-profit-margin-guide/">Software COGS and Gross Margin Guide for SaaS</a></li>
+        <li><a href="/saas-break-even-calculator/">SaaS Break-Even Calculator</a></li>
+        <li><a href="/saas-ltv-calculator/">SaaS LTV Calculator</a></li>
+        <li><a href="/cac-calculator/">CAC Calculator</a></li>
+        <li><a href="/cac-payback-calculator/">CAC Payback Calculator</a></li>
+        <li><a href="/mrr-calculator/">MRR Calculator</a></li>
+        <li><a href="/margin-calculator/">Margin & Markup Calculator</a></li>
+    </ul>
+</section>
+
+<div class="author">
+    <p><em>Published by the QuixCalc Team. Gross margin calculations verified against corporate accounting standards. Last updated: August 2026.</em></p>
+</div>
+
+<script src="gross-margin.js" defer></script>

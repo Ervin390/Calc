@@ -1,0 +1,139 @@
+---
+layout: layout.njk
+title: "Sales Commission Calculator: Flat, Tiered, Bonuses"
+description: Calculate flat percentage, tiered quota, or bonus-based sales commission for any deal size. See your payout, effective rate, and annual projection instantly.
+appName: Sales Commission Calculator
+category: payroll
+permalink: /sales-commission-calculator/
+updated: 2026-08-24
+---
+
+<h1>Sales Commission Calculator</h1>
+<p>Calculate your exact sales commission payout for flat, tiered, or bonus-based plans. Enter your deal value and quota, and see your gross commission, effective rate, and projected annual earnings at your current pace.</p>
+
+<section class="tool">
+    <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+        <div class="tool-controls" style="flex: 1; min-width: 300px;">
+            <label for="sc-mode">Commission Structure</label>
+            <select id="sc-mode">
+                <option value="flat">Flat Percentage</option>
+                <option value="tiered">Tiered Quota</option>
+                <option value="bonus">Base Salary + Bonus</option>
+            </select>
+
+            <label for="sc-deal">Total Deal / Revenue Value ($)</label>
+            <input type="number" id="sc-deal" value="100000" min="0" step="1000" inputmode="decimal">
+
+            <div id="sc-flat-inputs">
+                <label for="sc-flat-rate">Commission Rate (%)</label>
+                <input type="number" id="sc-flat-rate" value="8" min="0" max="100" step="0.1" inputmode="decimal">
+            </div>
+
+            <div id="sc-tiered-inputs" style="display:none;">
+                <label for="sc-quota">Sales Quota ($)</label>
+                <input type="number" id="sc-quota" value="100000" min="0" step="1000" inputmode="decimal">
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.2rem; margin-bottom: 1rem;">Tier 1: 0% to 50% quota &nbsp;|&nbsp; Tier 2: 50% to 100% &nbsp;|&nbsp; Tier 3: above 100%</p>
+                <label for="sc-t1-rate">Tier 1 Rate (%) &mdash; up to 50% quota</label>
+                <input type="number" id="sc-t1-rate" value="5" min="0" max="100" step="0.1" inputmode="decimal">
+                <label for="sc-t2-rate">Tier 2 Rate (%) &mdash; 50% to 100%</label>
+                <input type="number" id="sc-t2-rate" value="8" min="0" max="100" step="0.1" inputmode="decimal">
+                <label for="sc-t3-rate">Tier 3 Rate (%) &mdash; above 100%</label>
+                <input type="number" id="sc-t3-rate" value="12" min="0" max="100" step="0.1" inputmode="decimal">
+            </div>
+
+            <div id="sc-bonus-inputs" style="display:none;">
+                <label for="sc-base">Annual Base Salary ($)</label>
+                <input type="number" id="sc-base" value="60000" min="0" step="1000" inputmode="decimal">
+                <label for="sc-bonus-rate">Bonus Rate on Revenue (%)</label>
+                <input type="number" id="sc-bonus-rate" value="10" min="0" max="100" step="0.1" inputmode="decimal">
+            </div>
+        </div>
+
+        <div style="flex: 1; min-width: 300px;">
+            <div style="background: #f0fdf4; padding: 1.5rem; border-radius: 8px; border: 1px solid #bbf7d0; text-align: center; margin-bottom: 1rem;">
+                <p style="font-weight: 600; color: #4b5563; margin-top: 0;">Commission Earned</p>
+                <div id="out-sc-commission" style="font-size: 2.5rem; font-weight: 800; color: #059669; line-height: 1;">$0.00</div>
+                <div style="font-size: 0.9rem; color: #6b7280; margin-top: 0.5rem;">Effective rate: <span id="out-sc-effective">0.00%</span></div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                <div style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb; text-align: center;">
+                    <div style="font-size: 0.8rem; color: #6b7280;">Total Comp (with base)</div>
+                    <div id="out-sc-total" style="font-size: 1.3rem; font-weight: 700; color: #111827;">$0.00</div>
+                </div>
+                <div style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb; text-align: center;">
+                    <div style="font-size: 0.8rem; color: #6b7280;">Annual Projection</div>
+                    <div id="out-sc-annual" style="font-size: 1.3rem; font-weight: 700; color: #111827;">$0.00</div>
+                </div>
+            </div>
+            <div id="out-sc-tier-breakdown" style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb; font-size: 0.85rem; color: #6b7280; display: none;">
+                <strong style="color: #374151;">Tier breakdown:</strong>
+                <div id="out-sc-tier-detail"></div>
+            </div>
+        </div>
+    </div>
+    <div class="tool-actions" style="margin-top: 2rem;">
+        <button type="button" class="secondary" data-share>Share link</button>
+        <span class="tool-actions-msg" role="status" aria-live="polite"></span>
+    </div>
+</section>
+
+<section class="how">
+    <h2>How to Use This Calculator</h2>
+    <p>Pick your commission structure from the dropdown. Flat percentage is the simplest: one rate applied to the full deal value. Tiered quota uses different rates depending on where your deal lands relative to your quota target. Base plus bonus adds a fixed salary on top of a performance percentage.</p>
+    <p>Enter your deal or revenue value, then fill in the rate fields for your plan. The calculator shows gross commission, your effective blended rate, total compensation including any base, and an annualized projection based on hitting this deal value once per quarter.</p>
+</section>
+
+<section class="formula">
+    <h2>How Sales Commission Is Calculated</h2>
+    <p><strong>Flat rate:</strong> Commission = Deal value x Rate</p>
+    <p>A $100,000 deal at 8% commission = $8,000.</p>
+    <p><strong>Tiered quota:</strong> Each tier applies to the portion of revenue that falls within that band.</p>
+    <p>Example: $100,000 quota. Tiers: 5% on 0 to $50k, 8% on $50k to $100k, 12% on anything above $100k. If you close $140,000:</p>
+    <ul>
+        <li>Tier 1: $50,000 x 5% = $2,500</li>
+        <li>Tier 2: $50,000 x 8% = $4,000</li>
+        <li>Tier 3: $40,000 x 12% = $4,800</li>
+        <li>Total commission: $11,300. Effective rate: 8.07%.</li>
+    </ul>
+    <p><strong>Base plus bonus:</strong> Total comp = Base salary + (Deal value x Bonus rate).</p>
+</section>
+
+<section class="examples">
+    <h2>Commission Calculation Examples</h2>
+    <ul>
+        <li><strong>Enterprise SaaS deal, flat 6%, $250k contract:</strong> Commission = $15,000. Clean and simple.</li>
+        <li><strong>Quota at $120k, rep closes $90k, tiered plan:</strong> At 75% of quota, the rep earns Tier 1 and part of Tier 2 commission only. This is why many reps push to close deals before month end.</li>
+        <li><strong>Base $55k + 10% bonus, $80k in deals closed:</strong> Total comp = $55,000 + $8,000 = $63,000 for the period.</li>
+    </ul>
+</section>
+
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>What is a typical commission rate for SaaS sales?</h3>
+    <p>Industry surveys place most SaaS commission rates between 5% and 12% of annual contract value for individual contributors. Enterprise roles frequently land in the 8% to 10% range. Transactional volume roles may pay lower rates but on higher frequency. Rates above 15% are uncommon outside very high-touch, long-cycle deals.</p>
+
+    <h3>What does on-target earnings (OTE) mean?</h3>
+    <p>OTE is your total expected compensation when you hit 100% of your quota. It includes base salary plus the commission you earn at the 100% attainment level. If your base is $60k and your target commission at quota is $40k, your OTE is $100k. This calculator can help you check whether your OTE projection is realistic for your quota and rate combination.</p>
+
+    <h3>How does quota attainment affect commission?</h3>
+    <p>With a tiered plan, hitting only 80% of quota means your revenue stays in the lower tiers, earning lower rates. Finishing above 100% pushes you into the highest rate tier. This is intentional design. Accelerator tiers reward overperformance and motivate reps to keep selling after quota is met.</p>
+</section>
+
+<section class="related">
+    <h2>Related Payroll Tools</h2>
+    <ul>
+        <li><a href="/blog/how-to-calculate-tiered-sales-commission/">How to Calculate Tiered Sales Commission Pay</a></li>
+        <li><a href="/blog/flat-vs-tiered-commission-structures/">Flat vs Tiered Commission Structures Explained</a></li>
+        <li><a href="/pay-raise-calculator/">Pay Raise Calculator</a></li>
+        <li><a href="/prorated-salary-calculator/">Prorated Salary Calculator</a></li>
+        <li><a href="/hourly-to-salary-calculator/">Hourly to Salary Calculator</a></li>
+        <li><a href="/freelance-rate-calculator/">Freelance Rate Calculator</a></li>
+    </ul>
+</section>
+
+<div class="author">
+    <p><em>Published by the QuixCalc Team. Commission formulas based on standard SaaS and direct sales compensation structures. Last updated: August 2026.</em></p>
+</div>
+
+<script src="sales-commission.js" defer></script>

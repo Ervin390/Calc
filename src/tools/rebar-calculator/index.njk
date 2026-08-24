@@ -1,0 +1,136 @@
+---
+layout: layout.njk
+title: "Rebar Calculator: Grid Spacing and Weight"
+description: Calculate rebar quantity for a concrete slab. Get total linear feet, number of 20-ft bars, total weight in pounds, and a cost estimate for any grid spacing and bar size.
+appName: Rebar Calculator
+category: home
+permalink: /rebar-calculator/
+updated: 2026-08-24
+---
+
+<h1>Rebar Calculator</h1>
+<p>Calculate how much rebar you need for a concrete slab. Enter your slab dimensions, grid spacing, and bar size to get the total linear feet, number of standard 20-foot bars to buy, total weight, and an optional cost estimate.</p>
+
+<section class="tool">
+    <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+        <div class="tool-controls" style="flex: 1; min-width: 300px;">
+            <label for="rb-length">Slab Length (ft)</label>
+            <input type="number" id="rb-length" value="12" min="1" step="0.5" inputmode="decimal">
+
+            <label for="rb-width">Slab Width (ft)</label>
+            <input type="number" id="rb-width" value="16" min="1" step="0.5" inputmode="decimal">
+
+            <label for="rb-spacing">Grid Spacing (inches)</label>
+            <select id="rb-spacing">
+                <option value="6">6 inches on center</option>
+                <option value="8">8 inches on center</option>
+                <option value="10">10 inches on center</option>
+                <option value="12" selected>12 inches on center</option>
+                <option value="custom">Custom</option>
+            </select>
+
+            <div id="rb-custom-spacing" style="display:none;">
+                <label for="rb-custom-in">Custom Spacing (inches)</label>
+                <input type="number" id="rb-custom-in" value="12" min="3" max="24" step="1" inputmode="numeric">
+            </div>
+
+            <label for="rb-bar-size">Bar Size</label>
+            <select id="rb-bar-size">
+                <option value="3">#3 bar (3/8 in, 0.376 lb/ft) - light slabs</option>
+                <option value="4" selected>#4 bar (1/2 in, 0.668 lb/ft) - standard residential</option>
+                <option value="5">#5 bar (5/8 in, 1.043 lb/ft) - walls, heavy slabs</option>
+                <option value="6">#6 bar (3/4 in, 1.502 lb/ft) - foundations</option>
+            </select>
+
+            <label for="rb-price">Price Per Pound ($, optional)</label>
+            <input type="number" id="rb-price" value="0.55" min="0" step="0.01" inputmode="decimal">
+        </div>
+
+        <div style="flex: 1; min-width: 300px;">
+            <div style="background: #f0fdf4; padding: 1.5rem; border-radius: 8px; border: 1px solid #bbf7d0; text-align: center; margin-bottom: 1rem;">
+                <p style="font-weight: 600; color: #4b5563; margin-top: 0;">Total Linear Feet of Rebar</p>
+                <div id="out-rb-linear" style="font-size: 2.5rem; font-weight: 800; color: #059669; line-height: 1;">0 lin ft</div>
+                <div style="font-size: 0.9rem; color: #6b7280; margin-top: 0.5rem;"><span id="out-rb-bars">0</span> standard 20-ft bars</div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                <div style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb; text-align: center;">
+                    <div style="font-size: 0.8rem; color: #6b7280;">Total Weight</div>
+                    <div id="out-rb-weight" style="font-size: 1.3rem; font-weight: 700; color: #111827;">0 lb</div>
+                </div>
+                <div style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb; text-align: center;">
+                    <div style="font-size: 0.8rem; color: #6b7280;">Estimated Cost</div>
+                    <div id="out-rb-cost" style="font-size: 1.3rem; font-weight: 700; color: #111827;">$0.00</div>
+                </div>
+            </div>
+            <div style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb; font-size: 0.9rem; color: #6b7280;">
+                <strong style="color: #374151;">Grid breakdown:</strong>
+                <div id="out-rb-detail"></div>
+            </div>
+        </div>
+    </div>
+    <div class="tool-actions" style="margin-top: 2rem;">
+        <button type="button" class="secondary" data-share>Share link</button>
+        <span class="tool-actions-msg" role="status" aria-live="polite"></span>
+    </div>
+</section>
+
+<section class="how">
+    <h2>How to Use This Calculator</h2>
+    <p>Enter your slab length and width in feet. Then choose your grid spacing. Standard residential concrete uses 12 inches on center for patios and walkways. Driveways and heavier-duty slabs often use 8 or 10 inches. Select your bar size based on the load the slab will carry.</p>
+    <p>The calculator counts how many long runs and cross runs fit in your grid, totals the linear feet, and converts to standard 20-foot bar units. Enter a price per pound if you want a material cost estimate, or leave it for the default.</p>
+</section>
+
+<section class="formula">
+    <h2>How Rebar Is Calculated</h2>
+    <p><strong>Long runs (parallel to length):</strong> Number of rows = floor(Width / Spacing) + 1. Each row runs the full length of the slab.</p>
+    <p><strong>Cross runs (parallel to width):</strong> Number of columns = floor(Length / Spacing) + 1. Each column runs the full width.</p>
+    <p>Example: 12 x 16 ft slab, 12-inch spacing.</p>
+    <ul>
+        <li>Long runs: floor(16 / 1) + 1 = 17 rows x 12 ft = 204 linear ft</li>
+        <li>Cross runs: floor(12 / 1) + 1 = 13 rows x 16 ft = 208 linear ft</li>
+        <li>Total: 412 linear ft. At 0.668 lb/ft (#4 bar): 275 lb. At 20 ft per bar: 21 bars (round up).</li>
+    </ul>
+</section>
+
+<section class="examples">
+    <h2>Rebar Calculation Examples</h2>
+    <ul>
+        <li><strong>12 x 16 ft patio, #4 bar, 12-inch spacing:</strong> 412 linear ft, 21 bars, 275 lb. Cost at $0.55/lb = $151.</li>
+        <li><strong>20 x 24 ft driveway, #4 bar, 8-inch spacing:</strong> Significantly more bars due to tighter spacing. Long runs: 37 rows x 20ft. Cross runs: 31 rows x 24ft. Total ~1,628 lin ft, 82 bars, 1,087 lb. Cost ~$598.</li>
+        <li><strong>Foundation footing, 8 x 40 ft, #5 bar, 6-inch spacing:</strong> High bar count with 1.043 lb/ft weight. Total weight approaches 1,500 lb for full perimeter footing with double row.</li>
+    </ul>
+</section>
+
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>Do I need rebar in a residential concrete slab?</h3>
+    <p>For most patios and walkways, rebar is recommended but sometimes skipped on thin 3-inch slabs under low loads. For driveways, garage floors, and any slab where vehicles or heavy equipment will sit, rebar is essential. It prevents the slab from cracking and separating when the soil underneath shifts. Wire mesh is a lighter alternative for thin decorative slabs, but it does not provide the same structural strength as rebar.</p>
+
+    <h3>What bar size should I use for a residential driveway?</h3>
+    <p>#4 bar (1/2 inch diameter) at 12-inch grid spacing on a 6-inch slab is the standard residential driveway specification. If you expect heavy truck traffic, upgrade to #5 bar at 8 or 10 inches. The cost difference is modest and the structural benefit is significant.</p>
+
+    <h3>How do I calculate rebar for a circular slab?</h3>
+    <p>Circular slabs are more complex because the runs vary in length. The simplest approach is to calculate a bounding square (diameter x diameter), apply the grid calculation, then reduce by 21 percent to account for the corners outside the circle. This calculator handles rectangular shapes only.</p>
+
+    <h3>What is rebar spacing on center?</h3>
+    <p>On center means the distance is measured from the middle of one bar to the middle of the next, not from edge to edge. A 12-inch on-center grid means bars are placed with 12 inches between their centerlines. This is the standard way grid spacing is specified in construction drawings.</p>
+</section>
+
+<section class="related">
+    <h2>Related Home Improvement Tools</h2>
+    <ul>
+        <li><a href="/blog/how-to-calculate-rebar-for-concrete-slab/">How to Calculate Rebar for a Concrete Slab</a></li>
+        <li><a href="/blog/rebar-bar-size-guide-choosing-the-right-size/">Rebar Bar Size Guide: Choosing 3, 4, 5, or 6</a></li>
+        <li><a href="/concrete-calculator/">Concrete Calculator</a></li>
+        <li><a href="/tile-calculator/">Tile Calculator</a></li>
+        <li><a href="/epdm-roofing-calculator/">EPDM Roofing Calculator</a></li>
+        <li><a href="/paint-calculator/">Paint Calculator</a></li>
+    </ul>
+</section>
+
+<div class="author">
+    <p><em>Published by the QuixCalc Team. Rebar weights per foot sourced from CRSI (Concrete Reinforcing Steel Institute) standard specifications. Last updated: August 2026.</em></p>
+</div>
+
+<script src="rebar.js" defer></script>

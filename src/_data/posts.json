@@ -400,5 +400,341 @@
     "title": "What Is Time and a Half and How Is It Calculated",
     "metaTitle": "What Is Time and a Half and How Is It Calculated",
     "description": "A plain-English explanation of time and a half pay. See exactly how overtime is calculated, who qualifies, and what to do if your employer is not paying correctly."
+  },
+  "how-to-calculate-customer-lifetime-value-saas": {
+    "url": "/blog/how-to-calculate-customer-lifetime-value-saas/",
+    "title": "How to Calculate Customer Lifetime Value in SaaS",
+    "metaTitle": "How to Calculate Customer Lifetime Value in SaaS",
+    "description": "Master SaaS Customer Lifetime Value (LTV) calculation using ARPU, monthly churn rate, and gross margin percentage to optimize unit economics."
+  },
+  "arpu-churn-ltv-calculation-guide": {
+    "url": "/blog/arpu-churn-ltv-calculation-guide/",
+    "title": "ARPU Churn and LTV Calculation Guide for SaaS",
+    "metaTitle": "ARPU Churn and LTV Calculation Guide for SaaS",
+    "description": "Learn how Average Revenue Per User (ARPU) and monthly churn rate interact to determine SaaS customer lifetime value and account lifespan."
+  },
+  "how-to-calculate-customer-acquisition-cost-saas": {
+    "url": "/blog/how-to-calculate-customer-acquisition-cost-saas/",
+    "title": "How to Calculate Customer Acquisition Cost in SaaS",
+    "metaTitle": "How to Calculate Customer Acquisition Cost in SaaS",
+    "description": "Learn how to calculate Customer Acquisition Cost (CAC) for software startups by combining ad spend, sales payroll, and operational software overhead."
+  },
+  "blended-cac-vs-paid-cac-explained": {
+    "url": "/blog/blended-cac-vs-paid-cac-explained/",
+    "title": "Blended CAC vs Paid CAC Explained for SaaS",
+    "metaTitle": "Blended CAC vs Paid CAC Explained for SaaS",
+    "description": "Understand the key differences between Blended CAC and Paid CAC in SaaS marketing analytics to avoid misallocating growth capital."
+  },
+  "saas-cac-payback-period-benchmarks": {
+    "url": "/blog/saas-cac-payback-period-benchmarks/",
+    "title": "SaaS CAC Payback Period Benchmarks and Formulas",
+    "metaTitle": "SaaS CAC Payback Period Benchmarks and Formulas",
+    "description": "Discover target CAC payback period benchmarks across SMB, mid-market, and enterprise SaaS startups to measure capital efficiency."
+  },
+  "months-to-recover-cac-saas-guide": {
+    "url": "/blog/months-to-recover-cac-saas-guide/",
+    "title": "Months to Recover CAC Guide for Software Startups",
+    "metaTitle": "Months to Recover CAC Guide for Software Startups",
+    "description": "Learn how to calculate months to recover customer acquisition costs to improve cash flow management and venture capital metrics."
+  },
+  "how-to-calculate-net-revenue-retention": {
+    "url": "/blog/how-to-calculate-net-revenue-retention/",
+    "title": "How to Calculate Net Revenue Retention in SaaS",
+    "metaTitle": "How to Calculate Net Revenue Retention in SaaS",
+    "description": "Master Net Revenue Retention (NRR) calculation in SaaS by tracking cohort expansion, account contraction, and customer churn over time."
+  },
+  "gross-vs-net-revenue-retention-saas": {
+    "url": "/blog/gross-vs-net-revenue-retention-saas/",
+    "title": "Gross vs Net Revenue Retention Explained for SaaS",
+    "metaTitle": "Gross vs Net Revenue Retention Explained for SaaS",
+    "description": "Learn the key differences between Gross Revenue Retention (GRR) and Net Revenue Retention (NRR) in subscription software analytics."
+  },
+  "how-to-calculate-monthly-recurring-revenue": {
+    "url": "/blog/how-to-calculate-monthly-recurring-revenue/",
+    "title": "How to Calculate Monthly Recurring Revenue in SaaS",
+    "metaTitle": "How to Calculate Monthly Recurring Revenue in SaaS",
+    "description": "Learn how to calculate Monthly Recurring Revenue (MRR) for subscription businesses, including tier pricing, add-ons, and run rates."
+  },
+  "net-new-mrr-formula-and-growth-guide": {
+    "url": "/blog/net-new-mrr-formula-and-growth-guide/",
+    "title": "Net New MRR Formula and Growth Guide for SaaS",
+    "metaTitle": "Net New MRR Formula and Growth Guide for SaaS",
+    "description": "Master the Net New MRR formula by tracking New MRR, Expansion MRR, Contraction MRR, and Churned MRR components to boost growth momentum."
+  },
+  "mrr-to-arr-calculator-and-conversion-guide": {
+    "url": "/blog/mrr-to-arr-calculator-and-conversion-guide/",
+    "title": "MRR to ARR Conversion Guide for B2B SaaS",
+    "metaTitle": "MRR to ARR Conversion Guide for B2B SaaS",
+    "description": "Convert Monthly Recurring Revenue to Annual Recurring Revenue (ARR) and learn how multi-year contracts impact SaaS valuation metrics."
+  },
+  "annual-contract-value-acv-vs-arr-guide": {
+    "url": "/blog/annual-contract-value-acv-vs-arr-guide/",
+    "title": "ACV vs ARR Explained for Enterprise Software",
+    "metaTitle": "ACV vs ARR Explained for Enterprise Software",
+    "description": "Learn the key differences between Annual Contract Value (ACV) and Annual Recurring Revenue (ARR) in enterprise B2B SaaS reporting."
+  },
+  "how-to-calculate-saas-break-even-point": {
+    "url": "/blog/how-to-calculate-saas-break-even-point/",
+    "title": "How to Calculate SaaS Break Even Point",
+    "metaTitle": "How to Calculate SaaS Break Even Point",
+    "description": "Learn how to calculate your SaaS break-even point in subscriber account count and monthly recurring revenue requirements."
+  },
+  "saas-unit-economics-break-even-guide": {
+    "url": "/blog/saas-unit-economics-break-even-guide/",
+    "title": "SaaS Unit Economics and Break Even Guide",
+    "metaTitle": "SaaS Unit Economics and Break Even Guide",
+    "description": "Learn how to align customer acquisition costs, gross margin percentages, and subscriber retention to reach SaaS profitability."
+  },
+  "how-to-calculate-saas-gross-margin-percentage": {
+    "url": "/blog/how-to-calculate-saas-gross-margin-percentage/",
+    "title": "How to Calculate SaaS Gross Margin Percentage",
+    "metaTitle": "How to Calculate SaaS Gross Margin Percentage",
+    "description": "Learn how to calculate gross profit margin percentage and evaluate software cost of goods sold (COGS) to optimize unit economics."
+  },
+  "software-cogs-gross-profit-margin-guide": {
+    "url": "/blog/software-cogs-gross-profit-margin-guide/",
+    "title": "Software COGS and Gross Margin Guide for SaaS",
+    "metaTitle": "Software COGS and Gross Margin Guide for SaaS",
+    "description": "Learn what expenses belong in SaaS Cost of Goods Sold (COGS) to accurately measure gross profit margin and operating health."
+  },
+  "how-to-calculate-prorated-rent-move-in": {
+    "url": "/blog/how-to-calculate-prorated-rent-move-in/",
+    "title": "How to Calculate Prorated Rent on Move-In Day",
+    "metaTitle": "How to Calculate Prorated Rent on Move-In Day",
+    "description": "Learn how to calculate prorated rent when moving in mid-month with step-by-step math, real examples, and standard landlord practices."
+  },
+  "actual-days-vs-30-day-proration-method": {
+    "url": "/blog/actual-days-vs-30-day-proration-method/",
+    "title": "Actual Days vs 30-Day Method for Prorated Rent",
+    "metaTitle": "Actual Days vs 30-Day Method for Prorated Rent",
+    "description": "Compare actual calendar days vs the 30-day average method for prorated rent to see which saves tenants and landlords more money."
+  },
+  "how-to-calculate-your-freelance-hourly-rate": {
+    "url": "/blog/how-to-calculate-your-freelance-hourly-rate/",
+    "title": "How to Calculate Your Freelance Hourly Rate",
+    "metaTitle": "How to Calculate Your Freelance Hourly Rate",
+    "description": "Learn how to set a profitable freelance hourly rate accounting for taxes, health insurance, non-billable time, and overhead expenses."
+  },
+  "billable-hours-vs-total-hours-freelance": {
+    "url": "/blog/billable-hours-vs-total-hours-freelance/",
+    "title": "Billable Hours vs Total Hours for Freelancers",
+    "metaTitle": "Billable Hours vs Total Hours for Freelancers",
+    "description": "Understand the difference between billable client work and non-billable business administration to avoid undercharging for freelance projects."
+  },
+  "how-to-calculate-tiered-sales-commission": {
+    "url": "/blog/how-to-calculate-tiered-sales-commission/",
+    "title": "How to Calculate Tiered Sales Commission Pay",
+    "metaTitle": "How to Calculate Tiered Sales Commission Pay",
+    "description": "Master tiered sales commission calculations step-by-step with real quota accelerator examples and payout math for sales reps and managers."
+  },
+  "flat-vs-tiered-commission-structures": {
+    "url": "/blog/flat-vs-tiered-commission-structures/",
+    "title": "Flat vs Tiered Commission Structures Explained",
+    "metaTitle": "Flat vs Tiered Commission Structures Explained",
+    "description": "Compare flat percentage vs tiered sales commission plans with side-by-side payout comparisons for account executives and sales leaders."
+  },
+  "how-to-calculate-prorated-salary": {
+    "url": "/blog/how-to-calculate-prorated-salary/",
+    "title": "How to Calculate Prorated Salary Mid-Month",
+    "metaTitle": "How to Calculate Prorated Salary Mid-Month",
+    "description": "Learn how HR departments calculate partial salary pay when starting or leaving a job mid-month using working days or calendar day methods."
+  },
+  "working-days-vs-calendar-days-salary": {
+    "url": "/blog/working-days-vs-calendar-days-salary/",
+    "title": "Working Days vs Calendar Days: Salary Proration",
+    "metaTitle": "Working Days vs Calendar Days: Salary Proration",
+    "description": "Understand the payroll differences between the 260 working days method and the 365 calendar days method for prorated salary payments."
+  },
+  "true-cost-of-commuting-to-work": {
+    "url": "/blog/true-cost-of-commuting-to-work/",
+    "title": "The True Cost of Commuting to Work Each Month",
+    "metaTitle": "The True Cost of Commuting to Work Each Month",
+    "description": "Calculate the true hidden cost of commuting to work including gas, wear and tear, tolls, parking, and WFH salary equivalents."
+  },
+  "remote-work-vs-office-commute-savings": {
+    "url": "/blog/remote-work-vs-office-commute-savings/",
+    "title": "Remote Work vs Office: How Much You Really Save",
+    "metaTitle": "Remote Work vs Office: How Much You Really Save",
+    "description": "Discover the true financial comparison between working remotely vs commuting to an office with real numbers on gas, vehicle depreciation, and time."
+  },
+  "how-to-calculate-epdm-roofing-materials": {
+    "url": "/blog/how-to-calculate-epdm-roofing-materials/",
+    "title": "How to Calculate EPDM Roofing Materials Needed",
+    "metaTitle": "How to Calculate EPDM Roofing Materials Needed",
+    "description": "Learn how to calculate EPDM membrane square footage, roll counts, bonding adhesive, seam tape, and lap sealant for flat roof projects."
+  },
+  "epdm-roofing-waste-factor-seam-overlap": {
+    "url": "/blog/epdm-roofing-waste-factor-seam-overlap/",
+    "title": "EPDM Waste Factor and Seam Overlap Explained",
+    "metaTitle": "EPDM Waste Factor and Seam Overlap Explained",
+    "description": "Understand why adding a 10% waste factor and 6-inch seam overlap is critical when sizing EPDM flat roofing rubber sheets."
+  },
+  "how-to-size-mini-split-btu-for-room": {
+    "url": "/blog/how-to-size-mini-split-btu-for-room/",
+    "title": "How to Size a Mini Split BTU for Your Room",
+    "metaTitle": "How to Size a Mini Split BTU for Your Room",
+    "description": "Learn how to calculate the exact BTU capacity needed for a mini-split heat pump considering room square footage, ceiling height, and sun."
+  },
+  "multi-zone-mini-split-sizing-guide": {
+    "url": "/blog/multi-zone-mini-split-sizing-guide/",
+    "title": "Multi-Zone Mini Split Sizing Complete Guide",
+    "metaTitle": "Multi-Zone Mini Split Sizing Complete Guide",
+    "description": "Learn how to size multi-zone mini-split ductless systems by combining individual room BTU loads into the proper outdoor condenser size."
+  },
+  "how-to-calculate-concrete-for-a-patio-slab": {
+    "url": "/blog/how-to-calculate-concrete-for-a-patio-slab/",
+    "title": "How to Calculate Concrete for a Patio Slab",
+    "metaTitle": "How to Calculate Concrete for a Patio Slab",
+    "description": "Learn how to calculate concrete volume in cubic yards, cubic feet, and 80lb bag counts for patio slabs, footings, and walkways."
+  },
+  "ready-mix-vs-bags-concrete-cost": {
+    "url": "/blog/ready-mix-vs-bags-concrete-cost/",
+    "title": "Ready-Mix vs Bags: Which Concrete Costs Less",
+    "metaTitle": "Ready-Mix vs Bags: Which Concrete Costs Less",
+    "description": "Compare buying pre-mixed concrete truck delivery vs mixing 80lb bags at home to find the exact cost break-even point for your project."
+  },
+  "how-to-calculate-rebar-for-concrete-slab": {
+    "url": "/blog/how-to-calculate-rebar-for-concrete-slab/",
+    "title": "How to Calculate Rebar for a Concrete Slab",
+    "metaTitle": "How to Calculate Rebar for a Concrete Slab",
+    "description": "Learn how to calculate rebar grid spacing, long and cross runs, total linear feet, weight, and 20ft bar counts for concrete slabs."
+  },
+  "rebar-bar-size-guide-choosing-the-right-size": {
+    "url": "/blog/rebar-bar-size-guide-choosing-the-right-size/",
+    "title": "Rebar Bar Size Guide: Choosing 3, 4, 5, or 6",
+    "metaTitle": "Rebar Bar Size Guide: Choosing 3, 4, 5, or 6",
+    "description": "Complete guide to rebar size numbers, diameters, weights per foot, and structural applications for driveways, patios, and foundations."
+  },
+  "how-mortgage-overpayments-reduce-loan-term": {
+    "url": "/blog/how-mortgage-overpayments-reduce-loan-term/",
+    "title": "How Mortgage Overpayments Cut Years Off Your Loan",
+    "metaTitle": "How Mortgage Overpayments Cut Years Off Your Loan",
+    "description": "Learn how small extra monthly mortgage overpayments reduce overall loan term and save tens of thousands in interest with real numbers."
+  },
+  "monthly-vs-lump-sum-mortgage-overpayment": {
+    "url": "/blog/monthly-vs-lump-sum-mortgage-overpayment/",
+    "title": "Monthly vs Lump Sum Mortgage Overpayment Guide",
+    "metaTitle": "Monthly vs Lump Sum Mortgage Overpayment Guide",
+    "description": "Compare making small extra monthly mortgage overpayments vs annual lump-sum payments to maximize interest savings and cut loan duration."
+  },
+  "how-to-calculate-90-days-from-today": {
+    "url": "/blog/how-to-calculate-90-days-from-today/",
+    "title": "How to Calculate 90 Days From Today",
+    "metaTitle": "How to Calculate 90 Days From Today",
+    "description": "Learn how to calculate exactly 90 days from today or any starting date for business contracts, notice periods, and passport validity rules."
+  },
+  "how-to-count-months-and-days-between-two-dates": {
+    "url": "/blog/how-to-count-months-and-days-between-two-dates/",
+    "title": "How to Count Months and Days Between Two Dates",
+    "metaTitle": "How to Count Months and Days Between Two Dates",
+    "description": "Learn how to calculate exact months and days between two dates for project milestones, age tracking, and financial billing cycles."
+  },
+  "how-to-convert-minutes-to-decimal-hours-payroll": {
+    "url": "/blog/how-to-convert-minutes-to-decimal-hours-payroll/",
+    "title": "How to Convert Minutes to Decimal Hours for Payroll",
+    "metaTitle": "How to Convert Minutes to Decimal Hours for Payroll",
+    "description": "Learn how to convert clock minutes into decimal hours for payroll processing, timecards, and billing calculations."
+  },
+  "how-many-working-hours-in-a-month-160-vs-173": {
+    "url": "/blog/how-many-working-hours-in-a-month-160-vs-173/",
+    "title": "How Many Working Hours in a Month: 160 vs 173",
+    "metaTitle": "How Many Working Hours in a Month: 160 vs 173",
+    "description": "Discover why standard monthly payroll calculations use 160 vs 173.33 working hours for salaried and hourly employees."
+  },
+  "how-to-compute-standard-deviation-of-the-mean": {
+    "url": "/blog/how-to-compute-standard-deviation-of-the-mean/",
+    "title": "How to Compute Standard Deviation of the Mean",
+    "metaTitle": "How to Compute Standard Deviation of the Mean",
+    "description": "Learn how to compute the standard deviation of the mean (standard error) using formulas, step-by-step examples, and sample size adjustments."
+  },
+  "how-much-does-an-f-grade-lower-your-gpa": {
+    "url": "/blog/how-much-does-an-f-grade-lower-your-gpa/",
+    "title": "How Much Does an F Grade Lower Your GPA?",
+    "metaTitle": "How Much Does an F Grade Lower Your GPA?",
+    "description": "Calculate how significantly a failing F grade lowers your cumulative high school or college GPA with mathematical examples and recovery strategies."
+  },
+  "cumulative-gpa-vs-weighted-gpa-differences": {
+    "url": "/blog/cumulative-gpa-vs-weighted-gpa-differences/",
+    "title": "Cumulative GPA vs Weighted GPA Differences",
+    "metaTitle": "Cumulative GPA vs Weighted GPA Differences",
+    "description": "Understand the core differences between cumulative GPA and weighted GPA for high school transcripts and college admissions."
+  },
+  "how-to-convert-unweighted-to-weighted-gpa-scale": {
+    "url": "/blog/how-to-convert-unweighted-to-weighted-gpa-scale/",
+    "title": "How to Convert Unweighted to Weighted GPA Scale",
+    "metaTitle": "How to Convert Unweighted to Weighted GPA Scale",
+    "description": "Learn how to convert an unweighted 4.0 GPA scale to a weighted 5.0 scale based on Honors, AP, and IB course weights."
+  },
+  "how-to-convert-improper-fractions-to-mixed-numbers": {
+    "url": "/blog/how-to-convert-improper-fractions-to-mixed-numbers/",
+    "title": "How to Convert Improper Fractions to Mixed Numbers",
+    "metaTitle": "How to Convert Improper Fractions to Mixed Numbers",
+    "description": "Learn how to convert improper fractions to mixed numbers using integer division, remainder formulas, and visual step-by-step examples."
+  },
+  "biweekly-mortgage-payments-payoff-guide": {
+    "url": "/blog/biweekly-mortgage-payments-payoff-guide/",
+    "title": "Biweekly Mortgage Payments: How to Cut Loan Term",
+    "metaTitle": "Biweekly Mortgage Payments: How to Cut Loan Term",
+    "description": "Discover how switching to biweekly mortgage payments makes one extra payment per year, cutting years off your loan and saving thousands in interest."
+  },
+  "how-the-13th-mortgage-payment-strategy-works": {
+    "url": "/blog/how-the-13th-mortgage-payment-strategy-works/",
+    "title": "How the 13th Mortgage Payment Strategy Works",
+    "metaTitle": "How the 13th Mortgage Payment Strategy Works",
+    "description": "Learn how adding one extra mortgage payment per year significantly reduces total loan interest and accelerates home equity."
+  },
+  "how-to-calculate-stripe-processing-fees-guide": {
+    "url": "/blog/how-to-calculate-stripe-processing-fees-guide/",
+    "title": "How to Calculate Stripe Processing Fees",
+    "metaTitle": "How to Calculate Stripe Processing Fees",
+    "description": "Learn how to calculate Stripe credit card processing fees, international transaction surcharges, and how to gross up invoices."
+  },
+  "loan-amortization-formula-step-by-step-math": {
+    "url": "/blog/loan-amortization-formula-step-by-step-math/",
+    "title": "Loan Amortization Formula Step by Step Math",
+    "metaTitle": "Loan Amortization Formula Step by Step Math",
+    "description": "Master the mathematical loan amortization formula step-by-step to calculate principal, interest, and monthly mortgage payments."
+  },
+  "time-and-a-half-pay-rate-lookup-chart": {
+    "url": "/blog/time-and-a-half-pay-rate-lookup-chart/",
+    "title": "Time and a Half Pay Rate Lookup Chart",
+    "metaTitle": "Time and a Half Pay Rate Lookup Chart",
+    "description": "Look up exact overtime pay rates from  to  per hour using our time and a half rate calculation guide and reference table."
+  },
+  "salary-vs-hourly-pto-and-benefits-comparison": {
+    "url": "/blog/salary-vs-hourly-pto-and-benefits-comparison/",
+    "title": "Salary vs Hourly: PTO and Benefits Comparison",
+    "metaTitle": "Salary vs Hourly: PTO and Benefits Comparison",
+    "description": "Compare paid time off, health insurance, overtime eligibility, and job security between salaried and hourly employee compensation structures."
+  },
+  "how-to-calculate-gratuity-percentage-in-math": {
+    "url": "/blog/how-to-calculate-gratuity-percentage-in-math/",
+    "title": "How to Calculate Gratuity Percentage in Math",
+    "metaTitle": "How to Calculate Gratuity Percentage in Math",
+    "description": "Learn how to calculate tip and gratuity percentages in math class using decimal multiplication formulas and practical mental math tricks."
+  },
+  "mifflin-st-jeor-equation-step-by-step-guide": {
+    "url": "/blog/mifflin-st-jeor-equation-step-by-step-guide/",
+    "title": "Mifflin-St Jeor Equation Step by Step Guide",
+    "metaTitle": "Mifflin-St Jeor Equation Step by Step Guide",
+    "description": "Master the Mifflin-St Jeor equation step-by-step to calculate Basal Metabolic Rate (BMR) for men and women."
+  },
+  "the-7700-calorie-deficit-rule-for-fat-loss": {
+    "url": "/blog/the-7700-calorie-deficit-rule-for-fat-loss/",
+    "title": "The 7,700 Calorie Deficit Rule for Fat Loss",
+    "metaTitle": "The 7,700 Calorie Deficit Rule for Fat Loss",
+    "description": "Learn how the 7,700 calorie deficit rule works for losing 1kg of body fat safely per week."
+  },
+  "how-to-read-d4-dice-and-calculate-modifiers": {
+    "url": "/blog/how-to-read-d4-dice-and-calculate-modifiers/",
+    "title": "How to Read D4 Dice and Calculate Modifiers",
+    "metaTitle": "How to Read D4 Dice and Calculate Modifiers",
+    "description": "Learn how to read top-read and bottom-read 4-sided d4 dice in tabletop RPGs and apply ability modifiers."
+  },
+  "why-was-morse-code-invented-and-how-it-works": {
+    "url": "/blog/why-was-morse-code-invented-and-how-it-works/",
+    "title": "Why Was Morse Code Invented and How It Works",
+    "metaTitle": "Why Was Morse Code Invented and How It Works",
+    "description": "Discover why Samuel Morse invented Morse code in 1837, how telegraph signals work, and why SOS remains the universal emergency signal."
   }
 }

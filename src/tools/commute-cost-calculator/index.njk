@@ -1,0 +1,144 @@
+---
+layout: layout.njk
+title: "Commute Cost Calculator: Daily, Monthly, Yearly"
+description: Calculate your true commute cost including fuel, IRS vehicle depreciation, tolls, and parking. See daily, monthly, and annual totals and compare to a work-from-home salary.
+appName: Commute Cost Calculator
+category: payroll
+permalink: /commute-cost-calculator/
+updated: 2026-08-24
+---
+
+<h1>Commute Cost Calculator</h1>
+<p>Find out what your commute actually costs every year. This calculator goes beyond fuel to include vehicle depreciation, tolls, and parking. It also shows what remote salary would be equivalent after cutting out the commute entirely.</p>
+
+<section class="tool">
+    <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+        <div class="tool-controls" style="flex: 1; min-width: 300px;">
+            <label for="cc-distance">One-Way Distance (miles)</label>
+            <input type="number" id="cc-distance" value="25" min="0" step="1" inputmode="decimal">
+
+            <label for="cc-days">Commute Days Per Week</label>
+            <input type="number" id="cc-days" value="5" min="1" max="7" step="1" inputmode="numeric">
+
+            <label for="cc-vehicle">Vehicle Type</label>
+            <select id="cc-vehicle">
+                <option value="gas">Gasoline</option>
+                <option value="ev">Electric (EV)</option>
+            </select>
+
+            <div id="cc-gas-inputs">
+                <label for="cc-mpg">Fuel Efficiency (MPG)</label>
+                <input type="number" id="cc-mpg" value="30" min="1" max="150" step="1" inputmode="decimal">
+                <label for="cc-fuel-price">Fuel Price Per Gallon ($)</label>
+                <input type="number" id="cc-fuel-price" value="3.50" min="0" step="0.05" inputmode="decimal">
+            </div>
+
+            <div id="cc-ev-inputs" style="display:none;">
+                <label for="cc-kwh-mile">Energy Use (kWh per mile)</label>
+                <input type="number" id="cc-kwh-mile" value="0.30" min="0.1" max="1" step="0.01" inputmode="decimal">
+                <label for="cc-kwh-price">Electricity Price ($/kWh)</label>
+                <input type="number" id="cc-kwh-price" value="0.14" min="0" step="0.01" inputmode="decimal">
+            </div>
+
+            <label for="cc-toll">Toll Per Round Trip ($)</label>
+            <input type="number" id="cc-toll" value="0" min="0" step="0.25" inputmode="decimal">
+
+            <label for="cc-parking">Monthly Parking ($)</label>
+            <input type="number" id="cc-parking" value="0" min="0" step="10" inputmode="decimal">
+
+            <label style="display:flex; align-items:center; gap:0.5rem; font-weight:normal; cursor:pointer;">
+                <input type="checkbox" id="cc-depreciation" checked style="width:auto; margin:0;">
+                Include IRS depreciation ($0.67/mile, 2024)
+            </label>
+        </div>
+
+        <div style="flex: 1; min-width: 300px;">
+            <div style="background: #f0fdf4; padding: 1.5rem; border-radius: 8px; border: 1px solid #bbf7d0; text-align: center; margin-bottom: 1rem;">
+                <p style="font-weight: 600; color: #4b5563; margin-top: 0;">Annual Commute Cost</p>
+                <div id="out-cc-annual" style="font-size: 2.5rem; font-weight: 800; color: #059669; line-height: 1;">$0.00</div>
+                <div style="font-size: 0.9rem; color: #6b7280; margin-top: 0.5rem;"><span id="out-cc-annual-miles">0</span> miles per year</div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                <div style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb; text-align: center;">
+                    <div style="font-size: 0.8rem; color: #6b7280;">Daily Cost</div>
+                    <div id="out-cc-daily" style="font-size: 1.3rem; font-weight: 700; color: #111827;">$0.00</div>
+                </div>
+                <div style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb; text-align: center;">
+                    <div style="font-size: 0.8rem; color: #6b7280;">Monthly Cost</div>
+                    <div id="out-cc-monthly" style="font-size: 1.3rem; font-weight: 700; color: #111827;">$0.00</div>
+                </div>
+            </div>
+            <div style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb; font-size: 0.9rem;">
+                <table style="width:100%; border-collapse: collapse;">
+                    <tr><td style="padding: 0.3rem 0; color: #6b7280;">Fuel cost/yr:</td><td style="text-align:right; font-weight:600; color: #111827;" id="out-cc-fuel">$0</td></tr>
+                    <tr><td style="padding: 0.3rem 0; color: #6b7280;">Depreciation/yr:</td><td style="text-align:right; font-weight:600; color: #111827;" id="out-cc-depr">$0</td></tr>
+                    <tr><td style="padding: 0.3rem 0; color: #6b7280;">Tolls/yr:</td><td style="text-align:right; font-weight:600; color: #111827;" id="out-cc-tolls">$0</td></tr>
+                    <tr><td style="padding: 0.3rem 0; color: #6b7280;">Parking/yr:</td><td style="text-align:right; font-weight:600; color: #111827;" id="out-cc-parking-yr">$0</td></tr>
+                    <tr style="border-top: 1px solid #e5e7eb;"><td style="padding: 0.5rem 0; color: #374151; font-weight:600;">Equivalent salary raise needed (WFH):</td><td style="text-align:right; font-weight:700; color: #059669;" id="out-cc-raise">$0</td></tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="tool-actions" style="margin-top: 2rem;">
+        <button type="button" class="secondary" data-share>Share link</button>
+        <span class="tool-actions-msg" role="status" aria-live="polite"></span>
+    </div>
+</section>
+
+<section class="how">
+    <h2>How to Use This Calculator</h2>
+    <p>Enter your one-way commute distance in miles and how many days per week you drive. Select gasoline or electric vehicle, then enter your efficiency and fuel cost. Add any daily toll and monthly parking charges.</p>
+    <p>The IRS depreciation toggle uses the standard business mileage rate of $0.67 per mile for 2024, which accounts for wear, maintenance, and insurance as a cost of the miles you drive. Enable it to see the full economic cost of your commute, not just what you spend at the pump.</p>
+</section>
+
+<section class="formula">
+    <h2>How Commute Cost Is Calculated</h2>
+    <p>The calculator works through four cost components and adds them together.</p>
+    <p><strong>Annual miles:</strong> One-way distance x 2 x commute days/week x 52 weeks.</p>
+    <p>Example: 25 miles one-way, 5 days/week = 25 x 2 x 5 x 52 = 13,000 miles/year.</p>
+    <p><strong>Fuel cost:</strong> Annual miles / MPG x fuel price per gallon = 13,000 / 30 x $3.50 = $1,516.67/yr.</p>
+    <p><strong>Depreciation:</strong> Annual miles x $0.67/mile = 13,000 x $0.67 = $8,710/yr.</p>
+    <p><strong>Tolls:</strong> Toll per round trip x commute days/week x 52 = annual toll cost.</p>
+    <p><strong>Parking:</strong> Monthly parking x 12.</p>
+    <p>For the typical 25-mile commute with 30 MPG, $3.50 gas, and depreciation included, the true annual cost is often $10,000 to $12,000. That is the raise you would need to break even on a return-to-office mandate.</p>
+</section>
+
+<section class="examples">
+    <h2>Real Commute Cost Examples</h2>
+    <ul>
+        <li><strong>25 miles each way, 5 days/week, 30 MPG, $3.50 gas, $10 daily parking:</strong> Fuel $1,517 + Depreciation $8,710 + Parking $2,600 = $12,827/year. That is over $1,000 per month.</li>
+        <li><strong>10 miles each way, 3 days/week, public transport equivalent at $4 each way:</strong> Enter distance as 0, toll as $8 round trip, 3 days/week. Annual cost = $8 x 3 x 52 = $1,248.</li>
+        <li><strong>EV commuter, 30 miles each way, 0.30 kWh/mile, $0.14/kWh:</strong> Annual energy = 31,200 miles x 0.30 kWh x $0.14 = $1,310. Much cheaper on fuel, but depreciation still applies.</li>
+    </ul>
+</section>
+
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>Why does depreciation cost more than fuel in this example?</h3>
+    <p>Because the IRS mileage rate captures depreciation, insurance, and maintenance together. These costs are real even if you do not pay them as a single bill. Your car loses value with every mile. If you drive 13,000 miles per year just for commuting, that wear is a real financial cost that most people overlook entirely.</p>
+
+    <h3>What is the equivalent salary raise figure?</h3>
+    <p>It is the pre-tax salary increase you would need to cover your annual commute cost. Since commute costs are paid with after-tax dollars, you need to earn more gross income than the commute costs. The calculator shows the raw commute cost as the raise figure (a conservative estimate without grossing up for taxes).</p>
+
+    <h3>Can I use this for an electric vehicle?</h3>
+    <p>Yes. Switch the vehicle type to Electric and enter your car's energy consumption in kWh per mile and your electricity price. The fuel calculation changes but depreciation still applies at the same IRS rate, since EV depreciation is comparable to or higher than gasoline vehicles.</p>
+</section>
+
+<section class="related">
+    <h2>Related Tools</h2>
+    <ul>
+        <li><a href="/blog/true-cost-of-commuting-to-work/">The True Cost of Commuting to Work Each Month</a></li>
+        <li><a href="/blog/remote-work-vs-office-commute-savings/">Remote Work vs Office: How Much You Really Save</a></li>
+        <li><a href="/gas-mileage-calculator/">Gas Mileage Calculator</a></li>
+        <li><a href="/trip-cost-calculator/">Trip Cost Calculator</a></li>
+        <li><a href="/freelance-rate-calculator/">Freelance Rate Calculator</a></li>
+        <li><a href="/hourly-to-salary-calculator/">Hourly to Salary Calculator</a></li>
+    </ul>
+</section>
+
+<div class="author">
+    <p><em>Published by the QuixCalc Team. IRS standard mileage rate of $0.67/mile per the IRS 2024 guidance. Last updated: August 2026.</em></p>
+</div>
+
+<script src="commute-cost.js" defer></script>

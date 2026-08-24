@@ -1,0 +1,128 @@
+---
+layout: layout.njk
+title: "Mortgage Overpayment Calculator: Interest Saved"
+description: See how much interest you save and how many months you knock off your mortgage by making extra monthly payments or a one-time lump sum.
+appName: Mortgage Overpayment Calculator
+category: finance
+permalink: /mortgage-overpayment-calculator/
+updated: 2026-08-24
+---
+
+<h1>Mortgage Overpayment Calculator</h1>
+<p>Find out how much your extra mortgage payments are really worth. This calculator shows the total interest saved and the number of months cut from your loan when you add a fixed monthly overpayment, a lump sum, or both.</p>
+
+<section class="tool">
+    <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+        <div class="tool-controls" style="flex: 1; min-width: 300px;">
+            <label for="mo-balance">Outstanding Loan Balance ($)</label>
+            <input type="number" id="mo-balance" value="250000" min="1000" step="1000" inputmode="decimal">
+
+            <label for="mo-rate">Annual Interest Rate (%)</label>
+            <input type="number" id="mo-rate" value="6.0" min="0.1" max="25" step="0.1" inputmode="decimal">
+
+            <label for="mo-term">Remaining Term (years)</label>
+            <input type="number" id="mo-term" value="25" min="1" max="40" step="1" inputmode="numeric">
+
+            <label for="mo-extra">Extra Monthly Payment ($)</label>
+            <input type="number" id="mo-extra" value="200" min="0" step="50" inputmode="decimal">
+
+            <label for="mo-lump">One-Time Lump Sum ($, optional)</label>
+            <input type="number" id="mo-lump" value="0" min="0" step="500" inputmode="decimal">
+        </div>
+
+        <div style="flex: 1; min-width: 300px;">
+            <div style="background: #f0fdf4; padding: 1.5rem; border-radius: 8px; border: 1px solid #bbf7d0; text-align: center; margin-bottom: 1rem;">
+                <p style="font-weight: 600; color: #4b5563; margin-top: 0;">Total Interest Saved</p>
+                <div id="out-mo-saved" style="font-size: 2.5rem; font-weight: 800; color: #059669; line-height: 1;">$0.00</div>
+                <div style="font-size: 0.9rem; color: #6b7280; margin-top: 0.5rem;">Paid off <span id="out-mo-months-saved">0</span> months sooner</div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                <div style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb; text-align: center;">
+                    <div style="font-size: 0.8rem; color: #6b7280;">New Payoff Date</div>
+                    <div id="out-mo-payoff" style="font-size: 1.1rem; font-weight: 700; color: #059669;">---</div>
+                </div>
+                <div style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb; text-align: center;">
+                    <div style="font-size: 0.8rem; color: #6b7280;">Original Payoff</div>
+                    <div id="out-mo-orig-payoff" style="font-size: 1.1rem; font-weight: 700; color: #6b7280;">---</div>
+                </div>
+            </div>
+            <div style="background: #f9fafb; padding: 1rem; border-radius: 8px; border: 1px solid #e5e7eb; font-size: 0.9rem;">
+                <table style="width:100%; border-collapse: collapse;">
+                    <tr><td style="padding: 0.3rem 0; color: #6b7280;">Standard monthly payment:</td><td style="text-align:right; font-weight:600; color: #111827;" id="out-mo-payment">$0</td></tr>
+                    <tr><td style="padding: 0.3rem 0; color: #6b7280;">Total interest (no overpayment):</td><td style="text-align:right; font-weight:600; color: #6b7280;" id="out-mo-total-int">$0</td></tr>
+                    <tr><td style="padding: 0.3rem 0; color: #6b7280;">Total interest (with overpayment):</td><td style="text-align:right; font-weight:600; color: #059669;" id="out-mo-new-int">$0</td></tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top: 1.5rem;">
+        <canvas id="mo-chart" width="600" height="220" style="width:100%; max-width:600px; border-radius:6px; background:#f9fafb; border:1px solid #e5e7eb;"></canvas>
+        <p style="font-size: 0.8rem; color: #9ca3af; margin-top: 0.25rem;">Blue: original balance. Green: balance with overpayment.</p>
+    </div>
+
+    <div class="tool-actions" style="margin-top: 1.5rem;">
+        <button type="button" class="secondary" data-share>Share link</button>
+        <span class="tool-actions-msg" role="status" aria-live="polite"></span>
+    </div>
+</section>
+
+<section class="how">
+    <h2>How to Use This Calculator</h2>
+    <p>Enter your current outstanding loan balance, not the original loan amount. Then add your interest rate and remaining term in years. Enter an extra monthly payment amount, a lump sum, or both. Many borrowers use both: a windfall lump sum applied once, plus a small ongoing overpayment built into the budget.</p>
+    <p>The chart compares your balance declining over time with and without the overpayment. The gap widens every year because you are reducing principal faster, which means less of each future payment goes toward interest.</p>
+</section>
+
+<section class="formula">
+    <h2>How Mortgage Overpayment Is Calculated</h2>
+    <p>Standard mortgage amortization: each payment is split between interest and principal. Interest portion = outstanding balance x (annual rate / 12). The rest reduces principal.</p>
+    <p>When you overpay, the extra amount reduces principal directly. Lower principal means less interest charged next month, which in turn means more of each regular payment goes to principal. This compounding effect is why overpayments early in the loan are far more valuable than the same overpayment made in year 20.</p>
+    <p>Example: $250,000 loan, 6% rate, 25 years. Standard monthly payment = $1,610.74. Total interest over 25 years = $233,221.</p>
+    <p>Add $200/month overpayment: payoff in about 21.5 years. Interest paid = $193,400. Interest saved = $39,821. 42 months cut from the loan.</p>
+</section>
+
+<section class="examples">
+    <h2>Mortgage Overpayment Scenarios</h2>
+    <ul>
+        <li><strong>$250k balance, 6% rate, 25 years, $200/month extra:</strong> Saves $39,821 in interest and pays off 3.5 years early.</li>
+        <li><strong>Same loan, $5,000 lump sum only:</strong> Saves about $14,300 in total interest and cuts 7 to 8 months from the term. A single extra payment early in the loan has a surprisingly large effect.</li>
+        <li><strong>$400k balance, 7% rate, 30 years, $300/month extra:</strong> Saves over $120,000 in interest and pays off roughly 7 years early. The higher interest rate amplifies the savings dramatically.</li>
+    </ul>
+</section>
+
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>Does overpaying a mortgage always save money?</h3>
+    <p>Yes, as long as your lender applies the overpayment to principal immediately. Most do. A small number of lenders hold extra payments and apply them at the next billing cycle or treat them as prepaid future payments instead of immediate principal reduction. Ask your lender how they handle overpayments before you start.</p>
+
+    <h3>Is a lump sum or regular overpayment better?</h3>
+    <p>It depends on timing and availability. A lump sum paid early in the loan term reduces the balance before years of interest have accumulated, which is very efficient. A monthly overpayment is more consistent and works better for people who do not have a windfall. Combining both, a lump sum whenever money is available plus a small fixed monthly addition, gives the best results. Our <a href="/amortization-calculator/">Amortization Calculator</a> helps you model the full payment schedule.</p>
+
+    <h3>Will my lender allow mortgage overpayments?</h3>
+    <p>Most standard mortgages allow overpayments. However, some fixed-rate deals, particularly in the UK, cap annual overpayments at 10 percent of the outstanding balance without an early repayment penalty. In the US, prepayment penalties are less common but do exist on some loan types. Check your mortgage agreement before making large lump sum payments.</p>
+
+    <h3>Should I overpay my mortgage or invest the money?</h3>
+    <p>Compare your mortgage interest rate to the risk-adjusted return you expect from investments. If your mortgage rate is 6% and you expect long-run equity returns around 7 to 8%, investing may produce a better nominal outcome. But overpaying is risk-free: a guaranteed 6% return on every dollar. Many people choose a hybrid approach, investing some and overpaying some.</p>
+</section>
+
+<section class="related">
+    <h2>Related Finance Tools</h2>
+    <ul>
+        <li><a href="/blog/how-mortgage-overpayments-reduce-loan-term/">How Mortgage Overpayments Cut Years Off Your Loan</a></li>
+        <li><a href="/blog/monthly-vs-lump-sum-mortgage-overpayment/">Monthly vs Lump Sum Mortgage Overpayment Guide</a></li>
+        <li><a href="/amortization-calculator/">Amortization Calculator</a></li>
+        <li><a href="/compound-interest-calculator/">Compound Interest Calculator</a></li>
+        <li><a href="/prorated-rent-calculator/">Prorated Rent Calculator</a></li>
+        <li><a href="/tip-calculator/">Tip Calculator</a></li>
+    </ul>
+</section>
+
+{% from "cluster.njk" import clusterGuides %}
+{{ clusterGuides(tools | findByKey("slug", page.fileSlug)) }}
+
+<div class="author">
+    <p><em>Published by the QuixCalc Team. Mortgage amortization formulas based on standard actuarial compound interest calculations. Last updated: August 2026.</em></p>
+</div>
+
+<script src="mortgage-overpayment.js" defer></script>
