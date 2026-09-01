@@ -22,6 +22,7 @@
     <meta name="description" content="{{ pageDesc }}">
     <link rel="canonical" href="{{ canonical }}">
     <meta name="robots" content="{{ robots if robots else 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' }}">
+    <meta name="nologin-verified" content="quixcalc-com">
 
     {# ---------- Open Graph / Twitter --------------------------- #}
     <meta property="og:type" content="{{ 'article' if isPost else 'website' }}">
@@ -349,6 +350,32 @@
         {{ clusterFooter(ownerTool, page.url) }}
         {%- endif %}
     </main>
+
+    <div class="badge-ticker-bar" aria-label="Featured & Verified Platforms">
+        <div class="container badge-ticker-header">
+            <span class="badge-ticker-label">Featured &amp; Listed On</span>
+        </div>
+        <div class="badge-ticker-viewport">
+            <div class="badge-ticker-track">
+                <!-- Track Set 1 -->
+                <div class="badge-item"><a href="https://fazier.com/launches/quixcalc.com" target="_blank" rel="noopener"><img src="https://fazier.com/api/v1//public/badges/launch_badges.svg?badge_type=featured&theme=light" width="250" alt="Fazier badge" /></a></div>
+                <div class="badge-item"><a href="https://twelve.tools" target="_blank" rel="noopener"><img src="https://twelve.tools/badge0-white.svg" alt="Featured on Twelve Tools" width="148" height="40"></a></div>
+                <div class="badge-item"><a href="https://findly.tools/quixcalc?utm_source=quixcalc" target="_blank" rel="noopener noreferrer"><img src="https://findly.tools/badges/findly-tools-badge-light.svg" alt="Featured on Findly.tools" width="175" height="55" /></a></div>
+                <div class="badge-item"><a href="https://tinylaunch.com" target="_blank" rel="noopener"><img src="https://tinylaunch.com/tinylaunch_badge_live_now.svg" alt="TinyLaunch Badge" style="width:202px; height:auto;" /></a></div>
+                <div class="badge-item"><a href="https://smollaunch.com" target="_blank" rel="noopener"><img src="https://smollaunch.com/badges/featured.svg" alt="QuixCalc — Featured on Smol Launch" loading="lazy" width="250" height="60" /></a></div>
+                <div class="badge-item"><a href="https://thedevtoolsdir.com/product/quixcalc?ref=badge" target="_blank" rel="dofollow noopener"><img src="https://thedevtoolsdir.com/badge/quixcalc.svg" alt="Featured on TheDevToolsDir" width="160" height="44"></a></div>
+                <div class="badge-item"><a href="https://nologin.tools/badge/quixcalc-com" target="_blank" rel="noopener"><img src="https://nologin.tools/badges/social.svg" alt="NoLogin Verified" title="Verified by NoLoginTools.org" /></a></div>
+                <!-- Track Set 2 (Duplicate for continuous loop) -->
+                <div class="badge-item" aria-hidden="true"><a href="https://fazier.com/launches/quixcalc.com" target="_blank" rel="noopener" tabindex="-1"><img src="https://fazier.com/api/v1//public/badges/launch_badges.svg?badge_type=featured&theme=light" width="250" alt="Fazier badge" /></a></div>
+                <div class="badge-item" aria-hidden="true"><a href="https://twelve.tools" target="_blank" rel="noopener" tabindex="-1"><img src="https://twelve.tools/badge0-white.svg" alt="Featured on Twelve Tools" width="148" height="40"></a></div>
+                <div class="badge-item" aria-hidden="true"><a href="https://findly.tools/quixcalc?utm_source=quixcalc" target="_blank" rel="noopener noreferrer" tabindex="-1"><img src="https://findly.tools/badges/findly-tools-badge-light.svg" alt="Featured on Findly.tools" width="175" height="55" /></a></div>
+                <div class="badge-item" aria-hidden="true"><a href="https://tinylaunch.com" target="_blank" rel="noopener" tabindex="-1"><img src="https://tinylaunch.com/tinylaunch_badge_live_now.svg" alt="TinyLaunch Badge" style="width:202px; height:auto;" /></a></div>
+                <div class="badge-item" aria-hidden="true"><a href="https://smollaunch.com" target="_blank" rel="noopener" tabindex="-1"><img src="https://smollaunch.com/badges/featured.svg" alt="QuixCalc — Featured on Smol Launch" loading="lazy" width="250" height="60" /></a></div>
+                <div class="badge-item" aria-hidden="true"><a href="https://thedevtoolsdir.com/product/quixcalc?ref=badge" target="_blank" rel="dofollow noopener" tabindex="-1"><img src="https://thedevtoolsdir.com/badge/quixcalc.svg" alt="Featured on TheDevToolsDir" width="160" height="44"></a></div>
+                <div class="badge-item" aria-hidden="true"><a href="https://nologin.tools/badge/quixcalc-com" target="_blank" rel="noopener" tabindex="-1"><img src="https://nologin.tools/badges/social.svg" alt="NoLogin Verified" title="Verified by NoLoginTools.org" /></a></div>
+            </div>
+        </div>
+    </div>
 
     <footer>
         <div class="container">

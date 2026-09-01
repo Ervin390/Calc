@@ -1627,3 +1627,220 @@ input[type="range"]:hover::-moz-range-thumb {
   }
 }
 
+/* =========================================================
+   REPOSITORY BADGES TICKER CAROUSEL (Above Footer)
+   ========================================================= */
+.badge-ticker-bar {
+  background-color: var(--bg-deeper);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 1.25rem 0 1rem;
+  overflow: hidden;
+  position: relative;
+  margin-top: 4rem;
+}
+
+.badge-ticker-header {
+  text-align: center;
+  margin-bottom: 0.65rem;
+}
+
+.badge-ticker-label {
+  font-size: 0.725rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+.badge-ticker-viewport {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.badge-ticker-track {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  width: max-content;
+  animation: badge-ticker-slide 28s linear infinite;
+  will-change: transform;
+}
+
+.badge-ticker-track:hover {
+  animation-play-state: paused;
+}
+
+.badge-item {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  padding: 0 0.5rem;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.badge-item:hover {
+  transform: translateY(-2px);
+}
+
+.badge-item img {
+  max-height: 40px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.08));
+}
+
+[data-theme="dark"] .badge-item img {
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.4));
+}
+
+@keyframes badge-ticker-slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* =========================================================
+   AUTHOR E-E-A-T PAGE STYLES
+   ========================================================= */
+.author-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-md);
+  margin-top: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.author-header-box {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  padding-bottom: 1.75rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2rem;
+}
+
+.author-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1d3557 0%, #457b9d 100%);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.25rem;
+  font-weight: 800;
+  flex-shrink: 0;
+  box-shadow: var(--shadow-sm);
+  border: 3px solid var(--card-bg);
+}
+
+.author-meta-info {
+  flex-grow: 1;
+}
+
+.author-meta-info h1 {
+  margin: 0 0 0.25rem 0;
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.author-subtitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin: 0 0 0.5rem 0;
+}
+
+.author-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.author-chip {
+  font-size: 0.775rem;
+  font-weight: 600;
+  background-color: var(--accent-light);
+  color: var(--primary);
+  padding: 0.2rem 0.65rem;
+  border-radius: 99px;
+  letter-spacing: 0.01em;
+}
+
+.author-section-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-main);
+  letter-spacing: -0.2px;
+}
+
+.author-contact-card {
+  background-color: var(--input-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.author-contact-card p {
+  margin: 0;
+  font-size: 0.925rem;
+  color: var(--text-sub);
+}
+
+.author-contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--primary);
+  color: #ffffff;
+  padding: 0.6rem 1.25rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.author-contact-link:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 640px) {
+  .author-header-box {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+  .author-chips {
+    justify-content: center;
+  }
+  .author-contact-card {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+

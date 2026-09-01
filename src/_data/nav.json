@@ -14,6 +14,7 @@
   ],
   "footer": [
     { "name": "About",          "url": "/about/" },
+    { "name": "Author",         "url": "/author/" },
     { "name": "Privacy Policy", "url": "/privacy/" },
     { "name": "Terms",          "url": "/terms/" },
     { "name": "Contact",        "url": "/contact/" }
