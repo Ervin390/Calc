@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "How to Calculate Gratuity Percentage in Math"
 description: "Learn how to calculate tip and gratuity percentages in math class using decimal multiplication formulas and practical mental math tricks."
 date: 2026-08-24

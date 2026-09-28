@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "D&D Dice Notation Explained: The Ultimate Guide to Rolling d4, d6, and d20"
 description: "Every standard dice type from d4 to d100, how modifiers work, and how to roll them online. A plain guide to tabletop dice notation."
 date: 2026-07-25

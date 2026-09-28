@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "How to Calculate EPDM Roofing Materials Needed"
 description: Learn how to calculate EPDM membrane square footage, roll counts, bonding adhesive, seam tape, and lap sealant for flat roof projects.
 date: 2026-08-24

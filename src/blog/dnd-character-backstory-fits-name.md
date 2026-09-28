@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "How to Build a D&D Character Backstory That Actually Fits Your Name"
 description: "A practical framework for creating a D&D backstory that connects naturally to your character's name and makes them feel like a real person at the table."
 date: 2026-08-02

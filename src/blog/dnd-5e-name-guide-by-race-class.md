@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "D&D 5e Name Guide: Best Names for Every Race and Class"
 description: "A practical guide to naming D&D characters by race and class. Includes naming conventions, notable examples from 5e lore, and a free name generator to find the perfect fit."
 date: 2026-08-02

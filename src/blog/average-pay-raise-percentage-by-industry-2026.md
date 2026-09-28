@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "Average Pay Raise Percentage by Industry in 2026"
 description: "What is a good pay raise in 2026? Real salary budget data across tech, healthcare, finance, manufacturing, retail and how to negotiate above the average in your industry."
 date: 2026-08-09

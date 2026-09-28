@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "How to Calculate SaaS Gross Margin Percentage"
 description: Learn how to calculate gross profit margin percentage and evaluate software cost of goods sold (COGS) to optimize unit economics.
 date: 2026-08-24

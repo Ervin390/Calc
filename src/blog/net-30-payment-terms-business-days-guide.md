@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "How Net 30 Payment Terms Work with Business Days"
 description: Learn how Net 30 invoice terms work, whether weekends count, and how to calculate exact payment due dates for small business invoicing.
 date: 2026-08-17

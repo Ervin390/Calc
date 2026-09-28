@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "How to Reduce PayPal Invoicing Fees: Merchant Tips"
 description: Discover legal ways to lower PayPal transaction fees for freelancers and small businesses, including reverse fee billing and micropayments.
 date: 2026-08-17

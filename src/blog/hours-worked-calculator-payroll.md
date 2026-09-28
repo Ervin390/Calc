@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 layout: layout.njk
 title: "Calculate Hours Worked for Payroll Without Error"
 description: Calculating hours worked sounds simple until someone works overtime, crosses midnight, or has irregular break times. Here is how to do it accurately every time.

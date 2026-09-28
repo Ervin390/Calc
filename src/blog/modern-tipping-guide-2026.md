@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "The Modern Tipping Guide for 2026: Restaurants, Haircuts, Uber, and Delivery"
 description: "How much to tip in 2026 for restaurants, bars, hairdressers, ride-share, food delivery and hotel staff. Current etiquette explained."
 date: 2026-07-25

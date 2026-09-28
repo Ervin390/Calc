@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "How to Calculate Rebar for a Concrete Slab"
 description: Learn how to calculate rebar grid spacing, long and cross runs, total linear feet, weight, and 20ft bar counts for concrete slabs.
 date: 2026-08-24

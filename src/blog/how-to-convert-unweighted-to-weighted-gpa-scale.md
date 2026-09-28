@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "How to Convert Unweighted to Weighted GPA Scale"
 description: "Learn how to convert an unweighted 4.0 GPA scale to a weighted 5.0 scale based on Honors, AP, and IB course weights."
 date: 2026-08-24

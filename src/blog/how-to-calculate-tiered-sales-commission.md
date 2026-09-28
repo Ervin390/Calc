@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "How to Calculate Tiered Sales Commission Pay"
 description: Master tiered sales commission calculations step-by-step with real quota accelerator examples and payout math for sales reps and managers.
 date: 2026-08-24

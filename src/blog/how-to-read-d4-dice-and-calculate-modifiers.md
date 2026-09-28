@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "How to Read D4 Dice and Calculate Modifiers"
 description: "Learn how to read top-read and bottom-read 4-sided d4 dice in tabletop RPGs and apply ability modifiers."
 date: 2026-08-24

@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: How Making One Extra Mortgage Payment a Year Saves You Thousands in Interest
 description: "Exactly how much interest one extra mortgage payment a year saves, with real numbers for common loan sizes and how to model your own."
 date: 2026-07-25

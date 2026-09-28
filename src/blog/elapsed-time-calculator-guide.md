@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 layout: layout.njk
 title: "Elapsed Time Calculator: How Long Did it Take?"
 description: Whether you are tracking a project, a workout, or a cooking time, calculating elapsed time without errors is trickier than it looks. Here is the right way to do it.

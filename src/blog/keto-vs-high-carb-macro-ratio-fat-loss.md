@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "Keto vs. High-Carb: Finding the Right Macronutrient Ratio for Fat Loss"
 description: "A practical comparison of keto and high-carb macronutrient ratios for cutting body fat, with real numbers and a free macro calculator."
 date: 2026-07-25

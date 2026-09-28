@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "PayPal Goods and Services Fees: Rates Breakdown"
 description: Complete breakdown of PayPal Goods and Services fees for US and international sales. Learn exact domestic rates and cross-border fees.
 date: 2026-08-17

@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "How Many Business Days Are in 2026? Year Breakdown"
 description: Find out how many business days, working hours, and weekends are in 2026. Includes quarterly breakdowns and federal holiday lists.
 date: 2026-08-17

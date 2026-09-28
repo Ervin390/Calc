@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "JSON vs XML: Why JSON Became the Standard Data Format for Web APIs"
 description: "The differences between JSON and XML, why modern REST APIs use JSON almost exclusively, and where XML still makes sense today."
 date: 2026-07-25

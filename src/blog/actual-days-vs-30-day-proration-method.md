@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "Actual Days vs 30-Day Method for Prorated Rent"
 description: Compare actual calendar days vs the 30-day average method for prorated rent to see which saves tenants and landlords more money.
 date: 2026-08-24

@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "How to Calculate Stripe Processing Fees"
 description: "Learn how to calculate Stripe credit card processing fees, international transaction surcharges, and how to gross up invoices."
 date: 2026-08-24

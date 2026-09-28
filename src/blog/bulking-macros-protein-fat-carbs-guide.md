@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: How to Calculate the Perfect Grams of Protein, Fat, and Carbs for Muscle Bulking
 description: "The exact macro targets for a bulking phase: protein intake, how big a surplus to run, and carb timing for muscle gain with less fat."
 date: 2026-07-25

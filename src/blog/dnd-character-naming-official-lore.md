@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: How to Name Your D&D Character Based on Official Dungeons and Dragons Lore
 description: "Naming conventions for elves, dwarves, halflings and humans based on official D&D 5e lore, plus a free fantasy name generator."
 date: 2026-07-25

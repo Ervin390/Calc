@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "Hourly Rate to Annual Salary Conversion Chart"
 description: Quick reference lookup chart to convert hourly pay to annual salary. Explanations of standard conversions and calculations.
 date: 2026-08-09

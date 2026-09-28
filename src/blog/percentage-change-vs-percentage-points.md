@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "Percentage Change vs Percentage Points: What Is the Difference?"
 description: "Percentage change and percentage points are not the same thing. Here is the exact difference, why it matters, and how to avoid the mistake that shows up constantly in news and reporting."
 date: 2026-08-02

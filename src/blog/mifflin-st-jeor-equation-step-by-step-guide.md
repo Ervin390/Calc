@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "Mifflin-St Jeor Equation Step by Step Guide"
 description: "Master the Mifflin-St Jeor equation step-by-step to calculate Basal Metabolic Rate (BMR) for men and women."
 date: 2026-08-24

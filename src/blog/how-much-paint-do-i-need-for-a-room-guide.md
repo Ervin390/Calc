@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "How Much Paint Do I Need for a Room? Complete Guide"
 description: Learn how to calculate room paint coverage step by step, including wall area, ceiling calculations, window subtractions, and coat estimates.
 date: 2026-08-17

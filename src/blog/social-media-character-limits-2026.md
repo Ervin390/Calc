@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "Social Media Post Length Limits Updated for 2026: X, Meta, and Threads"
 description: "Current character limits for X, Instagram captions, Facebook, Threads, LinkedIn and SMS, plus a free tool to count in real time."
 date: 2026-07-25

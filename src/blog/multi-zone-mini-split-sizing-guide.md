@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "Multi-Zone Mini Split Sizing Complete Guide"
 description: Learn how to size multi-zone mini-split ductless systems by combining individual room BTU loads into the proper outdoor condenser size.
 date: 2026-08-24

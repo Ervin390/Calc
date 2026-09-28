@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "Markup vs Margin: What Is the Key Difference?"
 description: Understand the difference between profit margin and markup rate. Includes conversion formulas and keystone pricing tables.
 date: 2026-08-17

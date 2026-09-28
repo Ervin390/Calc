@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "Billable Hours vs Total Hours for Freelancers"
 description: Understand the difference between billable client work and non-billable business administration to avoid undercharging for freelance projects.
 date: 2026-08-24

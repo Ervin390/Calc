@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "Remote Work vs Office: How Much You Really Save"
 description: Discover the true financial comparison between working remotely vs commuting to an office with real numbers on gas, vehicle depreciation, and time.
 date: 2026-08-24

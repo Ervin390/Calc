@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "EPDM Waste Factor and Seam Overlap Explained"
 description: Understand why adding a 10% waste factor and 6-inch seam overlap is critical when sizing EPDM flat roofing rubber sheets.
 date: 2026-08-24

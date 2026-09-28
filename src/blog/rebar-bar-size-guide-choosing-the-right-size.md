@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "Rebar Bar Size Guide: Choosing 3, 4, 5, or 6"
 description: Complete guide to rebar size numbers, diameters, weights per foot, and structural applications for driveways, patios, and foundations.
 date: 2026-08-24

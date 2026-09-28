@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: A Brief History of the Morse Alphabet and Why It's Still Used in Aviation
 description: "How Samuel Morse invented his code, how it changed global communication, and why aviation professionals still use it every day."
 date: 2026-07-25

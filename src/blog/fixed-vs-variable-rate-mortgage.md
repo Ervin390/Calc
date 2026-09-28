@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "Fixed vs Variable Rate Mortgage: Total Cost Comparison"
 description: "Fixed rate vs variable rate mortgage explained with real cost comparisons across different interest rate scenarios. Which one actually saves you more money?"
 date: 2026-08-02

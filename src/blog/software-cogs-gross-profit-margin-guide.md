@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "Software COGS and Gross Margin Guide for SaaS"
 description: Learn what expenses belong in SaaS Cost of Goods Sold (COGS) to accurately measure gross profit margin and operating health.
 date: 2026-08-24

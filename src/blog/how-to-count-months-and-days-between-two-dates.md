@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "How to Count Months and Days Between Two Dates"
 description: "Learn how to calculate exact months and days between two dates for project milestones, age tracking, and financial billing cycles."
 date: 2026-08-24

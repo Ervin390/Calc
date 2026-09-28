@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "Why Designers Use Lorem Ipsum: Purpose & Origin"
 description: Learn why web designers and graphic artists use Lorem Ipsum dummy text instead of real copy when building UI mockups.
 date: 2026-08-17

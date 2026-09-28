@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: The Easiest Way to Count Exact Days Between Two Historical Events
 description: "How to accurately calculate the days between any two historical dates, accounting for calendar reforms and leap years."
 date: 2026-07-25

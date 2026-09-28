@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "How Old Are You Actually? Calculating Your True Age in Exact Days, Hours, and Minutes"
 description: "How age calculation works across leap years and time zones, and how to find your precise age in days, hours and minutes instantly."
 date: 2026-07-25

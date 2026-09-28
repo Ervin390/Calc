@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "How the 13th Mortgage Payment Strategy Works"
 description: "Learn how adding one extra mortgage payment per year significantly reduces total loan interest and accelerates home equity."
 date: 2026-08-24

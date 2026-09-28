@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "How Mortgage Overpayments Cut Years Off Your Loan"
 description: Learn how small extra monthly mortgage overpayments reduce overall loan term and save tens of thousands in interest with real numbers.
 date: 2026-08-24

@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "How to Convert Minutes to Decimal Hours for Payroll"
 description: "Learn how to convert clock minutes into decimal hours for payroll processing, timecards, and billing calculations."
 date: 2026-08-24

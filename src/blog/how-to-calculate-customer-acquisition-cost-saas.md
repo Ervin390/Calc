@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "How to Calculate Customer Acquisition Cost in SaaS"
 description: Learn how to calculate Customer Acquisition Cost (CAC) for software startups by combining ad spend, sales payroll, and operational software overhead.
 date: 2026-08-24

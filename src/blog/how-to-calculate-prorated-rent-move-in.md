@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "How to Calculate Prorated Rent on Move-In Day"
 description: Learn how to calculate prorated rent when moving in mid-month with step-by-step math, real examples, and standard landlord practices.
 date: 2026-08-24

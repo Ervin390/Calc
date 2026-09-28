@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "Board Game Night Saved: What to Do When You Lose Your Physical Dice"
 description: "Lost your board game dice mid-session? The quickest workarounds, including free virtual dice that work on any phone or tablet."
 date: 2026-07-25

@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: How Saving Just $100 a Month Can Make You a Millionaire Over Time
 description: "The real math behind investing $100 a month. How long it takes to reach $1 million at different interest rates, shown year by year."
 date: 2026-07-25

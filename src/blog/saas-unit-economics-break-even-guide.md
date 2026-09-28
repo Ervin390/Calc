@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "SaaS Unit Economics and Break Even Guide"
 description: Learn how to align customer acquisition costs, gross margin percentages, and subscriber retention to reach SaaS profitability.
 date: 2026-08-24

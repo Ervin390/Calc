@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "How to Calculate Monthly Recurring Revenue in SaaS"
 description: Learn how to calculate Monthly Recurring Revenue (MRR) for subscription businesses, including tier pricing, add-ons, and run rates.
 date: 2026-08-24

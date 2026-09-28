@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "Caloric Deficit Guide: How to Figure Out Exactly How Much to Eat for Weight Loss"
 description: "How to calculate your caloric deficit from your TDEE, how big a deficit to run, what rate of loss to expect, and when to adjust."
 date: 2026-07-25

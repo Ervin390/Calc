@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "Top Lorem Ipsum Alternatives for Developer Mockups"
 description: Explore popular Lorem Ipsum text alternatives for modern web development, UI wireframes, and design testing.
 date: 2026-08-17

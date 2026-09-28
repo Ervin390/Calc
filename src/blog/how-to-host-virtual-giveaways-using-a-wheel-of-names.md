@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: How to Host Virtual Giveaways Using a Wheel of Names
 description: "How to run fair, transparent online giveaways using a wheel of names. A step by step guide for streamers, teachers and event hosts."
 date: 2026-07-25

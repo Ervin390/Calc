@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "The 7,700 Calorie Deficit Rule for Fat Loss"
 description: "Learn how the 7,700 calorie deficit rule works for losing 1kg of body fat safely per week."
 date: 2026-08-24

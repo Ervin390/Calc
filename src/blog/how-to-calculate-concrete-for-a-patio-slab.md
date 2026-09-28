@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "How to Calculate Concrete for a Patio Slab"
 description: Learn how to calculate concrete volume in cubic yards, cubic feet, and 80lb bag counts for patio slabs, footings, and walkways.
 date: 2026-08-24

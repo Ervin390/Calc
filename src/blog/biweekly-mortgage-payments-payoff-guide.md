@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "Biweekly Mortgage Payments: How to Cut Loan Term"
 description: "Discover how switching to biweekly mortgage payments makes one extra payment per year, cutting years off your loan and saving thousands in interest."
 date: 2026-08-24

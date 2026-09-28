@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "How to Size a Mini Split BTU for Your Room"
 description: Learn how to calculate the exact BTU capacity needed for a mini-split heat pump considering room square footage, ceiling height, and sun.
 date: 2026-08-24

@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "Road Trip Budgeting: Fuel Cost Estimation"
 description: Planning a road trip? Learn how to calculate exactly what you will spend on gas, tolls, and food before you leave home.
 date: 2026-08-09

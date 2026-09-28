@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "Flat vs Tiered Commission Structures Explained"
 description: Compare flat percentage vs tiered sales commission plans with side-by-side payout comparisons for account executives and sales leaders.
 date: 2026-08-24

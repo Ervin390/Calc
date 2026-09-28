@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "How to Increase Your BMR: Fitness Myths versus Real Metabolism Science"
 description: "Which strategies actually raise your basal metabolic rate, and which popular metabolism claims have no evidence behind them."
 date: 2026-07-25

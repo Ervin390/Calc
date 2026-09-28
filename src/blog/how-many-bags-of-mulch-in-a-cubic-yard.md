@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "How Many Bags of Mulch in a Cubic Yard? Calculation"
 description: Learn how to calculate bags of mulch per cubic yard, comparing 1.5, 2.0, and 3.0 cubic foot bag sizes against bulk yard deliveries.
 date: 2026-08-17

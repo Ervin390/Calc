@@ -126,6 +126,7 @@ module.exports = function (eleventyConfig) {
     collectionApi.getAll().filter((item) => {
       if (item.data.eleventyExcludeFromCollections) return false;
       if (item.data.sitemapExclude === true) return false;
+      if (item.data.noindex === true) return false;
       if (!item.url || item.url === false) return false;
       // Only real HTML pages.
       return item.url.endsWith("/") || item.url.endsWith(".html");

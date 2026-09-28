@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "Monthly vs Lump Sum Mortgage Overpayment Guide"
 description: Compare making small extra monthly mortgage overpayments vs annual lump-sum payments to maximize interest savings and cut loan duration.
 date: 2026-08-24

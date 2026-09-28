@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "How to Calculate Customer Lifetime Value in SaaS"
 description: Master SaaS Customer Lifetime Value (LTV) calculation using ARPU, monthly churn rate, and gross margin percentage to optimize unit economics.
 date: 2026-08-24

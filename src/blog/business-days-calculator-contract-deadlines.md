@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: How to Calculate Business Days Between Dates for Contract Deadlines
 description: "How to count business days between two dates excluding weekends and holidays. Essential for contract deadlines and notice periods."
 date: 2026-07-25

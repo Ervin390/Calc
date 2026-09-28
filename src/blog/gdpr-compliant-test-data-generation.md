@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: How to Generate Realistic GDPR-Compliant Test Data for QA Software Development
 description: "How to create realistic fake names for software testing without touching real user data. A practical guide for QA and developers."
 date: 2026-07-25

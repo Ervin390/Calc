@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "How to Calculate Prorated Salary Mid-Month"
 description: Learn how HR departments calculate partial salary pay when starting or leaving a job mid-month using working days or calendar day methods.
 date: 2026-08-24

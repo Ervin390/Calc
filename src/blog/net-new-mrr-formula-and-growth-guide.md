@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "Net New MRR Formula and Growth Guide for SaaS"
 description: Master the Net New MRR formula by tracking New MRR, Expansion MRR, Contraction MRR, and Churned MRR components to boost growth momentum.
 date: 2026-08-24

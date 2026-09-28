@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "Sample vs. Population Standard Deviation: Which Formula Should Your Research Use?"
 description: "When to use each standard deviation formula, why the choice matters for research accuracy, and how to calculate both instantly."
 date: 2026-07-25

@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 layout: layout.njk
 title: How Long Should a Password Be in 2026?
 description: Most people use passwords that are far too short. Here is what the research says about password length, why it matters more than complexity, and how to fix yours today.

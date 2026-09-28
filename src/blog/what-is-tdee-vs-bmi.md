@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "What Is TDEE and Why It Matters Way More Than BMI"
 description: "TDEE tells you how many calories you actually burn each day. BMI tells you almost nothing useful. Here is how to use TDEE for real results."
 date: 2026-08-02

@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "Monthly vs. Annual Compounding: Why Payment Frequency Completely Changes Your Wealth"
 description: "How much extra you earn, or pay, depending on how often interest compounds. The difference shown with real numbers year by year."
 date: 2026-07-25

@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "What is a UUID v4 and Why Are They Essential for Scaling Cloud Databases?"
 description: How UUID v4 works, when to use UUIDs instead of auto-incrementing integers, and why distributed cloud architectures depend on them.
 date: 2026-07-25

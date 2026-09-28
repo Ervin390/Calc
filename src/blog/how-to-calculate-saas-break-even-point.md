@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "How to Calculate SaaS Break Even Point"
 description: Learn how to calculate your SaaS break-even point in subscriber account count and monthly recurring revenue requirements.
 date: 2026-08-24

@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "How to Calculate Soil Volume in Cubic Yards"
 description: Learn how to calculate soil volume for garden beds, landscape grading, and planters using simple cubic yard and cubic meter formulas.
 date: 2026-08-17

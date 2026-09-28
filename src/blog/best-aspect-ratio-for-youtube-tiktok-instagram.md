@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "Best Aspect Ratios: YouTube, TikTok, Instagram"
 description: Complete 2026 guide to video aspect ratios for YouTube, TikTok, Instagram Reels, and Shorts. Dimension cheat sheet included.
 date: 2026-08-17

@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: How to Split a Restaurant Bill Fairly Without the Financial Awkwardness
 description: "Equal splits, item tracking and handling price differences politely. Practical ways to divide a restaurant bill without awkwardness."
 date: 2026-07-25

@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: How to Type and Sound Out the Universal SOS Morse Code Emergency Signal
 description: "The SOS morse code pattern, how to transmit it correctly, and how to practise with a free online translator with audio playback."
 date: 2026-07-25

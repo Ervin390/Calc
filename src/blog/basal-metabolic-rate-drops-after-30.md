@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: What is Basal Metabolic Rate and Why Does It Drop So Much After 30?
 description: "What basal metabolic rate means, how it is calculated, why metabolism slows with age, and what you can actually do about it."
 date: 2026-07-25

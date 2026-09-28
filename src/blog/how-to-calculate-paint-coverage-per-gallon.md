@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "How to Calculate Paint Coverage Per Gallon"
 description: Learn how paint spreading rates work per gallon and liter, including substrate texture multipliers, primer absorption, and metric volume conversions.
 date: 2026-08-17

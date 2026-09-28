@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "Biological Age vs. Chronological Age: What Your Body's True Age Actually Means"
 description: "What biological age measures, what affects it, and why some people age faster than their birth year suggests. Explained simply."
 date: 2026-07-25

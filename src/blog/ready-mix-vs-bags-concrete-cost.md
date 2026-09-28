@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "Ready-Mix vs Bags: Which Concrete Costs Less"
 description: Compare buying pre-mixed concrete truck delivery vs mixing 80lb bags at home to find the exact cost break-even point for your project.
 date: 2026-08-24

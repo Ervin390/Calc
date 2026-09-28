@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "The True Cost of Commuting to Work Each Month"
 description: Calculate the true hidden cost of commuting to work including gas, wear and tear, tolls, parking, and WFH salary equivalents.
 date: 2026-08-24

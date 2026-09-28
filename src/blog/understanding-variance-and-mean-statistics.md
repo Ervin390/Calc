@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "Understanding Variance and Mean: A Beginner-Friendly Statistics Guide"
 description: "What mean and variance actually measure, how they relate to standard deviation, and why the three together describe any dataset."
 date: 2026-07-25

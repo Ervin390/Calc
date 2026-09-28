@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "Why Was Morse Code Invented and How It Works"
 description: "Discover why Samuel Morse invented Morse code in 1837, how telegraph signals work, and why SOS remains the universal emergency signal."
 date: 2026-08-24

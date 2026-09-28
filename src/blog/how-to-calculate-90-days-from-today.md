@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "How to Calculate 90 Days From Today"
 description: "Learn how to calculate exactly 90 days from today or any starting date for business contracts, notice periods, and passport validity rules."
 date: 2026-08-24

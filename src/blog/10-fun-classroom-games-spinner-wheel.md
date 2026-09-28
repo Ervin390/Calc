@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: 10 Fun Interactive Classroom Games to Play with a Random Spinner Wheel
 description: "Ten creative ways teachers can use a random name spinner wheel for quizzes, role assignments and group activities in the classroom."
 date: 2026-07-25

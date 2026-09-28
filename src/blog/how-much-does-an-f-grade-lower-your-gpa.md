@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "How Much Does an F Grade Lower Your GPA?"
 description: "Calculate how significantly a failing F grade lowers your cumulative high school or college GPA with mathematical examples and recovery strategies."
 date: 2026-08-24

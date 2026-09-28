@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "ACV vs ARR Explained for Enterprise Software"
 description: Learn the key differences between Annual Contract Value (ACV) and Annual Recurring Revenue (ARR) in enterprise B2B SaaS reporting.
 date: 2026-08-24

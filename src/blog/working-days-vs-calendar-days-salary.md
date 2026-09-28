@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "Working Days vs Calendar Days: Salary Proration"
 description: Understand the payroll differences between the 260 working days method and the 365 calendar days method for prorated salary payments.
 date: 2026-08-24

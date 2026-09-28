@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "Time and a Half Pay Rate Lookup Chart"
 description: "Look up exact overtime pay rates from $15 to $50 per hour using our time and a half rate calculation guide and reference table."
 date: 2026-08-24

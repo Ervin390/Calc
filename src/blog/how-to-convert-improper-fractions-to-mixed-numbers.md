@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "How to Convert Improper Fractions to Mixed Numbers"
 description: "Learn how to convert improper fractions to mixed numbers using integer division, remainder formulas, and visual step-by-step examples."
 date: 2026-08-24

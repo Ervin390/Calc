@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "How Much Topsoil Do I Need for Raised Beds?"
 description: Learn how to calculate topsoil volume for raised beds, garden plots, and lawn filling in cubic yards, cubic feet, and 0.75 cu ft bag counts.
 date: 2026-08-17

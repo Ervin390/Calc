@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "ARPU Churn and LTV Calculation Guide for SaaS"
 description: Learn how Average Revenue Per User (ARPU) and monthly churn rate interact to determine SaaS customer lifetime value and account lifespan.
 date: 2026-08-24

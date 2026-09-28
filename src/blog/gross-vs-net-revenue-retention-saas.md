@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "Gross vs Net Revenue Retention Explained for SaaS"
 description: Learn the key differences between Gross Revenue Retention (GRR) and Net Revenue Retention (NRR) in subscription software analytics.
 date: 2026-08-24

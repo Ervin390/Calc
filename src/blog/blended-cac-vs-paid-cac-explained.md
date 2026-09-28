@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "Blended CAC vs Paid CAC Explained for SaaS"
 description: Understand the key differences between Blended CAC and Paid CAC in SaaS marketing analytics to avoid misallocating growth capital.
 date: 2026-08-24

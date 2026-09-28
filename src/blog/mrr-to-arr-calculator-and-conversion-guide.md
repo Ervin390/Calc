@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "MRR to ARR Conversion Guide for B2B SaaS"
 description: Convert Monthly Recurring Revenue to Annual Recurring Revenue (ARR) and learn how multi-year contracts impact SaaS valuation metrics.
 date: 2026-08-24

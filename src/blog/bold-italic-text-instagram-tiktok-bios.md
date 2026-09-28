@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: How to Make Your Text Bold or Italic on Instagram and TikTok Bios
 description: "How to get bold and italic text in your Instagram bio, TikTok username or posts using free Unicode font generators on any phone."
 date: 2026-07-25

@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "How to Calculate Net Revenue Retention in SaaS"
 description: Master Net Revenue Retention (NRR) calculation in SaaS by tracking cohort expansion, account contraction, and customer churn over time.
 date: 2026-08-24

@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "Improve Gas Mileage: Practical Driving Tips"
 description: Stop wasting money at the pump. Explore simple, proven ways to improve your gas mileage, reduce fuel consumption, and save on every trip.
 date: 2026-08-09

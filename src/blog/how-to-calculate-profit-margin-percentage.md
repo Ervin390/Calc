@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "How to Calculate Profit Margin Percentage: Formulas"
 description: Learn how to calculate profit margin step by step with easy formulas and real pricing examples for retail and online stores.
 date: 2026-08-17

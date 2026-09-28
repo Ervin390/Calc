@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: Why Keeping SEO Meta Descriptions Under 160 Characters is Crucial for Rankings
 description: "Why meta description length matters, what Google actually does with it, and how a character counter helps you hit the right length."
 date: 2026-07-25

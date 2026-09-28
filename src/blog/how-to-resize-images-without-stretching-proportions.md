@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "How to Resize Images Without Distortion or Stretch"
 description: Learn how to scale image dimensions while keeping perfect proportions. Formula explanation and resolution math made easy.
 date: 2026-08-17

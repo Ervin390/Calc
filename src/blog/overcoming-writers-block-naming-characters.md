@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: Top 5 Strategies for Overcoming Writer's Block When Naming Minor Characters
 description: "Stuck naming background characters in your novel or script? Five practical strategies that generate usable names quickly."
 date: 2026-07-25

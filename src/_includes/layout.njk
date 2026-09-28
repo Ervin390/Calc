@@ -21,7 +21,8 @@
     <title>{{ fullTitle }}</title>
     <meta name="description" content="{{ pageDesc }}">
     <link rel="canonical" href="{{ canonical }}">
-    <meta name="robots" content="{{ robots if robots else 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' }}">
+    {%- set metaRobots = robots if robots else ('noindex, follow' if noindex else 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1') -%}
+    <meta name="robots" content="{{ metaRobots }}">
     <meta name="nologin-verified" content="quixcalc-com">
 
     {# ---------- Open Graph / Twitter --------------------------- #}

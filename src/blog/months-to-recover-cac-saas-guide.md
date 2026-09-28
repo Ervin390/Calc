@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "Months to Recover CAC Guide for Software Startups"
 description: Learn how to calculate months to recover customer acquisition costs to improve cash flow management and venture capital metrics.
 date: 2026-08-24

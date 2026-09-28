@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "Cumulative GPA vs Weighted GPA Differences"
 description: "Understand the core differences between cumulative GPA and weighted GPA for high school transcripts and college admissions."
 date: 2026-08-24

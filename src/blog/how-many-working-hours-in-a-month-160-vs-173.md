@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "How Many Working Hours in a Month: 160 vs 173"
 description: "Discover why standard monthly payroll calculations use 160 vs 173.33 working hours for salaried and hourly employees."
 date: 2026-08-24

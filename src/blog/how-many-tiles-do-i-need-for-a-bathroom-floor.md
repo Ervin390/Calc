@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "How Many Tiles Do I Need for a Bathroom Floor?"
 description: Learn how to calculate tile quantities for bathroom floors, accounting for square footage, tile formats, grout lines, and cutting waste.
 date: 2026-08-17

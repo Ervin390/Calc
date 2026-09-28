@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: Tips for Naming Your World of Warcraft Guild or Fantasy Realm
 description: "Practical naming tips for memorable, thematic guild names, server names and realm titles for World of Warcraft and any MMO."
 date: 2026-07-25

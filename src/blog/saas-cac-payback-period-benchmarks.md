@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "SaaS CAC Payback Period Benchmarks and Formulas"
 description: Discover target CAC payback period benchmarks across SMB, mid-market, and enterprise SaaS startups to measure capital efficiency.
 date: 2026-08-24

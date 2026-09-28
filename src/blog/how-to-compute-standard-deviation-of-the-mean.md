@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "How to Compute Standard Deviation of the Mean"
 description: "Learn how to compute the standard deviation of the mean (standard error) using formulas, step-by-step examples, and sample size adjustments."
 date: 2026-08-24

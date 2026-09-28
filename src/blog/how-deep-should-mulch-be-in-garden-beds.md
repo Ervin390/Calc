@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "How Deep Should Mulch Be in Garden Beds?"
 description: Learn the ideal mulch layer depth for flower beds, trees, and vegetable gardens to prevent weed growth and conserve soil moisture.
 date: 2026-08-17

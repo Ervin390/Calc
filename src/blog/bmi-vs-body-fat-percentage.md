@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 layout: layout.njk
 title: "BMI vs Body Fat Percentage: Which Matters?"
 description: BMI and body fat percentage both measure body composition but in very different ways. Here is what each one tells you and which one you should actually track.

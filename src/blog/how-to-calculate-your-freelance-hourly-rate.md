@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "How to Calculate Your Freelance Hourly Rate"
 description: Learn how to set a profitable freelance hourly rate accounting for taxes, health insurance, non-billable time, and overhead expenses.
 date: 2026-08-24

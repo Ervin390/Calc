@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "How Much Tile Waste Percentage to Calculate"
 description: Learn how to calculate tile waste percentage for straight, diagonal, and complex room layouts to prevent running out of tiles during installation.
 date: 2026-08-17

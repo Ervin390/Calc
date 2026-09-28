@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "Loan Amortization Formula Step by Step Math"
 description: "Master the mathematical loan amortization formula step-by-step to calculate principal, interest, and monthly mortgage payments."
 date: 2026-08-24

@@ -1,4 +1,6 @@
 ---
+noindex: true
+sitemapExclude: true
 title: "Salary vs Hourly: PTO and Benefits Comparison"
 description: "Compare paid time off, health insurance, overtime eligibility, and job security between salaried and hourly employee compensation structures."
 date: 2026-08-24
