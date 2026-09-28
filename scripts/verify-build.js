@@ -104,11 +104,14 @@ for (const file of htmlFiles) {
 
   // -- canonical -----------------------------------------------------
   const canon = (html.match(/<link rel="canonical" href="([^"]*)"/) || [])[1];
+  const isNoIndex = html.includes('content="noindex');
   if (!canon) fail(`${where}: missing canonical`);
   else {
     if (!canon.startsWith(ORIGIN)) fail(`${where}: canonical not on ${ORIGIN} — ${canon}`);
     if (canon.includes("?")) fail(`${where}: canonical carries a query string — ${canon}`);
-    canonicals.add(canon.slice(ORIGIN.length));
+    if (!isNoIndex) {
+      canonicals.add(canon.slice(ORIGIN.length));
+    }
   }
 
   // -- one H1 --------------------------------------------------------
